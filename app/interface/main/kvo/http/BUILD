@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "doc.go",
         "http.go",
@@ -15,12 +15,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/kvo/conf:go_default_library",
-        "//app/interface/main/kvo/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
+        "//app/interface/main/kvo/conf",
+        "//app/interface/main/kvo/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
     ],
 )
 

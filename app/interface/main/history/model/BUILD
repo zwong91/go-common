@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "history.go",
         "rpc.go",
@@ -15,9 +15,9 @@ go_library(
     importpath = "go-common/app/interface/main/history/model",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/history/model:go_default_library",
-        "//library/ecode:go_default_library",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/history/model",
+        "//library/ecode",
     ],
 )
 

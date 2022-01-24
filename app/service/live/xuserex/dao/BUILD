@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/service/live/xuserex/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuserex/conf:go_default_library",
-        "//library/cache/memcache:go_default_library",
+        "//app/service/live/xuserex/conf",
+        "//library/cache/memcache",
     ],
 )
 

@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "operation_test",
     srcs = ["promote_test.go"],
-    embed = [":go_default_library"],
+    embed = [":operation"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/web-show/conf:go_default_library",
-        "//app/interface/main/web-show/model/operation:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/web-show/conf",
+        "//app/interface/main/web-show/model/operation",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "operation",
     srcs = [
         "notice.go",
         "promote.go",
@@ -30,14 +30,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/web-show/conf:go_default_library",
-        "//app/interface/main/web-show/dao/operation:go_default_library",
-        "//app/interface/main/web-show/model/operation:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/web-show/conf",
+        "//app/interface/main/web-show/dao/operation",
+        "//app/interface/main/web-show/model/operation",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

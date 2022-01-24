@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "experiment",
     srcs = ["experiment.go"],
     importpath = "go-common/app/interface/main/app-resource/model/experiment",
     tags = ["automanaged"],

@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "convey-test.toml",
@@ -22,15 +22,15 @@ go_library(
     importpath = "go-common/app/service/main/location/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/location/conf:go_default_library",
-        "//app/service/main/location/rpc/server:go_default_library",
-        "//app/service/main/location/server/grpc:go_default_library",
-        "//app/service/main/location/server/http:go_default_library",
-        "//app/service/main/location/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/resolver/livezk:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/main/location/conf",
+        "//app/service/main/location/rpc/server",
+        "//app/service/main/location/server/grpc",
+        "//app/service/main/location/server/http",
+        "//app/service/main/location/service",
+        "//library/log",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/resolver/livezk",
+        "//library/net/trace",
     ],
 )
 

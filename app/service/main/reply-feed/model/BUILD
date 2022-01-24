@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["model.go"],
     importpath = "go-common/app/service/main/reply-feed/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/ecode:go_default_library"],
+    deps = ["//library/ecode"],
 )
 
 filegroup(

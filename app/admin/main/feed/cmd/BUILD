@@ -6,23 +6,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
+    visibility = ["//visibility:public"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["feed-admin-test.toml"],
     importpath = "go-common/app/admin/main/feed/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/http:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/queue/databus/report:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/http",
+        "//library/log",
+        "//library/net/trace",
+        "//library/queue/databus/report",
     ],
 )
 

@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "foo",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/live/live-demo/dao/foo",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/live-demo/conf:go_default_library",
-        "//library/cache/redis:go_default_library",
+        "//app/interface/live/live-demo/conf",
+        "//library/cache/redis",
     ],
 )
 

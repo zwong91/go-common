@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "bugly.go",
         "constants.go",
@@ -18,7 +18,7 @@ go_library(
     importpath = "go-common/app/admin/ep/marthe/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/ecode:go_default_library"],
+    deps = ["//library/ecode"],
 )
 
 filegroup(

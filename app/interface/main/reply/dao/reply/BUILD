@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "reply_test",
     srcs = [
         "admin_test.go",
         "block_status_test.go",
@@ -27,22 +27,22 @@ go_test(
         "report_test.go",
         "subject_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":reply"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/reply/conf:go_default_library",
-        "//app/interface/main/reply/model/reply:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/reply/conf",
+        "//app/interface/main/reply/model/reply",
+        "//library/database/sql",
+        "//library/net/http/blademaster",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "reply",
     srcs = [
         "admin.go",
         "block_status.go",
@@ -66,18 +66,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/reply/conf:go_default_library",
-        "//app/interface/main/reply/model/reply:go_default_library",
-        "//app/interface/main/reply/model/xreply:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/reply/conf",
+        "//app/interface/main/reply/model/reply",
+        "//app/interface/main/reply/model/xreply",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/xstr",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "canal",
     srcs = ["message.go"],
     importpath = "go-common/app/service/main/upcredit/model/canal",
     tags = ["automanaged"],

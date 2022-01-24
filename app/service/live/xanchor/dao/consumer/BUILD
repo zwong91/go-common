@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "consumer",
     srcs = [
         "dao.go",
         "redis.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xanchor/conf:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/xanchor/conf",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 

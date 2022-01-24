@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = [
         "article.go",
         "mock.go",
@@ -15,9 +15,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//vendor/github.com/golang/mock/gomock:go_default_library",
+        "//app/interface/openplatform/article/model",
+        "//library/net/rpc",
+        "//vendor/github.com/golang/mock/gomock",
     ],
 )
 

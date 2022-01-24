@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/live/dao-anchor-job/internal/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/dao-anchor-job/internal/conf:go_default_library",
-        "//app/job/live/dao-anchor-job/internal/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/job/live/dao-anchor-job/internal/conf",
+        "//app/job/live/dao-anchor-job/internal/service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

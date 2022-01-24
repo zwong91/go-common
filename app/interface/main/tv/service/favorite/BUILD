@@ -6,20 +6,20 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "favorite",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/main/tv/service/favorite",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/dao/archive:go_default_library",
-        "//app/interface/main/tv/dao/favorite:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/dao/archive",
+        "//app/interface/main/tv/dao/favorite",
+        "//app/interface/main/tv/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/favorite/model",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

@@ -2,33 +2,33 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "recommend_test",
     srcs = ["recommend_test.go"],
-    embed = [":go_default_library"],
+    embed = [":recommend"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-tag/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "recommend",
     srcs = ["recommend.go"],
     importpath = "go-common/app/interface/main/app-tag/dao/recommend",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-tag/conf",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
     ],
 )
 

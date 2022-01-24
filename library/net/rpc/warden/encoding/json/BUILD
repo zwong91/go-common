@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "json",
     srcs = ["json.go"],
     importpath = "go-common/library/net/rpc/warden/encoding/json",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "@com_github_gogo_protobuf//jsonpb:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@org_golang_google_grpc//encoding:go_default_library",
+        "//vendor/github.com/gogo/protobuf/jsonpb",
+        "//vendor/github.com/gogo/protobuf/proto",
+        "//vendor/google.golang.org/grpc/encoding",
     ],
 )
 

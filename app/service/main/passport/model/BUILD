@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "face.go",
         "login_log.go",

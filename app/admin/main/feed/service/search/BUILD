@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = [
         "search.go",
         "search_web.go",
@@ -16,18 +16,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/dao/search:go_default_library",
-        "//app/admin/main/feed/dao/show:go_default_library",
-        "//app/admin/main/feed/model/common:go_default_library",
-        "//app/admin/main/feed/model/search:go_default_library",
-        "//app/admin/main/feed/model/show:go_default_library",
-        "//app/admin/main/feed/util:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/dao/search",
+        "//app/admin/main/feed/dao/show",
+        "//app/admin/main/feed/model/common",
+        "//app/admin/main/feed/model/search",
+        "//app/admin/main/feed/model/show",
+        "//app/admin/main/feed/util",
+        "//library/cache/memcache",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 
@@ -46,15 +46,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "search_test",
     srcs = ["search_test.go"],
-    embed = [":go_default_library"],
+    embed = [":search"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/model/search:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/model/search",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

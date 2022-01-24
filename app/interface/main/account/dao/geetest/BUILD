@@ -7,18 +7,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "geetest",
     srcs = ["geetest.go"],
     importpath = "go-common/app/interface/main/account/dao/geetest",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/interface/main/account/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/interface/main/account/model",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -37,13 +37,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "geetest_test",
     srcs = ["geetest_test.go"],
-    embed = [":go_default_library"],
+    embed = [":geetest"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

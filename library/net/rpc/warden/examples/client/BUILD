@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["client.go"],
     importpath = "go-common/library/net/rpc/warden/examples/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/proto/testproto:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_golang_protobuf//ptypes:go_default_library_gen",
-        "@io_bazel_rules_go//proto/wkt:any_go_proto",
+        "//library/ecode",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/proto/testproto",
+        "//vendor/github.com/golang/protobuf/ptypes",
+        "//vendor/github.com/golang/protobuf/ptypes/any",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["regular_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "app_info.go",
         "card.go",
@@ -41,15 +41,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/coupon/model:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//app/service/main/vip/api:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/coupon/model",
+        "//app/service/main/relation/model",
+        "//app/service/main/usersuit/model",
+        "//app/service/main/vip/api",
+        "//app/service/main/vip/model",
+        "//library/net/http/blademaster",
+        "//library/time",
     ],
 )
 

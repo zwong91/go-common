@@ -4,16 +4,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/main/tv/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/service/report:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/service/report",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

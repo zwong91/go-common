@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "comment.go",
         "contributors.go",
@@ -20,17 +20,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/saga/conf:go_default_library",
-        "//app/tool/saga/dao:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//app/tool/saga/service/command:go_default_library",
-        "//app/tool/saga/service/gitlab:go_default_library",
-        "//app/tool/saga/service/mail:go_default_library",
-        "//app/tool/saga/service/notification:go_default_library",
-        "//app/tool/saga/service/wechat:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/tool/saga/conf",
+        "//app/tool/saga/dao",
+        "//app/tool/saga/model",
+        "//app/tool/saga/service/command",
+        "//app/tool/saga/service/gitlab",
+        "//app/tool/saga/service/mail",
+        "//app/tool/saga/service/notification",
+        "//app/tool/saga/service/wechat",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 
@@ -56,18 +56,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "comment_test.go",
         "contributors_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/tool/saga/conf:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/tool/saga/conf",
+        "//app/tool/saga/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

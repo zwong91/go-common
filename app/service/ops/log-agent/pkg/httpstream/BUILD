@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "httpstream",
     srcs = [
         "conf.go",
         "httpstream.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/service/ops/log-agent/pkg/httpstream",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/ops/log-agent/event:go_default_library"],
+    deps = ["//app/service/ops/log-agent/event"],
 )
 
 filegroup(

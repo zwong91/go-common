@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/seq-server/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/seq-server/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "number.go",
         "seq.go",
@@ -28,13 +28,13 @@ go_library(
     importpath = "go-common/app/service/main/seq-server/service",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/seq-server/conf:go_default_library",
-        "//app/service/main/seq-server/dao:go_default_library",
-        "//app/service/main/seq-server/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/seq-server/conf",
+        "//app/service/main/seq-server/dao",
+        "//app/service/main/seq-server/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/rpc",
+        "//library/time",
     ],
 )
 

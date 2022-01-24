@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pgc",
     srcs = ["model.go"],
     importpath = "go-common/app/job/main/archive/model/pgc",
     tags = ["automanaged"],

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "article",
     srcs = [
         "article.go",
         "dao.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/article:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/article",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 
@@ -41,22 +41,22 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "article_test",
     srcs = [
         "article_test.go",
         "dao_test.go",
         "draft_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":article"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/article:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/article",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//library/ecode",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

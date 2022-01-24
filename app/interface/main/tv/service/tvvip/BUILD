@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tvvip",
     srcs = [
         "service.go",
         "vip.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/model/tvvip:go_default_library",
-        "//app/service/main/tv/api:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/model/tvvip",
+        "//app/service/main/tv/api",
+        "//library/log",
     ],
 )
 

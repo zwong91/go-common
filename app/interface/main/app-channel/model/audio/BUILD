@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "audio",
     srcs = ["audio.go"],
     importpath = "go-common/app/interface/main/app-channel/model/audio",
     tags = ["automanaged"],

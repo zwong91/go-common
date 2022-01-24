@@ -23,7 +23,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "netutil",
     srcs = [
         "backoff.go",
         "listen.go",
@@ -33,9 +33,9 @@ go_library(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "netutil_test",
     srcs = ["listen_test.go"],
-    embed = [":go_default_library"],
+    embed = [":netutil"],
     rundir = ".",
     tags = ["automanaged"],
 )

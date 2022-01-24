@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "retrieve",
     srcs = [
         "merge.go",
         "relatedrecretrieve.go",
@@ -18,14 +18,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys-recall/api/grpc/v1:go_default_library",
-        "//app/service/bbq/recsys/api/grpc/v1:go_default_library",
-        "//app/service/bbq/recsys/model:go_default_library",
-        "//app/service/bbq/recsys/service/util:go_default_library",
-        "//app/service/bbq/search/api/grpc/v1:go_default_library",
-        "//app/service/main/relation/api:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
+        "//app/service/bbq/recsys-recall/api/grpc/v1:grpc",
+        "//app/service/bbq/recsys/api/grpc/v1:grpc",
+        "//app/service/bbq/recsys/model",
+        "//app/service/bbq/recsys/service/util",
+        "//app/service/bbq/search/api/grpc/v1:grpc",
+        "//app/service/main/relation/api",
+        "//library/log",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 

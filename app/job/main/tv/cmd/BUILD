@@ -6,24 +6,25 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
+    visibility = ["//visibility:public"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["tv-job-test.toml"],
     importpath = "go-common/app/job/main/tv/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/http:go_default_library",
-        "//app/job/main/tv/service/pgc:go_default_library",
-        "//app/job/main/tv/service/ugc:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/http",
+        "//app/job/main/tv/service/pgc",
+        "//app/job/main/tv/service/ugc",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

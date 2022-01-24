@@ -6,21 +6,21 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/interface/openplatform/monitor-end/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/openplatform/monitor-end/model/kafka:go_default_library",
-        "//app/interface/openplatform/monitor-end/model/monitor:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/interface/openplatform/monitor-end/model/kafka",
+        "//app/interface/openplatform/monitor-end/model/monitor",
+        "//library/cache/redis",
+        "//library/conf/paladin",
+        "//library/database/sql",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

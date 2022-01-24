@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "canal.tidb.toml",
@@ -23,10 +23,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/canal/conf:go_default_library",
-        "//app/infra/canal/http:go_default_library",
-        "//app/infra/canal/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/infra/canal/conf",
+        "//app/infra/canal/http",
+        "//app/infra/canal/service",
+        "//library/log",
     ],
 )
 

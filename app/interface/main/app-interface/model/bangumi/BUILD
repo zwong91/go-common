@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bangumi",
     srcs = ["bangumi.go"],
     importpath = "go-common/app/interface/main/app-interface/model/bangumi",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/interface/main/app-interface/model:go_default_library"],
+    deps = ["//app/interface/main/app-interface/model"],
 )
 
 filegroup(

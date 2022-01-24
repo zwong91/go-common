@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "email_test",
     srcs = [
         "dao_test.go",
         "email_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":email"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/archive/conf:go_default_library",
-        "//app/job/main/archive/model/result:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/archive/conf",
+        "//app/job/main/archive/model/result",
+        "//app/service/main/archive/api",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "email",
     srcs = [
         "dao.go",
         "email.go",
@@ -32,12 +32,12 @@ go_library(
     importpath = "go-common/app/job/main/archive/dao/email",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/archive/conf:go_default_library",
-        "//app/job/main/archive/model/result:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/job/main/archive/conf",
+        "//app/job/main/archive/model/result",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//library/log",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 

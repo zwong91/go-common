@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/upcredit/conf:go_default_library",
-        "//vendor/github.com/davecgh/go-spew/spew:go_default_library",
+        "//app/service/main/upcredit/conf",
+        "//vendor/github.com/davecgh/go-spew/spew",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "business_score.go",
         "calculate_service.go",
@@ -29,27 +29,26 @@ go_library(
         "logcredit.go",
         "service.go",
     ],
-    importmap = "go-common/app/service/main/upcredit/service",
     importpath = "go-common/app/service/main/upcredit/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/upcredit/common/election:go_default_library",
-        "//app/service/main/upcredit/common/fsm:go_default_library",
-        "//app/service/main/upcredit/conf:go_default_library",
-        "//app/service/main/upcredit/dao/upcrmdao:go_default_library",
-        "//app/service/main/upcredit/mathutil:go_default_library",
-        "//app/service/main/upcredit/model/calculator:go_default_library",
-        "//app/service/main/upcredit/model/canal:go_default_library",
-        "//app/service/main/upcredit/model/upcrmmodel:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//app/service/main/upcredit/common/election",
+        "//app/service/main/upcredit/common/fsm",
+        "//app/service/main/upcredit/conf",
+        "//app/service/main/upcredit/dao/upcrmdao",
+        "//app/service/main/upcredit/mathutil",
+        "//app/service/main/upcredit/model/calculator",
+        "//app/service/main/upcredit/model/canal",
+        "//app/service/main/upcredit/model/upcrmmodel",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/render",
+        "//library/queue/databus",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

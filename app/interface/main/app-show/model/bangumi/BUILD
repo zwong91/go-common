@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bangumi",
     srcs = ["bangumi.go"],
     importpath = "go-common/app/interface/main/app-show/model/bangumi",
     tags = ["automanaged"],

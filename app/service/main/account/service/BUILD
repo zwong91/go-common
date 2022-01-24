@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "acc.go",
         "cache_delay.go",
@@ -19,23 +19,23 @@ go_library(
     importpath = "go-common/app/service/main/account/service",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/conf:go_default_library",
-        "//app/service/main/account/dao:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/model/queue:go_default_library",
-        "//app/service/main/coin/api/gorpc:go_default_library",
-        "//app/service/main/coin/model:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/relation/rpc/client:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/account/conf",
+        "//app/service/main/account/dao",
+        "//app/service/main/account/model",
+        "//app/service/main/account/model/queue",
+        "//app/service/main/coin/api/gorpc",
+        "//app/service/main/coin/model",
+        "//app/service/main/member/model",
+        "//app/service/main/relation/model",
+        "//app/service/main/relation/rpc/client",
+        "//library/cache/memcache",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -54,7 +54,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "acc_test.go",
         "exp_test.go",
@@ -62,11 +62,11 @@ go_test(
         "service_test.go",
         "vip_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/account/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/account/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

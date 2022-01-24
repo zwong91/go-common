@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "validate",
     srcs = ["validate.go"],
     importpath = "go-common/app/interface/main/mcn/tool/validate",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//vendor/gopkg.in/go-playground/validator.v9:go_default_library",
+        "//library/net/http/blademaster/binding",
+        "//vendor/gopkg.in/go-playground/validator.v9:validator_v9",
     ],
 )
 

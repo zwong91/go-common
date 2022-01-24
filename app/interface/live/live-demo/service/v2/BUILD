@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/live/live-demo/api/http/v2:go_default_library",
-        "//app/interface/live/live-demo/conf:go_default_library",
-        "//app/interface/live/live-demo/dao:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/live/live-demo/api/http/v2:http",
+        "//app/interface/live/live-demo/conf",
+        "//app/interface/live/live-demo/dao",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "foo.go",
         "foo2.go",
@@ -29,15 +29,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/live-demo/api/http/v2:go_default_library",
-        "//app/interface/live/live-demo/conf:go_default_library",
-        "//app/interface/live/live-demo/dao:go_default_library",
-        "//app/service/live/room/api/liverpc/v2:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/ecode/pb:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/live/live-demo/api/http/v2:http",
+        "//app/interface/live/live-demo/conf",
+        "//app/interface/live/live-demo/dao",
+        "//app/service/live/room/api/liverpc/v2:liverpc",
+        "//library/ecode",
+        "//library/ecode/pb",
+        "//library/log",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

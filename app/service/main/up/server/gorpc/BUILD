@@ -2,37 +2,37 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "gorpc_test",
     srcs = ["rpcserver_test.go"],
-    embed = [":go_default_library"],
+    embed = [":gorpc"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/up/model:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/davecgh/go-spew/spew:go_default_library",
+        "//app/service/main/up/model",
+        "//library/net/rpc",
+        "//library/time",
+        "//vendor/github.com/davecgh/go-spew/spew",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gorpc",
     srcs = ["rpcserver.go"],
     importpath = "go-common/app/service/main/up/server/gorpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//app/service/main/up/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/model",
+        "//app/service/main/up/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

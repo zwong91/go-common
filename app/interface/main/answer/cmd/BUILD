@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["answer-test.toml"],
     importpath = "go-common/app/interface/main/answer/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/answer/conf:go_default_library",
-        "//app/interface/main/answer/http:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/text/translate/chinese:go_default_library",
+        "//app/interface/main/answer/conf",
+        "//app/interface/main/answer/http",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/queue/databus/report",
+        "//library/text/translate/chinese",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "web",
     srcs = ["model.go"],
     importpath = "go-common/app/job/main/web-goblin/model/web",
     tags = ["automanaged"],

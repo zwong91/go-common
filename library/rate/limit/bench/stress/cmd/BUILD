@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["stress-test.toml"],
     importpath = "go-common/library/rate/limit/bench/stress/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/rate/limit/bench/stress/conf:go_default_library",
-        "//library/rate/limit/bench/stress/http:go_default_library",
+        "//library/log",
+        "//library/net/trace",
+        "//library/rate/limit/bench/stress/conf",
+        "//library/rate/limit/bench/stress/http",
     ],
 )
 

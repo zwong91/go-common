@@ -2,33 +2,33 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "livezk_test",
     srcs = ["livezk_test.go"],
-    embed = [":go_default_library"],
+    embed = [":livezk"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/naming:go_default_library",
-        "//library/time:go_default_library",
+        "//library/naming",
+        "//library/time",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "livezk",
     srcs = ["livezk.go"],
     importpath = "go-common/library/naming/livezk",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/samuel/go-zookeeper/zk:go_default_library",
+        "//library/log",
+        "//library/naming",
+        "//library/time",
+        "//vendor/github.com/samuel/go-zookeeper/zk",
     ],
 )
 

@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "banner_test.go",
         "liveCheck_test.go",
         "resource_test.go",
         "splash_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/resource/api/grpc/v1:go_default_library",
-        "//app/service/live/resource/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/resource/api/grpc/v1:grpc",
+        "//app/service/live/resource/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "banner.go",
         "liveCheck.go",
@@ -37,14 +37,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/resource/api/grpc/v1:go_default_library",
-        "//app/service/live/resource/api/http/v1:go_default_library",
-        "//app/service/live/resource/conf:go_default_library",
-        "//app/service/live/resource/dao:go_default_library",
-        "//app/service/live/resource/lrucache:go_default_library",
-        "//app/service/live/resource/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/resource/api/grpc/v1:grpc",
+        "//app/service/live/resource/api/http/v1:http",
+        "//app/service/live/resource/conf",
+        "//app/service/live/resource/dao",
+        "//app/service/live/resource/lrucache",
+        "//app/service/live/resource/model",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

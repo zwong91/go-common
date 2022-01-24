@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "gorpc_test",
     srcs = ["up_test.go"],
-    embed = [":go_default_library"],
+    embed = [":gorpc"],
     tags = ["automanaged"],
-    deps = ["//app/service/main/up/model:go_default_library"],
+    deps = ["//app/service/main/up/model"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gorpc",
     srcs = ["up.go"],
     importpath = "go-common/app/service/main/up/api/gorpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/up/model:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/service/main/up/model",
+        "//library/net/rpc",
     ],
 )
 

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "account_test.go",
         "activity_test.go",
@@ -28,20 +28,20 @@ go_test(
         "up_test.go",
         "withdraw_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/growup/conf:go_default_library",
-        "//app/interface/main/growup/model:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/growup/conf",
+        "//app/interface/main/growup/model",
+        "//library/net/metadata",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "account.go",
         "activity.go",
@@ -67,24 +67,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/growup/conf:go_default_library",
-        "//app/interface/main/growup/model:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//app/service/main/vip/rpc/client:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/interface/main/growup/conf",
+        "//app/interface/main/growup/model",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//app/service/main/vip/model",
+        "//app/service/main/vip/rpc/client",
+        "//library/cache/redis",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 

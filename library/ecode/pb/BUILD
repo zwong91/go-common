@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -11,16 +12,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pb",
     srcs = ["ecode.go"],
     embed = [":pb_go_proto"],
     importpath = "go-common/library/ecode/pb",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:any_go_proto",
+        "//library/ecode",
+        "//vendor/github.com/golang/protobuf/ptypes/any",
     ],
 )
 
@@ -47,9 +47,7 @@ proto_library(
 
 go_proto_library(
     name = "pb_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:go_proto"],
     importpath = "go-common/library/ecode/pb",
     proto = ":pb_proto",
     tags = ["automanaged"],
-    deps = ["@io_bazel_rules_go//proto/wkt:any_go_proto"],
 )

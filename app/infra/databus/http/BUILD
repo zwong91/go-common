@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "pub.go",
@@ -14,12 +14,12 @@ go_library(
     importpath = "go-common/app/infra/databus/http",
     tags = ["automanaged"],
     deps = [
-        "//app/infra/databus/conf:go_default_library",
-        "//app/infra/databus/dsn:go_default_library",
-        "//app/infra/databus/service:go_default_library",
-        "//app/infra/databus/tcp:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/infra/databus/conf",
+        "//app/infra/databus/dsn",
+        "//app/infra/databus/service",
+        "//app/infra/databus/tcp",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "order_admin_test.go",
@@ -16,20 +16,20 @@ go_test(
         "scene_test.go",
         "user_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/melloi/conf:go_default_library",
-        "//app/admin/ep/melloi/model:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/ep/melloi/conf",
+        "//app/admin/ep/melloi/model",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "apply.go",
         "bfs.go",
@@ -60,17 +60,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/melloi/conf:go_default_library",
-        "//app/admin/ep/melloi/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/admin/ep/melloi/conf",
+        "//app/admin/ep/melloi/model",
+        "//library/cache/memcache",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 

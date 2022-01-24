@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/push/conf:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/push/conf",
+        "//app/service/main/push/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "callback.go",
         "push.go",
@@ -31,18 +31,18 @@ go_library(
     importpath = "go-common/app/interface/main/push/service",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/push/conf:go_default_library",
-        "//app/interface/main/push/dao:go_default_library",
-        "//app/interface/main/push/model:go_default_library",
-        "//app/service/main/push/api/grpc/v1:go_default_library",
-        "//app/service/main/push/dao/huawei:go_default_library",
-        "//app/service/main/push/dao/jpush:go_default_library",
-        "//app/service/main/push/dao/mi:go_default_library",
-        "//app/service/main/push/dao/oppo:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/main/push/conf",
+        "//app/interface/main/push/dao",
+        "//app/interface/main/push/model",
+        "//app/service/main/push/api/grpc/v1:grpc",
+        "//app/service/main/push/dao/huawei",
+        "//app/service/main/push/dao/jpush",
+        "//app/service/main/push/dao/mi",
+        "//app/service/main/push/dao/oppo",
+        "//app/service/main/push/model",
+        "//library/cache",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

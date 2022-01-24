@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "coin",
     srcs = [
         "dao.go",
         "rpc.go",
@@ -16,9 +16,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/service/main/coin/api:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/service/main/coin/api",
+        "//library/log",
     ],
 )
 
@@ -37,16 +37,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "coin_test",
     srcs = [
         "dao_test.go",
         "rpc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":coin"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

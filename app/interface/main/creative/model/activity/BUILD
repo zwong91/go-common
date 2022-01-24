@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "activity",
     srcs = ["actvity.go"],
     importpath = "go-common/app/interface/main/creative/model/activity",
     tags = ["automanaged"],

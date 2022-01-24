@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = [
         "addit_test.go",
         "archive_mc_pb_test.go",
@@ -26,19 +26,19 @@ go_test(
         "video_mc_pb_test.go",
         "video_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/conf:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/conf",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "addit.go",
         "archive.go",
@@ -60,23 +60,23 @@ go_library(
     importpath = "go-common/app/service/main/archive/dao/archive",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/archive/model/databus:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/conf:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/archive/model/databus",
+        "//app/service/main/account/api",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/conf",
+        "//app/service/main/archive/model/archive",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/queue/databus",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

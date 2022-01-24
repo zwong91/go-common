@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["geetest.go"],
     importpath = "go-common/app/common/openplatform/geetest/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/common/openplatform/geetest/model:go_default_library"],
+    deps = ["//app/common/openplatform/geetest/model"],
 )
 
 filegroup(

@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/live/xroom-feed/internal/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xroom-feed/api:go_default_library",
-        "//app/service/live/xroom-feed/internal/service:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/xroom-feed/api",
+        "//app/service/live/xroom-feed/internal/service",
+        "//library/conf/paladin",
+        "//library/net/rpc/warden",
     ],
 )
 

@@ -2,23 +2,23 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "datacenter_test",
     srcs = [
         "http_client_test.go",
         "sqltool_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":datacenter"],
     tags = ["automanaged"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "datacenter",
     srcs = [
         "http_client.go",
         "sqltool.go",
@@ -27,9 +27,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/stat:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/log",
+        "//library/stat",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

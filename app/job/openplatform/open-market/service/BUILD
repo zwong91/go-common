@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "market.go",
         "service.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/openplatform/open-market/conf:go_default_library",
-        "//app/job/openplatform/open-market/dao:go_default_library",
-        "//app/job/openplatform/open-market/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/openplatform/open-market/conf",
+        "//app/job/openplatform/open-market/dao",
+        "//app/job/openplatform/open-market/model",
+        "//library/log",
     ],
 )
 

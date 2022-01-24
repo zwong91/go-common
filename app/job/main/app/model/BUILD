@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "archive.go",
         "const.go",
@@ -16,9 +16,9 @@ go_library(
     importpath = "go-common/app/job/main/app/model",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/app/model/space:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/time:go_default_library",
+        "//app/job/main/app/model/space",
+        "//library/conf/env",
+        "//library/time",
     ],
 )
 

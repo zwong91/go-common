@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = [
         "api_test.go",
         "dao_test.go",
@@ -15,17 +15,17 @@ go_test(
         "stat_test.go",
         "view_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-intl/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-intl/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "api.go",
         "dao.go",
@@ -36,22 +36,22 @@ go_library(
     importpath = "go-common/app/interface/main/app-intl/dao/archive",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-intl/conf:go_default_library",
-        "//app/interface/main/app-intl/model/player/archive:go_default_library",
-        "//app/interface/main/app-intl/model/view:go_default_library",
-        "//app/interface/main/history/model:go_default_library",
-        "//app/interface/main/history/rpc/client:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-intl/conf",
+        "//app/interface/main/app-intl/model/player/archive",
+        "//app/interface/main/app-intl/model/view",
+        "//app/interface/main/history/model",
+        "//app/interface/main/history/rpc/client",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//library/cache/memcache",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

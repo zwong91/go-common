@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/credit-timer/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/credit-timer/conf",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "jury.go",
         "kpi_func.go",
@@ -30,10 +30,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/credit-timer/conf:go_default_library",
-        "//app/job/main/credit-timer/dao:go_default_library",
-        "//app/job/main/credit-timer/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/credit-timer/conf",
+        "//app/job/main/credit-timer/dao",
+        "//app/job/main/credit-timer/model",
+        "//library/log",
     ],
 )
 

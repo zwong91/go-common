@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "databus_test.go",
@@ -22,22 +22,22 @@ go_test(
         "realname_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/model",
+        "//library/cache/memcache",
+        "//library/time",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "databus.go",
@@ -56,21 +56,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/dao/block:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/dao/block",
+        "//app/service/main/member/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/queue/databus/report",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

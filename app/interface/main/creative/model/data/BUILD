@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "data",
     srcs = [
         "archive.go",
         "article.go",
@@ -16,9 +16,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/model/archive:go_default_library",
-        "//app/interface/main/creative/model/medal:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/creative/model/archive",
+        "//app/interface/main/creative/model/medal",
+        "//library/time",
     ],
 )
 

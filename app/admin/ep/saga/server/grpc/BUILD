@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "grpc_test",
     srcs = ["server_test.go"],
-    embed = [":go_default_library"],
+    embed = [":grpc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/saga/api/grpc/v1:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/resolver:go_default_library",
-        "//library/net/rpc/warden/resolver/direct:go_default_library",
+        "//app/admin/ep/saga/api/grpc/v1:grpc",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/resolver",
+        "//library/net/rpc/warden/resolver/direct",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/admin/ep/saga/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/saga/api/grpc/v1:go_default_library",
-        "//app/admin/ep/saga/service/wechat:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/admin/ep/saga/api/grpc/v1:grpc",
+        "//app/admin/ep/saga/service/wechat",
+        "//library/net/rpc/warden",
     ],
 )
 

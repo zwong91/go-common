@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "hbase_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":hbase"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/videoup-report/conf:go_default_library",
-        "//app/job/main/videoup-report/model/task:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/videoup-report/conf",
+        "//app/job/main/videoup-report/model/task",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "hbase",
     srcs = [
         "dao.go",
         "weightlog.go",
@@ -29,10 +29,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/videoup-report/conf:go_default_library",
-        "//app/job/main/videoup-report/model/task:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/videoup-report/conf",
+        "//app/job/main/videoup-report/model/task",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/log",
     ],
 )
 

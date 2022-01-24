@@ -20,16 +20,16 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "xstr",
     srcs = ["xstr.go"],
     importpath = "go-common/library/xstr",
     tags = ["automanaged"],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "xstr_test",
     srcs = ["xstr_test.go"],
-    embed = [":go_default_library"],
+    embed = [":xstr"],
     rundir = ".",
     tags = ["automanaged"],
 )

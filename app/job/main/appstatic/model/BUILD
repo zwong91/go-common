@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["model.go"],
     importpath = "go-common/app/job/main/appstatic/model",
     tags = ["automanaged"],

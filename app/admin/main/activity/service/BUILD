@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "archive.go",
         "likes.go",
@@ -18,22 +18,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/activity/conf:go_default_library",
-        "//app/admin/main/activity/dao:go_default_library",
-        "//app/admin/main/activity/model:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/interface/main/tag/rpc/client:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/activity/conf",
+        "//app/admin/main/activity/dao",
+        "//app/admin/main/activity/model",
+        "//app/interface/main/tag/model",
+        "//app/interface/main/tag/rpc/client",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//app/service/main/account/api",
+        "//app/service/main/archive/api",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 
@@ -55,20 +55,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "archive_test.go",
         "likes_test.go",
         "service_test.go",
         "subject_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/activity/conf:go_default_library",
-        "//app/admin/main/activity/model:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/activity/conf",
+        "//app/admin/main/activity/model",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/live/xlottery/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xlottery/conf:go_default_library",
-        "//app/service/live/xlottery/dao:go_default_library",
+        "//app/service/live/xlottery/conf",
+        "//app/service/live/xlottery/dao",
     ],
 )
 

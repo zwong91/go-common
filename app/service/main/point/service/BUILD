@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "activity_test.go",
         "config_test.go",
         "point_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/point/conf:go_default_library",
-        "//app/service/main/point/dao:go_default_library",
-        "//app/service/main/point/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/point/conf",
+        "//app/service/main/point/dao",
+        "//app/service/main/point/model",
+        "//library/database/sql",
+        "//library/time",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "activity.go",
         "config.go",
@@ -40,13 +40,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/point/conf:go_default_library",
-        "//app/service/main/point/dao:go_default_library",
-        "//app/service/main/point/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/point/conf",
+        "//app/service/main/point/dao",
+        "//app/service/main/point/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "timemachine",
     srcs = [
         "cache.go",
         "dao.cache.go",
@@ -20,14 +20,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/model/timemachine:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/model/timemachine",
+        "//library/cache/memcache",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 
@@ -46,7 +46,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "timemachine_test",
     srcs = [
         "cache_test.go",
         "dao.cache_test.go",
@@ -54,12 +54,12 @@ go_test(
         "hbase_test.go",
         "mc.cache_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":timemachine"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/model/timemachine:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/model/timemachine",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )

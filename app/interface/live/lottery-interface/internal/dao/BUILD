@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/live/lottery-interface/internal/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/lottery-interface/internal/conf:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
+        "//app/interface/live/lottery-interface/internal/conf",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
     ],
 )
 

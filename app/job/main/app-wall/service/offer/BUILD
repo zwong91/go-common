@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "offer_test",
     srcs = [
         "active_test.go",
         "retry_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":offer"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/app-wall/conf:go_default_library",
-        "//app/job/main/app-wall/model/offer:go_default_library",
-        "//vendor/github.com/bsm/sarama-cluster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/app-wall/conf",
+        "//app/job/main/app-wall/model/offer",
+        "//vendor/github.com/bsm/sarama-cluster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "offer",
     srcs = [
         "active.go",
         "retry.go",
@@ -35,13 +35,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/app-wall/conf:go_default_library",
-        "//app/job/main/app-wall/dao/offer:go_default_library",
-        "//app/job/main/app-wall/model:go_default_library",
-        "//app/job/main/app-wall/model/offer:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/Shopify/sarama:go_default_library",
-        "//vendor/github.com/bsm/sarama-cluster:go_default_library",
+        "//app/job/main/app-wall/conf",
+        "//app/job/main/app-wall/dao/offer",
+        "//app/job/main/app-wall/model",
+        "//app/job/main/app-wall/model/offer",
+        "//library/log",
+        "//vendor/github.com/Shopify/sarama",
+        "//vendor/github.com/bsm/sarama-cluster",
     ],
 )
 

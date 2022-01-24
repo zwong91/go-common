@@ -2,32 +2,32 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "data_test",
     srcs = [
         "dao_test.go",
         "field_test.go",
         "hbase_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":data"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/dao:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/dao",
+        "//library/database/hbase.v2:hbase_v2",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "data",
     srcs = [
         "dao.go",
         "field.go",
@@ -37,11 +37,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/model/data:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/model/data",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

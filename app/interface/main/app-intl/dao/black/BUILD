@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "black_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":black"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-intl/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-intl/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "black",
     srcs = [
         "api.go",
         "dao.go",
@@ -28,11 +28,11 @@ go_library(
     importpath = "go-common/app/interface/main/app-intl/dao/black",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-intl/conf:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-intl/conf",
+        "//library/cache/redis",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

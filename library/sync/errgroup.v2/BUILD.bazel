@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "errgroup_v2",
     srcs = [
         "doc.go",
         "errgroup.go",
@@ -16,12 +16,12 @@ go_library(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "errgroup_v2_test",
     srcs = [
         "errgroup_test.go",
         "example_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":errgroup_v2"],
     rundir = ".",
     tags = ["automanaged"],
 )

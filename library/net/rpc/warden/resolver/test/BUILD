@@ -2,39 +2,39 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "test_test",
     srcs = ["resovler_test.go"],
-    embed = [":go_default_library"],
+    embed = [":test"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/balancer/wrr:go_default_library",
-        "//library/net/rpc/warden/proto/testproto:go_default_library",
-        "//library/net/rpc/warden/resolver:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//library/conf/env",
+        "//library/naming",
+        "//library/net/netutil/breaker",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/balancer/wrr",
+        "//library/net/rpc/warden/proto/testproto",
+        "//library/net/rpc/warden/resolver",
+        "//library/time",
+        "//vendor/github.com/stretchr/testify/assert",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "test",
     srcs = ["mockdiscovery.go"],
     importpath = "go-common/library/net/rpc/warden/resolver/test",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/naming:go_default_library",
+        "//library/conf/env",
+        "//library/naming",
     ],
 )
 

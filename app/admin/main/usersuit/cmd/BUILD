@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "usersuit-admin-test.toml",
@@ -22,12 +22,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/usersuit/conf:go_default_library",
-        "//app/admin/main/usersuit/http:go_default_library",
-        "//app/admin/main/usersuit/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/admin/main/usersuit/conf",
+        "//app/admin/main/usersuit/http",
+        "//app/admin/main/usersuit/service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

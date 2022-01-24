@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "account.go",
         "change_history.go",
@@ -27,20 +27,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/tv/internal/conf:go_default_library",
-        "//app/service/main/tv/internal/model:go_default_library",
-        "//app/service/main/tv/internal/pkg:go_default_library",
-        "//app/service/main/vipinfo/api:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/tv/internal/conf",
+        "//app/service/main/tv/internal/model",
+        "//app/service/main/tv/internal/pkg",
+        "//app/service/main/vipinfo/api",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -59,7 +59,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "account_test.go",
         "change_history_test.go",
@@ -75,14 +75,14 @@ go_test(
         "user_info_test.go",
         "yst_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/tv/internal/conf:go_default_library",
-        "//app/service/main/tv/internal/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/tv/internal/conf",
+        "//app/service/main/tv/internal/model",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

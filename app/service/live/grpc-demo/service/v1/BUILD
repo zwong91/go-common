@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["greeter.go"],
     importpath = "go-common/app/service/live/grpc-demo/service/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/grpc-demo/api/grpc/v1:go_default_library",
-        "//app/service/live/grpc-demo/conf:go_default_library",
-        "@org_golang_google_grpc//metadata:go_default_library",
+        "//app/service/live/grpc-demo/api/grpc/v1:grpc",
+        "//app/service/live/grpc-demo/conf",
+        "//vendor/google.golang.org/grpc/metadata",
     ],
 )
 

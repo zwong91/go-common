@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "memcache_test.go",
@@ -15,19 +15,19 @@ go_test(
         "redis_test.go",
         "wechat_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/push-strategy/conf:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/service/main/push-strategy/conf",
+        "//app/service/main/push/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "memcache.go",
@@ -39,14 +39,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/push-strategy/conf:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/service/main/push-strategy/conf",
+        "//app/service/main/push/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
     ],
 )
 

@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dynamic",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/main/creative/service/dynamic",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/lottery:go_default_library",
-        "//app/interface/main/creative/model/lottery:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/lottery",
+        "//app/interface/main/creative/model/lottery",
+        "//app/interface/main/creative/service",
+        "//library/log",
+        "//library/net/metadata",
     ],
 )
 

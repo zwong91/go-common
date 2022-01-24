@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "ai.go",
         "area.go",
@@ -22,11 +22,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/filter/conf:go_default_library",
-        "//app/service/main/filter/model/actriearea:go_default_library",
-        "//app/service/main/filter/model/actriekey:go_default_library",
-        "//app/service/main/filter/service/regexp:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/filter/conf",
+        "//app/service/main/filter/model/actriearea",
+        "//app/service/main/filter/model/actriekey",
+        "//app/service/main/filter/service/regexp",
+        "//library/time",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pay",
     srcs = ["pay.go"],
     importpath = "go-common/app/interface/main/app-interface/model/pay",
     tags = ["automanaged"],

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pgc",
     srcs = [
         "media.go",
         "service.go",
@@ -15,13 +15,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/dao/app:go_default_library",
-        "//app/interface/main/tv/dao/cms:go_default_library",
-        "//app/interface/main/tv/dao/pgc:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/dao/app",
+        "//app/interface/main/tv/dao/cms",
+        "//app/interface/main/tv/dao/pgc",
+        "//app/interface/main/tv/model",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

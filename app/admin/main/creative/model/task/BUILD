@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "task",
     srcs = ["task.go"],
     importpath = "go-common/app/admin/main/creative/model/task",
     tags = ["automanaged"],

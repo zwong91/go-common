@@ -7,14 +7,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/video/portal/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/video/portal/conf:go_default_library",
-        "//library/database/sql:go_default_library",
+        "//app/interface/video/portal/conf",
+        "//library/database/sql",
     ],
 )
 
@@ -33,10 +33,10 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/interface/video/portal/conf:go_default_library"],
+    deps = ["//app/interface/video/portal/conf"],
 )

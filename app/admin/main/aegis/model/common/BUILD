@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "common",
     srcs = ["common.go"],
     importpath = "go-common/app/admin/main/aegis/model/common",
     tags = ["automanaged"],
@@ -29,9 +29,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "common_test",
     srcs = ["common_test.go"],
-    embed = [":go_default_library"],
+    embed = [":common"],
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )

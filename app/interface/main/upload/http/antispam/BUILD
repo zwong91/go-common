@@ -7,17 +7,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "antispam",
     srcs = ["antispam.go"],
     importpath = "go-common/app/interface/main/upload/http/antispam",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/upload/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
+        "//app/interface/main/upload/model",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
     ],
 )
 
@@ -36,16 +36,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "antispam_test",
     srcs = ["antispam_test.go"],
-    embed = [":go_default_library"],
+    embed = [":antispam"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/upload/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/container/pool:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/upload/model",
+        "//library/cache/redis",
+        "//library/container/pool",
+        "//library/net/http/blademaster",
+        "//library/time",
     ],
 )

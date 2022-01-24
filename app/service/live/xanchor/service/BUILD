@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/live/xanchor/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xanchor/conf:go_default_library",
-        "//app/service/live/xanchor/dao:go_default_library",
-        "//app/service/live/xanchor/service/v1:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/service/live/xanchor/conf",
+        "//app/service/live/xanchor/dao",
+        "//app/service/live/xanchor/service/v1:service",
+        "//library/queue/databus",
     ],
 )
 

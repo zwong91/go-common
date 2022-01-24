@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["userResource.go"],
     importpath = "go-common/app/admin/live/live-admin/service/v2",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/live/live-admin/api/http/v2:go_default_library",
-        "//app/admin/live/live-admin/conf:go_default_library",
-        "//app/service/live/resource/api/grpc/v2:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/live/live-admin/api/http/v2:http",
+        "//app/admin/live/live-admin/conf",
+        "//app/service/live/resource/api/grpc/v2:grpc",
+        "//library/log",
     ],
 )
 

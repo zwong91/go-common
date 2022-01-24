@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "video.go",
@@ -15,13 +15,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/search/api/grpc/v1:go_default_library",
-        "//app/service/bbq/search/conf:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
-        "//vendor/gopkg.in/olivere/elastic.v5:go_default_library",
+        "//app/service/bbq/search/api/grpc/v1:grpc",
+        "//app/service/bbq/search/conf",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//vendor/github.com/json-iterator/go",
+        "//vendor/gopkg.in/olivere/elastic.v5:elastic_v5",
     ],
 )
 

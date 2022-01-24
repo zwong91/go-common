@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "manager",
     srcs = [
         "admin.go",
         "business.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/admin/main/workflow/model/manager",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/admin/main/workflow/model:go_default_library"],
+    deps = ["//app/admin/main/workflow/model"],
 )
 
 filegroup(

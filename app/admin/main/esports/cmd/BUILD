@@ -8,25 +8,25 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["esports-admin-test.toml"],
     importpath = "go-common/app/admin/main/esports/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/esports/conf:go_default_library",
-        "//app/admin/main/esports/http:go_default_library",
-        "//app/admin/main/esports/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/os/signal:go_default_library",
-        "//library/syscall:go_default_library",
+        "//app/admin/main/esports/conf",
+        "//app/admin/main/esports/http",
+        "//app/admin/main/esports/service",
+        "//library/log",
+        "//library/net/trace",
+        "//library/os/signal",
+        "//library/syscall",
     ],
 )
 

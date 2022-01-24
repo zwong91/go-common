@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "archive_test.go",
         "audit_result_test.go",
@@ -19,17 +19,17 @@ go_test(
         "uplayurl_test.go",
         "upper_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/tv/conf:go_default_library",
-        "//app/admin/main/tv/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/tv/conf",
+        "//app/admin/main/tv/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "arcType.go",
         "arc_audit.go",
@@ -57,22 +57,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/tv/conf:go_default_library",
-        "//app/admin/main/tv/dao:go_default_library",
-        "//app/admin/main/tv/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//app/admin/main/tv/conf",
+        "//app/admin/main/tv/dao",
+        "//app/admin/main/tv/model",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

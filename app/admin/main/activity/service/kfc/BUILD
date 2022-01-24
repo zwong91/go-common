@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "kfc",
     srcs = ["service.go"],
     importpath = "go-common/app/admin/main/activity/service/kfc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/activity/conf:go_default_library",
-        "//app/admin/main/activity/dao/kfc:go_default_library",
-        "//app/admin/main/activity/model/kfc:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/activity/conf",
+        "//app/admin/main/activity/dao/kfc",
+        "//app/admin/main/activity/model/kfc",
+        "//library/log",
     ],
 )
 

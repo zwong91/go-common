@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "datadao_test",
     srcs = [
         "api_test.go",
         "cache_test.go",
         "creative_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":datadao"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/mcn/conf:go_default_library",
-        "//app/interface/main/mcn/dao/global:go_default_library",
-        "//app/interface/main/mcn/model/datamodel:go_default_library",
-        "//app/interface/main/mcn/tool/datacenter:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/mcn/conf",
+        "//app/interface/main/mcn/dao/global",
+        "//app/interface/main/mcn/model/datamodel",
+        "//app/interface/main/mcn/tool/datacenter",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "datadao",
     srcs = [
         "api.go",
         "cache.go",
@@ -40,20 +40,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/mcn/conf:go_default_library",
-        "//app/interface/main/mcn/dao/cache:go_default_library",
-        "//app/interface/main/mcn/dao/global:go_default_library",
-        "//app/interface/main/mcn/model/datamodel:go_default_library",
-        "//app/interface/main/mcn/model/mcnmodel:go_default_library",
-        "//app/interface/main/mcn/tool/cache:go_default_library",
-        "//app/interface/main/mcn/tool/datacenter:go_default_library",
-        "//app/interface/main/tag/api:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/mcn/conf",
+        "//app/interface/main/mcn/dao/cache",
+        "//app/interface/main/mcn/dao/global",
+        "//app/interface/main/mcn/model/datamodel",
+        "//app/interface/main/mcn/model/mcnmodel",
+        "//app/interface/main/mcn/tool/cache",
+        "//app/interface/main/mcn/tool/datacenter",
+        "//app/interface/main/tag/api",
+        "//library/cache/memcache",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
     ],
 )
 

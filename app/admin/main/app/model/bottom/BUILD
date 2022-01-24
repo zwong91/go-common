@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bottom",
     srcs = ["bottom.go"],
     importpath = "go-common/app/admin/main/app/model/bottom",
     tags = ["automanaged"],

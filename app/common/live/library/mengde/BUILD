@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mengde",
     srcs = ["mengde.go"],
     importpath = "go-common/app/common/live/library/mengde",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 filegroup(

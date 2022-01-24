@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "api.go",
         "dao.go",
@@ -16,14 +16,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/push-search/conf:go_default_library",
-        "//app/service/live/relation/api/liverpc:go_default_library",
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//app/service/live/user/api/liverpc:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/live/push-search/conf",
+        "//app/service/live/relation/api/liverpc",
+        "//app/service/live/room/api/liverpc",
+        "//app/service/live/user/api/liverpc",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/log",
+        "//library/net/rpc/liverpc",
+        "//library/queue/databus",
     ],
 )
 

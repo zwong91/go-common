@@ -8,19 +8,19 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/interface/main/broadcast/benchmark/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/broadcast/libs/bufio:go_default_library",
-        "//app/service/main/broadcast/model:go_default_library",
+        "//app/service/main/broadcast/libs/bufio",
+        "//app/service/main/broadcast/model",
     ],
 )
 

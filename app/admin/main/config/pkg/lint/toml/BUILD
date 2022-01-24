@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "toml_test",
     srcs = [
         "testdata_test.go",
         "tomllint_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":toml"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "toml",
     srcs = ["tomllint.go"],
     importpath = "go-common/app/admin/main/config/pkg/lint/toml",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/config/pkg/lint:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/admin/main/config/pkg/lint",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "bfs.go",
         "dao.go",
@@ -17,14 +17,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/card/conf:go_default_library",
-        "//app/admin/main/card/model:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/card/conf",
+        "//app/admin/main/card/model",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/xstr",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -43,18 +43,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "bfs_test.go",
         "dao_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/card/conf:go_default_library",
-        "//app/admin/main/card/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/card/conf",
+        "//app/admin/main/card/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

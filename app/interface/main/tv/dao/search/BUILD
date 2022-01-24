@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "search_test",
     srcs = [
         "dao_test.go",
         "elastic_test.go",
@@ -15,19 +15,19 @@ go_test(
         "search_sug_test.go",
         "wild_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":search"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/model/search:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/model/search",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = [
         "dao.go",
         "elastic.go",
@@ -39,16 +39,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/model/search:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/model/search",
+        "//library/database/elastic",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

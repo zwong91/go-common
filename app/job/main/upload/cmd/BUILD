@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["bfs-upload-job.toml"],
     importpath = "go-common/app/job/main/upload/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/upload/conf:go_default_library",
-        "//app/job/main/upload/http:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus/report:go_default_library",
+        "//app/job/main/upload/conf",
+        "//app/job/main/upload/http",
+        "//library/log",
+        "//library/queue/databus/report",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "infoc",
     srcs = [
         "infoc.go",
         "reporter.go",
@@ -15,8 +15,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/ip:go_default_library",
+        "//library/log",
+        "//library/net/ip",
     ],
 )
 

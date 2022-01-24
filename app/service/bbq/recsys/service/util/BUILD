@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "util",
     srcs = ["util.go"],
     importpath = "go-common/app/service/bbq/recsys/service/util",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/bbq/recsys/api/grpc/v1:go_default_library"],
+    deps = ["//app/service/bbq/recsys/api/grpc/v1:grpc"],
 )
 
 filegroup(

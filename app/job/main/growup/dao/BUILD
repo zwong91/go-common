@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "activity_test.go",
         "auto_test.go",
@@ -30,18 +30,18 @@ go_test(
         "up_info_video_test.go",
         "up_quality_info_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "activity.go",
         "auto.go",
@@ -68,15 +68,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/model:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/model",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

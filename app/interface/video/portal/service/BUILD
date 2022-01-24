@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/video/portal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/video/portal/conf:go_default_library",
-        "//app/interface/video/portal/dao:go_default_library",
+        "//app/interface/video/portal/conf",
+        "//app/interface/video/portal/dao",
     ],
 )
 

@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = [
         "adv_test.go",
         "filter_test.go",
         "http_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/admin/main/dm/conf:go_default_library"],
+    deps = ["//app/admin/main/dm/conf"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "adv.go",
         "dm.go",
@@ -39,16 +39,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/dm/conf:go_default_library",
-        "//app/admin/main/dm/model:go_default_library",
-        "//app/admin/main/dm/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/dm/conf",
+        "//app/admin/main/dm/model",
+        "//app/admin/main/dm/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/xstr",
     ],
 )
 

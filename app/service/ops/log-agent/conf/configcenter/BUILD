@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "configcenter",
     srcs = ["sven.go"],
     importpath = "go-common/app/service/ops/log-agent/conf/configcenter",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf:go_default_library",
-        "//library/log:go_default_library",
+        "//library/conf",
+        "//library/log",
     ],
 )
 

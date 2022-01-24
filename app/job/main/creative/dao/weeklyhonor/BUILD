@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "weeklyhonor",
     srcs = [
         "dao.go",
         "hbase.go",
@@ -21,21 +21,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/util/hbaseutil:go_default_library",
-        "//app/interface/main/creative/model/weeklyhonor:go_default_library",
-        "//app/job/main/creative/conf:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/up/api/v1:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/admin/main/up/util/hbaseutil",
+        "//app/interface/main/creative/model/weeklyhonor",
+        "//app/job/main/creative/conf",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/up/api/v1:api",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/http/blademaster",
+        "//library/xstr",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 
@@ -54,7 +54,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "weeklyhonor_test",
     srcs = [
         "dao_test.go",
         "hbase_test.go",
@@ -63,17 +63,17 @@ go_test(
         "mysql_test.go",
         "rpc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":weeklyhonor"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/model/weeklyhonor:go_default_library",
-        "//app/job/main/creative/conf:go_default_library",
-        "//app/service/main/up/api/v1:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/golang/mock/gomock:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/creative/model/weeklyhonor",
+        "//app/job/main/creative/conf",
+        "//app/service/main/up/api/v1:api",
+        "//library/database/hbase.v2:hbase_v2",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/golang/mock/gomock",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

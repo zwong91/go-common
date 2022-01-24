@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "advert_test.go",
         "archive_test.go",
@@ -36,19 +36,19 @@ go_test(
         "user_log_test.go",
         "workflow_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/dm2/conf:go_default_library",
-        "//app/interface/main/dm2/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/dm2/conf",
+        "//app/interface/main/dm2/model",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "advert.go",
         "archive.go",
@@ -81,25 +81,25 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/dm2/conf:go_default_library",
-        "//app/interface/main/dm2/model:go_default_library",
-        "//app/interface/main/videoup/model/archive:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/bfs:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/dm2/conf",
+        "//app/interface/main/dm2/model",
+        "//app/interface/main/videoup/model/archive",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/bfs",
+        "//library/database/elastic",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/queue/databus/report",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

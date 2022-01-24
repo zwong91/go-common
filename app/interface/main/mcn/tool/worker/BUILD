@@ -7,12 +7,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "worker",
     srcs = ["pool.go"],
     importpath = "go-common/app/interface/main/mcn/tool/worker",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 filegroup(
@@ -30,9 +30,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "worker_test",
     srcs = ["pool_test.go"],
-    embed = [":go_default_library"],
+    embed = [":worker"],
     rundir = ".",
     tags = ["automanaged"],
 )

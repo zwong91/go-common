@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "email.go",
         "mcn.go",
@@ -20,16 +20,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/mcn/conf:go_default_library",
-        "//app/job/main/mcn/dao:go_default_library",
-        "//app/job/main/mcn/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/main/mcn/conf",
+        "//app/job/main/mcn/dao",
+        "//app/job/main/mcn/model",
+        "//app/service/main/account/api",
+        "//library/log",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 
@@ -48,7 +48,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "mcn_test.go",
         "recommend_test.go",
@@ -56,11 +56,11 @@ go_test(
         "summary_test.go",
         "up_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/mcn/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/mcn/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

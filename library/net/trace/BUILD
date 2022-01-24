@@ -23,7 +23,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "trace",
     srcs = glob(
         ["*.go"],
         exclude = ["*_test.go"],
@@ -31,21 +31,21 @@ go_library(
     importpath = "go-common/library/net/trace",
     tags = ["manual"],
     deps = [
-        "//library/conf/dsn:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/trace/proto:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:duration_go_proto",
-        "@io_bazel_rules_go//proto/wkt:timestamp_go_proto",
-        "@org_golang_google_grpc//metadata:go_default_library",
+        "//library/conf/dsn",
+        "//library/conf/env",
+        "//library/net/metadata",
+        "//library/net/trace/proto",
+        "//library/time",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/ptypes/duration",
+        "//vendor/github.com/golang/protobuf/ptypes/timestamp",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/google.golang.org/grpc/metadata",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "trace_test",
     srcs = [
         "config_test.go",
         "context_test.go",
@@ -57,12 +57,12 @@ go_test(
         "tag_test.go",
         "util_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":trace"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
-        "@org_golang_google_grpc//metadata:go_default_library",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/stretchr/testify/assert",
+        "//vendor/google.golang.org/grpc/metadata",
     ],
 )

@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["live-broadcast-proxy.toml"],
     importpath = "go-common/app/service/live/broadcast-proxy/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/broadcast-proxy/conf:go_default_library",
-        "//app/service/live/broadcast-proxy/server:go_default_library",
-        "//app/service/live/broadcast-proxy/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/broadcast-proxy/conf",
+        "//app/service/live/broadcast-proxy/server",
+        "//app/service/live/broadcast-proxy/service",
+        "//library/log",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "monitor",
     srcs = [
         "handler.go",
         "monitor.go",
@@ -16,11 +16,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
+        "//library/conf/env",
+        "//library/log",
+        "//library/net/trace",
+        "//library/time",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 
@@ -39,16 +39,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "monitor_test",
     srcs = [
         "handler_test.go",
         "monitor_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":monitor"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

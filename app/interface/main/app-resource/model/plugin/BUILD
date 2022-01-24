@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "plugin",
     srcs = ["plugin.go"],
     importpath = "go-common/app/interface/main/app-resource/model/plugin",
     tags = ["automanaged"],

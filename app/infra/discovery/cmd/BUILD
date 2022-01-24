@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "discovery-example.toml",
@@ -26,10 +26,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/discovery/conf:go_default_library",
-        "//app/infra/discovery/http:go_default_library",
-        "//app/infra/discovery/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/infra/discovery/conf",
+        "//app/infra/discovery/http",
+        "//app/infra/discovery/service",
+        "//library/log",
     ],
 )
 

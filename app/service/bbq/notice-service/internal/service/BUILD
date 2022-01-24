@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "push.go",
         "service.go",
@@ -15,16 +15,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/notice-service/api/v1:go_default_library",
-        "//app/service/bbq/notice-service/internal/conf:go_default_library",
-        "//app/service/bbq/notice-service/internal/dao:go_default_library",
-        "//app/service/bbq/notice-service/internal/model:go_default_library",
-        "//app/service/bbq/push/api/grpc/v1:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/bbq/notice-service/api/v1:api",
+        "//app/service/bbq/notice-service/internal/conf",
+        "//app/service/bbq/notice-service/internal/dao",
+        "//app/service/bbq/notice-service/internal/model",
+        "//app/service/bbq/push/api/grpc/v1:grpc",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/trace",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 

@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = ["search.go"],
     importpath = "go-common/app/interface/main/creative/model/search",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/model/archive:go_default_library",
-        "//app/interface/main/creative/model/music:go_default_library",
-        "//app/interface/main/creative/model/reply:go_default_library",
+        "//app/interface/main/creative/model/archive",
+        "//app/interface/main/creative/model/music",
+        "//app/interface/main/creative/model/reply",
     ],
 )
 

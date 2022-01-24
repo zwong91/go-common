@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = ["search.go"],
     importpath = "go-common/app/admin/main/videoup/model/search",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup/model/manager:go_default_library",
-        "//app/service/main/account/api:go_default_library",
+        "//app/admin/main/videoup/model/manager",
+        "//app/service/main/account/api",
     ],
 )
 

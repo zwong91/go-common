@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/bbq/comment/internal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/comment/api:go_default_library",
-        "//app/service/bbq/comment/internal/dao:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/bbq/comment/api",
+        "//app/service/bbq/comment/internal/dao",
+        "//library/conf/paladin",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databus",
     srcs = [
         "conf.go",
         "resource.go",
@@ -16,12 +16,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/aegis/model:go_default_library",
-        "//app/admin/main/aegis/model/resource:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/aegis/model",
+        "//app/admin/main/aegis/model/resource",
+        "//library/conf/env",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
     ],
 )
 
@@ -40,8 +40,8 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "databus_test",
     srcs = ["resource_test.go"],
-    embed = [":go_default_library"],
+    embed = [":databus"],
     tags = ["automanaged"],
 )

@@ -6,20 +6,20 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["elec.go"],
     importpath = "go-common/app/service/main/ugcpay-rank/internal/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/ugcpay-rank/api/v1:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/conf:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/model:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/service:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/service/rank:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/main/ugcpay-rank/api/v1:api",
+        "//app/service/main/ugcpay-rank/internal/conf",
+        "//app/service/main/ugcpay-rank/internal/model",
+        "//app/service/main/ugcpay-rank/internal/service",
+        "//app/service/main/ugcpay-rank/internal/service/rank",
+        "//library/log",
+        "//library/net/rpc/warden",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
     ],
 )
 

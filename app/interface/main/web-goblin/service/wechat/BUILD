@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "wechat",
     srcs = [
         "service.go",
         "wechat.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/web-goblin/conf:go_default_library",
-        "//app/interface/main/web-goblin/dao/wechat:go_default_library",
-        "//app/interface/main/web-goblin/model/wechat:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/web-goblin/conf",
+        "//app/interface/main/web-goblin/dao/wechat",
+        "//app/interface/main/web-goblin/model/wechat",
+        "//library/log",
     ],
 )
 

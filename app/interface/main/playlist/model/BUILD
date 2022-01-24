@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "playlist.go",
         "rpc.go",
@@ -15,9 +15,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/archive/api",
+        "//app/service/main/favorite/model",
+        "//library/time",
     ],
 )
 

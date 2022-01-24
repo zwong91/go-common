@@ -2,32 +2,32 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "music_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":music"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/videoup/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/videoup/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "music",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/videoup/dao/music",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup/conf:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/videoup/conf",
+        "//library/database/orm",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

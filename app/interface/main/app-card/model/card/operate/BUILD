@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "operate",
     srcs = [
         "cardset.go",
         "converge.go",
@@ -21,12 +21,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-card/model:go_default_library",
-        "//app/interface/main/app-card/model/card/banner:go_default_library",
-        "//app/interface/main/app-card/model/card/cm:go_default_library",
-        "//app/interface/main/app-card/model/card/rank:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-card/model",
+        "//app/interface/main/app-card/model/card/banner",
+        "//app/interface/main/app-card/model/card/cm",
+        "//app/interface/main/app-card/model/card/rank",
+        "//library/log",
+        "//library/time",
     ],
 )
 

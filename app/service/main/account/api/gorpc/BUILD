@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gorpc",
     srcs = ["account3.go"],
     importpath = "go-common/app/service/main/account/api/gorpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//library/net/rpc",
     ],
 )
 

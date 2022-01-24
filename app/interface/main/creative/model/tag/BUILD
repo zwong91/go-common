@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tag",
     srcs = ["tag.go"],
     importpath = "go-common/app/interface/main/creative/model/tag",
     tags = ["automanaged"],

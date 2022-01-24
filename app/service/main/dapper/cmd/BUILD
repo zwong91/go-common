@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["dapper-service-example.toml"],
     importpath = "go-common/app/service/main/dapper/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper/collector:go_default_library",
-        "//app/service/main/dapper/conf:go_default_library",
-        "//app/service/main/dapper/pkg/util:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/dapper/collector",
+        "//app/service/main/dapper/conf",
+        "//app/service/main/dapper/pkg/util",
+        "//library/log",
     ],
 )
 

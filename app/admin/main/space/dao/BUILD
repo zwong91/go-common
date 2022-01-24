@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "blacklist.go",
         "dao.go",
@@ -16,11 +16,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/space/conf:go_default_library",
-        "//app/admin/main/space/model:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/space/conf",
+        "//app/admin/main/space/model",
+        "//library/database/orm",
+        "//library/log",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 
@@ -39,16 +39,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "blacklist_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/space/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/space/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

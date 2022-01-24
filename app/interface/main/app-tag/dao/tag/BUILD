@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "tag_test",
     srcs = ["tag_test.go"],
-    embed = [":go_default_library"],
+    embed = [":tag"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-tag/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tag",
     srcs = [
         "api.go",
         "tag.go",
@@ -27,13 +27,13 @@ go_library(
     importpath = "go-common/app/interface/main/app-tag/dao/tag",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/conf:go_default_library",
-        "//app/interface/main/app-tag/model/tag:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/interface/main/tag/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/main/app-tag/conf",
+        "//app/interface/main/app-tag/model/tag",
+        "//app/interface/main/tag/model",
+        "//app/interface/main/tag/rpc/client",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

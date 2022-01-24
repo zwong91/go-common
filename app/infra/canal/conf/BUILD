@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = [
         "canal_conf.go",
         "conf.go",
@@ -16,18 +16,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/canal/infoc:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/canal:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/client:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//app/infra/canal/infoc",
+        "//library/conf",
+        "//library/database/sql",
+        "//library/log",
+        "//library/naming/discovery",
+        "//library/net/http/blademaster",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
+        "//vendor/github.com/siddontang/go-mysql/canal",
+        "//vendor/github.com/siddontang/go-mysql/client",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

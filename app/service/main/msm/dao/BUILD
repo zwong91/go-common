@@ -1,7 +1,7 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 package(default_visibility = ["//visibility:public"])
@@ -21,24 +21,24 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "app_auth_test.go",
         "dao_test.go",
         "mysql_test.go",
         "tree_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/msm/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/msm/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "app_auth.go",
         "dao.go",
@@ -48,12 +48,12 @@ go_library(
     importpath = "go-common/app/service/main/msm/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/msm/conf:go_default_library",
-        "//app/service/main/msm/model:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/msm/conf",
+        "//app/service/main/msm/model",
+        "//library/conf/env",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
     ],
 )

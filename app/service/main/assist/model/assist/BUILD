@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "assist",
     srcs = [
         "assist.go",
         "rpc.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//library/ecode",
+        "//library/time",
     ],
 )
 

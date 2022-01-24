@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "account_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":account"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/account:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/account",
+        "//app/interface/main/creative/service",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = [
         "account.go",
         "service.go",
@@ -30,20 +30,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/account:go_default_library",
-        "//app/interface/main/creative/dao/archive:go_default_library",
-        "//app/interface/main/creative/dao/article:go_default_library",
-        "//app/interface/main/creative/dao/up:go_default_library",
-        "//app/interface/main/creative/model/account:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/account",
+        "//app/interface/main/creative/dao/archive",
+        "//app/interface/main/creative/dao/article",
+        "//app/interface/main/creative/dao/up",
+        "//app/interface/main/creative/model/account",
+        "//app/interface/main/creative/service",
+        "//app/service/main/account/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/time",
     ],
 )
 

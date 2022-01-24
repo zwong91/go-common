@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = [
         "addit_test.go",
         "archive_test.go",
@@ -20,17 +20,17 @@ go_test(
         "video_test.go",
         "video_track_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/archive/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/archive/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "addit.go",
         "archive.go",
@@ -46,11 +46,11 @@ go_library(
     importpath = "go-common/app/job/main/archive/dao/archive",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/archive/conf:go_default_library",
-        "//app/job/main/archive/model/archive:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/archive/conf",
+        "//app/job/main/archive/model/archive",
+        "//library/database/sql",
+        "//library/log",
+        "//library/xstr",
     ],
 )
 

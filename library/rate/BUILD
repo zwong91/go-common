@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "rate",
     srcs = ["rate.go"],
     importpath = "go-common/library/rate",
     tags = ["automanaged"],

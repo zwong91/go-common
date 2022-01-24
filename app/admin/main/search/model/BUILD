@@ -20,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "archive.go",
         "copyright.go",
@@ -38,7 +38,7 @@ go_library(
     importpath = "go-common/app/admin/main/search/model",
     tags = ["automanaged"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/gopkg.in/olivere/elastic.v5:go_default_library",
+        "//library/log",
+        "//vendor/gopkg.in/olivere/elastic.v5:elastic_v5",
     ],
 )

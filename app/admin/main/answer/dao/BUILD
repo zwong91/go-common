@@ -20,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "draw.go",
@@ -32,22 +32,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/answer/conf:go_default_library",
-        "//app/admin/main/answer/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/golang/freetype:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/golang.org/x/image/font:go_default_library",
-        "//vendor/golang.org/x/image/math/fixed:go_default_library",
+        "//app/admin/main/answer/conf",
+        "//app/admin/main/answer/model",
+        "//library/cache/redis",
+        "//library/database/elastic",
+        "//library/database/orm",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/golang/freetype",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/golang.org/x/image/font",
+        "//vendor/golang.org/x/image/math/fixed",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "draw_test.go",
@@ -55,12 +55,12 @@ go_test(
         "mysql_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/answer/conf:go_default_library",
-        "//app/admin/main/answer/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/answer/conf",
+        "//app/admin/main/answer/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sidebar",
     srcs = ["sidebar.go"],
     importpath = "go-common/app/interface/main/app-interface/model/sidebar",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

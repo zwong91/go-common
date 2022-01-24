@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/live/xcaptcha/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xcaptcha/conf:go_default_library",
-        "//app/service/live/xcaptcha/dao:go_default_library",
+        "//app/service/live/xcaptcha/conf",
+        "//app/service/live/xcaptcha/dao",
     ],
 )
 

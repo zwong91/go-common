@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "redis_test",
     srcs = [
         "dao_test.go",
         "monitor_test.go",
         "net_test.go",
         "task_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":redis"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/aegis/conf:go_default_library",
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//app/admin/main/aegis/model/task:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/aegis/conf",
+        "//app/admin/main/aegis/model/common",
+        "//app/admin/main/aegis/model/task",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "redis",
     srcs = [
         "cluster.go",
         "dao.go",
@@ -38,14 +38,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/aegis/conf:go_default_library",
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//app/admin/main/aegis/model/monitor:go_default_library",
-        "//app/admin/main/aegis/model/task:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/aegis/conf",
+        "//app/admin/main/aegis/model/common",
+        "//app/admin/main/aegis/model/monitor",
+        "//app/admin/main/aegis/model/task",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

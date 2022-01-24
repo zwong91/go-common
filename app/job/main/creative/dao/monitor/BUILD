@@ -2,33 +2,33 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "monitor_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":monitor"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/creative/conf:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/creative/conf",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "monitor",
     srcs = ["dao.go"],
     importpath = "go-common/app/job/main/creative/dao/monitor",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/creative/conf:go_default_library",
-        "//app/job/main/creative/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/creative/conf",
+        "//app/job/main/creative/model",
+        "//library/log",
     ],
 )
 

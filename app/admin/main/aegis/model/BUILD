@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "engine.go",
         "log.go",
@@ -17,13 +17,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//app/admin/main/aegis/model/net:go_default_library",
-        "//app/admin/main/aegis/model/resource:go_default_library",
-        "//app/admin/main/aegis/model/task:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/aegis/model/common",
+        "//app/admin/main/aegis/model/net",
+        "//app/admin/main/aegis/model/resource",
+        "//app/admin/main/aegis/model/task",
+        "//app/service/main/account/api",
+        "//library/log",
+        "//library/time",
     ],
 )
 
@@ -53,15 +53,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["model_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//app/admin/main/aegis/model/resource:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/aegis/model/common",
+        "//app/admin/main/aegis/model/resource",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

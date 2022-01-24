@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "condrule.go",
         "is_black.go",
@@ -21,20 +21,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/xroom-feed/internal/dao:go_default_library",
-        "//app/job/live/xroom-feed/internal/model:go_default_library",
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//app/service/live/room/api/liverpc/v1:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/live/xroom-feed/internal/dao",
+        "//app/job/live/xroom-feed/internal/model",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/live/room/api/liverpc",
+        "//app/service/live/room/api/liverpc/v1:liverpc",
+        "//library/conf/env",
+        "//library/conf/paladin",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/net/rpc/liverpc",
+        "//library/net/rpc/warden",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

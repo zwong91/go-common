@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/job/live/wallet/conf",
     tags = ["automanaged"],
     deps = [
-        "//library/cache/memcache:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//library/cache/memcache",
+        "//library/conf",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

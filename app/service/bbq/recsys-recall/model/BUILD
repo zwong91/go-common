@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "model.go",
         "tuple.go",

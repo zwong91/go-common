@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "db_project.go",
@@ -22,16 +22,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/saga/conf:go_default_library",
-        "//app/admin/ep/saga/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/ep/saga/conf",
+        "//app/admin/ep/saga/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -50,7 +50,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "db_project_test.go",
@@ -59,12 +59,12 @@ go_test(
         "mc_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/saga/conf:go_default_library",
-        "//app/admin/ep/saga/model:go_default_library",
-        "//app/admin/ep/saga/service/utils:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/ep/saga/conf",
+        "//app/admin/ep/saga/model",
+        "//app/admin/ep/saga/service/utils",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

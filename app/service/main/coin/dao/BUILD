@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "cache_test.go",
         "dao.cache_test.go",
@@ -21,18 +21,18 @@ go_test(
         "relation_test.go",
         "tag_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/coin/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/service/main/coin/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "cache.go",
         "dao.cache.go",
@@ -49,23 +49,23 @@ go_library(
     importpath = "go-common/app/service/main/coin/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/coin/api:go_default_library",
-        "//app/service/main/coin/conf:go_default_library",
-        "//app/service/main/coin/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/golang.org/x/sync/singleflight:go_default_library",
+        "//app/service/main/coin/api",
+        "//app/service/main/coin/conf",
+        "//app/service/main/coin/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/elastic",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/queue/databus/report",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/sync/singleflight",
     ],
 )
 

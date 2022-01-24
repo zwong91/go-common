@@ -1,8 +1,3 @@
-load(
-    "@io_bazel_rules_go//proto:def.bzl",
-    "go_proto_library",
-)
-
 package(default_visibility = ["//visibility:public"])
 
 load(
@@ -11,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "model.go",
         "params.go",
@@ -21,7 +16,7 @@ go_library(
     importpath = "go-common/app/service/main/point/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

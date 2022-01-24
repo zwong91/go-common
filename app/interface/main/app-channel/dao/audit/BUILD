@@ -7,15 +7,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "audit",
     srcs = ["audit.go"],
     importpath = "go-common/app/interface/main/app-channel/dao/audit",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-channel/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/app-channel/conf",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 
@@ -34,13 +34,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "audit_test",
     srcs = ["audit_test.go"],
-    embed = [":go_default_library"],
+    embed = [":audit"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-channel/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-channel/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

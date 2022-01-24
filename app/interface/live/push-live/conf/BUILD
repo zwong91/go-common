@@ -6,22 +6,22 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/interface/live/push-live/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/cache/redis:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//library/cache/redis",
+        "//library/conf",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/trace",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

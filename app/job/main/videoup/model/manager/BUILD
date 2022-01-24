@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "manager",
     srcs = ["manager.go"],
     importpath = "go-common/app/job/main/videoup/model/manager",
     tags = ["automanaged"],

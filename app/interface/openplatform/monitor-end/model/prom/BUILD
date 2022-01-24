@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "prom",
     srcs = ["prom.go"],
     importpath = "go-common/app/interface/openplatform/monitor-end/model/prom",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/openplatform/monitor-end/conf:go_default_library",
-        "//vendor/github.com/prometheus/client_golang/prometheus:go_default_library",
+        "//app/interface/openplatform/monitor-end/conf",
+        "//vendor/github.com/prometheus/client_golang/prometheus",
     ],
 )
 

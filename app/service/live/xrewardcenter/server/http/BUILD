@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/service/live/xrewardcenter/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xrewardcenter/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/live/xrewardcenter/conf",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

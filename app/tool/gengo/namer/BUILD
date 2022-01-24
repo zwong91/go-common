@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "namer_test",
     srcs = [
         "namer_test.go",
         "plural_namer_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":namer"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/tool/gengo/types:go_default_library"],
+    deps = ["//app/tool/gengo/types"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "namer",
     srcs = [
         "doc.go",
         "import_tracker.go",
@@ -30,7 +30,7 @@ go_library(
     importpath = "go-common/app/tool/gengo/namer",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/tool/gengo/types:go_default_library"],
+    deps = ["//app/tool/gengo/types"],
 )
 
 filegroup(

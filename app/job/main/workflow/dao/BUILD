@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "appeal.go",
         "buss_attr.go",
@@ -19,22 +19,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/workflow/model/param:go_default_library",
-        "//app/job/main/workflow/conf:go_default_library",
-        "//app/job/main/workflow/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/workflow/model/param",
+        "//app/job/main/workflow/conf",
+        "//app/job/main/workflow/model",
+        "//library/cache/redis",
+        "//library/database/elastic",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/queue/databus/report",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "appeal_test.go",
         "buss_attr_test.go",
@@ -44,14 +44,14 @@ go_test(
         "redis_test.go",
         "search_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/workflow/model/param:go_default_library",
-        "//app/job/main/workflow/conf:go_default_library",
-        "//app/job/main/workflow/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/workflow/model/param",
+        "//app/job/main/workflow/conf",
+        "//app/job/main/workflow/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

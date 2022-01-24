@@ -6,11 +6,11 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "live",
     srcs = ["live.go"],
     importpath = "go-common/app/interface/main/app-view/model/live",
     tags = ["automanaged"],
-    deps = ["//app/interface/main/app-view/model:go_default_library"],
+    deps = ["//app/interface/main/app-view/model"],
 )
 
 filegroup(

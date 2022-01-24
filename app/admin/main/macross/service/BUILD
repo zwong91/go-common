@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "mail.go",
         "mng_auth.go",
@@ -20,16 +20,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/macross/conf:go_default_library",
-        "//app/admin/main/macross/dao:go_default_library",
-        "//app/admin/main/macross/dao/oss:go_default_library",
-        "//app/admin/main/macross/model/mail:go_default_library",
-        "//app/admin/main/macross/model/manager:go_default_library",
-        "//app/admin/main/macross/model/package:go_default_library",
-        "//app/admin/main/macross/model/publish:go_default_library",
-        "//app/admin/main/macross/tools:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/admin/main/macross/conf",
+        "//app/admin/main/macross/dao",
+        "//app/admin/main/macross/dao/oss",
+        "//app/admin/main/macross/model/mail",
+        "//app/admin/main/macross/model/manager",
+        "//app/admin/main/macross/model/package",
+        "//app/admin/main/macross/model/publish",
+        "//app/admin/main/macross/tools",
+        "//library/log",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 

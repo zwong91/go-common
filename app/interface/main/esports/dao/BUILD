@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "cache.go",
         "dao.cache.go",
@@ -21,21 +21,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/esports/conf:go_default_library",
-        "//app/interface/main/esports/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/esports/conf",
+        "//app/interface/main/esports/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//library/cache/redis",
+        "//library/database/elastic",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -54,7 +54,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "cache_test.go",
         "dao.cache_test.go",
@@ -64,13 +64,13 @@ go_test(
         "redis_test.go",
         "search_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/esports/conf:go_default_library",
-        "//app/interface/main/esports/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/esports/conf",
+        "//app/interface/main/esports/model",
+        "//app/service/main/archive/api",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

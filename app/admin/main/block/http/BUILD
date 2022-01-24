@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = ["http_test.go"],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/block/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/block/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "block.go",
         "http.go",
@@ -27,14 +27,14 @@ go_library(
     importpath = "go-common/app/admin/main/block/http",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/block/conf:go_default_library",
-        "//app/admin/main/block/model:go_default_library",
-        "//app/admin/main/block/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/block/conf",
+        "//app/admin/main/block/model",
+        "//app/admin/main/block/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

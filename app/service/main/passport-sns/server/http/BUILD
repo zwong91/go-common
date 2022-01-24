@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/passport-sns/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/passport-sns/api:go_default_library",
-        "//app/service/main/passport-sns/conf:go_default_library",
-        "//app/service/main/passport-sns/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/main/passport-sns/api",
+        "//app/service/main/passport-sns/conf",
+        "//app/service/main/passport-sns/service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

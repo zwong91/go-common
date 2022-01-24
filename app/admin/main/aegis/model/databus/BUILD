@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databus",
     srcs = ["messages.go"],
     importpath = "go-common/app/admin/main/aegis/model/databus",
     tags = ["automanaged"],

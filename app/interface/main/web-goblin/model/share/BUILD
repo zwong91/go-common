@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "share",
     srcs = ["share.go"],
     importpath = "go-common/app/interface/main/web-goblin/model/share",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/usersuit/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/usersuit/model",
+        "//library/time",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bnj",
     srcs = [
         "bnj.go",
         "service.go",
@@ -15,15 +15,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/dao/bnj:go_default_library",
-        "//app/interface/main/activity/dao/like:go_default_library",
-        "//app/interface/main/activity/model/bnj:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/dao/bnj",
+        "//app/interface/main/activity/dao/like",
+        "//app/interface/main/activity/model/bnj",
+        "//app/service/main/archive/api",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/sync/errgroup.v2:errgroup_v2",
     ],
 )
 

@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "game",
     srcs = ["game.go"],
     importpath = "go-common/app/interface/main/creative/model/game",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

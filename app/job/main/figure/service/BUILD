@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "account_test.go",
         "coin_test.go",
@@ -16,22 +16,22 @@ go_test(
         "spy_test.go",
         "vip_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/figure/conf:go_default_library",
-        "//app/job/main/figure/model:go_default_library",
-        "//app/job/main/reply/model/reply:go_default_library",
-        "//app/service/main/coin/model:go_default_library",
-        "//app/service/main/spy/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/figure/conf",
+        "//app/job/main/figure/model",
+        "//app/job/main/reply/model/reply",
+        "//app/service/main/coin/model",
+        "//app/service/main/spy/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "account.go",
         "blocked.go",
@@ -48,13 +48,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/figure/conf:go_default_library",
-        "//app/job/main/figure/dao:go_default_library",
-        "//app/job/main/figure/model:go_default_library",
-        "//app/service/main/coin/model:go_default_library",
-        "//app/service/main/spy/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/figure/conf",
+        "//app/job/main/figure/dao",
+        "//app/job/main/figure/model",
+        "//app/service/main/coin/model",
+        "//app/service/main/spy/model",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 

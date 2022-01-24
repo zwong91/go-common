@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "videoup_test",
     srcs = [
         "dao_test.go",
         "video_types_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":videoup"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/mcn/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/mcn/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "videoup",
     srcs = [
         "dao.go",
         "video_types.go",
@@ -31,10 +31,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/mcn/conf:go_default_library",
-        "//app/service/main/videoup/model/archive:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/admin/main/mcn/conf",
+        "//app/service/main/videoup/model/archive",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

@@ -6,22 +6,22 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/service/ops/log-agent/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/conf/configcenter:go_default_library",
-        "//app/service/ops/log-agent/pipeline/dockerlogcollector:go_default_library",
-        "//app/service/ops/log-agent/pipeline/hostlogcollector:go_default_library",
-        "//app/service/ops/log-agent/pkg/flowmonitor:go_default_library",
-        "//app/service/ops/log-agent/pkg/httpstream:go_default_library",
-        "//app/service/ops/log-agent/pkg/lancermonitor:go_default_library",
-        "//app/service/ops/log-agent/pkg/limit:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/service/ops/log-agent/conf/configcenter",
+        "//app/service/ops/log-agent/pipeline/dockerlogcollector",
+        "//app/service/ops/log-agent/pipeline/hostlogcollector",
+        "//app/service/ops/log-agent/pkg/flowmonitor",
+        "//app/service/ops/log-agent/pkg/httpstream",
+        "//app/service/ops/log-agent/pkg/lancermonitor",
+        "//app/service/ops/log-agent/pkg/limit",
+        "//library/log",
+        "//library/naming/discovery",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

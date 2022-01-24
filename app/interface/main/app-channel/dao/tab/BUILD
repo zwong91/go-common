@@ -7,15 +7,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tab",
     srcs = ["tab.go"],
     importpath = "go-common/app/interface/main/app-channel/dao/tab",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-channel/conf:go_default_library",
-        "//app/interface/main/app-channel/model/tab:go_default_library",
-        "//library/database/sql:go_default_library",
+        "//app/interface/main/app-channel/conf",
+        "//app/interface/main/app-channel/model/tab",
+        "//library/database/sql",
     ],
 )
 
@@ -34,12 +34,12 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "tab_test",
     srcs = ["tab_test.go"],
-    embed = [":go_default_library"],
+    embed = [":tab"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-channel/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-channel/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

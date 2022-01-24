@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = [
         "from.go",
         "result.go",
@@ -15,12 +15,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-intl/model:go_default_library",
-        "//app/interface/main/app-intl/model/bangumi:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-intl/model",
+        "//app/interface/main/app-intl/model/bangumi",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/archive/api",
+        "//library/log",
+        "//library/time",
     ],
 )
 

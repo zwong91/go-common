@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "notice",
     srcs = ["notice.go"],
     importpath = "go-common/app/admin/main/app/model/notice",
     tags = ["automanaged"],

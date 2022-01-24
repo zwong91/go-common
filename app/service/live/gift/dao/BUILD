@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "discount_gift_test.go",
@@ -19,18 +19,18 @@ go_test(
         "ugift_week_test.go",
         "user_gift_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/gift/api/grpc/v1:go_default_library",
-        "//app/service/live/gift/conf:go_default_library",
-        "//app/service/live/gift/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/gift/api/grpc/v1:grpc",
+        "//app/service/live/gift/conf",
+        "//app/service/live/gift/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "discount_gift.go",
@@ -46,21 +46,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/activity/api/liverpc:go_default_library",
-        "//app/service/live/fans_medal/api/liverpc:go_default_library",
-        "//app/service/live/gift/api/grpc/v1:go_default_library",
-        "//app/service/live/gift/conf:go_default_library",
-        "//app/service/live/gift/model:go_default_library",
-        "//app/service/live/live_user/api/liverpc:go_default_library",
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//app/service/live/user/api/liverpc:go_default_library",
-        "//app/service/live/xuser/api/grpc/v1:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/live/activity/api/liverpc",
+        "//app/service/live/fans_medal/api/liverpc",
+        "//app/service/live/gift/api/grpc/v1:grpc",
+        "//app/service/live/gift/conf",
+        "//app/service/live/gift/model",
+        "//app/service/live/live_user/api/liverpc",
+        "//app/service/live/room/api/liverpc",
+        "//app/service/live/user/api/liverpc",
+        "//app/service/live/xuser/api/grpc/v1:grpc",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/rpc/liverpc",
+        "//library/xstr",
     ],
 )
 

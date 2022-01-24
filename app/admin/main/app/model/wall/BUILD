@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "wall",
     srcs = ["wall.go"],
     importpath = "go-common/app/admin/main/app/model/wall",
     tags = ["automanaged"],

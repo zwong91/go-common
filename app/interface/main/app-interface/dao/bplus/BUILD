@@ -2,33 +2,33 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "bplus_test",
     srcs = [
         "api_test.go",
         "dao_test.go",
         "databus_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":bplus"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/model:go_default_library",
-        "//app/interface/main/app-interface/model/space:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/model",
+        "//app/interface/main/app-interface/model/space",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bplus",
     srcs = [
         "api.go",
         "dao.go",
@@ -39,19 +39,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/model:go_default_library",
-        "//app/interface/main/app-interface/model/bplus:go_default_library",
-        "//app/interface/main/app-interface/model/space:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/model",
+        "//app/interface/main/app-interface/model/bplus",
+        "//app/interface/main/app-interface/model/space",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upcrmmodel",
     srcs = [
         "task_info.go",
         "up_base_info.go",
@@ -15,8 +15,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/time:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//library/time",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

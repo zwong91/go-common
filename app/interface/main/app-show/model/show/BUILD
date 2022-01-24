@@ -6,20 +6,20 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "show",
     srcs = ["show.go"],
     importpath = "go-common/app/interface/main/app-show/model/show",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-show/model:go_default_library",
-        "//app/interface/main/app-show/model/activity:go_default_library",
-        "//app/interface/main/app-show/model/bangumi:go_default_library",
-        "//app/interface/main/app-show/model/banner:go_default_library",
-        "//app/interface/main/app-show/model/live:go_default_library",
-        "//app/interface/main/app-show/model/recommend:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/season/v1:go_default_library",
+        "//app/interface/main/app-show/model",
+        "//app/interface/main/app-show/model/activity",
+        "//app/interface/main/app-show/model/bangumi",
+        "//app/interface/main/app-show/model/banner",
+        "//app/interface/main/app-show/model/live",
+        "//app/interface/main/app-show/model/recommend",
+        "//app/service/main/archive/api",
+        "//app/service/openplatform/pgc-season/api/grpc/season/v1:season",
     ],
 )
 

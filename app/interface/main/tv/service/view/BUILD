@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "view",
     srcs = [
         "access.go",
         "auth.go",
@@ -19,21 +19,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/dao/account:go_default_library",
-        "//app/interface/main/tv/dao/archive:go_default_library",
-        "//app/interface/main/tv/dao/cms:go_default_library",
-        "//app/interface/main/tv/dao/favorite:go_default_library",
-        "//app/interface/main/tv/dao/upper:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//app/interface/main/tv/model/upper:go_default_library",
-        "//app/interface/main/tv/model/view:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/dao/account",
+        "//app/interface/main/tv/dao/archive",
+        "//app/interface/main/tv/dao/cms",
+        "//app/interface/main/tv/dao/favorite",
+        "//app/interface/main/tv/dao/upper",
+        "//app/interface/main/tv/model",
+        "//app/interface/main/tv/model/upper",
+        "//app/interface/main/tv/model/view",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
     ],
 )
 

@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "gorpc_test",
     srcs = ["rpc_test.go"],
-    embed = [":go_default_library"],
+    embed = [":gorpc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/service:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/model",
+        "//app/service/main/member/service",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gorpc",
     srcs = [
         "block.go",
         "member.go",
@@ -34,13 +34,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//app/service/main/member/service:go_default_library",
-        "//app/service/main/member/service/block:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/model",
+        "//app/service/main/member/model/block",
+        "//app/service/main/member/service",
+        "//app/service/main/member/service/block",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

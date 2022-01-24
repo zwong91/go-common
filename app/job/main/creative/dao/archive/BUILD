@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = [
         "dao_test.go",
         "rpc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/creative/conf:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/creative/conf",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "dao.go",
         "rpc.go",
@@ -32,16 +32,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//app/job/main/creative/conf:go_default_library",
-        "//app/job/main/creative/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//app/job/main/creative/conf",
+        "//app/job/main/creative/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

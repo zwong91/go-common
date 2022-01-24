@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "memcached",
-    embed = [":go_default_library"],
+    embed = [":memcached_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "memcached_lib",
     srcs = [
         "header_template.go",
         "main.go",
@@ -24,7 +24,7 @@ go_library(
     importpath = "go-common/app/tool/cache/memcached",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/tool/cache/common:go_default_library"],
+    deps = ["//app/tool/cache/common"],
 )
 
 filegroup(

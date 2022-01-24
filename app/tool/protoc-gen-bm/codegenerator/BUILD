@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "codegenerator",
     srcs = ["generator.go"],
     importpath = "go-common/app/tool/protoc-gen-bm/codegenerator",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/plugin",
     ],
 )
 

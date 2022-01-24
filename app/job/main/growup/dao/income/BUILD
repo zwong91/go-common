@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "income_test",
     srcs = [
         "archive_test.go",
         "av_charge_statis_test.go",
@@ -33,19 +33,19 @@ go_test(
         "up_income_test.go",
         "up_info_video_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":income"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/model/income:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/model/income",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "income",
     srcs = [
         "archive.go",
         "av_charge.go",
@@ -75,11 +75,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/model/income:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/model/income",
+        "//library/database/sql",
+        "//library/log",
+        "//library/time",
     ],
 )
 

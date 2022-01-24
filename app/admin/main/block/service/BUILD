@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/block/conf:go_default_library",
-        "//app/admin/main/block/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/block/conf",
+        "//app/admin/main/block/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "audit_log.go",
         "block.go",
@@ -31,16 +31,16 @@ go_library(
     importpath = "go-common/app/admin/main/block/service",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/block/conf:go_default_library",
-        "//app/admin/main/block/dao:go_default_library",
-        "//app/admin/main/block/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/block/conf",
+        "//app/admin/main/block/dao",
+        "//app/admin/main/block/model",
+        "//library/cache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/queue/databus/report",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

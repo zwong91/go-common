@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "kfc_test",
     srcs = [
         "dao_test.go",
         "kfc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":kfc"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/activity/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/activity/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "kfc",
     srcs = [
         "dao.go",
         "kfc.go",
@@ -30,11 +30,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/activity/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/activity/conf",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

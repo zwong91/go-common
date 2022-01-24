@@ -2,21 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "resolvconf_test",
     srcs = ["resolvconf_unix_test.go"],
-    embed = [":go_default_library"],
+    embed = [":resolvconf"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
-    srcs = ["resolvconf_unix.go"],
+    name = "resolvconf",
+    srcs = [
+        "resolvconf_unix.go",
+        "resolvconf_windows.go",
+    ],
     importpath = "go-common/app/service/main/bns/lib/resolvconf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],

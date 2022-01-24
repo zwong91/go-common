@@ -2,37 +2,37 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "param_test",
     srcs = ["param_test.go"],
-    embed = [":go_default_library"],
+    embed = [":param"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//app/interface/main/app-resource/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//app/interface/main/app-resource/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "param",
     srcs = ["param.go"],
     importpath = "go-common/app/interface/main/app-resource/service/param",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//app/interface/main/app-resource/dao/param:go_default_library",
-        "//app/interface/main/app-resource/model:go_default_library",
-        "//app/interface/main/app-resource/model/param:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//app/interface/main/app-resource/dao/param",
+        "//app/interface/main/app-resource/model",
+        "//app/interface/main/app-resource/model/param",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/dgryski/go-farm",
     ],
 )
 

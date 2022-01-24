@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "grpc.go",
@@ -20,17 +20,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/conf:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/bluele/gcache:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/ugcpay-rank/internal/conf",
+        "//app/service/main/ugcpay-rank/internal/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/xstr",
+        "//vendor/github.com/bluele/gcache",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -49,7 +49,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "grpc_test.go",
@@ -58,13 +58,13 @@ go_test(
         "mc.extra_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/ugcpay-rank/internal/conf:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/ugcpay-rank/internal/conf",
+        "//app/service/main/ugcpay-rank/internal/model",
+        "//library/cache/memcache",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

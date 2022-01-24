@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mission",
     srcs = ["mission.go"],
     importpath = "go-common/app/job/main/videoup-report/model/mission",
     tags = ["automanaged"],

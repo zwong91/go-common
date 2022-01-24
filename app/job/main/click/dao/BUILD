@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "archive_test.go",
         "bangumi_test.go",
@@ -15,18 +15,18 @@ go_test(
         "dao_test.go",
         "forbid_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/click/conf:go_default_library",
-        "//app/job/main/click/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/click/conf",
+        "//app/job/main/click/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "archive.go",
         "bangumi.go",
@@ -37,11 +37,11 @@ go_library(
     importpath = "go-common/app/job/main/click/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/click/conf:go_default_library",
-        "//app/job/main/click/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/click/conf",
+        "//app/job/main/click/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

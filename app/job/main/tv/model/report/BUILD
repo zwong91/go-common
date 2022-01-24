@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "report",
     srcs = ["report.go"],
     importpath = "go-common/app/job/main/tv/model/report",
     tags = ["automanaged"],

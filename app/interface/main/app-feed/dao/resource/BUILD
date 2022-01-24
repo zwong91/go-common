@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "resource_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":resource"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-feed/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "resource",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/main/app-feed/dao/resource",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//app/service/main/resource/rpc/client:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-feed/conf",
+        "//app/service/main/resource/model",
+        "//app/service/main/resource/rpc/client",
+        "//library/log",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

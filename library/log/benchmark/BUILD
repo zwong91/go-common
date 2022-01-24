@@ -8,19 +8,19 @@ load(
 
 go_binary(
     name = "benchmark",
-    embed = [":go_default_library"],
+    embed = [":benchmark_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "benchmark_lib",
     srcs = ["main.go"],
     importpath = "go-common/library/log/benchmark",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//library/log",
+        "//library/time",
     ],
 )
 

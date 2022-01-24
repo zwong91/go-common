@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["client.go"],
     importpath = "go-common/app/service/bbq/search/cmd/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/search/api/grpc/v1:go_default_library",
-        "//app/service/bbq/search/model:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//app/service/bbq/search/api/grpc/v1:grpc",
+        "//app/service/bbq/search/model",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 

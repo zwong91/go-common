@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "drawyoo",
     srcs = ["drawyoo.go"],
     importpath = "go-common/app/interface/main/reply/model/drawyoo",
     tags = ["automanaged"],

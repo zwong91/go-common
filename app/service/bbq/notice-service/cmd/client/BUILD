@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/bbq/notice-service/cmd/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/notice-service/api/v1:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/bbq/notice-service/api/v1:api",
+        "//library/net/rpc/warden",
+        "//library/time",
     ],
 )
 

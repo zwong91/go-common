@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "activity_test.go",
         "business_test.go",
@@ -16,19 +16,19 @@ go_test(
         "service_test.go",
         "wlog_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/workflow/model:go_default_library",
-        "//app/admin/main/workflow/model/param:go_default_library",
-        "//app/admin/main/workflow/model/search:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/workflow/model",
+        "//app/admin/main/workflow/model/param",
+        "//app/admin/main/workflow/model/search",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "activity.go",
         "business.go",
@@ -46,21 +46,21 @@ go_library(
     importpath = "go-common/app/admin/main/workflow/service",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/credit/model/blocked:go_default_library",
-        "//app/admin/main/workflow/dao:go_default_library",
-        "//app/admin/main/workflow/model:go_default_library",
-        "//app/admin/main/workflow/model/param:go_default_library",
-        "//app/admin/main/workflow/model/search:go_default_library",
-        "//app/job/main/credit/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/golang.org/x/sync/errgroup:go_default_library",
+        "//app/admin/main/credit/model/blocked",
+        "//app/admin/main/workflow/dao",
+        "//app/admin/main/workflow/model",
+        "//app/admin/main/workflow/model/param",
+        "//app/admin/main/workflow/model/search",
+        "//app/job/main/credit/model",
+        "//library/conf/paladin",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/queue/databus/report",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/sync/errgroup",
     ],
 )
 

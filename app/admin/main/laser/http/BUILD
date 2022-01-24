@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "csv.go",
         "http.go",
@@ -18,15 +18,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/laser/conf:go_default_library",
-        "//app/admin/main/laser/model:go_default_library",
-        "//app/admin/main/laser/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/laser/conf",
+        "//app/admin/main/laser/model",
+        "//app/admin/main/laser/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

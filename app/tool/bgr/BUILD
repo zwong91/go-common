@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
-    "go_library",
     "go_binary",
+    "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "bgr_test",
     srcs = ["bgl_test.go"],
-    embed = [":go_default_library"],
+    embed = [":bgr_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bgr_lib",
     srcs = [
         "ast_inspect.go",
         "cache.go",
@@ -29,8 +29,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/bgr/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/tool/bgr/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -53,6 +53,6 @@ filegroup(
 
 go_binary(
     name = "bgr",
-    embed = [":go_default_library"],
+    embed = [":bgr_lib"],
     tags = ["automanaged"],
 )

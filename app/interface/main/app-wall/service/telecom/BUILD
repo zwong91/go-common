@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "telecom_test",
     srcs = ["telecom_test.go"],
-    embed = [":go_default_library"],
+    embed = [":telecom"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-wall/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-wall/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "telecom",
     srcs = [
         "service.go",
         "telecom.go",
@@ -28,14 +28,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-wall/conf:go_default_library",
-        "//app/interface/main/app-wall/dao/seq:go_default_library",
-        "//app/interface/main/app-wall/dao/telecom:go_default_library",
-        "//app/interface/main/app-wall/model/telecom:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/app-wall/conf",
+        "//app/interface/main/app-wall/dao/seq",
+        "//app/interface/main/app-wall/dao/telecom",
+        "//app/interface/main/app-wall/model/telecom",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
     ],
 )
 

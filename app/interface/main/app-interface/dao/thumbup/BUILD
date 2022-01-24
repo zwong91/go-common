@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "thumbup_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":thumbup"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "thumbup",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/main/app-interface/dao/thumbup",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/service/main/thumbup/model:go_default_library",
-        "//app/service/main/thumbup/rpc/client:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/service/main/thumbup/model",
+        "//app/service/main/thumbup/rpc/client",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

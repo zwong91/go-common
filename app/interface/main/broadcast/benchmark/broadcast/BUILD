@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "broadcast",
-    embed = [":go_default_library"],
+    embed = [":broadcast_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "broadcast_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/interface/main/broadcast/benchmark/broadcast",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/time:go_default_library",
+        "//library/net/http/blademaster",
+        "//library/net/netutil/breaker",
+        "//library/time",
     ],
 )
 

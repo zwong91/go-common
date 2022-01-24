@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "gorpc_test",
     srcs = ["server_test.go"],
-    embed = [":go_default_library"],
+    embed = [":gorpc"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/push/api/gorpc:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/push/api/gorpc",
+        "//app/service/main/push/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gorpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/push/server/gorpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/push/conf:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//app/service/main/push/service:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/push/conf",
+        "//app/service/main/push/model",
+        "//app/service/main/push/service",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "medal_test",
     srcs = [
         "dao_test.go",
         "depend_test.go",
@@ -15,19 +15,19 @@ go_test(
         "memcache_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":medal"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/usersuit/conf:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/service/main/usersuit/conf",
+        "//app/service/main/usersuit/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "medal",
     srcs = [
         "dao.go",
         "depend.go",
@@ -35,20 +35,19 @@ go_library(
         "memcache.go",
         "mysql.go",
     ],
-    importmap = "go-common/app/service/main/usersuit/dao/medal",
     importpath = "go-common/app/service/main/usersuit/dao/medal",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/usersuit/conf:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//vendor/github.com/bluele/gcache:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/usersuit/conf",
+        "//app/service/main/usersuit/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//vendor/github.com/bluele/gcache",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

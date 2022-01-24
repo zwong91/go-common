@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "summary.go",
@@ -15,11 +15,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/account-summary/conf:go_default_library",
-        "//app/job/main/account-summary/model:go_default_library",
-        "//app/job/main/account-summary/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/account-summary/conf",
+        "//app/job/main/account-summary/model",
+        "//app/job/main/account-summary/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pkg",
     srcs = ["sign.go"],
     importpath = "go-common/app/service/main/tv/internal/pkg",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/github.com/google/go-querystring/query:go_default_library",
+        "//library/log",
+        "//vendor/github.com/google/go-querystring/query",
     ],
 )
 

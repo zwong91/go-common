@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "archive_stat_test.go",
         "csv_test.go",
@@ -15,18 +15,18 @@ go_test(
         "task_log_test.go",
         "task_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/laser/conf:go_default_library",
-        "//app/admin/main/laser/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/laser/conf",
+        "//app/admin/main/laser/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "archive_stat.go",
         "csv.go",
@@ -38,11 +38,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/laser/conf:go_default_library",
-        "//app/admin/main/laser/dao:go_default_library",
-        "//app/admin/main/laser/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/laser/conf",
+        "//app/admin/main/laser/dao",
+        "//app/admin/main/laser/model",
+        "//library/log",
+        "//library/time",
     ],
 )
 

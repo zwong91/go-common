@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = [
         "archive_test.go",
         "dao_test.go",
@@ -24,21 +24,21 @@ go_test(
         "type_test.go",
         "video_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/videoup/conf:go_default_library",
-        "//app/service/main/videoup/model/archive:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/davecgh/go-spew/spew:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/videoup/conf",
+        "//app/service/main/videoup/model/archive",
+        "//library/database/sql",
+        "//library/time",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/davecgh/go-spew/spew",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "archive.go",
         "dao.cache.go",
@@ -64,20 +64,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/videoup/conf:go_default_library",
-        "//app/service/main/videoup/model/archive:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/golang.org/x/sync/singleflight:go_default_library",
+        "//app/service/main/videoup/conf",
+        "//app/service/main/videoup/model/archive",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/dgryski/go-farm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/sync/singleflight",
     ],
 )
 

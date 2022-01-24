@@ -20,16 +20,16 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "i64b",
     srcs = ["xints.go"],
     importpath = "go-common/app/service/main/relation/model/i64b",
     tags = ["automanaged"],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "i64b_test",
     srcs = ["xints_test.go"],
-    embed = [":go_default_library"],
+    embed = [":i64b"],
     rundir = ".",
     tags = ["automanaged"],
 )

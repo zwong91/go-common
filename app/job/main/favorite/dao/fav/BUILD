@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "fav_test",
     srcs = [
         "dao_test.go",
         "memcache_test.go",
         "mysql_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":fav"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/favorite/conf:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/favorite/conf",
+        "//app/service/main/favorite/model",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "fav",
     srcs = [
         "dao.go",
         "memcache.go",
@@ -36,15 +36,15 @@ go_library(
     importpath = "go-common/app/job/main/favorite/dao/fav",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/favorite/conf:go_default_library",
-        "//app/job/main/favorite/model:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/favorite/conf",
+        "//app/job/main/favorite/model",
+        "//app/service/main/favorite/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

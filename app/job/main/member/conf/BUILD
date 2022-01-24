@@ -6,23 +6,23 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/job/main/member/conf",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/member/model/block:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/databusutil:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/job/main/member/model/block",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/conf",
+        "//library/database/sql",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/http/blademaster",
+        "//library/queue/databus",
+        "//library/queue/databus/databusutil",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

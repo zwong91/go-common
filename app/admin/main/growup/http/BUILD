@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "activity.go",
         "authority.go",
@@ -34,20 +34,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//app/admin/main/growup/dao:go_default_library",
-        "//app/admin/main/growup/dao/shell:go_default_library",
-        "//app/admin/main/growup/model:go_default_library",
-        "//app/admin/main/growup/model/offlineactivity:go_default_library",
-        "//app/admin/main/growup/service:go_default_library",
-        "//app/admin/main/growup/service/income:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//app/admin/main/growup/dao",
+        "//app/admin/main/growup/dao/shell",
+        "//app/admin/main/growup/model",
+        "//app/admin/main/growup/model/offlineactivity",
+        "//app/admin/main/growup/service",
+        "//app/admin/main/growup/service/income",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/render",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

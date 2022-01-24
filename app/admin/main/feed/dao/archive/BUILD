@@ -2,35 +2,35 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/feed/dao/archive",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//library/log",
     ],
 )
 

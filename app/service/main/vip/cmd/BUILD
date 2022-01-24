@@ -8,25 +8,25 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["vip-service-test.toml"],
     importpath = "go-common/app/service/main/vip/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/vip/conf:go_default_library",
-        "//app/service/main/vip/http:go_default_library",
-        "//app/service/main/vip/rpc/server:go_default_library",
-        "//app/service/main/vip/server/grpc:go_default_library",
-        "//app/service/main/vip/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/vip/conf",
+        "//app/service/main/vip/http",
+        "//app/service/main/vip/rpc/server",
+        "//app/service/main/vip/server/grpc",
+        "//app/service/main/vip/service",
+        "//library/ecode/tip",
+        "//library/log",
     ],
 )
 

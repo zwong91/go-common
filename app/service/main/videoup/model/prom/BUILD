@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "prom",
     srcs = ["prom.go"],
     importpath = "go-common/app/service/main/videoup/model/prom",
     tags = ["automanaged"],

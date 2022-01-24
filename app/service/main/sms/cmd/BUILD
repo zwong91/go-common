@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["sms-service-test.toml"],
     importpath = "go-common/app/service/main/sms/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/sms/conf:go_default_library",
-        "//app/service/main/sms/server/gorpc:go_default_library",
-        "//app/service/main/sms/server/grpc:go_default_library",
-        "//app/service/main/sms/server/http:go_default_library",
-        "//app/service/main/sms/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/main/sms/conf",
+        "//app/service/main/sms/server/gorpc",
+        "//app/service/main/sms/server/grpc",
+        "//app/service/main/sms/server/http",
+        "//app/service/main/sms/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

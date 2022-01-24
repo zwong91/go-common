@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "watermark",
     srcs = ["watermark.go"],
     importpath = "go-common/app/interface/main/creative/model/watermark",
     tags = ["automanaged"],

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = [
         "conf.go",
         "log_hash.go",
@@ -16,21 +16,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/conf",
+        "//library/database/orm",
+        "//library/database/sql",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/rpc",
+        "//library/net/rpc/liverpc",
+        "//library/net/rpc/warden",
+        "//library/net/trace",
+        "//library/queue/databus",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "env",
     srcs = ["env.go"],
     importpath = "go-common/library/conf/env",
     tags = ["automanaged"],
@@ -29,9 +29,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "env_test",
     srcs = ["env_test.go"],
-    embed = [":go_default_library"],
+    embed = [":env"],
     rundir = ".",
     tags = ["automanaged"],
 )

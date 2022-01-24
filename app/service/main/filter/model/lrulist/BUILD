@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "lrulist_test",
     srcs = ["list_test.go"],
-    embed = [":go_default_library"],
+    embed = [":lrulist"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lrulist",
     srcs = ["list.go"],
     importpath = "go-common/app/service/main/filter/model/lrulist",
     tags = ["automanaged"],

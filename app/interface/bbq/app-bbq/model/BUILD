@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "app.go",
         "cache.go",
@@ -24,8 +24,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/user/api:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/bbq/user/api",
+        "//library/time",
     ],
 )
 

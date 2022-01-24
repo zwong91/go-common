@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "testdata",
     srcs = ["client.go"],
     importpath = "go-common/library/net/rpc/liverpc/testdata",
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/net/rpc/liverpc/testdata/v1:go_default_library",
-        "//library/net/rpc/liverpc/testdata/v2:go_default_library",
+        "//library/net/rpc/liverpc",
+        "//library/net/rpc/liverpc/testdata/v1:testdata",
+        "//library/net/rpc/liverpc/testdata/v2:testdata",
     ],
 )
 

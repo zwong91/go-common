@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databusutil",
     srcs = [
         "doc.go",
         "group.go",
@@ -14,22 +14,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
+        "//library/queue/databus",
+        "//library/time",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "databusutil_test",
     srcs = ["group_test.go"],
-    embed = [":go_default_library"],
+    embed = [":databusutil"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//library/time",
     ],
 )
 

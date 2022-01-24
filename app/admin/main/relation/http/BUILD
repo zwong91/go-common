@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "relation.go",
@@ -14,12 +14,12 @@ go_library(
     importpath = "go-common/app/admin/main/relation/http",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/relation/conf:go_default_library",
-        "//app/admin/main/relation/model:go_default_library",
-        "//app/admin/main/relation/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
+        "//app/admin/main/relation/conf",
+        "//app/admin/main/relation/model",
+        "//app/admin/main/relation/service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
     ],
 )
 

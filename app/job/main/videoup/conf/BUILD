@@ -6,20 +6,20 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/job/main/videoup/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/cache/redis:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//library/cache/redis",
+        "//library/conf",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/rpc/warden",
+        "//library/queue/databus",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

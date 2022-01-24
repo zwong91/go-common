@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "tests_test",
     srcs = ["example_test.go"],
-    embed = [":go_default_library"],
+    embed = [":tests"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/tool/gengo/cmd/deepcopy-gen/examples/api/v1:go_default_library",
-        "//app/tool/gengo/cmd/deepcopy-gen/examples/model:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
+        "//app/tool/gengo/cmd/deepcopy-gen/examples/api/v1:api",
+        "//app/tool/gengo/cmd/deepcopy-gen/examples/model",
+        "//library/time",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tests",
     srcs = ["example.go"],
     importpath = "go-common/app/tool/gengo/cmd/deepcopy-gen/examples/tests",
     tags = ["automanaged"],

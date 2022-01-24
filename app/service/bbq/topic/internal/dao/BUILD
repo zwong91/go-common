@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "common.go",
         "dao.cache.go",
@@ -20,19 +20,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/topic/api:go_default_library",
-        "//app/service/bbq/topic/internal/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/bbq/topic/api",
+        "//app/service/bbq/topic/internal/model",
+        "//library/cache/redis",
+        "//library/conf/paladin",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/errgroup.v2:errgroup_v2",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 
@@ -51,7 +51,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "common_test.go",
         "dao.cache_test.go",
@@ -60,14 +60,14 @@ go_test(
         "topic_test.go",
         "topic_video_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/bbq/topic/api:go_default_library",
-        "//app/service/bbq/topic/internal/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/bbq/topic/api",
+        "//app/service/bbq/topic/internal/model",
+        "//library/conf/paladin",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

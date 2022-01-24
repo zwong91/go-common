@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "distrib.go",
         "http.go",
@@ -18,30 +18,30 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/ticket-sales/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-sales/conf:go_default_library",
-        "//app/service/openplatform/ticket-sales/model:go_default_library",
-        "//app/service/openplatform/ticket-sales/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/openplatform/ticket-sales/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-sales/conf",
+        "//app/service/openplatform/ticket-sales/model",
+        "//app/service/openplatform/ticket-sales/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/render",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = ["http_test.go"],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/ticket-sales/conf:go_default_library",
-        "//app/service/openplatform/ticket-sales/service:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/service/openplatform/ticket-sales/conf",
+        "//app/service/openplatform/ticket-sales/service",
+        "//library/conf/paladin",
+        "//library/net/http/blademaster",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "http.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/bfs/conf:go_default_library",
-        "//app/admin/main/bfs/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/samuel/go-zookeeper/zk:go_default_library",
+        "//app/admin/main/bfs/conf",
+        "//app/admin/main/bfs/model",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//vendor/github.com/samuel/go-zookeeper/zk",
     ],
 )
 
@@ -41,16 +41,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "http_test.go",
         "zk_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/bfs/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/bfs/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

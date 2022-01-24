@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "favorite.go",
         "http.go",
@@ -16,16 +16,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/playlist/conf:go_default_library",
-        "//app/interface/main/playlist/model:go_default_library",
-        "//app/interface/main/playlist/service:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/playlist/conf",
+        "//app/interface/main/playlist/model",
+        "//app/interface/main/playlist/service",
+        "//app/service/main/favorite/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/xstr",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "audit.go",
         "dao.go",
@@ -23,21 +23,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/relation/conf:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/relation/model/i64b:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/bluele/gcache:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/relation/conf",
+        "//app/service/main/relation/model",
+        "//app/service/main/relation/model/i64b",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/queue/databus/report",
+        "//library/stat/prom",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/bluele/gcache",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -56,7 +56,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "audit_test.go",
         "dao_test.go",
@@ -68,14 +68,14 @@ go_test(
         "redis_test.go",
         "relation_log_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/relation/conf:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/relation/model/i64b:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/relation/conf",
+        "//app/service/main/relation/model",
+        "//app/service/main/relation/model/i64b",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

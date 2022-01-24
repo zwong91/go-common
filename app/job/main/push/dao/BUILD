@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "memcache_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/push/conf:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/push/conf",
+        "//app/service/main/push/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "dataplatform.go",
@@ -36,17 +36,17 @@ go_library(
     importpath = "go-common/app/job/main/push/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/push/model:go_default_library",
-        "//app/job/main/push/conf:go_default_library",
-        "//app/job/main/push/model:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/admin/main/push/model",
+        "//app/job/main/push/conf",
+        "//app/job/main/push/model",
+        "//app/service/main/push/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
     ],
 )
 

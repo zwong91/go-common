@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = ["rpc.go"],
     importpath = "go-common/app/service/main/seq-server/rpc/server",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/seq-server/conf:go_default_library",
-        "//app/service/main/seq-server/model:go_default_library",
-        "//app/service/main/seq-server/service:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/seq-server/conf",
+        "//app/service/main/seq-server/model",
+        "//app/service/main/seq-server/service",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

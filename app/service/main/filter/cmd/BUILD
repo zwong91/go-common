@@ -8,31 +8,31 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["filter-service-test.toml"],
     importpath = "go-common/app/service/main/filter/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/filter/conf:go_default_library",
-        "//app/service/main/filter/http:go_default_library",
-        "//app/service/main/filter/rpc/server:go_default_library",
-        "//app/service/main/filter/server/grpc:go_default_library",
-        "//app/service/main/filter/service:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/ip:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/os/signal:go_default_library",
-        "//library/syscall:go_default_library",
+        "//app/service/main/filter/conf",
+        "//app/service/main/filter/http",
+        "//app/service/main/filter/rpc/server",
+        "//app/service/main/filter/server/grpc",
+        "//app/service/main/filter/service",
+        "//library/conf/env",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/ip",
+        "//library/net/trace",
+        "//library/os/signal",
+        "//library/syscall",
     ],
 )
 

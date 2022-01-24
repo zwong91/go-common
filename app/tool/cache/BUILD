@@ -1,11 +1,11 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cache_lib",
     srcs = [
         "header_template.go",
         "main.go",
@@ -16,12 +16,12 @@ go_library(
     importpath = "go-common/app/tool/cache",
     tags = ["automanaged"],
     visibility = ["//visibility:private"],
-    deps = ["//app/tool/cache/common:go_default_library"],
+    deps = ["//app/tool/cache/common"],
 )
 
 go_binary(
     name = "cache",
-    embed = [":go_default_library"],
+    embed = [":cache_lib"],
     visibility = ["//visibility:public"],
 )
 

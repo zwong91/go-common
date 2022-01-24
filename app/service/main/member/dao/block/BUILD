@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "block",
     srcs = [
         "dao.go",
         "http.go",
@@ -18,16 +18,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/model/block",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -46,22 +46,22 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "block_test",
     srcs = [
         "dao_test.go",
         "http_test.go",
         "mc_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":block"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/model/block",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

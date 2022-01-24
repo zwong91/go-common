@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/job/live/recommend-job/internal/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/recommend-job/internal/conf:go_default_library",
-        "//library/cache/redis:go_default_library",
+        "//app/job/live/recommend-job/internal/conf",
+        "//library/cache/redis",
     ],
 )
 

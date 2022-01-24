@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "aes.go",
         "service.go",
@@ -17,11 +17,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/passport/conf:go_default_library",
-        "//app/admin/main/passport/dao:go_default_library",
-        "//app/admin/main/passport/model:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/passport/conf",
+        "//app/admin/main/passport/dao",
+        "//app/admin/main/passport/model",
+        "//library/database/elastic",
+        "//library/log",
     ],
 )
 
@@ -40,14 +40,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["user_act_log_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/passport/conf:go_default_library",
-        "//app/admin/main/passport/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/passport/conf",
+        "//app/admin/main/passport/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

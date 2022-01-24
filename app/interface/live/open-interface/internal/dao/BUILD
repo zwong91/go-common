@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "grpc.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/interface/live/open-interface/internal/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/live/broadcast-proxy/api/v1:go_default_library"],
+    deps = ["//app/service/live/broadcast-proxy/api/v1:api"],
 )
 
 filegroup(

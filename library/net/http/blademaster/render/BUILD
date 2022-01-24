@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//go:def.bzl",
     "go_library",
@@ -13,26 +14,22 @@ proto_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
+        "//github.com/gogo/protobuf/gogoproto:gogoproto_proto",
         "@com_google_protobuf//:any_proto",
-        "@gogo_special_proto//github.com/gogo/protobuf/gogoproto",
     ],
 )
 
 go_proto_library(
     name = "render_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogo_proto"],
     importpath = "go-common/library/net/http/blademaster/render",
     proto = ":render_proto",
     tags = ["manual"],
     visibility = ["//visibility:public"],
-    deps = [
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_golang_protobuf//ptypes/any:go_default_library",
-    ],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "render",
     srcs = [
         "data.go",
         "json.go",
@@ -47,9 +44,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@com_github_gogo_protobuf//types:go_default_library",
+        "//vendor/github.com/gogo/protobuf/proto",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

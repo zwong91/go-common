@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["history-job.toml"],
     importpath = "go-common/app/job/main/history/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/history/conf:go_default_library",
-        "//app/job/main/history/http:go_default_library",
-        "//app/job/main/history/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/main/history/conf",
+        "//app/job/main/history/http",
+        "//app/job/main/history/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 
@@ -39,10 +39,4 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-)
-
-load(
-    "@io_bazel_rules_go//go:def.bzl",
-    "go_binary",
-    "go_library",
 )

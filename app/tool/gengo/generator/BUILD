@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "generator",
     srcs = [
         "default_generator.go",
         "default_package.go",
@@ -22,16 +22,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/gengo/namer:go_default_library",
-        "//app/tool/gengo/parser:go_default_library",
-        "//app/tool/gengo/types:go_default_library",
-        "//vendor/github.com/golang/glog:go_default_library",
-        "//vendor/golang.org/x/tools/imports:go_default_library",
+        "//app/tool/gengo/namer",
+        "//app/tool/gengo/parser",
+        "//app/tool/gengo/types",
+        "//vendor/github.com/golang/glog",
+        "//vendor/golang.org/x/tools/imports",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["snippet_writer_test.go"],
     tags = ["automanaged"],
     deps = [
@@ -53,4 +53,14 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "generator_test",
+    srcs = ["snippet_writer_test.go"],
+    deps = [
+        ":generator",
+        "//app/tool/gengo/namer",
+        "//app/tool/gengo/parser",
+    ],
 )

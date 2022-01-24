@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dep",
     srcs = ["doc.go"],
     importpath = "go-common/app/tool/gengo/testdata/fake/dep",
     tags = ["automanaged"],

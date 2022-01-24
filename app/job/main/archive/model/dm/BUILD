@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dm",
     srcs = ["dm.go"],
     importpath = "go-common/app/job/main/archive/model/dm",
     tags = ["automanaged"],

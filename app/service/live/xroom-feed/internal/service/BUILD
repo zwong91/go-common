@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "pool_conf.go",
         "rec_pool.go",
@@ -16,12 +16,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xroom-feed/api:go_default_library",
-        "//app/service/live/xroom-feed/internal/dao:go_default_library",
-        "//app/service/live/xroom-feed/internal/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/log:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/live/xroom-feed/api",
+        "//app/service/live/xroom-feed/internal/dao",
+        "//app/service/live/xroom-feed/internal/model",
+        "//library/conf/paladin",
+        "//library/log",
+        "//library/xstr",
     ],
 )
 

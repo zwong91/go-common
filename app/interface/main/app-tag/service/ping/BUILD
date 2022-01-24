@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "ping_test",
     srcs = ["ping_test.go"],
-    embed = [":go_default_library"],
+    embed = [":ping"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-tag/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ping",
     srcs = ["ping.go"],
     importpath = "go-common/app/interface/main/app-tag/service/ping",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/conf:go_default_library",
-        "//app/interface/main/app-tag/dao/region:go_default_library",
+        "//app/interface/main/app-tag/conf",
+        "//app/interface/main/app-tag/dao/region",
     ],
 )
 

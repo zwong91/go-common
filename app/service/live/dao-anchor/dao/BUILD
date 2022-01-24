@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "mysql.go",
@@ -18,18 +18,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/common/live/library/lrucache:go_default_library",
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/live/dao-anchor/conf:go_default_library",
-        "//app/service/live/dao-anchor/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/common/live/library/lrucache",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/live/dao-anchor/conf",
+        "//app/service/live/dao-anchor/model",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//vendor/github.com/json-iterator/go",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -48,19 +48,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/live/dao-anchor/conf:go_default_library",
-        "//app/service/live/dao-anchor/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/live/dao-anchor/conf",
+        "//app/service/live/dao-anchor/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

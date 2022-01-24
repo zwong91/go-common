@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "httpstream",
     srcs = [
         "conf.go",
         "httpstream.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/event:go_default_library",
-        "//app/service/ops/log-agent/pkg/httpstream:go_default_library",
-        "//app/service/ops/log-agent/processor:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/service/ops/log-agent/event",
+        "//app/service/ops/log-agent/pkg/httpstream",
+        "//app/service/ops/log-agent/processor",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

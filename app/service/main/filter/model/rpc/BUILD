@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "rpc",
     srcs = ["rpc.go"],
     importpath = "go-common/app/service/main/filter/model/rpc",
     tags = ["automanaged"],

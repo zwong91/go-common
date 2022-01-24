@@ -2,38 +2,38 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "banner_test",
     srcs = ["banner_test.go"],
-    embed = [":go_default_library"],
+    embed = [":banner"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-show/conf:go_default_library",
-        "//app/interface/main/app-show/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-show/conf",
+        "//app/interface/main/app-show/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "banner",
     srcs = ["banner.go"],
     importpath = "go-common/app/interface/main/app-show/service/banner",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-show/conf:go_default_library",
-        "//app/interface/main/app-show/dao/resource:go_default_library",
-        "//app/interface/main/app-show/model:go_default_library",
-        "//app/interface/main/app-show/model/banner:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/interface/main/app-show/conf",
+        "//app/interface/main/app-show/dao/resource",
+        "//app/interface/main/app-show/model",
+        "//app/interface/main/app-show/model/banner",
+        "//app/service/main/resource/model",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
     ],
 )
 

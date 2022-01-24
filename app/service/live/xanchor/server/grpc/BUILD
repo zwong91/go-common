@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/live/xanchor/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xanchor/api/grpc/v1:go_default_library",
-        "//app/service/live/xanchor/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/xanchor/api/grpc/v1:grpc",
+        "//app/service/live/xanchor/service",
+        "//library/net/rpc/warden",
     ],
 )
 

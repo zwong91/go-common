@@ -2,38 +2,38 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "resource_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":resource"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/service",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "resource",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/main/creative/service/resource",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/resource:go_default_library",
-        "//app/interface/main/creative/dao/tool:go_default_library",
-        "//app/interface/main/creative/model/resource:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/resource",
+        "//app/interface/main/creative/dao/tool",
+        "//app/interface/main/creative/model/resource",
+        "//app/interface/main/creative/service",
+        "//app/service/main/resource/model",
+        "//library/log",
     ],
 )
 

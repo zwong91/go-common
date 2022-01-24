@@ -2,38 +2,38 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "ad_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":ad"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/game:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/game",
+        "//app/interface/main/creative/service",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ad",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/main/creative/service/ad",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/game:go_default_library",
-        "//app/interface/main/creative/dao/porder:go_default_library",
-        "//app/interface/main/creative/model/game:go_default_library",
-        "//app/interface/main/creative/model/porder:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/game",
+        "//app/interface/main/creative/dao/porder",
+        "//app/interface/main/creative/model/game",
+        "//app/interface/main/creative/model/porder",
+        "//app/interface/main/creative/service",
+        "//library/log",
     ],
 )
 

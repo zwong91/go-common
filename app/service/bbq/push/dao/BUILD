@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/service/bbq/push/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/push/conf:go_default_library",
-        "//app/service/bbq/push/dao/jpush:go_default_library",
+        "//app/service/bbq/push/conf",
+        "//app/service/bbq/push/dao/jpush",
     ],
 )
 

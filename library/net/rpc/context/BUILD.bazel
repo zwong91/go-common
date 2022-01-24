@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "context",
     srcs = ["context.go"],
     importpath = "go-common/library/net/rpc/context",
     tags = ["automanaged"],

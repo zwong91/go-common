@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "egg",
     srcs = ["egg.go"],
     importpath = "go-common/app/interface/main/app-resource/dao/egg",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//app/interface/main/app-resource/model/static:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//app/interface/main/app-resource/model/static",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 

@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "channel",
     srcs = ["card.go"],
     importpath = "go-common/app/admin/main/feed/model/channel",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/admin/main/feed/model/common:go_default_library"],
+    deps = ["//app/admin/main/feed/model/common"],
 )
 
 filegroup(

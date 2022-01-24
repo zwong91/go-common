@@ -6,11 +6,11 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["model.go"],
     importpath = "go-common/app/job/main/sms/model",
     tags = ["automanaged"],
-    deps = ["//app/service/main/sms/model:go_default_library"],
+    deps = ["//app/service/main/sms/model"],
 )
 
 filegroup(

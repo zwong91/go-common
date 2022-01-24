@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "bfs.go",
         "service.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/bfs/conf:go_default_library",
-        "//app/admin/main/bfs/dao:go_default_library",
-        "//app/admin/main/bfs/model:go_default_library",
-        "//library/ecode:go_default_library",
+        "//app/admin/main/bfs/conf",
+        "//app/admin/main/bfs/dao",
+        "//app/admin/main/bfs/model",
+        "//library/ecode",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "live_user",
     srcs = [
         "dahanghai.go",
         "dao.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/app-interface/conf:go_default_library",
-        "//app/interface/live/app-interface/dao:go_default_library",
-        "//app/service/live/live_user/api/liverpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc/context:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/live/app-interface/conf",
+        "//app/interface/live/app-interface/dao",
+        "//app/service/live/live_user/api/liverpc/v1:liverpc",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/rpc/liverpc/context",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

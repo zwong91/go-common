@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "monitor",
     srcs = [
         "api.go",
         "dao.go",
@@ -18,14 +18,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/aegis/conf:go_default_library",
-        "//app/job/main/aegis/model/monitor:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/aegis/conf",
+        "//app/job/main/aegis/model/monitor",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -44,19 +44,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "monitor_test",
     srcs = [
         "api_test.go",
         "dao_test.go",
         "db_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":monitor"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/aegis/conf:go_default_library",
-        "//app/job/main/aegis/model/monitor:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/job/main/aegis/conf",
+        "//app/job/main/aegis/model/monitor",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

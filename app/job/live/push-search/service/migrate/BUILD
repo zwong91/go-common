@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "migrate",
     srcs = ["service.go"],
     importpath = "go-common/app/job/live/push-search/service/migrate",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/push-search/conf:go_default_library",
-        "//app/job/live/push-search/dao/migrate:go_default_library",
-        "//app/job/live/push-search/model:go_default_library",
-        "//library/database/sql:go_default_library",
+        "//app/job/live/push-search/conf",
+        "//app/job/live/push-search/dao/migrate",
+        "//app/job/live/push-search/model",
+        "//library/database/sql",
     ],
 )
 

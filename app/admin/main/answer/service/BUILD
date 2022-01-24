@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "img_test.go",
         "question_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/answer/conf:go_default_library",
-        "//app/admin/main/answer/model:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/answer/conf",
+        "//app/admin/main/answer/model",
+        "//library/xstr",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "img.go",
         "question.go",
@@ -35,14 +35,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/answer/conf:go_default_library",
-        "//app/admin/main/answer/dao:go_default_library",
-        "//app/admin/main/answer/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/text/translate/chinese:go_default_library",
-        "//vendor/github.com/golang/freetype:go_default_library",
+        "//app/admin/main/answer/conf",
+        "//app/admin/main/answer/dao",
+        "//app/admin/main/answer/model",
+        "//library/cache",
+        "//library/ecode",
+        "//library/log",
+        "//library/text/translate/chinese",
+        "//vendor/github.com/golang/freetype",
     ],
 )
 

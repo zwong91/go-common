@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mobile",
     srcs = ["mobile.go"],
     importpath = "go-common/app/interface/main/app-wall/model/mobile",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//library/log",
+        "//library/time",
     ],
 )
 

@@ -2,21 +2,21 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "args_test",
     srcs = ["args_test.go"],
-    embed = [":go_default_library"],
+    embed = [":args"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/tool/gengo/types:go_default_library"],
+    deps = ["//app/tool/gengo/types"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "args",
     srcs = [
         "args.go",
         "var.go",
@@ -25,10 +25,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/gengo/generator:go_default_library",
-        "//app/tool/gengo/namer:go_default_library",
-        "//app/tool/gengo/parser:go_default_library",
-        "//app/tool/gengo/types:go_default_library",
+        "//app/tool/gengo/generator",
+        "//app/tool/gengo/namer",
+        "//app/tool/gengo/parser",
+        "//app/tool/gengo/types",
     ],
 )
 

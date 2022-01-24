@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "blacklist.go",
         "bubble.go",
@@ -22,14 +22,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/service:go_default_library",
-        "//app/job/main/growup/service/charge:go_default_library",
-        "//app/job/main/growup/service/ctrl:go_default_library",
-        "//app/job/main/growup/service/income:go_default_library",
-        "//app/job/main/growup/service/tag:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/service",
+        "//app/job/main/growup/service/charge",
+        "//app/job/main/growup/service/ctrl",
+        "//app/job/main/growup/service/income",
+        "//app/job/main/growup/service/tag",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

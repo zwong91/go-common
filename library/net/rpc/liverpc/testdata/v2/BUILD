@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -25,16 +26,15 @@ go_proto_library(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "testdata",
     srcs = ["Room.liverpc.go"],
     embed = [":v2_go_proto"],
     importpath = "go-common/library/net/rpc/liverpc/testdata/v2",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/rpc/liverpc:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
+        "//library/net/rpc/liverpc",
+        "//vendor/github.com/golang/protobuf/proto",
     ],
 )
 

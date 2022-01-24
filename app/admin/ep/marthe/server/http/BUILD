@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "bugly.go",
         "http.go",
@@ -17,14 +17,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/marthe/conf:go_default_library",
-        "//app/admin/ep/marthe/model:go_default_library",
-        "//app/admin/ep/marthe/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
+        "//app/admin/ep/marthe/conf",
+        "//app/admin/ep/marthe/model",
+        "//app/admin/ep/marthe/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/permit",
     ],
 )
 

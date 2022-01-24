@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "datamodel",
     srcs = [
         "api.go",
         "tables.go",
@@ -15,7 +15,7 @@ go_library(
     importpath = "go-common/app/interface/main/mcn/model/datamodel",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(
@@ -33,8 +33,8 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "datamodel_test",
     srcs = ["tables_test.go"],
-    embed = [":go_default_library"],
+    embed = [":datamodel"],
     tags = ["automanaged"],
 )

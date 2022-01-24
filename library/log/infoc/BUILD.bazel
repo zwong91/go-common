@@ -5,26 +5,26 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "infoc",
     srcs = ["infoc.go"],
     importpath = "go-common/library/log/infoc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/netutil:go_default_library",
-        "//library/time:go_default_library",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/net/netutil",
+        "//library/time",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "infoc_test",
     srcs = ["infoc_test.go"],
-    embed = [":go_default_library"],
+    embed = [":infoc"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//library/net/metadata:go_default_library"],
+    deps = ["//library/net/metadata"],
 )
 
 filegroup(

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "debug.go",
         "field.go",
@@ -16,7 +16,7 @@ go_library(
     importpath = "go-common/app/service/bbq/recsys/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//vendor/github.com/Dai0522/go-hash/bloomfilter:go_default_library"],
+    deps = ["//vendor/github.com/Dai0522/go-hash/bloomfilter"],
 )
 
 filegroup(

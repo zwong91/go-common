@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "authority.go",
         "cache.go",
@@ -20,13 +20,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up-rating/conf:go_default_library",
-        "//app/admin/main/up-rating/dao:go_default_library",
-        "//app/admin/main/up-rating/dao/global:go_default_library",
-        "//app/admin/main/up-rating/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/up-rating/conf",
+        "//app/admin/main/up-rating/dao",
+        "//app/admin/main/up-rating/dao/global",
+        "//app/admin/main/up-rating/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/xstr",
     ],
 )
 

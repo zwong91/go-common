@@ -8,25 +8,25 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["test.toml"],
     importpath = "go-common/app/service/bbq/sys-msg/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/sys-msg/internal/conf:go_default_library",
-        "//app/service/bbq/sys-msg/internal/server/grpc:go_default_library",
-        "//app/service/bbq/sys-msg/internal/server/http:go_default_library",
-        "//app/service/bbq/sys-msg/internal/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/bbq/sys-msg/internal/conf",
+        "//app/service/bbq/sys-msg/internal/server/grpc",
+        "//app/service/bbq/sys-msg/internal/server/http",
+        "//app/service/bbq/sys-msg/internal/service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

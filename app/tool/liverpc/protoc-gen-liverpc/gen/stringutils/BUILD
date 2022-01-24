@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "stringutils",
     srcs = ["stringutils.go"],
     importpath = "go-common/app/tool/liverpc/protoc-gen-liverpc/gen/stringutils",
     tags = ["automanaged"],

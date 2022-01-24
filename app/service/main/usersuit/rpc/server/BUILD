@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "server_test",
     srcs = [
         "pendant_test.go",
         "rpc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":server"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/usersuit/conf:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//app/service/main/usersuit/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/usersuit/conf",
+        "//app/service/main/usersuit/model",
+        "//app/service/main/usersuit/service",
+        "//library/log",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = [
         "common.go",
         "medal.go",
@@ -35,11 +35,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/usersuit/conf:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//app/service/main/usersuit/service:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/usersuit/conf",
+        "//app/service/main/usersuit/model",
+        "//app/service/main/usersuit/service",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

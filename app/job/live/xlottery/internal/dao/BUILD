@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "api.go",
         "cache.go",
@@ -17,16 +17,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/xlottery/internal/conf:go_default_library",
-        "//app/job/live/xlottery/internal/model:go_default_library",
-        "//app/service/live/rc/api/liverpc:go_default_library",
-        "//app/service/live/rc/api/liverpc/v1:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/live/xlottery/internal/conf",
+        "//app/job/live/xlottery/internal/model",
+        "//app/service/live/rc/api/liverpc",
+        "//app/service/live/rc/api/liverpc/v1:liverpc",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/rpc/liverpc",
+        "//library/queue/databus/report",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -1,7 +1,7 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 package(default_visibility = ["//visibility:public"])
@@ -21,7 +21,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "app_auth_test.go",
         "config_test.go",
@@ -29,20 +29,20 @@ go_test(
         "router_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/infra/config/model:go_default_library",
-        "//app/service/main/msm/conf:go_default_library",
-        "//app/service/main/msm/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/infra/config/model",
+        "//app/service/main/msm/conf",
+        "//app/service/main/msm/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "app_auth.go",
         "config.go",
@@ -53,12 +53,12 @@ go_library(
     importpath = "go-common/app/service/main/msm/service",
     tags = ["automanaged"],
     deps = [
-        "//app/infra/config/model:go_default_library",
-        "//app/infra/config/rpc/client:go_default_library",
-        "//app/service/main/msm/conf:go_default_library",
-        "//app/service/main/msm/dao:go_default_library",
-        "//app/service/main/msm/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/infra/config/model",
+        "//app/infra/config/rpc/client",
+        "//app/service/main/msm/conf",
+        "//app/service/main/msm/dao",
+        "//app/service/main/msm/model",
+        "//library/ecode",
+        "//library/log",
     ],
 )

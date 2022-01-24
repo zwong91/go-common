@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "service.go",
         "vip.go",
@@ -16,14 +16,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/card/conf:go_default_library",
-        "//app/job/main/card/dao:go_default_library",
-        "//app/job/main/card/model:go_default_library",
-        "//app/service/main/card/api/grpc/v1:go_default_library",
-        "//app/service/main/card/model:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/card/conf",
+        "//app/job/main/card/dao",
+        "//app/job/main/card/model",
+        "//app/service/main/card/api/grpc/v1:grpc",
+        "//app/service/main/card/model",
+        "//app/service/main/vip/model",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 
@@ -42,14 +42,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["vip_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/card/conf:go_default_library",
-        "//app/job/main/card/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/card/conf",
+        "//app/job/main/card/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

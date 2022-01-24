@@ -2,27 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "breaker_test",
     srcs = [
         "breaker_test.go",
+        "example_test.go",
         "sre_breaker_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":breaker"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/time:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
+        "//library/time",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "breaker",
     srcs = [
         "breaker.go",
         "sre_breaker.go",
@@ -31,15 +32,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/summary:go_default_library",
-        "//library/time:go_default_library",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/summary",
+        "//library/time",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["example_test.go"],
     tags = ["automanaged"],
     deps = [

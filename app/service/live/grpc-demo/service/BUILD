@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/live/grpc-demo/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/grpc-demo/conf:go_default_library",
-        "//app/service/live/grpc-demo/dao:go_default_library",
+        "//app/service/live/grpc-demo/conf",
+        "//app/service/live/grpc-demo/dao",
     ],
 )
 

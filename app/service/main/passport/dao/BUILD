@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "hbase_face_test.go",
         "hbase_login_log_test.go",
         "row_key_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/passport/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/service/main/passport/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "hbase_face.go",
@@ -37,12 +37,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/passport/conf:go_default_library",
-        "//app/service/main/passport/model:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/filter:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/service/main/passport/conf",
+        "//app/service/main/passport/model",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/log",
+        "//vendor/github.com/tsuna/gohbase/filter",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 

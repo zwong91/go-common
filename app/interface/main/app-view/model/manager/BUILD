@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "manager",
     srcs = ["manager.go"],
     importpath = "go-common/app/interface/main/app-view/model/manager",
     tags = ["automanaged"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//library/log",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

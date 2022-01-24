@@ -2,33 +2,33 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["recommend_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/recommend/api/grpc/v1:go_default_library",
-        "//app/service/live/recommend/internal/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/recommend/api/grpc/v1:grpc",
+        "//app/service/live/recommend/internal/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["recommend.go"],
     importpath = "go-common/app/service/live/recommend/internal/service/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/recommend/api/grpc/v1:go_default_library",
-        "//app/service/live/recommend/internal/conf:go_default_library",
-        "//app/service/live/recommend/internal/dao:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/recommend/api/grpc/v1:grpc",
+        "//app/service/live/recommend/internal/conf",
+        "//app/service/live/recommend/internal/dao",
+        "//library/log",
     ],
 )
 

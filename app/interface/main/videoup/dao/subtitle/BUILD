@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "subtitle",
     srcs = [
         "dao.go",
         "subtitle.go",
@@ -16,11 +16,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/dm2/model:go_default_library",
-        "//app/interface/main/dm2/rpc/client:go_default_library",
-        "//app/interface/main/videoup/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/dm2/model",
+        "//app/interface/main/dm2/rpc/client",
+        "//app/interface/main/videoup/conf",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 
@@ -39,15 +39,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "subtitle_test",
     srcs = [
         "dao_test.go",
         "subtitle_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":subtitle"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/videoup/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/videoup/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

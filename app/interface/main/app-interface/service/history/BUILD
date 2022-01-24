@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "history_test",
     srcs = [
         "history_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":history"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "history",
     srcs = [
         "history.go",
         "service.go",
@@ -31,18 +31,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/dao/history:go_default_library",
-        "//app/interface/main/app-interface/dao/live:go_default_library",
-        "//app/interface/main/app-interface/model:go_default_library",
-        "//app/interface/main/app-interface/model/history:go_default_library",
-        "//app/interface/main/app-interface/model/live:go_default_library",
-        "//app/interface/main/history/model:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/dao/history",
+        "//app/interface/main/app-interface/dao/live",
+        "//app/interface/main/app-interface/model",
+        "//app/interface/main/app-interface/model/history",
+        "//app/interface/main/app-interface/model/live",
+        "//app/interface/main/history/model",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/archive/model/archive",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//library/xstr",
     ],
 )
 

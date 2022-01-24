@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "staff_test",
     srcs = ["servicec_test.go"],
-    embed = [":go_default_library"],
+    embed = [":staff"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/service",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "staff",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/main/creative/service/staff",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/service",
     ],
 )
 

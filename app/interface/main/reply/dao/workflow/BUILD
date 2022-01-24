@@ -7,18 +7,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "workflow",
     srcs = ["workflow.go"],
     importpath = "go-common/app/interface/main/reply/dao/workflow",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/reply/conf:go_default_library",
-        "//app/interface/main/reply/model/reply:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/reply/conf",
+        "//app/interface/main/reply/model/reply",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/xstr",
     ],
 )
 
@@ -37,12 +37,12 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "workflow_test",
     srcs = ["workflow_test.go"],
-    embed = [":go_default_library"],
+    embed = [":workflow"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/reply/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/reply/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

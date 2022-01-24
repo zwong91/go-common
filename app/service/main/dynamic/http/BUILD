@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "dynamic.go",
         "http.go",
@@ -14,14 +14,14 @@ go_library(
     importpath = "go-common/app/service/main/dynamic/http",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/dynamic/conf:go_default_library",
-        "//app/service/main/dynamic/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/archive/api",
+        "//app/service/main/dynamic/conf",
+        "//app/service/main/dynamic/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/xstr",
     ],
 )
 

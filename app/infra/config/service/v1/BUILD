@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["client_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/infra/config/conf:go_default_library",
-        "//app/infra/config/model:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/infra/config/conf",
+        "//app/infra/config/model",
+        "//vendor/github.com/BurntSushi/toml",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "client.go",
         "service.go",
@@ -29,13 +29,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/config/conf:go_default_library",
-        "//app/infra/config/dao/v1:go_default_library",
-        "//app/infra/config/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/infra/config/conf",
+        "//app/infra/config/dao/v1:dao",
+        "//app/infra/config/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
     ],
 )
 

@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "daily",
     srcs = ["daily.go"],
     importpath = "go-common/app/interface/main/app-show/model/daily",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-show/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-show/model",
+        "//app/service/main/archive/api",
+        "//library/time",
     ],
 )
 

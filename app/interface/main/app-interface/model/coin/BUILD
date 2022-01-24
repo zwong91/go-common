@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "coin",
     srcs = ["coin.go"],
     importpath = "go-common/app/interface/main/app-interface/model/coin",
     tags = ["automanaged"],

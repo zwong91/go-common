@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "common",
     srcs = [
         "sync_retry.go",
         "zone_idx.go",
@@ -12,7 +12,7 @@ go_library(
     importpath = "go-common/app/job/main/tv/model/common",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

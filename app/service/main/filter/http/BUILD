@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = ["http_test.go"],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/filter/conf:go_default_library",
-        "//app/service/main/filter/service:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/filter/conf",
+        "//app/service/main/filter/service",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "admin.go",
         "filter.go",
@@ -31,13 +31,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/filter/conf:go_default_library",
-        "//app/service/main/filter/model:go_default_library",
-        "//app/service/main/filter/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/main/filter/conf",
+        "//app/service/main/filter/model",
+        "//app/service/main/filter/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

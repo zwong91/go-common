@@ -7,15 +7,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "egg",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/feed/dao/egg",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//library/database/orm",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 
@@ -34,10 +34,10 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "egg_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":egg"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/admin/main/feed/conf:go_default_library"],
+    deps = ["//app/admin/main/feed/conf"],
 )

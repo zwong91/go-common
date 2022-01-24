@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "activity.go",
         "authority.go",
@@ -27,8 +27,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/growup/util:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/growup/util",
+        "//library/time",
     ],
 )
 

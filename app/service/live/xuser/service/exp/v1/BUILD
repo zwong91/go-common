@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "exp",
     srcs = [
         "audit.go",
         "check_param.go",
@@ -20,21 +20,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/live/xuser/api/grpc/v1:go_default_library",
-        "//app/service/live/xuser/conf:go_default_library",
-        "//app/service/live/xuser/dao/exp:go_default_library",
-        "//app/service/live/xuser/dao/xanchor:go_default_library",
-        "//app/service/live/xuser/model/exp:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/live/xuser/api/grpc/v1:grpc",
+        "//app/service/live/xuser/conf",
+        "//app/service/live/xuser/dao/exp",
+        "//app/service/live/xuser/dao/xanchor",
+        "//app/service/live/xuser/model/exp",
+        "//library/cache",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/queue/databus/report",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

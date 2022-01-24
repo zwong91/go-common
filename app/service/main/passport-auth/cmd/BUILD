@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "passport-auth-service.toml",
@@ -23,13 +23,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/passport-auth/conf:go_default_library",
-        "//app/service/main/passport-auth/http:go_default_library",
-        "//app/service/main/passport-auth/rpc/grpc:go_default_library",
-        "//app/service/main/passport-auth/rpc/server:go_default_library",
-        "//app/service/main/passport-auth/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/main/passport-auth/conf",
+        "//app/service/main/passport-auth/http",
+        "//app/service/main/passport-auth/rpc/grpc",
+        "//app/service/main/passport-auth/rpc/server",
+        "//app/service/main/passport-auth/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

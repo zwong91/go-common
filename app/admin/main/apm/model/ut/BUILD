@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ut",
     srcs = [
         "app.go",
         "dashboard.go",
@@ -16,7 +16,7 @@ go_library(
     importpath = "go-common/app/admin/main/apm/model/ut",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

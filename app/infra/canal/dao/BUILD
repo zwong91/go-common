@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "mysql.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/canal/conf:go_default_library",
-        "//app/infra/canal/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/infra/canal/conf",
+        "//app/infra/canal/model",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 
@@ -38,17 +38,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/infra/canal/conf:go_default_library",
-        "//app/infra/canal/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/infra/canal/conf",
+        "//app/infra/canal/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

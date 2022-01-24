@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "abtest",
     srcs = ["abtest.go"],
     importpath = "go-common/app/interface/main/app-resource/model/abtest",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/resource/model:go_default_library"],
+    deps = ["//app/service/main/resource/model"],
 )
 
 filegroup(

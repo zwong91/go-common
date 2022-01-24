@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "dialog_test.go",
         "jointly_test.go",
@@ -19,21 +19,21 @@ go_test(
         "service_test.go",
         "tips_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/vip/conf:go_default_library",
-        "//app/admin/main/vip/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/vip/conf",
+        "//app/admin/main/vip/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "business.go",
         "dialog.go",
@@ -55,18 +55,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/vip/conf:go_default_library",
-        "//app/admin/main/vip/dao:go_default_library",
-        "//app/admin/main/vip/model:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/google/uuid:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/golang.org/x/sync/errgroup:go_default_library",
+        "//app/admin/main/vip/conf",
+        "//app/admin/main/vip/dao",
+        "//app/admin/main/vip/model",
+        "//app/service/main/vip/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/google/uuid",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/sync/errgroup",
     ],
 )
 

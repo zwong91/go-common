@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["playlist-job-test.toml"],
     importpath = "go-common/app/job/main/playlist/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/playlist/conf:go_default_library",
-        "//app/job/main/playlist/http:go_default_library",
-        "//app/job/main/playlist/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/main/playlist/conf",
+        "//app/job/main/playlist/http",
+        "//app/job/main/playlist/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

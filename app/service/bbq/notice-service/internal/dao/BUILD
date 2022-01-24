@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "push.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/notice-service/api/v1:go_default_library",
-        "//app/service/bbq/notice-service/internal/conf:go_default_library",
-        "//app/service/bbq/push/api/grpc/v1:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/bbq/notice-service/api/v1:api",
+        "//app/service/bbq/notice-service/internal/conf",
+        "//app/service/bbq/push/api/grpc/v1:grpc",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/rpc/warden",
     ],
 )
 

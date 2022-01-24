@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "coin.go",
         "http.go",
@@ -15,15 +15,15 @@ go_library(
     importpath = "go-common/app/service/main/coin/server/http",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/coin/api:go_default_library",
-        "//app/service/main/coin/conf:go_default_library",
-        "//app/service/main/coin/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/antispam:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/service/main/coin/api",
+        "//app/service/main/coin/conf",
+        "//app/service/main/coin/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/antispam",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/metadata",
     ],
 )
 

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "authority_test.go",
         "blacklist_test.go",
@@ -20,18 +20,18 @@ go_test(
         "up_info_test.go",
         "upload_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//app/admin/main/growup/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//app/admin/main/growup/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "activity.go",
         "authority.go",
@@ -56,22 +56,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//app/admin/main/growup/dao:go_default_library",
-        "//app/admin/main/growup/dao/message:go_default_library",
-        "//app/admin/main/growup/dao/resource:go_default_library",
-        "//app/admin/main/growup/dao/shell:go_default_library",
-        "//app/admin/main/growup/model:go_default_library",
-        "//app/admin/main/growup/model/offlineactivity:go_default_library",
-        "//app/admin/main/growup/util:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//app/admin/main/growup/dao",
+        "//app/admin/main/growup/dao/message",
+        "//app/admin/main/growup/dao/resource",
+        "//app/admin/main/growup/dao/shell",
+        "//app/admin/main/growup/model",
+        "//app/admin/main/growup/model/offlineactivity",
+        "//app/admin/main/growup/util",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

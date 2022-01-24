@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/live/xuserex/cmd/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuserex/api/grpc/v1:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/live/xuserex/api/grpc/v1:grpc",
+        "//library/net/rpc/warden",
+        "//library/time",
     ],
 )
 

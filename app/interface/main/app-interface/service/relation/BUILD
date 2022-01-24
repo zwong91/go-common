@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "relation_test",
     srcs = [
         "relation_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":relation"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/model/relation:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/model/relation",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "relation",
     srcs = [
         "relation.go",
         "service.go",
@@ -32,17 +32,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/dao/account:go_default_library",
-        "//app/interface/main/app-interface/dao/live:go_default_library",
-        "//app/interface/main/app-interface/dao/relation:go_default_library",
-        "//app/interface/main/app-interface/model/live:go_default_library",
-        "//app/interface/main/app-interface/model/relation:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/dao/account",
+        "//app/interface/main/app-interface/dao/live",
+        "//app/interface/main/app-interface/dao/relation",
+        "//app/interface/main/app-interface/model/live",
+        "//app/interface/main/app-interface/model/relation",
+        "//app/service/main/account/model",
+        "//app/service/main/relation/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup",
     ],
 )
 

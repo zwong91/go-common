@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "jsonLog",
     srcs = [
         "conf.go",
         "jsonLog.go",
@@ -15,11 +15,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/event:go_default_library",
-        "//app/service/ops/log-agent/pkg/common:go_default_library",
-        "//app/service/ops/log-agent/pkg/flowmonitor:go_default_library",
-        "//app/service/ops/log-agent/processor:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/service/ops/log-agent/event",
+        "//app/service/ops/log-agent/pkg/common",
+        "//app/service/ops/log-agent/pkg/flowmonitor",
+        "//app/service/ops/log-agent/processor",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

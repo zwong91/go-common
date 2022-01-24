@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lint",
     srcs = ["lint.go"],
     importpath = "go-common/app/admin/main/config/pkg/lint",
     tags = ["automanaged"],
@@ -15,7 +15,7 @@ go_library(
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["lint_test.go"],
     tags = ["automanaged"],
     deps = [
@@ -41,4 +41,14 @@ filegroup(
     ],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "lint_test",
+    srcs = ["lint_test.go"],
+    deps = [
+        ":lint",
+        "//app/admin/main/config/pkg/lint/json",
+        "//app/admin/main/config/pkg/lint/toml",
+    ],
 )

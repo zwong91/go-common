@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/main/ugcpay/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/ugcpay/conf:go_default_library",
-        "//app/job/main/ugcpay/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/ugcpay/conf",
+        "//app/job/main/ugcpay/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

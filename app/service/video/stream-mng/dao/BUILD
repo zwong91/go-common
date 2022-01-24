@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "backup-stream.go",
         "cache.go",
@@ -27,23 +27,23 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/video/stream-mng/common:go_default_library",
-        "//app/service/video/stream-mng/conf:go_default_library",
-        "//app/service/video/stream-mng/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/bluele/gcache:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/golang.org/x/sync/singleflight:go_default_library",
+        "//app/service/video/stream-mng/common",
+        "//app/service/video/stream-mng/conf",
+        "//app/service/video/stream-mng/model",
+        "//library/cache",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/conf/env",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/bluele/gcache",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/sync/singleflight",
     ],
 )
 
@@ -62,7 +62,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "backup-stream_test.go",
         "cache_test.go",
@@ -78,12 +78,12 @@ go_test(
         "stream-change-log_test.go",
         "upstream-summary_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/video/stream-mng/conf:go_default_library",
-        "//app/service/video/stream-mng/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/video/stream-mng/conf",
+        "//app/service/video/stream-mng/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -8,17 +8,17 @@ load(
 
 go_binary(
     name = "path",
-    embed = [":go_default_library"],
+    embed = [":path_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "path_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/ep/saga-agent/path",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//vendor/github.com/pkg/errors:go_default_library"],
+    deps = ["//vendor/github.com/pkg/errors"],
 )
 
 filegroup(

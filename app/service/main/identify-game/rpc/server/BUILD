@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = [
         "identify.go",
         "rpc.go",
@@ -13,11 +13,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/identify-game/conf:go_default_library",
-        "//app/service/main/identify-game/model:go_default_library",
-        "//app/service/main/identify-game/service:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/identify-game/conf",
+        "//app/service/main/identify-game/model",
+        "//app/service/main/identify-game/service",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

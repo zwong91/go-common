@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "cal_diff.go",
         "push.go",
@@ -16,11 +16,11 @@ go_library(
     importpath = "go-common/app/job/main/appstatic/service",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/appstatic/conf:go_default_library",
-        "//app/job/main/appstatic/dao/caldiff:go_default_library",
-        "//app/job/main/appstatic/dao/push:go_default_library",
-        "//app/job/main/appstatic/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/appstatic/conf",
+        "//app/job/main/appstatic/dao/caldiff",
+        "//app/job/main/appstatic/dao/push",
+        "//app/job/main/appstatic/model",
+        "//library/log",
     ],
 )
 

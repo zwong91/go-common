@@ -7,12 +7,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "white",
     srcs = ["white.go"],
     importpath = "go-common/app/interface/main/app-resource/service/white",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/interface/main/app-resource/conf:go_default_library"],
+    deps = ["//app/interface/main/app-resource/conf"],
 )
 
 filegroup(
@@ -30,13 +30,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "white_test",
     srcs = ["white_test.go"],
-    embed = [":go_default_library"],
+    embed = [":white"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

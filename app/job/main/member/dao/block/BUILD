@@ -2,35 +2,35 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "block_test",
     srcs = [
         "dao_test.go",
         "http_test.go",
         "mc_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":block"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/member/conf:go_default_library",
-        "//app/job/main/member/model/block:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/job/main/member/conf",
+        "//app/job/main/member/model/block",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "block",
     srcs = [
         "dao.go",
         "http.go",
@@ -42,13 +42,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/member/conf:go_default_library",
-        "//app/job/main/member/model/block:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/member/conf",
+        "//app/job/main/member/model/block",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

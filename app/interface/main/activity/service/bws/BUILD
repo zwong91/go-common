@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bws",
     srcs = [
         "achievement.go",
         "bws.go",
@@ -19,17 +19,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/dao/bws:go_default_library",
-        "//app/interface/main/activity/model/bws:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//app/service/main/usersuit/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/dao/bws",
+        "//app/interface/main/activity/model/bws",
+        "//app/service/main/account/api",
+        "//app/service/main/usersuit/model",
+        "//app/service/main/usersuit/rpc/client",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
     ],
 )
 
@@ -48,14 +48,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "bws_test",
     srcs = ["bws_test.go"],
-    embed = [":go_default_library"],
+    embed = [":bws"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/model/bws:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/model/bws",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sidebar",
     srcs = ["sidebar.go"],
     importpath = "go-common/app/interface/main/app-resource/model/sidebar",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/resource/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/resource/model",
+        "//library/time",
     ],
 )
 

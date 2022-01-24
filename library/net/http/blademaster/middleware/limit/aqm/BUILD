@@ -2,40 +2,43 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
-    srcs = ["aqm_test.go"],
-    embed = [":go_default_library"],
+    name = "aqm_test",
+    srcs = [
+        "aqm_test.go",
+        "example_test.go",
+    ],
+    embed = [":aqm"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "aqm",
     srcs = ["aqm.go"],
     importpath = "go-common/library/net/http/blademaster/middleware/limit/aqm",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/container/queue/aqm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/rate:go_default_library",
-        "//library/rate/limit:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//library/container/queue/aqm",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/rate",
+        "//library/rate/limit",
+        "//library/stat/prom",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["example_test.go"],
     tags = ["automanaged"],
 )

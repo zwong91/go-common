@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "databus.go",
         "load.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/riot-search/conf:go_default_library",
-        "//app/service/main/riot-search/dao:go_default_library",
-        "//app/service/main/riot-search/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/ivpusic/grpool:go_default_library",
+        "//app/service/main/riot-search/conf",
+        "//app/service/main/riot-search/dao",
+        "//app/service/main/riot-search/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//vendor/github.com/ivpusic/grpool",
     ],
 )
 

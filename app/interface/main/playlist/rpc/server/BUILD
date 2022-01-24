@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = ["rpc.go"],
     importpath = "go-common/app/interface/main/playlist/rpc/server",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/playlist/conf:go_default_library",
-        "//app/interface/main/playlist/model:go_default_library",
-        "//app/interface/main/playlist/service:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/interface/main/playlist/conf",
+        "//app/interface/main/playlist/model",
+        "//app/interface/main/playlist/service",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

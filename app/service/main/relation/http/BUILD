@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "black.go",
         "follower.go",
@@ -22,18 +22,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/relation/conf:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/relation/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/antispam:go_default_library",
-        "//library/net/http/blademaster/middleware/rate:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/relation/conf",
+        "//app/service/main/relation/model",
+        "//app/service/main/relation/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/antispam",
+        "//library/net/http/blademaster/middleware/rate",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/metadata",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "drawimg",
     srcs = [
         "dao.go",
         "draw.go",
@@ -19,12 +19,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/golang/freetype/raster:go_default_library",
-        "//vendor/github.com/golang/freetype/truetype:go_default_library",
-        "//vendor/golang.org/x/image/font:go_default_library",
-        "//vendor/golang.org/x/image/math/fixed:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//library/log",
+        "//vendor/github.com/golang/freetype/raster",
+        "//vendor/github.com/golang/freetype/truetype",
+        "//vendor/golang.org/x/image/font",
+        "//vendor/golang.org/x/image/math/fixed",
     ],
 )
 
@@ -43,23 +43,23 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "drawimg_test",
     srcs = [
         "dao_test.go",
         "draw_test.go",
         "freetype_test.go",
         "imgutil_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":drawimg"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/golang/freetype/raster:go_default_library",
-        "//vendor/github.com/golang/freetype/truetype:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/golang.org/x/image/font:go_default_library",
-        "//vendor/golang.org/x/image/math/fixed:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/golang/freetype/raster",
+        "//vendor/github.com/golang/freetype/truetype",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/golang.org/x/image/font",
+        "//vendor/golang.org/x/image/math/fixed",
     ],
 )

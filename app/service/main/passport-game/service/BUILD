@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "account.go",
         "cache.go",
@@ -25,20 +25,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/passport-game/conf:go_default_library",
-        "//app/service/main/passport-game/dao:go_default_library",
-        "//app/service/main/passport-game/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
+        "//app/service/main/passport-game/conf",
+        "//app/service/main/passport-game/dao",
+        "//app/service/main/passport-game/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "account_test.go",
         "md5_test.go",
@@ -53,15 +53,15 @@ go_test(
         "rsa_time_hash_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/passport-game/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/passport-game/conf",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

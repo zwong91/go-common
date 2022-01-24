@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "mc.go",
@@ -16,32 +16,32 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-game-cloud/conf:go_default_library",
-        "//app/job/main/passport-game-cloud/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/passport-game-cloud/conf",
+        "//app/job/main/passport-game-cloud/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "mysql_test.go",
         "notify_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport-game-cloud/conf:go_default_library",
-        "//app/job/main/passport-game-cloud/model:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport-game-cloud/conf",
+        "//app/job/main/passport-game-cloud/model",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

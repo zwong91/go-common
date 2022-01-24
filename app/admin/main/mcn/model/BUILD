@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "audit_log.go",
         "base_model.go",
@@ -25,10 +25,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/mcn/model/datamodel:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/mcn/model/datamodel",
+        "//app/service/main/archive/model/archive",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -47,8 +47,8 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["reply_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     tags = ["automanaged"],
 )

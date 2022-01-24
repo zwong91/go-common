@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "match.go",
         "service.go",
@@ -15,11 +15,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/zeus/expr:go_default_library",
-        "//app/service/live/zeus/internal/conf:go_default_library",
-        "//app/service/live/zeus/internal/dao:go_default_library",
-        "//app/service/live/zeus/internal/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/zeus/expr",
+        "//app/service/live/zeus/internal/conf",
+        "//app/service/live/zeus/internal/dao",
+        "//app/service/live/zeus/internal/model",
+        "//library/log",
     ],
 )
 

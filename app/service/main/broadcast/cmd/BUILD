@@ -8,27 +8,27 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/main/broadcast/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/broadcast/server/grpc:go_default_library",
-        "//app/service/main/broadcast/server/http:go_default_library",
-        "//app/service/main/broadcast/service:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/ip:go_default_library",
+        "//app/service/main/broadcast/server/grpc",
+        "//app/service/main/broadcast/server/http",
+        "//app/service/main/broadcast/service",
+        "//library/conf/env",
+        "//library/conf/paladin",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/ip",
     ],
 )
 

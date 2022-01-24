@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "cond.go",
         "filter.go",
@@ -21,21 +21,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/antispam/conf:go_default_library",
-        "//app/service/main/antispam/dao:go_default_library",
-        "//app/service/main/antispam/model:go_default_library",
-        "//app/service/main/antispam/service:go_default_library",
-        "//app/service/main/antispam/util:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/main/antispam/conf",
+        "//app/service/main/antispam/dao",
+        "//app/service/main/antispam/model",
+        "//app/service/main/antispam/service",
+        "//app/service/main/antispam/util",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["cond_test.go"],
     tags = ["automanaged"],
     deps = [
@@ -56,4 +56,13 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "http_test",
+    srcs = ["cond_test.go"],
+    deps = [
+        ":http",
+        "//vendor/github.com/stretchr/testify/assert",
+    ],
 )

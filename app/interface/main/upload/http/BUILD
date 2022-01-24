@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "record.go",
@@ -15,17 +15,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/upload/conf:go_default_library",
-        "//app/interface/main/upload/http/antispam:go_default_library",
-        "//app/interface/main/upload/model:go_default_library",
-        "//app/interface/main/upload/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
+        "//app/interface/main/upload/conf",
+        "//app/interface/main/upload/http/antispam",
+        "//app/interface/main/upload/model",
+        "//app/interface/main/upload/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/http/blademaster/render",
     ],
 )
 

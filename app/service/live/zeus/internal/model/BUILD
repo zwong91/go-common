@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "matcher.go",
         "model.go",
@@ -15,8 +15,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/zeus/expr:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/zeus/expr",
+        "//library/log",
     ],
 )
 

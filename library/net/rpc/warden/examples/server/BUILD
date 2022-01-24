@@ -8,25 +8,25 @@ load(
 
 go_binary(
     name = "server",
-    embed = [":go_default_library"],
+    embed = [":server_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server_lib",
     srcs = ["main.go"],
     importpath = "go-common/library/net/rpc/warden/examples/server",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/ecode/pb:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/proto/testproto:go_default_library",
-        "//library/time:go_default_library",
-        "@com_github_golang_protobuf//ptypes:go_default_library_gen",
-        "@org_golang_google_grpc//:go_default_library",
+        "//library/ecode",
+        "//library/ecode/pb",
+        "//library/log",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/proto/testproto",
+        "//library/time",
+        "//vendor/github.com/golang/protobuf/ptypes",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 

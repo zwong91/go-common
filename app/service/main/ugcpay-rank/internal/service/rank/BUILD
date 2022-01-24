@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "rank",
     srcs = [
         "av.go",
         "av_storage.go",
@@ -19,12 +19,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/dao:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/account/model",
+        "//app/service/main/ugcpay-rank/internal/dao",
+        "//app/service/main/ugcpay-rank/internal/model",
+        "//library/cache/memcache",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -2,38 +2,38 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "sidebar_test",
     srcs = ["sidebar_test.go"],
-    embed = [":go_default_library"],
+    embed = [":sidebar"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sidebar",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/main/app-resource/service/sidebar",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//app/interface/main/app-resource/dao/bplus:go_default_library",
-        "//app/interface/main/app-resource/dao/resource:go_default_library",
-        "//app/interface/main/app-resource/dao/white:go_default_library",
-        "//app/interface/main/app-resource/model:go_default_library",
-        "//app/interface/main/app-resource/model/sidebar:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//app/interface/main/app-resource/dao/bplus",
+        "//app/interface/main/app-resource/dao/resource",
+        "//app/interface/main/app-resource/dao/white",
+        "//app/interface/main/app-resource/model",
+        "//app/interface/main/app-resource/model/sidebar",
+        "//app/service/main/resource/model",
+        "//library/log",
+        "//library/sync/errgroup",
     ],
 )
 

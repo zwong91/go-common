@@ -6,23 +6,23 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/interface/main/upload/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/upload/http/antispam:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/interface/main/upload/http/antispam",
+        "//library/cache/redis",
+        "//library/conf",
+        "//library/database/orm",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

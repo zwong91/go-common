@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "remotelogin.go",
         "service.go",
@@ -14,28 +14,28 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/location/model:go_default_library",
-        "//app/service/main/location/rpc/client:go_default_library",
-        "//app/service/main/secure/conf:go_default_library",
-        "//app/service/main/secure/dao:go_default_library",
-        "//app/service/main/secure/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/location/model",
+        "//app/service/main/location/rpc/client",
+        "//app/service/main/secure/conf",
+        "//app/service/main/secure/dao",
+        "//app/service/main/secure/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["remotelogin_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/secure/conf:go_default_library",
-        "//app/service/main/secure/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/secure/conf",
+        "//app/service/main/secure/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["model.go"],
     importpath = "go-common/app/service/main/account-recovery/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account-recovery/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/account-recovery/conf",
+        "//library/log",
+        "//library/time",
     ],
 )
 

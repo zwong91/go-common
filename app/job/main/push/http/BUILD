@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/main/push/http",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/push/conf:go_default_library",
-        "//app/job/main/push/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/push/conf",
+        "//app/job/main/push/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

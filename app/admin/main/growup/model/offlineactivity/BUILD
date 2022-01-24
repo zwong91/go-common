@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "offlineactivity",
     srcs = [
         "offlineactivity.go",
         "request.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/admin/main/growup/model/offlineactivity",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

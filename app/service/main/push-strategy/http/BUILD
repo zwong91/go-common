@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "task.go",
@@ -15,14 +15,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/push-strategy/conf:go_default_library",
-        "//app/service/main/push-strategy/service:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/push-strategy/conf",
+        "//app/service/main/push-strategy/service",
+        "//app/service/main/push/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/time",
     ],
 )
 

@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "notice_test",
     srcs = ["notice_test.go"],
-    embed = [":go_default_library"],
+    embed = [":notice"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/app/conf:go_default_library",
-        "//app/admin/main/app/model/notice:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/app/conf",
+        "//app/admin/main/app/model/notice",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "notice",
     srcs = ["notice.go"],
     importpath = "go-common/app/admin/main/app/dao/notice",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/app/conf:go_default_library",
-        "//app/admin/main/app/model/notice:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/app/conf",
+        "//app/admin/main/app/model/notice",
+        "//library/database/orm",
+        "//library/log",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["workflow-service.toml"],
     importpath = "go-common/app/service/main/workflow/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/workflow/conf:go_default_library",
-        "//app/service/main/workflow/http:go_default_library",
-        "//app/service/main/workflow/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/main/workflow/conf",
+        "//app/service/main/workflow/http",
+        "//app/service/main/workflow/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

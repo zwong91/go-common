@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "article",
     srcs = ["article.go"],
     importpath = "go-common/app/interface/main/creative/model/article",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/openplatform/article/model",
+        "//library/time",
     ],
 )
 

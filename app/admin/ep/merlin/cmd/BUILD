@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "convey-test.toml",
@@ -23,11 +23,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/merlin/conf:go_default_library",
-        "//app/admin/ep/merlin/http:go_default_library",
-        "//app/admin/ep/merlin/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/ep/merlin/conf",
+        "//app/admin/ep/merlin/http",
+        "//app/admin/ep/merlin/service",
+        "//library/ecode/tip",
+        "//library/log",
     ],
 )
 

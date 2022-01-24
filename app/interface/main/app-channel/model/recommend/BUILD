@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "recommend",
     srcs = ["recommend.go"],
     importpath = "go-common/app/interface/main/app-channel/model/recommend",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
+        "//app/interface/main/tag/model",
+        "//app/service/main/archive/api",
     ],
 )
 

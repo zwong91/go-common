@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/live/xfansmedal/internal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xfansmedal/internal/conf:go_default_library",
-        "//app/service/live/xfansmedal/internal/dao:go_default_library",
+        "//app/service/live/xfansmedal/internal/conf",
+        "//app/service/live/xfansmedal/internal/dao",
     ],
 )
 

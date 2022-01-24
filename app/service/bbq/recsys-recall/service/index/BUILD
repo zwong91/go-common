@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "index",
     srcs = [
         "forward_index.go",
         "inverted_index.go",
@@ -17,10 +17,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/bbq/recall/proto:go_default_library",
-        "//app/service/bbq/recsys-recall/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/golang/snappy:go_default_library",
+        "//app/job/bbq/recall/proto",
+        "//app/service/bbq/recsys-recall/conf",
+        "//library/log",
+        "//vendor/github.com/golang/snappy",
     ],
 )
 
@@ -39,8 +39,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["inverted_index_test.go"],
     tags = ["automanaged"],
     deps = ["//app/service/bbq/recsys-recall/service/index:go_default_library"],
+)
+
+go_test(
+    name = "index_test",
+    srcs = ["inverted_index_test.go"],
+    deps = [":index"],
 )

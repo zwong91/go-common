@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = [
         "mock.go",
         "thumbup.go",
@@ -14,9 +14,9 @@ go_library(
     importpath = "go-common/app/service/main/thumbup/rpc/client",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/thumbup/model:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//vendor/github.com/golang/mock/gomock:go_default_library",
+        "//app/service/main/thumbup/model",
+        "//library/net/rpc",
+        "//vendor/github.com/golang/mock/gomock",
     ],
 )
 

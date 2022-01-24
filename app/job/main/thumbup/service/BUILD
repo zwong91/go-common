@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "item_likes.go",
         "like.go",
@@ -17,16 +17,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/thumbup/conf:go_default_library",
-        "//app/job/main/thumbup/dao:go_default_library",
-        "//app/job/main/thumbup/model:go_default_library",
-        "//app/service/main/thumbup/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/databusutil:go_default_library",
-        "//library/sync/pipeline:go_default_library",
-        "//library/time:go_default_library",
+        "//app/job/main/thumbup/conf",
+        "//app/job/main/thumbup/dao",
+        "//app/job/main/thumbup/model",
+        "//app/service/main/thumbup/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/queue/databus/databusutil",
+        "//library/sync/pipeline",
+        "//library/time",
     ],
 )
 

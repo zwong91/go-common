@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cache",
     srcs = [
         "cache.go",
         "tag.go",
@@ -17,11 +17,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/model/tag:go_default_library",
-        "//app/interface/main/mcn/conf:go_default_library",
-        "//app/service/main/videoup/model/archive:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/main/creative/model/tag",
+        "//app/interface/main/mcn/conf",
+        "//app/service/main/videoup/model/archive",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -40,18 +40,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "cache_test",
     srcs = [
         "cache_test.go",
         "tag_test.go",
         "video_types_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":cache"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/model/tag:go_default_library",
-        "//app/interface/main/mcn/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/model/tag",
+        "//app/interface/main/mcn/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

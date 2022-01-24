@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["tapd.toml"],
     importpath = "go-common/app/service/ep/footman/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ep/footman/conf:go_default_library",
-        "//app/service/ep/footman/server/http:go_default_library",
-        "//app/service/ep/footman/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/ep/footman/conf",
+        "//app/service/ep/footman/server/http",
+        "//app/service/ep/footman/service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

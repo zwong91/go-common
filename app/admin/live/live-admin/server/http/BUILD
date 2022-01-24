@@ -6,23 +6,23 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/admin/live/live-admin/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/live/live-admin/api/http/v1:go_default_library",
-        "//app/admin/live/live-admin/api/http/v2:go_default_library",
-        "//app/admin/live/live-admin/conf:go_default_library",
-        "//app/admin/live/live-admin/dao:go_default_library",
-        "//app/admin/live/live-admin/service:go_default_library",
-        "//app/admin/live/live-admin/service/v1:go_default_library",
-        "//app/admin/live/live-admin/service/v2:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/admin/live/live-admin/api/http/v1:http",
+        "//app/admin/live/live-admin/api/http/v2:http",
+        "//app/admin/live/live-admin/conf",
+        "//app/admin/live/live-admin/dao",
+        "//app/admin/live/live-admin/service",
+        "//app/admin/live/live-admin/service/v1:service",
+        "//app/admin/live/live-admin/service/v2:service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

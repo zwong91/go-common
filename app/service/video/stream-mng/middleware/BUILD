@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "middleware",
     srcs = ["logger.go"],
     importpath = "go-common/app/service/video/stream-mng/middleware",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

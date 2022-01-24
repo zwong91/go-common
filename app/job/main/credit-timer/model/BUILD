@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["jury.go"],
     importpath = "go-common/app/job/main/credit-timer/model",
     tags = ["automanaged"],

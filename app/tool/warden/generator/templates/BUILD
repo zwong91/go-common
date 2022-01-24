@@ -1,8 +1,3 @@
-load(
-    "@io_bazel_rules_go//proto:def.bzl",
-    "go_proto_library",
-)
-
 package(default_visibility = ["//visibility:public"])
 
 load(
@@ -11,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "templates",
     srcs = [
         "assets.go",
         "template.go",

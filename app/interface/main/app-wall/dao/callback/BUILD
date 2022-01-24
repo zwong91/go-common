@@ -2,35 +2,35 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "callback_test",
     srcs = ["callback_test.go"],
-    embed = [":go_default_library"],
+    embed = [":callback"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-wall/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-wall/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "callback",
     srcs = ["callback.go"],
     importpath = "go-common/app/interface/main/app-wall/dao/callback",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-wall/conf:go_default_library",
-        "//app/interface/main/app-wall/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-wall/conf",
+        "//app/interface/main/app-wall/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "feed.go",
         "http.go",
@@ -14,14 +14,14 @@ go_library(
     importpath = "go-common/app/interface/main/web-feed/http",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/web-feed/conf:go_default_library",
-        "//app/interface/main/web-feed/model:go_default_library",
-        "//app/interface/main/web-feed/service:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/limit/aqm:go_default_library",
+        "//app/interface/main/web-feed/conf",
+        "//app/interface/main/web-feed/model",
+        "//app/interface/main/web-feed/service",
+        "//app/interface/openplatform/article/model",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/limit/aqm",
     ],
 )
 

@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/bbq/notice-service/internal/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/notice-service/api/v1:go_default_library",
-        "//app/service/bbq/notice-service/internal/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/bbq/notice-service/api/v1:api",
+        "//app/service/bbq/notice-service/internal/service",
+        "//library/net/rpc/warden",
     ],
 )
 

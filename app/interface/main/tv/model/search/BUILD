@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = [
         "client.go",
         "elastic.go",
@@ -18,11 +18,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/model:go_default_library",
-        "//app/interface/main/tv/model/thirdp:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//app/interface/main/tv/model",
+        "//app/interface/main/tv/model/thirdp",
+        "//app/service/main/archive/api",
+        "//library/time",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

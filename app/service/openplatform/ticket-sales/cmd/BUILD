@@ -1,32 +1,32 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["ticket-sales.toml"],
     importpath = "go-common/app/service/openplatform/ticket-sales/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:private"],
     deps = [
-        "//app/service/openplatform/ticket-sales/conf:go_default_library",
-        "//app/service/openplatform/ticket-sales/server/grpc:go_default_library",
-        "//app/service/openplatform/ticket-sales/server/http:go_default_library",
-        "//app/service/openplatform/ticket-sales/service:go_default_library",
-        "//app/service/openplatform/ticket-sales/service/mis:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/openplatform/ticket-sales/conf",
+        "//app/service/openplatform/ticket-sales/server/grpc",
+        "//app/service/openplatform/ticket-sales/server/http",
+        "//app/service/openplatform/ticket-sales/service",
+        "//app/service/openplatform/ticket-sales/service/mis",
+        "//library/conf/paladin",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
 )
 

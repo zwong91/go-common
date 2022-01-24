@@ -23,7 +23,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "memcache",
     srcs = [
         "client.go",
         "conn.go",
@@ -37,17 +37,17 @@ go_library(
     importpath = "go-common/library/cache/memcache",
     tags = ["automanaged"],
     deps = [
-        "//library/container/pool:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "//library/container/pool",
+        "//library/net/trace",
+        "//library/stat",
+        "//library/time",
+        "//vendor/github.com/gogo/protobuf/proto",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "memcache_test",
     srcs = [
         "client_test.go",
         "conn_test.go",
@@ -55,15 +55,15 @@ go_test(
         "pool_test.go",
         "util_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":memcache"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/cache/memcache/test:go_default_library",
-        "//library/container/pool:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "//library/cache/memcache/test",
+        "//library/container/pool",
+        "//library/time",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/gogo/protobuf/proto",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )

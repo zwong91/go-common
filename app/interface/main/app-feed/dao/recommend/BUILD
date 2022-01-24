@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "recommend_test",
     srcs = [
         "api_test.go",
         "dao_test.go",
@@ -15,19 +15,19 @@ go_test(
         "memcache_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":recommend"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-card/model:go_default_library",
-        "//app/interface/main/app-card/model/card/ai:go_default_library",
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-card/model",
+        "//app/interface/main/app-card/model/card/ai",
+        "//app/interface/main/app-feed/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "recommend",
     srcs = [
         "api.go",
         "dao.go",
@@ -38,17 +38,17 @@ go_library(
     importpath = "go-common/app/interface/main/app-feed/dao/recommend",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-card/model:go_default_library",
-        "//app/interface/main/app-card/model/card/ai:go_default_library",
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-card/model",
+        "//app/interface/main/app-card/model/card/ai",
+        "//app/interface/main/app-feed/conf",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -2,8 +2,8 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 filegroup(
@@ -26,16 +26,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["challenge_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "activity.go",
         "block.go",
@@ -58,8 +58,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/workflow/model/param:go_default_library",
-        "//app/job/main/credit/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/workflow/model/param",
+        "//app/job/main/credit/model",
+        "//library/time",
     ],
 )

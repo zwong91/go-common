@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "aes.go",
         "aso_full_migration.go",
@@ -19,15 +19,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-user/conf:go_default_library",
-        "//app/job/main/passport-user/dao:go_default_library",
-        "//app/job/main/passport-user/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/databusutil:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/passport-user/conf",
+        "//app/job/main/passport-user/dao",
+        "//app/job/main/passport-user/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/queue/databus/databusutil",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -46,9 +46,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["aes_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
 )

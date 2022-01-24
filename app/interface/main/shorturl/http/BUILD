@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "logger.go",
@@ -16,15 +16,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/shorturl/conf:go_default_library",
-        "//app/interface/main/shorturl/model:go_default_library",
-        "//app/interface/main/shorturl/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat:go_default_library",
+        "//app/interface/main/shorturl/conf",
+        "//app/interface/main/shorturl/model",
+        "//app/interface/main/shorturl/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/metadata",
+        "//library/stat",
     ],
 )
 

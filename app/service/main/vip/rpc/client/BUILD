@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = [
         "panel.go",
         "rpc.go",
@@ -16,9 +16,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/coupon/model:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/service/main/coupon/model",
+        "//app/service/main/vip/model",
+        "//library/net/rpc",
     ],
 )
 
@@ -37,9 +37,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "client_test",
     srcs = ["rpc_test.go"],
-    embed = [":go_default_library"],
+    embed = [":client"],
     rundir = ".",
     tags = ["automanaged"],
 )

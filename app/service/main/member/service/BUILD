@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "base.go",
         "exp.go",
@@ -22,20 +22,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/member/api:go_default_library",
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/dao:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/service/block:go_default_library",
-        "//app/service/main/member/service/crypto:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/member/api",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/dao",
+        "//app/service/main/member/model",
+        "//app/service/main/member/service/block",
+        "//app/service/main/member/service/crypto",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -58,20 +58,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "member_test.go",
         "realname_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/dao:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/dao",
+        "//app/service/main/member/model",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

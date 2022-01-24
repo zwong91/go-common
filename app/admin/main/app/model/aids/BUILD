@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "aids",
     srcs = ["aids.go"],
     importpath = "go-common/app/admin/main/app/model/aids",
     tags = ["automanaged"],

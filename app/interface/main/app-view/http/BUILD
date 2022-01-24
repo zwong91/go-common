@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "bnj.go",
         "http.go",
@@ -17,21 +17,21 @@ go_library(
     importpath = "go-common/app/interface/main/app-view/http",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-view/conf:go_default_library",
-        "//app/interface/main/app-view/model:go_default_library",
-        "//app/interface/main/app-view/model/view:go_default_library",
-        "//app/interface/main/app-view/service/report:go_default_library",
-        "//app/interface/main/app-view/service/view:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/anticheat:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/proxy:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/interface/main/app-view/conf",
+        "//app/interface/main/app-view/model",
+        "//app/interface/main/app-view/model/view",
+        "//app/interface/main/app-view/service/report",
+        "//app/interface/main/app-view/service/view",
+        "//app/service/main/resource/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/log/anticheat",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/proxy",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/metadata",
+        "//library/queue/databus",
     ],
 )
 

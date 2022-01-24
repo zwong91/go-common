@@ -2,36 +2,36 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/dapper/conf:go_default_library",
-        "//app/service/main/dapper/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/dapper/conf",
+        "//app/service/main/dapper/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/service/main/dapper/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper/conf:go_default_library",
-        "//app/service/main/dapper/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
-        "//vendor/github.com/influxdata/influxdb/client/v2:go_default_library",
-        "//vendor/github.com/tsuna/gohbase:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/service/main/dapper/conf",
+        "//app/service/main/dapper/model",
+        "//library/log",
+        "//vendor/github.com/dgryski/go-farm",
+        "//vendor/github.com/influxdata/influxdb/client/v2:client",
+        "//vendor/github.com/tsuna/gohbase",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "material",
     srcs = [
         "dao.go",
         "material.go",
@@ -16,12 +16,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/app:go_default_library",
-        "//app/interface/main/creative/model/music:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/app",
+        "//app/interface/main/creative/model/music",
+        "//library/database/sql",
+        "//library/log",
+        "//library/xstr",
     ],
 )
 
@@ -40,18 +40,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "material_test",
     srcs = [
         "dao_test.go",
         "material_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":material"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//library/database/sql",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

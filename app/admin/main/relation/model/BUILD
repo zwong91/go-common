@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "log.go",
         "model.go",
@@ -16,8 +16,8 @@ go_library(
     importpath = "go-common/app/admin/main/relation/model",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/relation/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/relation/model",
+        "//library/time",
     ],
 )
 

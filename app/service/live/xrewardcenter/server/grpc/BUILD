@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/live/xrewardcenter/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xrewardcenter/api/grpc/v1:go_default_library",
-        "//app/service/live/xrewardcenter/conf:go_default_library",
-        "//app/service/live/xrewardcenter/dao:go_default_library",
-        "//app/service/live/xrewardcenter/service/v1:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/xrewardcenter/api/grpc/v1:grpc",
+        "//app/service/live/xrewardcenter/conf",
+        "//app/service/live/xrewardcenter/dao",
+        "//app/service/live/xrewardcenter/service/v1:service",
+        "//library/log",
+        "//library/net/rpc/warden",
     ],
 )
 

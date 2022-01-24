@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "databus_test",
     srcs = [
         "archive_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":databus"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/videoup/conf:go_default_library",
-        "//app/admin/main/videoup/model/archive:go_default_library",
-        "//app/admin/main/videoup/model/message:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/videoup/conf",
+        "//app/admin/main/videoup/model/archive",
+        "//app/admin/main/videoup/model/message",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databus",
     srcs = [
         "dao.go",
         "redis.go",
@@ -33,12 +33,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup/conf:go_default_library",
-        "//app/admin/main/videoup/model/archive:go_default_library",
-        "//app/admin/main/videoup/model/message:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/videoup/conf",
+        "//app/admin/main/videoup/model/archive",
+        "//app/admin/main/videoup/model/message",
+        "//library/cache/redis",
+        "//library/conf/env",
+        "//library/log",
     ],
 )
 

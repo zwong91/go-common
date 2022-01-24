@@ -2,23 +2,23 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "lrucache_test",
     srcs = [
         "lrucache_test.go",
         "synccache_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":lrucache"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lrucache",
     srcs = [
         "lrucache.go",
         "synccache.go",

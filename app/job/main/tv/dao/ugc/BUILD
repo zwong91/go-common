@@ -1,11 +1,11 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "ugc_test",
     srcs = [
         "dao_test.go",
         "databus_test.go",
@@ -20,20 +20,20 @@ go_test(
         "search_con_test.go",
         "sync_video_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":ugc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/model/ugc:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/model/ugc",
+        "//app/service/main/archive/api",
+        "//library/database/sql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ugc",
     srcs = [
         "dao.go",
         "databus.go",
@@ -54,19 +54,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/dao/app:go_default_library",
-        "//app/job/main/tv/model/common:go_default_library",
-        "//app/job/main/tv/model/pgc:go_default_library",
-        "//app/job/main/tv/model/ugc:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/dao/app",
+        "//app/job/main/tv/model/common",
+        "//app/job/main/tv/model/pgc",
+        "//app/job/main/tv/model/ugc",
+        "//app/service/main/archive/api",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/xstr",
     ],
 )
 

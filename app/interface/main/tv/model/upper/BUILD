@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upper",
     srcs = ["upper.go"],
     importpath = "go-common/app/interface/main/tv/model/upper",
     tags = ["automanaged"],

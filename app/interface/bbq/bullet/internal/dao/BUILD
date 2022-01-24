@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "filter.go",
@@ -15,17 +15,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/bbq/bullet/api:go_default_library",
-        "//app/interface/bbq/bullet/internal/conf:go_default_library",
-        "//app/interface/bbq/bullet/internal/model:go_default_library",
-        "//app/service/bbq/user/api:go_default_library",
-        "//app/service/bbq/video/api/grpc/v1:go_default_library",
-        "//app/service/main/filter/api/grpc/v1:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/interface/bbq/bullet/api",
+        "//app/interface/bbq/bullet/internal/conf",
+        "//app/interface/bbq/bullet/internal/model",
+        "//app/service/bbq/user/api",
+        "//app/service/bbq/video/api/grpc/v1:grpc",
+        "//app/service/main/filter/api/grpc/v1:grpc",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/rpc/warden",
     ],
 )
 

@@ -2,46 +2,39 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "cpu_test",
     srcs = [
         "cgroup_test.go",
         "stat_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":cpu"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/stretchr/testify/assert:go_default_library"],
+    deps = ["//vendor/github.com/stretchr/testify/assert"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cpu",
     srcs = [
         "cgroup.go",
         "cpu.go",
+        "cpu_darwin.go",
+        "cpu_linux.go",
+        "cpu_other.go",
         "sysconfig_notcgo.go",
         "util.go",
-    ] + select({
-        "@io_bazel_rules_go//go/platform:linux": [
-            "cpu_linux.go",
-        ],
-        "@io_bazel_rules_go//go/platform:darwin": [
-            "cpu_darwin.go",
-        ],
-        "//conditions:default": [
-            "cpu_other.go",
-        ],
-    }),
+    ],
     importpath = "go-common/library/stat/sys/cpu",
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

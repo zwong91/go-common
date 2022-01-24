@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "archive-job-example.toml",
@@ -23,10 +23,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/archive-shjd/conf:go_default_library",
-        "//app/job/main/archive-shjd/http:go_default_library",
-        "//app/job/main/archive-shjd/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/archive-shjd/conf",
+        "//app/job/main/archive-shjd/http",
+        "//app/job/main/archive-shjd/service",
+        "//library/log",
     ],
 )
 

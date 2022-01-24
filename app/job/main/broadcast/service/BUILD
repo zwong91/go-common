@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "comet.go",
         "push.go",
@@ -18,16 +18,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/broadcast/api/grpc/v1:go_default_library",
-        "//app/job/main/broadcast/conf:go_default_library",
-        "//app/service/main/broadcast/libs/bytes:go_default_library",
-        "//app/service/main/broadcast/model:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/broadcast/api/grpc/v1:grpc",
+        "//app/job/main/broadcast/conf",
+        "//app/service/main/broadcast/libs/bytes",
+        "//app/service/main/broadcast/model",
+        "//library/conf/env",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/queue/databus",
+        "//library/time",
     ],
 )
 
@@ -46,13 +46,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/broadcast/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/broadcast/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

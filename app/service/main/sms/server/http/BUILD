@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "sms.go",
@@ -14,12 +14,12 @@ go_library(
     importpath = "go-common/app/service/main/sms/server/http",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/sms/api:go_default_library",
-        "//app/service/main/sms/conf:go_default_library",
-        "//app/service/main/sms/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/main/sms/api",
+        "//app/service/main/sms/conf",
+        "//app/service/main/sms/service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

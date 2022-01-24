@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "score.go",
         "service.go",
@@ -16,12 +16,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/video-image/api/grpc/v1:go_default_library",
-        "//app/service/bbq/video-image/api/http/v1:go_default_library",
-        "//app/service/bbq/video-image/conf:go_default_library",
-        "//app/service/bbq/video-image/dao:go_default_library",
-        "//library/database/bfs:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/bbq/video-image/api/grpc/v1:grpc",
+        "//app/service/bbq/video-image/api/http/v1:http",
+        "//app/service/bbq/video-image/conf",
+        "//app/service/bbq/video-image/dao",
+        "//library/database/bfs",
+        "//library/log",
     ],
 )
 

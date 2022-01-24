@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bnj",
     srcs = ["bnj.go"],
     importpath = "go-common/app/job/main/activity/model/bnj",
     tags = ["automanaged"],

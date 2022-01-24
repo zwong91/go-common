@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "business_test.go",
         "channel_test.go",
@@ -21,19 +21,19 @@ go_test(
         "tag_resource_redis_test.go",
         "tag_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tag/conf:go_default_library",
-        "//app/job/main/tag/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/tag/conf",
+        "//app/job/main/tag/model",
+        "//app/service/main/archive/api",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "business.go",
         "channel.go",
@@ -51,17 +51,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tag/conf:go_default_library",
-        "//app/job/main/tag/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/filter/api/grpc/v1:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/tag/conf",
+        "//app/job/main/tag/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/filter/api/grpc/v1:grpc",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

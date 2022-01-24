@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "email.go",
@@ -19,15 +19,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/mcn/conf:go_default_library",
-        "//app/job/main/mcn/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/job/main/mcn/conf",
+        "//app/job/main/mcn/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 
@@ -46,7 +46,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "email_test.go",
@@ -54,13 +54,13 @@ go_test(
         "memcache_test.go",
         "recommend_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/mcn/conf:go_default_library",
-        "//app/job/main/mcn/model:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/mcn/conf",
+        "//app/job/main/mcn/model",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

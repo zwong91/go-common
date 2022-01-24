@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "appeal.go",
         "data_check.go",
@@ -18,17 +18,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account-recovery/conf:go_default_library",
-        "//app/service/main/account-recovery/dao:go_default_library",
-        "//app/service/main/account-recovery/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/microcosm-cc/bluemonday:go_default_library",
+        "//app/service/main/account-recovery/conf",
+        "//app/service/main/account-recovery/dao",
+        "//app/service/main/account-recovery/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//vendor/github.com/microcosm-cc/bluemonday",
     ],
 )
 
@@ -47,20 +47,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "appeal_test.go",
         "data_check_test.go",
         "send_email_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/account-recovery/conf:go_default_library",
-        "//app/service/main/account-recovery/model:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/account-recovery/conf",
+        "//app/service/main/account-recovery/model",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -2,21 +2,21 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "audit_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":audit"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/interface/main/tv/conf:go_default_library"],
+    deps = ["//app/interface/main/tv/conf"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "audit",
     srcs = [
         "audit.go",
         "service.go",
@@ -26,13 +26,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/dao/audit:go_default_library",
-        "//app/interface/main/tv/dao/cms:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/dao/audit",
+        "//app/interface/main/tv/dao/cms",
+        "//app/interface/main/tv/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["storm.go"],
     importpath = "go-common/app/interface/live/lottery-interface/internal/service/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/lottery-interface/internal/service:go_default_library",
-        "//app/service/live/xlottery/api/grpc/v1:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/live/lottery-interface/internal/service",
+        "//app/service/live/xlottery/api/grpc/v1:grpc",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/render",
+        "//library/net/metadata",
     ],
 )
 

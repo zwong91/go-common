@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "addit.go",
         "relation.go",
@@ -15,7 +15,7 @@ go_library(
     importpath = "go-common/app/job/main/relation/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/relation/model:go_default_library"],
+    deps = ["//app/service/main/relation/model"],
 )
 
 filegroup(
@@ -36,10 +36,10 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["addit_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )

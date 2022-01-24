@@ -1,7 +1,7 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 package(default_visibility = ["//visibility:public"])
@@ -20,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gdoc_lib",
     srcs = [
         "gdoc.go",
         "swagger.go",
@@ -31,5 +31,5 @@ go_library(
 
 go_binary(
     name = "gdoc",
-    embed = [":go_default_library"],
+    embed = [":gdoc_lib"],
 )

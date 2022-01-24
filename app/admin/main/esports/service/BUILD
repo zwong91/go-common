@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "archive.go",
         "contest.go",
@@ -25,18 +25,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/esports/conf:go_default_library",
-        "//app/admin/main/esports/dao:go_default_library",
-        "//app/admin/main/esports/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/esports/conf",
+        "//app/admin/main/esports/dao",
+        "//app/admin/main/esports/model",
+        "//app/service/main/account/api",
+        "//app/service/main/archive/api",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//library/xstr",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -55,7 +55,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "archive_test.go",
         "game_test.go",
@@ -63,12 +63,12 @@ go_test(
         "service_test.go",
         "team_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/esports/conf:go_default_library",
-        "//app/admin/main/esports/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/esports/conf",
+        "//app/admin/main/esports/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

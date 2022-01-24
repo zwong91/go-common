@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "header.go",
         "session.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/bbq/common/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//vendor/github.com/Dai0522/go-hash/murmur3:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
+        "//app/interface/bbq/common/model",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/http/blademaster",
+        "//library/net/trace",
+        "//vendor/github.com/Dai0522/go-hash/murmur3",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 

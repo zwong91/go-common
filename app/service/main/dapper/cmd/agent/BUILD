@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "agent",
-    embed = [":go_default_library"],
+    embed = [":agent_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "agent_lib",
     srcs = ["main.go"],
     data = [
         "dapper-agent.toml",
@@ -23,10 +23,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper/agent:go_default_library",
-        "//app/service/main/dapper/conf:go_default_library",
-        "//app/service/main/dapper/pkg/util:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/dapper/agent",
+        "//app/service/main/dapper/conf",
+        "//app/service/main/dapper/pkg/util",
+        "//library/log",
     ],
 )
 

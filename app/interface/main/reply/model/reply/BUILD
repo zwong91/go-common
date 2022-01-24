@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "reply_test",
     srcs = ["cursor_test.go"],
-    embed = [":go_default_library"],
+    embed = [":reply"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "reply",
     srcs = [
         "config.go",
         "cursor.go",
@@ -32,12 +32,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

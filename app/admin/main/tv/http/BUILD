@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "arc_audit.go",
         "archive.go",
@@ -36,18 +36,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/tv/conf:go_default_library",
-        "//app/admin/main/tv/model:go_default_library",
-        "//app/admin/main/tv/service:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/tv/conf",
+        "//app/admin/main/tv/model",
+        "//app/admin/main/tv/service",
+        "//library/cache/memcache",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/http/blademaster/render",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

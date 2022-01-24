@@ -6,9 +6,8 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databus",
     srcs = ["upcredit_log.go"],
-    importmap = "go-common/app/service/main/upcredit/model/databus",
     importpath = "go-common/app/service/main/upcredit/model/databus",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],

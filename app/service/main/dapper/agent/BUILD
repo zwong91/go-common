@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "agent",
     srcs = ["agent.go"],
     importpath = "go-common/app/service/main/dapper/agent",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper/conf:go_default_library",
-        "//app/service/main/dapper/pkg/deliver:go_default_library",
-        "//app/service/main/dapper/pkg/diskqueue:go_default_library",
-        "//app/service/main/dapper/server/udpcollect:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace/proto:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
+        "//app/service/main/dapper/conf",
+        "//app/service/main/dapper/pkg/deliver",
+        "//app/service/main/dapper/pkg/diskqueue",
+        "//app/service/main/dapper/server/udpcollect",
+        "//library/log",
+        "//library/net/trace/proto",
+        "//vendor/github.com/golang/protobuf/proto",
     ],
 )
 

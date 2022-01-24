@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tab",
     srcs = ["tab.go"],
     importpath = "go-common/app/interface/main/app-resource/model/tab",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//library/log",
+        "//library/time",
     ],
 )
 

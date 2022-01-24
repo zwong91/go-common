@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "usersuit",
     srcs = [
         "invite.go",
         "pendant.go",
@@ -18,22 +18,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/interface/main/account/dao/usersuit:go_default_library",
-        "//app/interface/main/account/dao/vip:go_default_library",
-        "//app/interface/main/account/model:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//app/service/main/coin/api/gorpc:go_default_library",
-        "//app/service/main/coin/model:go_default_library",
-        "//app/service/main/member/api/gorpc:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//app/service/main/usersuit/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/interface/main/account/dao/usersuit",
+        "//app/interface/main/account/dao/vip",
+        "//app/interface/main/account/model",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//app/service/main/coin/api/gorpc",
+        "//app/service/main/coin/model",
+        "//app/service/main/member/api/gorpc",
+        "//app/service/main/member/model",
+        "//app/service/main/usersuit/model",
+        "//app/service/main/usersuit/rpc/client",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
     ],
 )
 
@@ -52,21 +52,21 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "usersuit_test",
     srcs = [
         "invite_test.go",
         "pendant_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":usersuit"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//app/service/main/usersuit/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/service/main/usersuit/model",
+        "//app/service/main/usersuit/rpc/client",
+        "//library/ecode",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

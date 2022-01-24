@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "bilihub.go",
         "dao.go",
@@ -41,21 +41,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/merlin/conf:go_default_library",
-        "//app/admin/ep/merlin/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/docker/docker/api/types:go_default_library",
-        "//vendor/github.com/docker/docker/api/types/filters:go_default_library",
-        "//vendor/github.com/docker/docker/client:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/ep/merlin/conf",
+        "//app/admin/ep/merlin/model",
+        "//library/cache/memcache",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/docker/docker/api/types",
+        "//vendor/github.com/docker/docker/api/types/filters",
+        "//vendor/github.com/docker/docker/client",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
@@ -74,7 +74,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "mail_test.go",
@@ -87,16 +87,16 @@ go_test(
         "paas_test.go",
         "tree_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/merlin/conf:go_default_library",
-        "//app/admin/ep/merlin/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/ep/merlin/conf",
+        "//app/admin/ep/merlin/model",
+        "//library/log",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

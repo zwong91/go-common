@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bws",
     srcs = [
         "achievement.go",
         "bws.go",
@@ -20,13 +20,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/model/bws:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/model/bws",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/stat/prom",
     ],
 )
 
@@ -45,19 +45,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "bws_test",
     srcs = [
         "achievement_test.go",
         "bws_test.go",
         "point_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":bws"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/model/bws:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/model/bws",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

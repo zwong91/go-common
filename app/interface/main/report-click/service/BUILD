@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/report-click/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/report-click/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "err_report.go",
         "ip.go",
@@ -28,20 +28,20 @@ go_library(
     importpath = "go-common/app/interface/main/report-click/service",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/history/model:go_default_library",
-        "//app/interface/main/history/rpc/client:go_default_library",
-        "//app/interface/main/report-click/conf:go_default_library",
-        "//app/interface/main/report-click/dao:go_default_library",
-        "//app/interface/main/report-click/model:go_default_library",
-        "//app/interface/main/report-click/service/crypto/aes:go_default_library",
-        "//app/interface/main/report-click/service/crypto/padding:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
+        "//app/interface/main/history/model",
+        "//app/interface/main/history/rpc/client",
+        "//app/interface/main/report-click/conf",
+        "//app/interface/main/report-click/dao",
+        "//app/interface/main/report-click/model",
+        "//app/interface/main/report-click/service/crypto/aes",
+        "//app/interface/main/report-click/service/crypto/padding",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
     ],
 )
 

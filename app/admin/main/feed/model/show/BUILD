@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "show",
     srcs = [
         "app_active.go",
         "card_set_stars.go",
@@ -20,9 +20,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/model/common:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/feed/model/common",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

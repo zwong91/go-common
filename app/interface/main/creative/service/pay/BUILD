@@ -6,20 +6,20 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pay",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/main/creative/service/pay",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/faq:go_default_library",
-        "//app/interface/main/creative/dao/pay:go_default_library",
-        "//app/interface/main/creative/dao/up:go_default_library",
-        "//app/interface/main/creative/model/faq:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/faq",
+        "//app/interface/main/creative/dao/pay",
+        "//app/interface/main/creative/dao/up",
+        "//app/interface/main/creative/model/faq",
+        "//app/interface/main/creative/service",
+        "//library/log",
+        "//library/sync/pipeline/fanout",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "medal",
     srcs = ["medal.go"],
     importpath = "go-common/app/interface/main/creative/model/medal",
     tags = ["automanaged"],

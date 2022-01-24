@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "area.go",
         "bulletin.go",
@@ -22,15 +22,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/ticket-item/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//app/service/openplatform/ticket-item/model:go_default_library",
-        "//app/service/openplatform/ticket-item/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/openplatform/ticket-item/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-item/conf",
+        "//app/service/openplatform/ticket-item/model",
+        "//app/service/openplatform/ticket-item/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

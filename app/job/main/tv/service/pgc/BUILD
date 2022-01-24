@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "pgc_test",
     srcs = [
         "sea_con_test.go",
         "service_test.go",
         "sync_mc_test.go",
         "zone_index_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":pgc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/tv/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pgc",
     srcs = [
         "del_cont.go",
         "del_season.go",
@@ -43,20 +43,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/dao/app:go_default_library",
-        "//app/job/main/tv/dao/cms:go_default_library",
-        "//app/job/main/tv/dao/ftp:go_default_library",
-        "//app/job/main/tv/dao/lic:go_default_library",
-        "//app/job/main/tv/dao/playurl:go_default_library",
-        "//app/job/main/tv/model/common:go_default_library",
-        "//app/job/main/tv/model/pgc:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/dao/app",
+        "//app/job/main/tv/dao/cms",
+        "//app/job/main/tv/dao/ftp",
+        "//app/job/main/tv/dao/lic",
+        "//app/job/main/tv/dao/playurl",
+        "//app/job/main/tv/model/common",
+        "//app/job/main/tv/model/pgc",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

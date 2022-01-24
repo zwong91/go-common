@@ -1,3 +1,5 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
 package(default_visibility = ["//visibility:public"])
 
 load(
@@ -10,7 +12,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "bangumi.go",
         "feed.go",
@@ -20,12 +22,10 @@ go_library(
     importpath = "go-common/app/service/main/feed/model",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/time:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//library/time",
     ],
 )
 
@@ -34,17 +34,16 @@ proto_library(
     srcs = ["feed.proto"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["@gogo_special_proto//github.com/gogo/protobuf/gogoproto"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogoproto_proto"],
 )
 
 go_proto_library(
     name = "model_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_proto"],
     importpath = "go-common/app/service/main/feed/model",
     proto = ":model_proto",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["@com_github_gogo_protobuf//gogoproto:go_default_library"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
 )
 
 filegroup(

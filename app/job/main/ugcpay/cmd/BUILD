@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["test.toml"],
     importpath = "go-common/app/job/main/ugcpay/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/ugcpay/conf:go_default_library",
-        "//app/job/main/ugcpay/server/http:go_default_library",
-        "//app/job/main/ugcpay/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/ugcpay/conf",
+        "//app/job/main/ugcpay/server/http",
+        "//app/job/main/ugcpay/service",
+        "//library/ecode/tip",
+        "//library/log",
     ],
 )
 

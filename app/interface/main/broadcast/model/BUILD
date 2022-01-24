@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "request.go",
         "response.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/interface/main/broadcast/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/ecode:go_default_library"],
+    deps = ["//library/ecode"],
 )
 
 filegroup(

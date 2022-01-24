@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "income.go",
@@ -16,15 +16,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/ugcpay/api/http:go_default_library",
-        "//app/interface/main/ugcpay/conf:go_default_library",
-        "//app/interface/main/ugcpay/model:go_default_library",
-        "//app/interface/main/ugcpay/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/antispam:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
+        "//app/interface/main/ugcpay/api/http",
+        "//app/interface/main/ugcpay/conf",
+        "//app/interface/main/ugcpay/model",
+        "//app/interface/main/ugcpay/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/antispam",
+        "//library/net/http/blademaster/middleware/auth",
     ],
 )
 

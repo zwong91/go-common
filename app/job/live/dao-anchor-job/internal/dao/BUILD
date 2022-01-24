@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "av.go",
         "bfs.go",
@@ -18,17 +18,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/dao-anchor-job/internal/conf:go_default_library",
-        "//app/service/live/av/api/liverpc:go_default_library",
-        "//app/service/live/av/api/liverpc/v1:go_default_library",
-        "//app/service/live/dao-anchor/api/grpc/v0:go_default_library",
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/video/stream-mng/api/v1:go_default_library",
-        "//library/database/bfs:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
+        "//app/job/live/dao-anchor-job/internal/conf",
+        "//app/service/live/av/api/liverpc",
+        "//app/service/live/av/api/liverpc/v1:liverpc",
+        "//app/service/live/dao-anchor/api/grpc/v0:grpc",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/video/stream-mng/api/v1:api",
+        "//library/database/bfs",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/rpc/liverpc",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "hook_url.go",
@@ -18,16 +18,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/tapd/conf:go_default_library",
-        "//app/admin/ep/tapd/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/admin/ep/tapd/conf",
+        "//app/admin/ep/tapd/model",
+        "//library/cache/memcache",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 

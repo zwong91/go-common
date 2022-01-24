@@ -2,23 +2,23 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = [
         "adv_test.go",
         "http_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "adv.go",
         "assist.go",
@@ -32,17 +32,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/dm/conf:go_default_library",
-        "//app/interface/main/dm/model:go_default_library",
-        "//app/interface/main/dm/service:go_default_library",
-        "//app/interface/main/dm2/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/antispam:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/dm/conf",
+        "//app/interface/main/dm/model",
+        "//app/interface/main/dm/service",
+        "//app/interface/main/dm2/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/antispam",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/xstr",
     ],
 )
 

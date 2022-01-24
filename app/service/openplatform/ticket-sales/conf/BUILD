@@ -4,22 +4,22 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/service/openplatform/ticket-sales/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/common/openplatform/encoding:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/common/openplatform/encoding",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/rpc/warden",
+        "//library/net/trace",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

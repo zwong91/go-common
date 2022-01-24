@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "util.go",
@@ -14,14 +14,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper-query/conf:go_default_library",
-        "//app/service/main/dapper-query/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
-        "//vendor/github.com/influxdata/influxdb/client/v2:go_default_library",
-        "//vendor/github.com/tsuna/gohbase:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/filter:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/service/main/dapper-query/conf",
+        "//app/service/main/dapper-query/model",
+        "//library/log",
+        "//vendor/github.com/dgryski/go-farm",
+        "//vendor/github.com/influxdata/influxdb/client/v2:client",
+        "//vendor/github.com/tsuna/gohbase",
+        "//vendor/github.com/tsuna/gohbase/filter",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 
@@ -40,14 +40,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/dapper-query/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/golang.org/x/sys/unix:go_default_library",
+        "//app/service/main/dapper-query/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/golang.org/x/sys/unix",
     ],
 )

@@ -1,28 +1,28 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["workflow-job-test.toml"],
     importpath = "go-common/app/job/main/workflow/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:private"],
     deps = [
-        "//app/job/main/workflow/conf:go_default_library",
-        "//app/job/main/workflow/http:go_default_library",
-        "//app/job/main/workflow/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus/report:go_default_library",
+        "//app/job/main/workflow/conf",
+        "//app/job/main/workflow/http",
+        "//app/job/main/workflow/service",
+        "//library/log",
+        "//library/queue/databus/report",
     ],
 )
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
 )
 

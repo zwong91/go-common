@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "topic",
     srcs = ["topic.go"],
     importpath = "go-common/app/interface/main/app-card/model/card/topic",
     tags = ["automanaged"],

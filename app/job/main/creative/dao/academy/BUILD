@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "academy",
     srcs = [
         "academy.go",
         "dao.go",
@@ -16,11 +16,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/creative/conf:go_default_library",
-        "//app/job/main/creative/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/creative/conf",
+        "//app/job/main/creative/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/xstr",
     ],
 )
 
@@ -39,15 +39,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "academy_test",
     srcs = [
         "academy_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":academy"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/creative/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/creative/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

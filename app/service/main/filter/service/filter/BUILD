@@ -2,37 +2,37 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "filter_test",
     srcs = ["filter_test.go"],
-    embed = [":go_default_library"],
+    embed = [":filter"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/filter/conf:go_default_library",
-        "//app/service/main/filter/model:go_default_library",
-        "//app/service/main/filter/service/area:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/filter/conf",
+        "//app/service/main/filter/model",
+        "//app/service/main/filter/service/area",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "filter",
     srcs = ["filter.go"],
     importpath = "go-common/app/service/main/filter/service/filter",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/filter/conf:go_default_library",
-        "//app/service/main/filter/model:go_default_library",
-        "//app/service/main/filter/model/actriearea:go_default_library",
-        "//app/service/main/filter/service/area:go_default_library",
-        "//app/service/main/filter/service/regexp:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/filter/conf",
+        "//app/service/main/filter/model",
+        "//app/service/main/filter/model/actriearea",
+        "//app/service/main/filter/service/area",
+        "//app/service/main/filter/service/regexp",
+        "//library/log",
     ],
 )
 

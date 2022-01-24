@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "oplog",
     srcs = ["oplog.go"],
     importpath = "go-common/app/interface/main/dm2/model/oplog",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 filegroup(

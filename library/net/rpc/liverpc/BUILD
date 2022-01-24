@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -7,8 +8,8 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 proto_library(
@@ -19,27 +20,26 @@ proto_library(
 
 go_proto_library(
     name = "liverpc_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:go_proto"],
     importpath = "go-common/library/net/rpc/liverpc",
     proto = ":liverpc_proto",
     tags = ["automanaged"],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "liverpc_test",
     srcs = ["client_conn_test.go"],
-    embed = [":go_default_library"],
+    embed = [":liverpc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//library/conf/env",
+        "//library/net/metadata",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "liverpc",
     srcs = [
         "client.go",
         "client_conn.go",
@@ -51,18 +51,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
+        "//library/conf/env",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/metadata",
+        "//library/net/trace",
+        "//library/stat",
+        "//library/time",
+        "//vendor/github.com/gogo/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/json-iterator/go",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "goblin",
     srcs = ["label.go"],
     importpath = "go-common/app/interface/main/tv/model/goblin",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/interface/main/tv/conf:go_default_library"],
+    deps = ["//app/interface/main/tv/conf"],
 )
 
 filegroup(

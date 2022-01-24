@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["roomNotice.go"],
     importpath = "go-common/app/service/live/xuserex/service/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuserex/api/grpc/v1:go_default_library",
-        "//app/service/live/xuserex/conf:go_default_library",
-        "//app/service/live/xuserex/dao/notice:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/xuserex/api/grpc/v1:grpc",
+        "//app/service/live/xuserex/conf",
+        "//app/service/live/xuserex/dao/notice",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

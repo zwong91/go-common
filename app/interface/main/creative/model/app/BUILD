@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "app",
     srcs = [
         "app.go",
         "editor.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/interface/main/creative/model/app",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

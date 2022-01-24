@@ -8,26 +8,26 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["zeus.toml"],
     importpath = "go-common/app/service/live/zeus/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/zeus/internal/conf:go_default_library",
-        "//app/service/live/zeus/internal/server/grpc:go_default_library",
-        "//app/service/live/zeus/internal/server/http:go_default_library",
-        "//app/service/live/zeus/internal/service:go_default_library",
-        "//app/service/live/zeus/internal/service/v1:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/live/zeus/internal/conf",
+        "//app/service/live/zeus/internal/server/grpc",
+        "//app/service/live/zeus/internal/server/http",
+        "//app/service/live/zeus/internal/service",
+        "//app/service/live/zeus/internal/service/v1:service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

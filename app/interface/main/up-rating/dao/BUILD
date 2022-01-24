@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "rating_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/up-rating/conf:go_default_library",
-        "//app/interface/main/up-rating/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/up-rating/conf",
+        "//app/interface/main/up-rating/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "rating.go",
@@ -33,12 +33,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/up-rating/conf:go_default_library",
-        "//app/interface/main/up-rating/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/up-rating/conf",
+        "//app/interface/main/up-rating/model",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

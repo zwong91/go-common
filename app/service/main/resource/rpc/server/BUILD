@@ -2,36 +2,36 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "server_test",
     srcs = ["server_test.go"],
-    embed = [":go_default_library"],
+    embed = [":server"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/resource/conf:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//app/service/main/resource/service:go_default_library",
+        "//app/service/main/resource/conf",
+        "//app/service/main/resource/model",
+        "//app/service/main/resource/service",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/resource/rpc/server",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/resource/conf:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//app/service/main/resource/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/resource/conf",
+        "//app/service/main/resource/model",
+        "//app/service/main/resource/service",
+        "//library/ecode",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "data",
     srcs = [
         "service.go",
         "uparchiveinfo.go",
@@ -17,15 +17,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/admin/main/up/dao/data:go_default_library",
-        "//app/admin/main/up/dao/tag:go_default_library",
-        "//app/admin/main/up/model/datamodel:go_default_library",
-        "//app/admin/main/up/service/cache:go_default_library",
-        "//app/admin/main/up/util:go_default_library",
-        "//app/interface/main/creative/model/tag:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/admin/main/up/dao/data",
+        "//app/admin/main/up/dao/tag",
+        "//app/admin/main/up/model/datamodel",
+        "//app/admin/main/up/service/cache",
+        "//app/admin/main/up/util",
+        "//app/interface/main/creative/model/tag",
+        "//library/log",
+        "//library/sync/errgroup",
     ],
 )
 
@@ -44,17 +44,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "data_test",
     srcs = [
         "service_test.go",
         "uparchiveinfo_test.go",
         "viewer_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":data"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/admin/main/up/model/datamodel:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/admin/main/up/model/datamodel",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -8,26 +8,26 @@ load(
 
 go_binary(
     name = "tapd",
-    embed = [":go_default_library"],
+    embed = [":tapd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tapd_lib",
     srcs = ["tapd.go"],
     importpath = "go-common/app/service/ep/footman/cmd/tapd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ep/footman/conf:go_default_library",
-        "//app/service/ep/footman/model:go_default_library",
-        "//app/service/ep/footman/service:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/container/pool:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/ep/footman/conf",
+        "//app/service/ep/footman/model",
+        "//app/service/ep/footman/service",
+        "//library/cache/memcache",
+        "//library/container/pool",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/netutil/breaker",
+        "//library/time",
     ],
 )
 

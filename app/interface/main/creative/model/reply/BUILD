@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "reply",
     srcs = [
         "reply.go",
         "xints.go",
@@ -16,8 +16,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/reply/model/reply:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/reply/model/reply",
+        "//library/time",
     ],
 )
 
@@ -36,9 +36,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "reply_test",
     srcs = ["xints_test.go"],
-    embed = [":go_default_library"],
+    embed = [":reply"],
     rundir = ".",
     tags = ["automanaged"],
 )

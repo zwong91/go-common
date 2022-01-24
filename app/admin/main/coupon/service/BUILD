@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "activity.go",
         "allowance.go",
@@ -20,19 +20,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/coupon/conf:go_default_library",
-        "//app/admin/main/coupon/dao:go_default_library",
-        "//app/admin/main/coupon/model:go_default_library",
-        "//app/service/main/coupon/model:go_default_library",
-        "//app/service/main/coupon/rpc/client:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/coupon/conf",
+        "//app/admin/main/coupon/dao",
+        "//app/admin/main/coupon/model",
+        "//app/service/main/coupon/model",
+        "//app/service/main/coupon/rpc/client",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -51,19 +51,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "activity_test.go",
         "allowance_test.go",
         "code_test.go",
         "coupon_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/coupon/conf:go_default_library",
-        "//app/admin/main/coupon/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/coupon/conf",
+        "//app/admin/main/coupon/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

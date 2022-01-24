@@ -2,40 +2,43 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
-    srcs = ["proxy_test.go"],
-    embed = [":go_default_library"],
+    name = "proxy_test",
+    srcs = [
+        "example_test.go",
+        "proxy_test.go",
+    ],
+    embed = [":proxy"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "proxy",
     srcs = ["proxy.go"],
     importpath = "go-common/library/net/http/blademaster/middleware/proxy",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/conf/env",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["example_test.go"],
     tags = ["automanaged"],
     deps = [

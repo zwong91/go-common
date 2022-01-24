@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "global_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":global"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/up/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "global",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/up/dao/global",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/service/main/account/api",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

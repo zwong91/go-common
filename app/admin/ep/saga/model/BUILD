@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "basic.go",
         "branch.go",
@@ -25,8 +25,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/xanzy/go-gitlab:go_default_library",
+        "//library/ecode",
+        "//vendor/github.com/xanzy/go-gitlab",
     ],
 )
 

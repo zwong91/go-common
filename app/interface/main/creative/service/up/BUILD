@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "up",
     srcs = [
         "service.go",
         "up.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/account:go_default_library",
-        "//app/interface/main/creative/dao/up:go_default_library",
-        "//app/interface/main/creative/model/up:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/account",
+        "//app/interface/main/creative/dao/up",
+        "//app/interface/main/creative/model/up",
+        "//app/interface/main/creative/service",
+        "//app/service/main/up/model",
+        "//library/log",
     ],
 )
 
@@ -41,14 +41,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "up_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":up"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/service",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

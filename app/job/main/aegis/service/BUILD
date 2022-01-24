@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "cache.go",
         "databus.go",
@@ -25,21 +25,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/aegis/conf:go_default_library",
-        "//app/job/main/aegis/dao:go_default_library",
-        "//app/job/main/aegis/dao/email:go_default_library",
-        "//app/job/main/aegis/dao/monitor:go_default_library",
-        "//app/job/main/aegis/model:go_default_library",
-        "//app/job/main/aegis/model/monitor:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/up/api/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/databusutil:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/aegis/conf",
+        "//app/job/main/aegis/dao",
+        "//app/job/main/aegis/dao/email",
+        "//app/job/main/aegis/dao/monitor",
+        "//app/job/main/aegis/model",
+        "//app/job/main/aegis/model/monitor",
+        "//app/service/main/account/api",
+        "//app/service/main/up/api/v1:api",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/queue/databus/databusutil",
+        "//library/queue/databus/report",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -58,19 +58,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "monitor_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/aegis/conf:go_default_library",
-        "//app/job/main/aegis/model/monitor:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/golang/mock/gomock:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/aegis/conf",
+        "//app/job/main/aegis/model/monitor",
+        "//app/service/main/account/api",
+        "//library/log",
+        "//vendor/github.com/golang/mock/gomock",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "identify_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/identify/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/identify/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "auth.go",
         "check_task.go",
@@ -33,15 +33,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/identify/conf:go_default_library",
-        "//app/job/main/identify/dao:go_default_library",
-        "//app/job/main/identify/model:go_default_library",
-        "//app/service/main/identify/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/databusutil:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/job/main/identify/conf",
+        "//app/job/main/identify/dao",
+        "//app/job/main/identify/model",
+        "//app/service/main/identify/model",
+        "//library/cache/memcache",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/queue/databus/databusutil",
+        "//library/stat/prom",
     ],
 )
 

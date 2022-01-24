@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "event",
     srcs = ["event.go"],
     importpath = "go-common/app/service/ops/log-agent/event",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 filegroup(

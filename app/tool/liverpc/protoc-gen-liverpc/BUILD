@@ -3,33 +3,33 @@ package(default_visibility = ["//visibility:public"])
 load(
     "@io_bazel_rules_go//go:def.bzl",
     "go_binary",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_binary(
     name = "protoc-gen-liverpc",
-    embed = [":go_default_library"],
+    embed = [":protoc-gen-liverpc_lib"],
     tags = ["automanaged"],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "protoc-gen-liverpc_test",
     srcs = [
         "command_line_test.go",
         "generator_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":protoc-gen-liverpc_lib"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/plugin",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "protoc-gen-liverpc_lib",
     srcs = [
         "command_line.go",
         "generator.go",
@@ -40,13 +40,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/liverpc/protoc-gen-liverpc/gen:go_default_library",
-        "//app/tool/liverpc/protoc-gen-liverpc/gen/stringutils:go_default_library",
-        "//app/tool/liverpc/protoc-gen-liverpc/gen/typemap:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/descriptor:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library",
+        "//app/tool/liverpc/protoc-gen-liverpc/gen",
+        "//app/tool/liverpc/protoc-gen-liverpc/gen/stringutils",
+        "//app/tool/liverpc/protoc-gen-liverpc/gen/typemap",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/descriptor",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/plugin",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

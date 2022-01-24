@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["zeus.go"],
     importpath = "go-common/app/service/live/zeus/internal/service/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/common/live/library/mengde:go_default_library",
-        "//app/service/live/zeus/api/v1:go_default_library",
-        "//app/service/live/zeus/expr:go_default_library",
-        "//app/service/live/zeus/internal/conf:go_default_library",
-        "//app/service/live/zeus/internal/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/common/live/library/mengde",
+        "//app/service/live/zeus/api/v1:api",
+        "//app/service/live/zeus/expr",
+        "//app/service/live/zeus/internal/conf",
+        "//app/service/live/zeus/internal/service",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

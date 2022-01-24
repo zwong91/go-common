@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "history.go",
         "service.go",
@@ -17,16 +17,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/history/api/grpc:go_default_library",
-        "//app/service/main/history/conf:go_default_library",
-        "//app/service/main/history/dao:go_default_library",
-        "//app/service/main/history/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/golang.org/x/sync/singleflight:go_default_library",
+        "//app/service/main/history/api/grpc",
+        "//app/service/main/history/conf",
+        "//app/service/main/history/dao",
+        "//app/service/main/history/model",
+        "//library/ecode",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline",
+        "//library/sync/pipeline/fanout",
+        "//vendor/golang.org/x/sync/singleflight",
     ],
 )
 
@@ -45,18 +45,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "history_test.go",
         "service_test.go",
         "user_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/history/api/grpc:go_default_library",
-        "//app/service/main/history/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/history/api/grpc",
+        "//app/service/main/history/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

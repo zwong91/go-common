@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "common",
     srcs = ["const.go"],
     importpath = "go-common/app/service/live/common",
     tags = ["automanaged"],

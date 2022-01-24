@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "question_bank_bind_test.go",
         "question_bank_test.go",
         "question_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/anti-fraud/conf:go_default_library",
-        "//app/service/openplatform/anti-fraud/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/openplatform/anti-fraud/conf",
+        "//app/service/openplatform/anti-fraud/model",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "graph.go",
         "question.go",
@@ -39,19 +39,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/common/openplatform/geetest/model:go_default_library",
-        "//app/common/openplatform/geetest/service:go_default_library",
-        "//app/common/openplatform/random:go_default_library",
-        "//app/service/openplatform/anti-fraud/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/anti-fraud/api/http/v1:go_default_library",
-        "//app/service/openplatform/anti-fraud/conf:go_default_library",
-        "//app/service/openplatform/anti-fraud/dao:go_default_library",
-        "//app/service/openplatform/anti-fraud/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
+        "//app/common/openplatform/geetest/model",
+        "//app/common/openplatform/geetest/service",
+        "//app/common/openplatform/random",
+        "//app/service/openplatform/anti-fraud/api/grpc/v1:grpc",
+        "//app/service/openplatform/anti-fraud/api/http/v1:http",
+        "//app/service/openplatform/anti-fraud/conf",
+        "//app/service/openplatform/anti-fraud/dao",
+        "//app/service/openplatform/anti-fraud/model",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 

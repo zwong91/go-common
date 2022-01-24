@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "app_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":app"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/app:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/app",
+        "//app/interface/main/creative/service",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "app",
     srcs = [
         "app.go",
         "service.go",
@@ -30,14 +30,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/app:go_default_library",
-        "//app/interface/main/creative/dao/message:go_default_library",
-        "//app/interface/main/creative/model/app:go_default_library",
-        "//app/interface/main/creative/model/message:go_default_library",
-        "//app/interface/main/creative/model/resource:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/app",
+        "//app/interface/main/creative/dao/message",
+        "//app/interface/main/creative/model/app",
+        "//app/interface/main/creative/model/message",
+        "//app/interface/main/creative/model/resource",
+        "//app/interface/main/creative/service",
+        "//library/log",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "websocket",
     srcs = [
         "conn.go",
         "request.go",
@@ -15,7 +15,7 @@ go_library(
     importpath = "go-common/app/service/main/broadcast/libs/websocket",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/broadcast/libs/bufio:go_default_library"],
+    deps = ["//app/service/main/broadcast/libs/bufio"],
 )
 
 filegroup(

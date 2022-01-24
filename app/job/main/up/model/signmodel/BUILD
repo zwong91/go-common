@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "signmodel",
     srcs = ["sign_up.go"],
     importpath = "go-common/app/job/main/up/model/signmodel",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/util:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/up/util",
+        "//library/time",
     ],
 )
 

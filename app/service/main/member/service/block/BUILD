@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "block",
     srcs = [
         "audit_log.go",
         "block.go",
@@ -18,15 +18,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/dao/block:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/dao/block",
+        "//app/service/main/member/model",
+        "//app/service/main/member/model/block",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus/report",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -45,17 +45,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "block_test",
     srcs = [
         "block_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":block"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/member/conf:go_default_library",
-        "//app/service/main/member/dao:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/member/conf",
+        "//app/service/main/member/dao",
+        "//app/service/main/member/model/block",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "ip.go",
@@ -18,14 +18,14 @@ go_library(
     importpath = "go-common/app/service/main/location/server/http",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/location/conf:go_default_library",
-        "//app/service/main/location/model:go_default_library",
-        "//app/service/main/location/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/location/conf",
+        "//app/service/main/location/model",
+        "//app/service/main/location/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/xstr",
     ],
 )
 

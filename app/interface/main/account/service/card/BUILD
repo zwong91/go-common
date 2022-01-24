@@ -7,14 +7,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "card",
     srcs = ["card.go"],
     importpath = "go-common/app/interface/main/account/service/card",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/service/main/card/api/grpc/v1:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/service/main/card/api/grpc/v1:grpc",
     ],
 )
 
@@ -33,14 +33,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "card_test",
     srcs = ["card_test.go"],
-    embed = [":go_default_library"],
+    embed = [":card"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/service/main/card/api/grpc/v1:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/service/main/card/api/grpc/v1:grpc",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

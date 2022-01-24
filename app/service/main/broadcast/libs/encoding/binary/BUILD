@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "binary",
     srcs = ["endian.go"],
     importpath = "go-common/app/service/main/broadcast/libs/encoding/binary",
     tags = ["automanaged"],

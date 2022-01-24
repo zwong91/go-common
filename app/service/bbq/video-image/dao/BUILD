@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/service/bbq/video-image/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/bbq/video-image/conf:go_default_library"],
+    deps = ["//app/service/bbq/video-image/conf"],
 )
 
 filegroup(

@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "collect",
     srcs = ["collect.go"],
     importpath = "go-common/app/service/main/dapper/pkg/collect",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/dapper/pkg/process:go_default_library"],
+    deps = ["//app/service/main/dapper/pkg/process"],
 )
 
 filegroup(

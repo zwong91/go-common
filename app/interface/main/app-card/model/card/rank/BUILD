@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "rank",
     srcs = ["rank.go"],
     importpath = "go-common/app/interface/main/app-card/model/card/rank",
     tags = ["automanaged"],

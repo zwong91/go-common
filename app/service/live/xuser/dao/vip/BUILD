@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "vip_test",
     srcs = [
         "cache_test.go",
         "dao_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":vip"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/xuser/conf:go_default_library",
-        "//app/service/live/xuser/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/xuser/conf",
+        "//app/service/live/xuser/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "vip",
     srcs = [
         "cache.go",
         "dao.go",
@@ -36,14 +36,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuser/conf:go_default_library",
-        "//app/service/live/xuser/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/live/xuser/conf",
+        "//app/service/live/xuser/model",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

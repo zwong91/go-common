@@ -2,29 +2,32 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
+        "keyword_test.go",
+        "regexp_content_test.go",
         "service_test.go",
         "transform_test.go",
         "trie_mgr_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/antispam/conf:go_default_library",
-        "//app/service/main/antispam/util:go_default_library",
-        "//app/service/main/antispam/util/trie:go_default_library",
+        "//app/service/main/antispam/conf",
+        "//app/service/main/antispam/util",
+        "//app/service/main/antispam/util/trie",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "cond.go",
         "filter.go",
@@ -43,19 +46,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/antispam/conf:go_default_library",
-        "//app/service/main/antispam/dao:go_default_library",
-        "//app/service/main/antispam/extern:go_default_library",
-        "//app/service/main/antispam/model:go_default_library",
-        "//app/service/main/antispam/util:go_default_library",
-        "//app/service/main/antispam/util/trie:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/antispam/conf",
+        "//app/service/main/antispam/dao",
+        "//app/service/main/antispam/extern",
+        "//app/service/main/antispam/model",
+        "//app/service/main/antispam/util",
+        "//app/service/main/antispam/util/trie",
+        "//library/cache",
+        "//library/log",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = [
         "keyword_test.go",
         "regexp_content_test.go",

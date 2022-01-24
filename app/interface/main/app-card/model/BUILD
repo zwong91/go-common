@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["const.go"],
     importpath = "go-common/app/interface/main/app-card/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-card/model/card/audio:go_default_library",
-        "//app/interface/main/app-card/model/card/live:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/app-card/model/card/audio",
+        "//app/interface/main/app-card/model/card/live",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/model/archive",
+        "//library/log",
     ],
 )
 

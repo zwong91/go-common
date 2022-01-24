@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "json_test",
     srcs = ["jsonlint_test.go"],
-    embed = [":go_default_library"],
+    embed = [":json"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "json",
     srcs = ["jsonlint.go"],
     importpath = "go-common/app/admin/main/config/pkg/lint/json",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/admin/main/config/pkg/lint:go_default_library"],
+    deps = ["//app/admin/main/config/pkg/lint"],
 )
 
 filegroup(

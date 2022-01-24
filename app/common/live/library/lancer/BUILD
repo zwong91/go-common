@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lancer",
     srcs = ["lancer.go"],
     importpath = "go-common/app/common/live/library/lancer",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 filegroup(

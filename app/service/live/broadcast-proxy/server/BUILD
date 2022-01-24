@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = [
         "dispatch.go",
         "http.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/broadcast-proxy/conf:go_default_library",
-        "//app/service/live/broadcast-proxy/dispatch:go_default_library",
-        "//app/service/live/broadcast-proxy/grocery:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/ipipdotnet/ipdb-go:go_default_library",
-        "//vendor/github.com/samuel/go-zookeeper/zk:go_default_library",
+        "//app/service/live/broadcast-proxy/conf",
+        "//app/service/live/broadcast-proxy/dispatch",
+        "//app/service/live/broadcast-proxy/grocery",
+        "//library/log",
+        "//vendor/github.com/ipipdotnet/ipdb-go",
+        "//vendor/github.com/samuel/go-zookeeper/zk",
     ],
 )
 

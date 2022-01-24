@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "dm.go",
         "service.go",
@@ -15,14 +15,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/open-interface/api/http/v1:go_default_library",
-        "//app/interface/live/open-interface/internal/dao:go_default_library",
-        "//app/service/live/broadcast-proxy/api/v1:go_default_library",
-        "//app/service/live/resource/sdk:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/live/open-interface/api/http/v1:http",
+        "//app/interface/live/open-interface/internal/dao",
+        "//app/service/live/broadcast-proxy/api/v1:api",
+        "//app/service/live/resource/sdk",
+        "//library/conf/paladin",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
     ],
 )
 

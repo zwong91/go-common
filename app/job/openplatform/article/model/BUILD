@@ -6,11 +6,11 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["model.go"],
     importpath = "go-common/app/job/openplatform/article/model",
     tags = ["automanaged"],
-    deps = ["//app/interface/openplatform/article/model:go_default_library"],
+    deps = ["//app/interface/openplatform/article/model"],
 )
 
 filegroup(

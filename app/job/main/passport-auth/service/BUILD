@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "clean_cache.go",
         "service.go",
@@ -18,14 +18,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-auth/conf:go_default_library",
-        "//app/job/main/passport-auth/dao:go_default_library",
-        "//app/job/main/passport-auth/model:go_default_library",
-        "//app/service/main/passport-auth/rpc/client:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/databusutil:go_default_library",
-        "//library/time:go_default_library",
+        "//app/job/main/passport-auth/conf",
+        "//app/job/main/passport-auth/dao",
+        "//app/job/main/passport-auth/model",
+        "//app/service/main/passport-auth/rpc/client",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/queue/databus/databusutil",
+        "//library/time",
     ],
 )
 
@@ -44,19 +44,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "clean_cache_test.go",
         "service_test.go",
         "syn_auth_test.go",
         "sync_all_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport-auth/conf:go_default_library",
-        "//app/job/main/passport-auth/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport-auth/conf",
+        "//app/job/main/passport-auth/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

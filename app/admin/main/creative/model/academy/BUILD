@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "academy",
     srcs = [
         "archive.go",
         "occupation.go",

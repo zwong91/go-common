@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "exp.go",
         "http.go",
@@ -14,28 +14,28 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/userexp/conf:go_default_library",
-        "//app/service/live/userexp/model:go_default_library",
-        "//app/service/live/userexp/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/live/userexp/conf",
+        "//app/service/live/userexp/model",
+        "//app/service/live/userexp/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/xstr",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = ["http_test.go"],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/userexp/conf:go_default_library",
-        "//app/service/live/userexp/model:go_default_library",
-        "//app/service/live/userexp/service:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/service/live/userexp/conf",
+        "//app/service/live/userexp/model",
+        "//app/service/live/userexp/service",
+        "//library/net/http/blademaster",
     ],
 )
 

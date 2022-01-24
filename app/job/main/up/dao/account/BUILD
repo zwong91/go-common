@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "account_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":account"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/up/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/up/conf",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = [
         "account_cache.go",
         "dao.go",
@@ -29,11 +29,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/up/conf:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/up/conf",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

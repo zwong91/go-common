@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "middleware",
     srcs = ["check.go"],
     importpath = "go-common/app/interface/video/portal/middleware",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

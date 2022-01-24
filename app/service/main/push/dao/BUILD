@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "client_test.go",
         "dao_test.go",
@@ -18,21 +18,21 @@ go_test(
         "redis_test.go",
         "report_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/push/conf:go_default_library",
-        "//app/service/main/push/dao/oppo:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/push/conf",
+        "//app/service/main/push/dao/oppo",
+        "//app/service/main/push/model",
+        "//library/cache/redis",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "client.go",
         "dao.go",
@@ -50,23 +50,23 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/push/conf:go_default_library",
-        "//app/service/main/push/dao/apns2:go_default_library",
-        "//app/service/main/push/dao/fcm:go_default_library",
-        "//app/service/main/push/dao/huawei:go_default_library",
-        "//app/service/main/push/dao/jpush:go_default_library",
-        "//app/service/main/push/dao/mi:go_default_library",
-        "//app/service/main/push/dao/oppo:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/push/conf",
+        "//app/service/main/push/dao/apns2",
+        "//app/service/main/push/dao/fcm",
+        "//app/service/main/push/dao/huawei",
+        "//app/service/main/push/dao/jpush",
+        "//app/service/main/push/dao/mi",
+        "//app/service/main/push/dao/oppo",
+        "//app/service/main/push/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/conf/env",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/xstr",
     ],
 )
 

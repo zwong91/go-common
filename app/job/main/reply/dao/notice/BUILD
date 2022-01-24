@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "notice_test",
     srcs = [
         "audio_playlist_test.go",
         "audio_test.go",
@@ -19,17 +19,17 @@ go_test(
         "live_test.go",
         "topic_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":notice"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/reply/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/reply/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "notice",
     srcs = [
         "audio.go",
         "audio_playlist.go",
@@ -45,9 +45,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/reply/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/reply/conf",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

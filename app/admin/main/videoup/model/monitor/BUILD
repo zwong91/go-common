@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "monitor",
     srcs = ["monitor.go"],
     importpath = "go-common/app/admin/main/videoup/model/monitor",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup/model/archive:go_default_library",
-        "//app/admin/main/videoup/model/manager:go_default_library",
+        "//app/admin/main/videoup/model/archive",
+        "//app/admin/main/videoup/model/manager",
     ],
 )
 

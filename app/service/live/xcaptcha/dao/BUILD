@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "captchaAnti.go",
         "dao.go",
@@ -18,14 +18,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/captcha/api/liverpc:go_default_library",
-        "//app/service/live/captcha/api/liverpc/v0:go_default_library",
-        "//app/service/live/captcha/api/liverpc/v1:go_default_library",
-        "//app/service/live/xcaptcha/conf:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/service/live/captcha/api/liverpc",
+        "//app/service/live/captcha/api/liverpc/v0:liverpc",
+        "//app/service/live/captcha/api/liverpc/v1:liverpc",
+        "//app/service/live/xcaptcha/conf",
+        "//library/cache/redis",
+        "//library/log",
+        "//library/net/rpc/liverpc",
+        "//library/queue/databus",
     ],
 )
 

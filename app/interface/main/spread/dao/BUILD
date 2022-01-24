@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "bangumi_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/spread/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/spread/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "bangumi.go",
         "dao.go",
@@ -31,12 +31,12 @@ go_library(
     importpath = "go-common/app/interface/main/spread/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/spread/conf:go_default_library",
-        "//app/interface/main/spread/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/interface/main/spread/conf",
+        "//app/interface/main/spread/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
     ],
 )
 

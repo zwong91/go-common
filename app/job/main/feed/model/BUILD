@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "archive.go",
         "model.go",
     ],
     importpath = "go-common/app/job/main/feed/model",
     tags = ["automanaged"],
-    deps = ["//app/service/main/archive/api:go_default_library"],
+    deps = ["//app/service/main/archive/api"],
 )
 
 filegroup(

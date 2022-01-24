@@ -7,16 +7,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tag",
     srcs = ["tag.go"],
     importpath = "go-common/library/net/http/blademaster/middleware/tag",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/net/http/blademaster:go_default_library"],
+    deps = ["//library/net/http/blademaster"],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = [
         "example_test.go",
         "tag_test.go",
@@ -42,4 +42,18 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "tag_test",
+    srcs = [
+        "example_test.go",
+        "tag_test.go",
+    ],
+    deps = [
+        ":tag",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/stretchr/testify/assert",
+    ],
 )

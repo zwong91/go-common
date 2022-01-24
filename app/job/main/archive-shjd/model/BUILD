@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "message.go",
         "result.go",
@@ -16,7 +16,7 @@ go_library(
     importpath = "go-common/app/job/main/archive-shjd/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/archive/api:go_default_library"],
+    deps = ["//app/service/main/archive/api"],
 )
 
 filegroup(

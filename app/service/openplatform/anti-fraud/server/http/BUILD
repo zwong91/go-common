@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = [
         "http_test.go",
         "question_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/anti-fraud/conf:go_default_library",
-        "//app/service/openplatform/anti-fraud/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/openplatform/anti-fraud/conf",
+        "//app/service/openplatform/anti-fraud/model",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "graph.go",
         "http.go",
@@ -36,16 +36,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/anti-fraud/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/anti-fraud/api/http/v1:go_default_library",
-        "//app/service/openplatform/anti-fraud/conf:go_default_library",
-        "//app/service/openplatform/anti-fraud/model:go_default_library",
-        "//app/service/openplatform/anti-fraud/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/openplatform/anti-fraud/api/grpc/v1:grpc",
+        "//app/service/openplatform/anti-fraud/api/http/v1:http",
+        "//app/service/openplatform/anti-fraud/conf",
+        "//app/service/openplatform/anti-fraud/model",
+        "//app/service/openplatform/anti-fraud/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

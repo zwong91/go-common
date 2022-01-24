@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "exp.go",
         "service.go",
@@ -14,24 +14,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live-userexp/conf:go_default_library",
-        "//app/job/live-userexp/dao:go_default_library",
-        "//app/job/live-userexp/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/live-userexp/conf",
+        "//app/job/live-userexp/dao",
+        "//app/job/live-userexp/model",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["exp_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/live-userexp/conf:go_default_library",
-        "//app/job/live-userexp/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/live-userexp/conf",
+        "//app/job/live-userexp/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

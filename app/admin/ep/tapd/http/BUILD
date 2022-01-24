@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "hook.go",
         "http.go",
@@ -15,14 +15,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/tapd/conf:go_default_library",
-        "//app/admin/ep/tapd/model:go_default_library",
-        "//app/admin/ep/tapd/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
+        "//app/admin/ep/tapd/conf",
+        "//app/admin/ep/tapd/model",
+        "//app/admin/ep/tapd/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/permit",
     ],
 )
 

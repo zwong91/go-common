@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "metadata",
     srcs = ["meta.go"],
     importpath = "go-common/library/net/rpc/warden/metadata",
     tags = ["automanaged"],

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "archive_test.go",
         "dao_test.go",
@@ -20,19 +20,19 @@ go_test(
         "redis_test.go",
         "search_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/dm/conf:go_default_library",
-        "//app/interface/main/dm/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/dm/conf",
+        "//app/interface/main/dm/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "archive.go",
         "dao.go",
@@ -49,17 +49,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/dm/conf:go_default_library",
-        "//app/interface/main/dm/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/dm/conf",
+        "//app/interface/main/dm/model",
+        "//library/cache/redis",
+        "//library/database/elastic",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/queue/databus",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/xstr",
     ],
 )
 

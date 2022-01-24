@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/bbq/bullet/internal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/bbq/bullet/api:go_default_library",
-        "//app/interface/bbq/bullet/internal/conf:go_default_library",
-        "//app/interface/bbq/bullet/internal/dao:go_default_library",
-        "//app/service/bbq/video/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/bbq/bullet/api",
+        "//app/interface/bbq/bullet/internal/conf",
+        "//app/interface/bbq/bullet/internal/dao",
+        "//app/service/bbq/video/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

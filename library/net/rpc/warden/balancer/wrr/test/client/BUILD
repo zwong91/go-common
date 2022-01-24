@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["client.go"],
     importpath = "go-common/library/net/rpc/warden/balancer/wrr/test/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/exp/feature:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/proto/testproto:go_default_library",
-        "//library/net/rpc/warden/resolver:go_default_library",
-        "//library/net/rpc/warden/resolver/direct:go_default_library",
+        "//library/exp/feature",
+        "//library/log",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/proto/testproto",
+        "//library/net/rpc/warden/resolver",
+        "//library/net/rpc/warden/resolver/direct",
     ],
 )
 

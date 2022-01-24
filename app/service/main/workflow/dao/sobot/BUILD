@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "sobot_test",
     srcs = [
         "dao_test.go",
         "sobot_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":sobot"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/workflow/conf:go_default_library",
-        "//app/service/main/workflow/model/sobot:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/workflow/conf",
+        "//app/service/main/workflow/model/sobot",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sobot",
     srcs = [
         "dao.go",
         "sobot.go",
@@ -32,10 +32,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/workflow/conf:go_default_library",
-        "//app/service/main/workflow/model/sobot:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/service/main/workflow/conf",
+        "//app/service/main/workflow/model/sobot",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

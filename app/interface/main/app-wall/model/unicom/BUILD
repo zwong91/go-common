@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "unicom",
     srcs = ["unicom.go"],
     importpath = "go-common/app/interface/main/app-wall/model/unicom",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-wall/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-wall/model",
+        "//library/log",
+        "//library/time",
     ],
 )
 

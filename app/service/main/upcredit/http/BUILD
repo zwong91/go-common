@@ -2,39 +2,38 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = ["http_test.go"],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/service/main/up/conf:go_default_library"],
+    deps = ["//app/service/main/up/conf"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "logcredit.go",
     ],
-    importmap = "go-common/app/service/main/upcredit/http",
     importpath = "go-common/app/service/main/upcredit/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/upcredit/conf:go_default_library",
-        "//app/service/main/upcredit/model/calculator:go_default_library",
-        "//app/service/main/upcredit/model/upcrmmodel:go_default_library",
-        "//app/service/main/upcredit/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/main/upcredit/conf",
+        "//app/service/main/upcredit/model/calculator",
+        "//app/service/main/upcredit/model/upcrmmodel",
+        "//app/service/main/upcredit/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

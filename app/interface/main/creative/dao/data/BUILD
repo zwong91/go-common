@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "data",
     srcs = [
         "api.go",
         "archive.go",
@@ -24,17 +24,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/util/hbaseutil:go_default_library",
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/data:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
-        "@org_golang_x_net//context:go_default_library",
+        "//app/admin/main/up/util/hbaseutil",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/data",
+        "//app/interface/openplatform/article/model",
+        "//library/cache/memcache",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
+        "//vendor/golang.org/x/net/context",
     ],
 )
 
@@ -53,7 +53,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "data_test",
     srcs = [
         "api_test.go",
         "archive_play_test.go",
@@ -65,21 +65,21 @@ go_test(
         "overview_mc_test.go",
         "overview_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":data"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/data:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/data",
+        "//app/interface/openplatform/article/model",
+        "//library/cache/memcache",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

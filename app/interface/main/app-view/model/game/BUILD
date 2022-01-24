@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "game",
     srcs = ["game.go"],
     importpath = "go-common/app/interface/main/app-view/model/game",
     tags = ["automanaged"],

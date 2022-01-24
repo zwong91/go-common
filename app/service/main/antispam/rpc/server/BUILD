@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = [
         "filter.go",
         "rpc.go",
@@ -15,12 +15,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/antispam/conf:go_default_library",
-        "//app/service/main/antispam/model:go_default_library",
-        "//app/service/main/antispam/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/antispam/conf",
+        "//app/service/main/antispam/model",
+        "//app/service/main/antispam/service",
+        "//library/log",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

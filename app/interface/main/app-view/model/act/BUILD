@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "act",
     srcs = ["act.go"],
     importpath = "go-common/app/interface/main/app-view/model/act",
     tags = ["automanaged"],

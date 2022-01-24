@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/main/app-wall/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/app-wall/conf:go_default_library",
-        "//app/job/main/app-wall/service/offer:go_default_library",
-        "//app/job/main/app-wall/service/unicom:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/app-wall/conf",
+        "//app/job/main/app-wall/service/offer",
+        "//app/job/main/app-wall/service/unicom",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

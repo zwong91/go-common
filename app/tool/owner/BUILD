@@ -2,19 +2,19 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "owner_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/tool/owner",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/ghodss/yaml:go_default_library",
-        "//vendor/k8s.io/apimachinery/pkg/util/sets:go_default_library",
+        "//vendor/github.com/ghodss/yaml",
+        "//vendor/k8s.io/apimachinery/pkg/util/sets",
     ],
 )
 
@@ -34,6 +34,6 @@ filegroup(
 
 go_binary(
     name = "owner",
-    embed = [":go_default_library"],
+    embed = [":owner_lib"],
     tags = ["automanaged"],
 )

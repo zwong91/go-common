@@ -6,21 +6,21 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/job/main/mcn/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/cache/memcache:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//library/cache/memcache",
+        "//library/conf",
+        "//library/database/sql",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/rpc/warden",
+        "//library/net/trace",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

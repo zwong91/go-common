@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["market.go"],
     importpath = "go-common/app/job/openplatform/open-market/model",
     tags = ["automanaged"],

@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["test.toml"],
     importpath = "go-common/app/service/bbq/video-image/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/video-image/conf:go_default_library",
-        "//app/service/bbq/video-image/server/grpc:go_default_library",
-        "//app/service/bbq/video-image/server/http:go_default_library",
-        "//app/service/bbq/video-image/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/bbq/video-image/conf",
+        "//app/service/bbq/video-image/server/grpc",
+        "//app/service/bbq/video-image/server/http",
+        "//app/service/bbq/video-image/service",
+        "//library/log",
     ],
 )
 

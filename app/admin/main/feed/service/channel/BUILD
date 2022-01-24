@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "channel",
     srcs = [
         "card_setup.go",
         "tab.go",
@@ -13,16 +13,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/dao/account:go_default_library",
-        "//app/admin/main/feed/dao/archive:go_default_library",
-        "//app/admin/main/feed/dao/pgc:go_default_library",
-        "//app/admin/main/feed/dao/show:go_default_library",
-        "//app/admin/main/feed/model/channel:go_default_library",
-        "//app/admin/main/feed/model/common:go_default_library",
-        "//app/admin/main/feed/model/show:go_default_library",
-        "//app/admin/main/feed/util:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/dao/account",
+        "//app/admin/main/feed/dao/archive",
+        "//app/admin/main/feed/dao/pgc",
+        "//app/admin/main/feed/dao/show",
+        "//app/admin/main/feed/model/channel",
+        "//app/admin/main/feed/model/common",
+        "//app/admin/main/feed/model/show",
+        "//app/admin/main/feed/util",
+        "//library/log",
     ],
 )
 

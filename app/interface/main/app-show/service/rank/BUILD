@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "rank_test",
     srcs = ["rank_test.go"],
-    embed = [":go_default_library"],
+    embed = [":rank"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-show/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-show/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "rank",
     srcs = [
         "audit.go",
         "rank.go",
@@ -28,21 +28,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-show/conf:go_default_library",
-        "//app/interface/main/app-show/dao/account:go_default_library",
-        "//app/interface/main/app-show/dao/archive:go_default_library",
-        "//app/interface/main/app-show/dao/audit:go_default_library",
-        "//app/interface/main/app-show/dao/recommend:go_default_library",
-        "//app/interface/main/app-show/dao/region:go_default_library",
-        "//app/interface/main/app-show/dao/relation:go_default_library",
-        "//app/interface/main/app-show/model:go_default_library",
-        "//app/interface/main/app-show/model/region:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/app-show/conf",
+        "//app/interface/main/app-show/dao/account",
+        "//app/interface/main/app-show/dao/archive",
+        "//app/interface/main/app-show/dao/audit",
+        "//app/interface/main/app-show/dao/recommend",
+        "//app/interface/main/app-show/dao/region",
+        "//app/interface/main/app-show/dao/relation",
+        "//app/interface/main/app-show/model",
+        "//app/interface/main/app-show/model/region",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/relation/model",
+        "//library/log",
+        "//library/sync/errgroup",
     ],
 )
 

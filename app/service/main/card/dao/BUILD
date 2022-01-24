@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "cache.go",
         "dao.cache.go",
@@ -19,18 +19,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/card/conf:go_default_library",
-        "//app/service/main/card/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/golang.org/x/sync/singleflight:go_default_library",
+        "//app/service/main/card/conf",
+        "//app/service/main/card/model",
+        "//library/cache",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/sync/singleflight",
     ],
 )
 
@@ -49,7 +49,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "cache_test.go",
         "dao.cache_test.go",
@@ -57,12 +57,12 @@ go_test(
         "mc.cache_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/card/conf:go_default_library",
-        "//app/service/main/card/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/card/conf",
+        "//app/service/main/card/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

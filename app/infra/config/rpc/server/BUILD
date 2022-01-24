@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = ["config.go"],
     importpath = "go-common/app/infra/config/rpc/server",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/config/conf:go_default_library",
-        "//app/infra/config/model:go_default_library",
-        "//app/infra/config/service/v1:go_default_library",
-        "//app/infra/config/service/v2:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/infra/config/conf",
+        "//app/infra/config/model",
+        "//app/infra/config/service/v1:service",
+        "//app/infra/config/service/v2:service",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

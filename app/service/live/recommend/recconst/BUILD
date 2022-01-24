@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "recconst",
     srcs = ["redis_keys.go"],
     importpath = "go-common/app/service/live/recommend/recconst",
     tags = ["automanaged"],

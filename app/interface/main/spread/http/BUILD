@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "bangumi.go",
         "http.go",
@@ -14,12 +14,12 @@ go_library(
     importpath = "go-common/app/interface/main/spread/http",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/spread/conf:go_default_library",
-        "//app/interface/main/spread/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
+        "//app/interface/main/spread/conf",
+        "//app/interface/main/spread/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/render",
     ],
 )
 

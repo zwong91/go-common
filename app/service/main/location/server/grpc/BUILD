@@ -2,36 +2,36 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "grpc_test",
     srcs = ["server_test.go"],
-    embed = [":go_default_library"],
+    embed = [":grpc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/location/api:go_default_library",
-        "//app/service/main/location/conf:go_default_library",
-        "//app/service/main/location/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/location/api",
+        "//app/service/main/location/conf",
+        "//app/service/main/location/service",
+        "//library/net/rpc/warden",
+        "//library/time",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/location/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/location/api:go_default_library",
-        "//app/service/main/location/model:go_default_library",
-        "//app/service/main/location/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/main/location/api",
+        "//app/service/main/location/model",
+        "//app/service/main/location/service",
+        "//library/net/rpc/warden",
     ],
 )
 

@@ -22,7 +22,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "naming",
     srcs = ["naming.go"],
     importpath = "go-common/library/naming",
     tags = ["automanaged"],

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "business_test.go",
         "dao_test.go",
@@ -16,20 +16,20 @@ go_test(
         "reason_test.go",
         "tag_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/manager/conf:go_default_library",
-        "//app/admin/main/manager/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/manager/conf",
+        "//app/admin/main/manager/model",
+        "//library/ecode",
+        "//library/net/http/blademaster/middleware/permit",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "business.go",
         "dao.go",
@@ -42,15 +42,15 @@ go_library(
     importpath = "go-common/app/admin/main/manager/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/manager/conf:go_default_library",
-        "//app/admin/main/manager/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/manager/conf",
+        "//app/admin/main/manager/model",
+        "//library/cache/memcache",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

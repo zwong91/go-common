@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tag/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/tag/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "business.go",
         "res_tag.go",
@@ -32,19 +32,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/archive/model/archive:go_default_library",
-        "//app/job/main/tag/conf:go_default_library",
-        "//app/job/main/tag/dao:go_default_library",
-        "//app/job/main/tag/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/ftp-master:go_default_library",
+        "//app/job/main/archive/model/archive",
+        "//app/job/main/tag/conf",
+        "//app/job/main/tag/dao",
+        "//app/job/main/tag/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//library/cache",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/xstr",
+        "//vendor/github.com/ftp-master",
     ],
 )
 

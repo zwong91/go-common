@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/favorite/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/favorite/api:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//app/service/main/favorite/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/main/favorite/api",
+        "//app/service/main/favorite/model",
+        "//app/service/main/favorite/service",
+        "//library/ecode",
+        "//library/net/rpc/warden",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
     ],
 )
 

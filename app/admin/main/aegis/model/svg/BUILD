@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "svg_test",
     srcs = ["dot_test.go"],
-    embed = [":go_default_library"],
+    embed = [":svg"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "svg",
     srcs = ["dot.go"],
     importpath = "go-common/app/admin/main/aegis/model/svg",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/aegis/model/net:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/aegis/model/net",
+        "//library/log",
     ],
 )
 

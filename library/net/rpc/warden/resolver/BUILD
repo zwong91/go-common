@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "resolver",
     srcs = [
         "resolver.go",
         "util.go",
@@ -15,13 +15,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/net/rpc/warden/metadata:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@org_golang_google_grpc//resolver:go_default_library",
+        "//library/conf/env",
+        "//library/log",
+        "//library/naming",
+        "//library/net/rpc/warden/metadata",
+        "//vendor/github.com/dgryski/go-farm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/google.golang.org/grpc/resolver",
     ],
 )
 

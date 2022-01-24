@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "bugly.go",
         "bugly_batch_run.go",
@@ -19,15 +19,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/marthe/conf:go_default_library",
-        "//app/admin/ep/marthe/dao:go_default_library",
-        "//app/admin/ep/marthe/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/admin/ep/marthe/conf",
+        "//app/admin/ep/marthe/dao",
+        "//app/admin/ep/marthe/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/robfig/cron",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 

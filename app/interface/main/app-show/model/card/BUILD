@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "card",
     srcs = ["card.go"],
     importpath = "go-common/app/interface/main/app-show/model/card",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-card/model/card/ai:go_default_library",
-        "//app/interface/main/app-show/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-card/model/card/ai",
+        "//app/interface/main/app-show/model",
+        "//library/time",
     ],
 )
 

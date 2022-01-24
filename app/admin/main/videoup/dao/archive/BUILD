@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = [
         "addit_test.go",
         "archive_test.go",
@@ -36,19 +36,19 @@ go_test(
         "video_test.go",
         "watermark_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/videoup/conf:go_default_library",
-        "//app/admin/main/videoup/model/archive:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/main/videoup/conf",
+        "//app/admin/main/videoup/model/archive",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "addit.go",
         "archive.go",
@@ -86,17 +86,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup/conf:go_default_library",
-        "//app/admin/main/videoup/model/archive:go_default_library",
-        "//app/admin/main/videoup/model/utils:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/admin/main/videoup/conf",
+        "//app/admin/main/videoup/model/archive",
+        "//app/admin/main/videoup/model/utils",
+        "//library/cache/redis",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 

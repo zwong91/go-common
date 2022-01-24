@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["passport-user-compare-job.toml"],
     importpath = "go-common/app/job/main/passport-user-compare/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-user-compare/conf:go_default_library",
-        "//app/job/main/passport-user-compare/http:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/main/passport-user-compare/conf",
+        "//app/job/main/passport-user-compare/http",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

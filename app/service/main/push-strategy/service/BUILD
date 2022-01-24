@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/push-strategy/conf:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/push-strategy/conf",
+        "//app/service/main/push/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "service.go",
         "task.go",
@@ -29,16 +29,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/filter/model/rpc:go_default_library",
-        "//app/service/main/filter/rpc/client:go_default_library",
-        "//app/service/main/push-strategy/conf:go_default_library",
-        "//app/service/main/push-strategy/dao:go_default_library",
-        "//app/service/main/push-strategy/model:go_default_library",
-        "//app/service/main/push/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/service/main/filter/model/rpc",
+        "//app/service/main/filter/rpc/client",
+        "//app/service/main/push-strategy/conf",
+        "//app/service/main/push-strategy/dao",
+        "//app/service/main/push-strategy/model",
+        "//app/service/main/push/model",
+        "//library/cache",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup",
     ],
 )
 

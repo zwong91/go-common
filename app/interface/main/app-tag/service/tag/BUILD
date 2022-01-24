@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "tag_test",
     srcs = ["tag_test.go"],
-    embed = [":go_default_library"],
+    embed = [":tag"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/conf:go_default_library",
-        "//app/interface/main/app-tag/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-tag/conf",
+        "//app/interface/main/app-tag/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tag",
     srcs = [
         "cache.go",
         "infoc.go",
@@ -30,25 +30,25 @@ go_library(
     importpath = "go-common/app/interface/main/app-tag/service/tag",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/conf:go_default_library",
-        "//app/interface/main/app-tag/dao/archive:go_default_library",
-        "//app/interface/main/app-tag/dao/bangumi:go_default_library",
-        "//app/interface/main/app-tag/dao/recommend:go_default_library",
-        "//app/interface/main/app-tag/dao/region:go_default_library",
-        "//app/interface/main/app-tag/dao/tag:go_default_library",
-        "//app/interface/main/app-tag/model:go_default_library",
-        "//app/interface/main/app-tag/model/bangumi:go_default_library",
-        "//app/interface/main/app-tag/model/feed:go_default_library",
-        "//app/interface/main/app-tag/model/region:go_default_library",
-        "//app/interface/main/app-tag/model/tag:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-tag/conf",
+        "//app/interface/main/app-tag/dao/archive",
+        "//app/interface/main/app-tag/dao/bangumi",
+        "//app/interface/main/app-tag/dao/recommend",
+        "//app/interface/main/app-tag/dao/region",
+        "//app/interface/main/app-tag/dao/tag",
+        "//app/interface/main/app-tag/model",
+        "//app/interface/main/app-tag/model/bangumi",
+        "//app/interface/main/app-tag/model/feed",
+        "//app/interface/main/app-tag/model/region",
+        "//app/interface/main/app-tag/model/tag",
+        "//app/interface/main/tag/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//library/ecode",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/stat/prom",
+        "//library/time",
     ],
 )
 

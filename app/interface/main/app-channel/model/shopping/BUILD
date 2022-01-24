@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "shopping",
     srcs = ["shopping.go"],
     importpath = "go-common/app/interface/main/app-channel/model/shopping",
     tags = ["automanaged"],

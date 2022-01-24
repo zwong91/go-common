@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lic",
     srcs = [
         "call.go",
         "dao.go",
@@ -18,11 +18,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/model/pgc:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/model/pgc",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -41,18 +41,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "lic_test",
     srcs = [
         "dao_test.go",
         "lic_test.go",
         "xml_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":lic"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/model/pgc:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/model/pgc",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

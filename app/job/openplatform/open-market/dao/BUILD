@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "berserker.go",
         "dao.go",
@@ -17,14 +17,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/openplatform/open-market/conf:go_default_library",
-        "//app/job/openplatform/open-market/model:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/gopkg.in/olivere/elastic.v5:go_default_library",
+        "//app/job/openplatform/open-market/conf",
+        "//app/job/openplatform/open-market/model",
+        "//library/conf/env",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/gopkg.in/olivere/elastic.v5:elastic_v5",
     ],
 )
 

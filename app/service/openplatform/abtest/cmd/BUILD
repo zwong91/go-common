@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["open-abtest.toml"],
     importpath = "go-common/app/service/openplatform/abtest/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/abtest/conf:go_default_library",
-        "//app/service/openplatform/abtest/http:go_default_library",
-        "//app/service/openplatform/abtest/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/openplatform/abtest/conf",
+        "//app/service/openplatform/abtest/http",
+        "//app/service/openplatform/abtest/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

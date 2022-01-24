@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/live/xuserex/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuserex/api/grpc/v1:go_default_library",
-        "//app/service/live/xuserex/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/xuserex/api/grpc/v1:grpc",
+        "//app/service/live/xuserex/service",
+        "//library/net/rpc/warden",
     ],
 )
 

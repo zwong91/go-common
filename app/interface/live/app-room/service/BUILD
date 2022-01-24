@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/live/app-room/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/interface/live/app-room/conf:go_default_library"],
+    deps = ["//app/interface/live/app-room/conf"],
 )
 
 filegroup(

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "associate_test.go",
         "autorenew_test.go",
@@ -19,19 +19,19 @@ go_test(
         "sync_test.go",
         "vip_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/vip/conf:go_default_library",
-        "//app/job/main/vip/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/vip/conf",
+        "//app/job/main/vip/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "associate.go",
         "autorenew.go",
@@ -52,20 +52,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/vip/conf:go_default_library",
-        "//app/job/main/vip/dao:go_default_library",
-        "//app/job/main/vip/model:go_default_library",
-        "//app/service/main/coupon/model:go_default_library",
-        "//app/service/main/coupon/rpc/client:go_default_library",
-        "//app/service/main/vip/api:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/main/vip/conf",
+        "//app/job/main/vip/dao",
+        "//app/job/main/vip/model",
+        "//app/service/main/coupon/model",
+        "//app/service/main/coupon/rpc/client",
+        "//app/service/main/vip/api",
+        "//app/service/main/vip/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

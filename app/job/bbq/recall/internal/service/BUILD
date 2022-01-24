@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "bloomfilter.go",
         "forward_index.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/bbq/recall/internal/conf:go_default_library",
-        "//app/job/bbq/recall/internal/dao:go_default_library",
-        "//app/job/bbq/recall/proto:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/golang/snappy:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/bbq/recall/internal/conf",
+        "//app/job/bbq/recall/internal/dao",
+        "//app/job/bbq/recall/proto",
+        "//library/log",
+        "//vendor/github.com/golang/snappy",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

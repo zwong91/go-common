@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "user.go",
@@ -15,13 +15,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/user/api:go_default_library",
-        "//app/service/bbq/user/internal/conf:go_default_library",
-        "//app/service/bbq/user/internal/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/bbq/user/api",
+        "//app/service/bbq/user/internal/conf",
+        "//app/service/bbq/user/internal/service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

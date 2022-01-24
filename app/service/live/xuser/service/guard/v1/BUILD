@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "guard",
     srcs = [
         "clear_cache.go",
         "dahanghai.go",
@@ -17,22 +17,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//app/service/live/room/api/liverpc/v2:go_default_library",
-        "//app/service/live/xuser/api/grpc/v1:go_default_library",
-        "//app/service/live/xuser/conf:go_default_library",
-        "//app/service/live/xuser/dao/account:go_default_library",
-        "//app/service/live/xuser/dao/exp:go_default_library",
-        "//app/service/live/xuser/dao/guard:go_default_library",
-        "//app/service/live/xuser/model:go_default_library",
-        "//app/service/live/xuser/model/dhh:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/live/room/api/liverpc",
+        "//app/service/live/room/api/liverpc/v2:liverpc",
+        "//app/service/live/xuser/api/grpc/v1:grpc",
+        "//app/service/live/xuser/conf",
+        "//app/service/live/xuser/dao/account",
+        "//app/service/live/xuser/dao/exp",
+        "//app/service/live/xuser/dao/guard",
+        "//app/service/live/xuser/model",
+        "//app/service/live/xuser/model/dhh",
+        "//library/cache",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

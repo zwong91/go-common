@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/coupon/conf:go_default_library",
-        "//app/job/main/coupon/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/coupon/conf",
+        "//app/job/main/coupon/model",
+        "//library/database/sql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "notify.go",
         "service.go",
@@ -30,15 +30,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/coupon/conf:go_default_library",
-        "//app/job/main/coupon/dao:go_default_library",
-        "//app/job/main/coupon/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/main/coupon/conf",
+        "//app/job/main/coupon/dao",
+        "//app/job/main/coupon/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

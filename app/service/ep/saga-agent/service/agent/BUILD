@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "agent_test",
     srcs = ["agent_test.go"],
-    embed = [":go_default_library"],
+    embed = [":agent"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "agent",
     srcs = ["agent.go"],
     data = ["runners.toml"],
     importpath = "go-common/app/service/ep/saga-agent/service/agent",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ep/saga-agent/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/ep/saga-agent/conf",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

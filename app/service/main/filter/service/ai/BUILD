@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ai",
     srcs = ["ai.go"],
     importpath = "go-common/app/service/main/filter/service/ai",
     tags = ["automanaged"],
@@ -29,10 +29,10 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "ai_test",
     srcs = ["ai_test.go"],
-    embed = [":go_default_library"],
+    embed = [":ai"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )

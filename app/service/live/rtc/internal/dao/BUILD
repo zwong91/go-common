@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/service/live/rtc/internal/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/rtc/internal/conf:go_default_library",
-        "//app/service/live/rtc/internal/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
+        "//app/service/live/rtc/internal/conf",
+        "//app/service/live/rtc/internal/model",
+        "//library/cache/redis",
+        "//library/database/sql",
     ],
 )
 

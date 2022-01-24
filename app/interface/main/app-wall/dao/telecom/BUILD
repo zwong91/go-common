@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "telecom_test",
     srcs = ["telecom_test.go"],
-    embed = [":go_default_library"],
+    embed = [":telecom"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-wall/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-wall/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "telecom",
     srcs = [
         "api.go",
         "cache.go",
@@ -31,15 +31,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-wall/conf:go_default_library",
-        "//app/interface/main/app-wall/model/telecom:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/xxtea/xxtea-go/xxtea:go_default_library",
+        "//app/interface/main/app-wall/conf",
+        "//app/interface/main/app-wall/model/telecom",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/xxtea/xxtea-go/xxtea",
     ],
 )
 

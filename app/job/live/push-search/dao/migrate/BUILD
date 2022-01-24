@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "migrate",
     srcs = ["dao.go"],
     importpath = "go-common/app/job/live/push-search/dao/migrate",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/push-search/conf:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/sql:go_default_library",
+        "//app/job/live/push-search/conf",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/sql",
     ],
 )
 

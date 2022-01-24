@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "batchwrite_test",
     srcs = ["batchwrite_test.go"],
-    embed = [":go_default_library"],
+    embed = [":batchwrite"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/service/main/dapper/model:go_default_library"],
+    deps = ["//app/service/main/dapper/model"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "batchwrite",
     srcs = ["batchwrite.go"],
     importpath = "go-common/app/service/main/dapper/pkg/batchwrite",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/dapper/model",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

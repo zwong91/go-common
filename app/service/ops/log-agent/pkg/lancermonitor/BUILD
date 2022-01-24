@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lancermonitor",
     srcs = [
         "conf.go",
         "lancermonitor.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/service/ops/log-agent/pkg/lancermonitor",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 filegroup(

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "blackhouse.go",
         "dao.go",
@@ -16,7 +16,7 @@ go_library(
     ],
     importpath = "go-common/app/job/main/block/model",
     tags = ["automanaged"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

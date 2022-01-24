@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["videoup-report-job.toml"],
     importpath = "go-common/app/job/main/videoup-report/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/videoup-report/conf:go_default_library",
-        "//app/job/main/videoup-report/http:go_default_library",
-        "//app/job/main/videoup-report/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/queue/databus/report:go_default_library",
+        "//app/job/main/videoup-report/conf",
+        "//app/job/main/videoup-report/http",
+        "//app/job/main/videoup-report/service",
+        "//library/log",
+        "//library/net/trace",
+        "//library/queue/databus/report",
     ],
 )
 

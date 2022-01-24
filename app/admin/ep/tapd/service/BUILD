@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "hook.go",
         "service.go",
@@ -15,12 +15,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/tapd/conf:go_default_library",
-        "//app/admin/ep/tapd/dao:go_default_library",
-        "//app/admin/ep/tapd/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/admin/ep/tapd/conf",
+        "//app/admin/ep/tapd/dao",
+        "//app/admin/ep/tapd/model",
+        "//library/ecode",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

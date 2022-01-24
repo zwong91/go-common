@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "binding",
     srcs = [
         "binding.go",
         "default_validator.go",
@@ -20,22 +20,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/gopkg.in/go-playground/validator.v9:go_default_library",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/gopkg.in/go-playground/validator.v9:validator_v9",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "binding_test",
     srcs = [
         "binding_test.go",
         "example_test.go",
         "validate_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":binding"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/stretchr/testify/assert:go_default_library"],
+    deps = ["//vendor/github.com/stretchr/testify/assert"],
 )
 
 filegroup(

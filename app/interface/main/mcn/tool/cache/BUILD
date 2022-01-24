@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cache",
     srcs = ["cache.go"],
     importpath = "go-common/app/interface/main/mcn/tool/cache",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/cache:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//library/cache",
+        "//library/cache/memcache",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
     ],
 )
 

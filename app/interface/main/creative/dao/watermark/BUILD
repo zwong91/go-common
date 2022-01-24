@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "watermark",
     srcs = [
         "api.go",
         "dao.go",
@@ -17,13 +17,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/tool:go_default_library",
-        "//app/interface/main/creative/model/watermark:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/tool",
+        "//app/interface/main/creative/model/watermark",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -42,18 +42,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "watermark_test",
     srcs = [
         "api_test.go",
         "dao_test.go",
         "watermark_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":watermark"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/watermark:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/watermark",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

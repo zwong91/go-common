@@ -1,8 +1,3 @@
-load(
-    "@io_bazel_rules_go//proto:def.bzl",
-    "go_proto_library",
-)
-
 package(default_visibility = ["//visibility:public"])
 
 load(
@@ -25,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["model.go"],
     importpath = "go-common/app/admin/main/sms/model",
     tags = ["automanaged"],

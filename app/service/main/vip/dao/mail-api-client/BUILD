@@ -7,14 +7,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mail-api-client",
     srcs = ["mail_api_client.go"],
     importpath = "go-common/app/service/main/vip/dao/mail-api-client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -33,14 +33,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mail-api-client_test",
     srcs = ["mail_api_client_test.go"],
-    embed = [":go_default_library"],
+    embed = [":mail-api-client"],
     tags = ["automanaged"],
     deps = [
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//library/net/http/blademaster",
+        "//library/net/netutil/breaker",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

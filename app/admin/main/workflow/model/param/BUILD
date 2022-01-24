@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "param",
     srcs = [
         "callback.go",
         "challenge.go",
@@ -18,7 +18,7 @@ go_library(
     importpath = "go-common/app/admin/main/workflow/model/param",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/xstr:go_default_library"],
+    deps = ["//library/xstr"],
 )
 
 filegroup(

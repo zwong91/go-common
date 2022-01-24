@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "index",
     srcs = ["room.go"],
     importpath = "go-common/app/interface/live/app-interface/model/index",
     tags = ["automanaged"],

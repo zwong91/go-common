@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = ["user.go"],
     importpath = "go-common/app/service/main/workflow/model/account",
     tags = ["automanaged"],

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "binlogv.go",
         "binlogvr.go",
@@ -24,21 +24,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/bbq/video/conf:go_default_library",
-        "//app/job/bbq/video/dao:go_default_library",
-        "//app/job/bbq/video/model:go_default_library",
-        "//app/service/bbq/common:go_default_library",
-        "//app/service/bbq/notice-service/api/v1:go_default_library",
-        "//app/service/bbq/search/api/grpc/v1:go_default_library",
-        "//app/service/bbq/topic/api:go_default_library",
-        "//app/service/bbq/video/api/grpc/v1:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/ftp-master:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/job/bbq/video/conf",
+        "//app/job/bbq/video/dao",
+        "//app/job/bbq/video/model",
+        "//app/service/bbq/common",
+        "//app/service/bbq/notice-service/api/v1:api",
+        "//app/service/bbq/search/api/grpc/v1:grpc",
+        "//app/service/bbq/topic/api",
+        "//app/service/bbq/video/api/grpc/v1:grpc",
+        "//library/conf/env",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//vendor/github.com/ftp-master",
+        "//vendor/github.com/robfig/cron",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 

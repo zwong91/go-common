@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "action.go",
         "advance.go",
@@ -24,8 +24,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "typemap",
     srcs = ["typemap.go"],
     importpath = "go-common/app/tool/liverpc/protoc-gen-liverpc/gen/typemap",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/descriptor:go_default_library",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/descriptor",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

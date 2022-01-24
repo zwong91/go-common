@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "flowmonitor",
     srcs = [
         "conf.go",
         "flowmonitor.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/event:go_default_library",
-        "//app/service/ops/log-agent/pkg/flowmonitor/counter:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/ops/log-agent/event",
+        "//app/service/ops/log-agent/pkg/flowmonitor/counter",
+        "//library/log",
+        "//library/time",
     ],
 )
 

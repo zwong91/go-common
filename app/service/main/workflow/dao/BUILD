@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "callback_test.go",
         "dao_test.go",
         "es_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/workflow/conf:go_default_library",
-        "//app/service/main/workflow/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/workflow/conf",
+        "//app/service/main/workflow/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "callback.go",
         "dao.go",
@@ -33,13 +33,13 @@ go_library(
     importpath = "go-common/app/service/main/workflow/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/workflow/conf:go_default_library",
-        "//app/service/main/workflow/model:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/service/main/workflow/conf",
+        "//app/service/main/workflow/model",
+        "//library/database/elastic",
+        "//library/database/orm",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

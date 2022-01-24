@@ -7,15 +7,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dataflow",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/main/app-interface/service/dataflow",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//library/log",
+        "//library/log/infoc",
     ],
 )
 
@@ -34,12 +34,12 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dataflow_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":dataflow"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "anchorReward",
     srcs = [
         "dao.cache.go",
         "dao.go",
@@ -20,18 +20,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xrewardcenter/conf:go_default_library",
-        "//app/service/live/xrewardcenter/model/anchorTask:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/live/xrewardcenter/conf",
+        "//app/service/live/xrewardcenter/model/anchorTask",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/orm",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -50,7 +50,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "anchorReward_test",
     srcs = [
         "dao.cache_test.go",
         "dao_test.go",
@@ -59,11 +59,11 @@ go_test(
         "mysql_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":anchorReward"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/xrewardcenter/conf:go_default_library",
-        "//app/service/live/xrewardcenter/model/anchorTask:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/xrewardcenter/conf",
+        "//app/service/live/xrewardcenter/model/anchorTask",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

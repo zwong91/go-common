@@ -2,32 +2,32 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "message_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":message"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/videoup/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/videoup/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "message",
     srcs = ["dao.go"],
     importpath = "go-common/app/job/main/videoup/dao/message",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/videoup/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/videoup/conf",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

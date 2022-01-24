@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ecode",
     srcs = [
         "code_msg.go",
         "ecode.go",
     ],
     importpath = "go-common/app/admin/main/apm/model/ecode",
     tags = ["automanaged"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

@@ -8,25 +8,25 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["test.toml"],
     importpath = "go-common/app/service/live/xlottery/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xlottery/conf:go_default_library",
-        "//app/service/live/xlottery/server/grpc:go_default_library",
-        "//app/service/live/xlottery/server/http:go_default_library",
-        "//app/service/live/xlottery/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/live/xlottery/conf",
+        "//app/service/live/xlottery/server/grpc",
+        "//app/service/live/xlottery/server/http",
+        "//app/service/live/xlottery/service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

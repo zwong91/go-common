@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "util",
     srcs = ["sessionid.go"],
     importpath = "go-common/app/service/main/dapper-query/util",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//library/ecode",
+        "//library/net/http/blademaster",
     ],
 )
 

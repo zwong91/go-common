@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "conn.go",
         "http.go",
@@ -18,14 +18,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/broadcast/api/grpc/v1:go_default_library",
-        "//app/service/main/broadcast/service:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "//app/service/main/broadcast/api/grpc/v1:grpc",
+        "//app/service/main/broadcast/service",
+        "//library/conf/paladin",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//vendor/github.com/gogo/protobuf/proto",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "banner.go",
         "daily.go",
@@ -20,22 +20,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-show/conf:go_default_library",
-        "//app/interface/main/app-show/model:go_default_library",
-        "//app/interface/main/app-show/model/region:go_default_library",
-        "//app/interface/main/app-show/model/show:go_default_library",
-        "//app/interface/main/app-show/service/banner:go_default_library",
-        "//app/interface/main/app-show/service/daily:go_default_library",
-        "//app/interface/main/app-show/service/ping:go_default_library",
-        "//app/interface/main/app-show/service/rank:go_default_library",
-        "//app/interface/main/app-show/service/region:go_default_library",
-        "//app/interface/main/app-show/service/show:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/main/app-show/conf",
+        "//app/interface/main/app-show/model",
+        "//app/interface/main/app-show/model/region",
+        "//app/interface/main/app-show/model/show",
+        "//app/interface/main/app-show/service/banner",
+        "//app/interface/main/app-show/service/daily",
+        "//app/interface/main/app-show/service/ping",
+        "//app/interface/main/app-show/service/rank",
+        "//app/interface/main/app-show/service/region",
+        "//app/interface/main/app-show/service/show",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/render",
+        "//library/net/metadata",
     ],
 )
 

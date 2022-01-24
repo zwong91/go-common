@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "archive.go",
         "lbs.go",
@@ -17,7 +17,7 @@ go_library(
     importpath = "go-common/app/interface/main/videoup/model/archive",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

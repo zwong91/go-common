@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "bag_test.go",
         "databus_test.go",
@@ -17,21 +17,21 @@ go_test(
         "list_test.go",
         "package_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/gift/api/grpc/v1:go_default_library",
-        "//app/service/live/gift/conf:go_default_library",
-        "//app/service/live/gift/dao:go_default_library",
-        "//app/service/live/gift/model:go_default_library",
-        "//app/service/live/resource/sdk:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/gift/api/grpc/v1:grpc",
+        "//app/service/live/gift/conf",
+        "//app/service/live/gift/dao",
+        "//app/service/live/gift/model",
+        "//app/service/live/resource/sdk",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "bag.go",
         "databus.go",
@@ -45,24 +45,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/activity/api/liverpc/v1:go_default_library",
-        "//app/service/live/fans_medal/api/liverpc/v2:go_default_library",
-        "//app/service/live/gift/api/grpc/v1:go_default_library",
-        "//app/service/live/gift/conf:go_default_library",
-        "//app/service/live/gift/dao:go_default_library",
-        "//app/service/live/gift/model:go_default_library",
-        "//app/service/live/live_user/api/liverpc/v1:go_default_library",
-        "//app/service/live/resource/sdk:go_default_library",
-        "//app/service/live/room/api/liverpc/v1:go_default_library",
-        "//app/service/live/user/api/liverpc/v3:go_default_library",
-        "//app/service/live/xuser/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/rpc/liverpc/context:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
+        "//app/service/live/activity/api/liverpc/v1:liverpc",
+        "//app/service/live/fans_medal/api/liverpc/v2:liverpc",
+        "//app/service/live/gift/api/grpc/v1:grpc",
+        "//app/service/live/gift/conf",
+        "//app/service/live/gift/dao",
+        "//app/service/live/gift/model",
+        "//app/service/live/live_user/api/liverpc/v1:liverpc",
+        "//app/service/live/resource/sdk",
+        "//app/service/live/room/api/liverpc/v1:liverpc",
+        "//app/service/live/user/api/liverpc/v3:liverpc",
+        "//app/service/live/xuser/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/rpc/liverpc/context",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
     ],
 )
 

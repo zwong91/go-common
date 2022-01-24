@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "answer.go",
         "captcha.go",
@@ -18,15 +18,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/answer/conf:go_default_library",
-        "//app/interface/main/answer/model:go_default_library",
-        "//app/interface/main/answer/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/antispam:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/answer/conf",
+        "//app/interface/main/answer/model",
+        "//app/interface/main/answer/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/antispam",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/xstr",
     ],
 )
 

@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "invite_test.go",
         "medal_test.go",
         "pendant_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/usersuit/conf:go_default_library",
-        "//app/admin/main/usersuit/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/usersuit/conf",
+        "//app/admin/main/usersuit/model",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "invite.go",
         "medal.go",
@@ -39,20 +39,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/usersuit/conf:go_default_library",
-        "//app/admin/main/usersuit/dao:go_default_library",
-        "//app/admin/main/usersuit/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/usersuit/conf",
+        "//app/admin/main/usersuit/dao",
+        "//app/admin/main/usersuit/model",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

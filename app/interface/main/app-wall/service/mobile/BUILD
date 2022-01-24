@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mobile_test",
     srcs = ["mobile_test.go"],
-    embed = [":go_default_library"],
+    embed = [":mobile"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-wall/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-wall/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mobile",
     srcs = [
         "mobile.go",
         "service.go",
@@ -28,13 +28,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-wall/conf:go_default_library",
-        "//app/interface/main/app-wall/dao/mobile:go_default_library",
-        "//app/interface/main/app-wall/model:go_default_library",
-        "//app/interface/main/app-wall/model/mobile:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/interface/main/app-wall/conf",
+        "//app/interface/main/app-wall/dao/mobile",
+        "//app/interface/main/app-wall/model",
+        "//app/interface/main/app-wall/model/mobile",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/prom",
     ],
 )
 

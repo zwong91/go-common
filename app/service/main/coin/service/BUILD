@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "coin_test.go",
         "exp_test.go",
         "service_test.go",
         "usercoin_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/coin/api:go_default_library",
-        "//app/service/main/coin/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/coin/api",
+        "//app/service/main/coin/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "archive.go",
         "check.go",
@@ -37,21 +37,21 @@ go_library(
     importpath = "go-common/app/service/main/coin/service",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/coin/api:go_default_library",
-        "//app/service/main/coin/conf:go_default_library",
-        "//app/service/main/coin/dao:go_default_library",
-        "//app/service/main/coin/model:go_default_library",
-        "//app/service/main/member/api:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/coin/api",
+        "//app/service/main/coin/conf",
+        "//app/service/main/coin/dao",
+        "//app/service/main/coin/model",
+        "//app/service/main/member/api",
+        "//app/service/main/member/model",
+        "//app/service/main/member/model/block",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup.v2:errgroup_v2",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

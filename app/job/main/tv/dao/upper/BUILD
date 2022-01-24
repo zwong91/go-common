@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "upper_test",
     srcs = [
         "dao_test.go",
         "load_upper_test.go",
         "refresh_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":upper"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/model/ugc:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/model/ugc",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upper",
     srcs = [
         "dao.go",
         "load_upper.go",
@@ -35,16 +35,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/model/ugc:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/model/ugc",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/prom",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

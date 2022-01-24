@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "guest_test.go",
         "item_test.go",
@@ -16,19 +16,19 @@ go_test(
         "venue_test.go",
         "version_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/ticket-item/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//app/service/openplatform/ticket-item/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/openplatform/ticket-item/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-item/conf",
+        "//app/service/openplatform/ticket-item/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "area.go",
         "bulletin.go",
@@ -44,15 +44,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/ticket-item/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//app/service/openplatform/ticket-item/dao:go_default_library",
-        "//app/service/openplatform/ticket-item/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/gopkg.in/go-playground/validator.v9:go_default_library",
+        "//app/service/openplatform/ticket-item/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-item/conf",
+        "//app/service/openplatform/ticket-item/dao",
+        "//app/service/openplatform/ticket-item/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/gopkg.in/go-playground/validator.v9:validator_v9",
     ],
 )
 

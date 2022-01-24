@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.cache.go",
         "dao.go",
@@ -15,14 +15,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/sys-msg/api/v1:go_default_library",
-        "//app/service/bbq/sys-msg/internal/conf:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/service/bbq/sys-msg/api/v1:api",
+        "//app/service/bbq/sys-msg/internal/conf",
+        "//library/cache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
     ],
 )
 

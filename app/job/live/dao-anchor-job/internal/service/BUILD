@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "cover_test.go",
         "data_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/live/dao-anchor-job/internal/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/live/dao-anchor-job/internal/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "cover.go",
         "data.go",
@@ -31,12 +31,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/dao-anchor-job/internal/conf:go_default_library",
-        "//app/job/live/dao-anchor-job/internal/dao:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/live/dao-anchor-job/internal/conf",
+        "//app/job/live/dao-anchor-job/internal/dao",
+        "//library/log",
+        "//library/net/trace",
+        "//library/sync/errgroup",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

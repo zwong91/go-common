@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["daoAnchor.go"],
     importpath = "go-common/app/service/live/dao-anchor/service/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/live/dao-anchor/conf:go_default_library",
-        "//app/service/live/dao-anchor/dao:go_default_library",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/live/dao-anchor/conf",
+        "//app/service/live/dao-anchor/dao",
     ],
 )
 

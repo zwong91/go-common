@@ -20,12 +20,12 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "app_auth.go",
         "model.go",
     ],
     importpath = "go-common/app/service/main/msm/model",
     tags = ["automanaged"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )

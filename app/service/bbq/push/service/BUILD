@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "message.go",
         "notification.go",
@@ -17,16 +17,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/push/api/grpc/v1:go_default_library",
-        "//app/service/bbq/push/conf:go_default_library",
-        "//app/service/bbq/push/dao:go_default_library",
-        "//app/service/bbq/push/dao/jpush:go_default_library",
-        "//app/service/bbq/push/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//vendor/github.com/Dai0522/workpool:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
+        "//app/service/bbq/push/api/grpc/v1:grpc",
+        "//app/service/bbq/push/conf",
+        "//app/service/bbq/push/dao",
+        "//app/service/bbq/push/dao/jpush",
+        "//app/service/bbq/push/model",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/trace",
+        "//vendor/github.com/Dai0522/workpool",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 

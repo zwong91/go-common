@@ -2,37 +2,37 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/app-player/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/app-player/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/job/main/app-player/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-player/model/archive:go_default_library",
-        "//app/job/main/app-player/conf:go_default_library",
-        "//app/job/main/app-player/dao:go_default_library",
-        "//app/job/main/app-player/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/interface/main/app-player/model/archive",
+        "//app/job/main/app-player/conf",
+        "//app/job/main/app-player/dao",
+        "//app/job/main/app-player/model",
+        "//app/service/main/archive/api",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 

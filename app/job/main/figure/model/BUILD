@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "hbase.go",
         "model.go",
@@ -17,9 +17,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/reply/model/reply:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/reply/model/reply",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

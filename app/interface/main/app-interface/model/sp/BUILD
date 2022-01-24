@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sp",
     srcs = ["specil.go"],
     importpath = "go-common/app/interface/main/app-interface/model/sp",
     tags = ["automanaged"],

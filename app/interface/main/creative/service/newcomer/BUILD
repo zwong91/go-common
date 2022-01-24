@@ -2,23 +2,23 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "newcomer_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":newcomer"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/service",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "newcomer",
     srcs = [
         "h5.go",
         "service.go",
@@ -29,26 +29,26 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/academy:go_default_library",
-        "//app/interface/main/creative/dao/account:go_default_library",
-        "//app/interface/main/creative/dao/archive:go_default_library",
-        "//app/interface/main/creative/dao/article:go_default_library",
-        "//app/interface/main/creative/dao/data:go_default_library",
-        "//app/interface/main/creative/dao/medal:go_default_library",
-        "//app/interface/main/creative/dao/newcomer:go_default_library",
-        "//app/interface/main/creative/dao/order:go_default_library",
-        "//app/interface/main/creative/dao/watermark:go_default_library",
-        "//app/interface/main/creative/model/newcomer:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/academy",
+        "//app/interface/main/creative/dao/account",
+        "//app/interface/main/creative/dao/archive",
+        "//app/interface/main/creative/dao/article",
+        "//app/interface/main/creative/dao/data",
+        "//app/interface/main/creative/dao/medal",
+        "//app/interface/main/creative/dao/newcomer",
+        "//app/interface/main/creative/dao/order",
+        "//app/interface/main/creative/dao/watermark",
+        "//app/interface/main/creative/model/newcomer",
+        "//app/interface/main/creative/service",
+        "//app/service/main/account/api",
+        "//library/conf/env",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/queue/databus/report",
+        "//library/sync/errgroup.v2:errgroup_v2",
+        "//library/time",
     ],
 )
 

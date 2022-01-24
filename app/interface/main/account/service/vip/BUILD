@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "vip_test",
     srcs = [
         "associate_outer_test.go",
         "coupon_test.go",
@@ -15,19 +15,19 @@ go_test(
         "panel_test.go",
         "vip_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":vip"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/interface/main/account/model:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/interface/main/account/model",
+        "//app/service/main/vip/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "vip",
     srcs = [
         "associate.go",
         "associate_limit.go",
@@ -45,22 +45,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/interface/main/account/dao/vip:go_default_library",
-        "//app/interface/main/account/model:go_default_library",
-        "//app/service/main/coupon/model:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/relation/rpc/client:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//app/service/main/resource/rpc/client:go_default_library",
-        "//app/service/main/vip/api:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//app/service/main/vip/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/interface/main/account/dao/vip",
+        "//app/interface/main/account/model",
+        "//app/service/main/coupon/model",
+        "//app/service/main/relation/model",
+        "//app/service/main/relation/rpc/client",
+        "//app/service/main/resource/model",
+        "//app/service/main/resource/rpc/client",
+        "//app/service/main/vip/api",
+        "//app/service/main/vip/model",
+        "//app/service/main/vip/rpc/client",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

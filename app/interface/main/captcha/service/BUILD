@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "captcha_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/captcha/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/captcha/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "bilinear.go",
         "business.go",
@@ -36,14 +36,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/captcha/conf:go_default_library",
-        "//app/interface/main/captcha/dao:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/golang/freetype:go_default_library",
-        "//vendor/github.com/golang/freetype/truetype:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
+        "//app/interface/main/captcha/conf",
+        "//app/interface/main/captcha/dao",
+        "//library/cache",
+        "//library/ecode",
+        "//library/time",
+        "//vendor/github.com/golang/freetype",
+        "//vendor/github.com/golang/freetype/truetype",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
     ],
 )
 

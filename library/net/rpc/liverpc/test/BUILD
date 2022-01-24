@@ -2,8 +2,8 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
@@ -35,9 +35,22 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "test",
     srcs = ["client.go"],
     importpath = "go-common/library/net/rpc/liverpc/test",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "test_test",
+    srcs = ["client_test.go"],
+    embed = [":test"],
+    deps = [
+        "//library/net/rpc/liverpc",
+        "//library/net/rpc/liverpc/testdata",
+        "//library/net/rpc/liverpc/testdata/v1:testdata",
+        "//library/net/rpc/liverpc/testdata/v2:testdata",
+        "//vendor/github.com/pkg/errors",
+    ],
 )

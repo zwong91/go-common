@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "shell",
     srcs = [
         "shellrequest.go",
         "sign.go",
@@ -16,9 +16,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -37,16 +37,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "shell_test",
     srcs = [
         "shellrequest_test.go",
         "sign_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":shell"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

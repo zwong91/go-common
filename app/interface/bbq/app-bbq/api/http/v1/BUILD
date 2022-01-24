@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "app.go",
         "base.go",
@@ -26,13 +26,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/bbq/app-bbq/model:go_default_library",
-        "//app/service/bbq/notice-service/api/v1:go_default_library",
-        "//app/service/bbq/topic/api:go_default_library",
-        "//app/service/bbq/user/api:go_default_library",
-        "//app/service/bbq/video/api/grpc/v1:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/bbq/app-bbq/model",
+        "//app/service/bbq/notice-service/api/v1:api",
+        "//app/service/bbq/topic/api",
+        "//app/service/bbq/user/api",
+        "//app/service/bbq/video/api/grpc/v1:grpc",
+        "//library/net/http/blademaster",
+        "//library/time",
     ],
 )
 

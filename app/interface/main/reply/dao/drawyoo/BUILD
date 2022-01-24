@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "drawyoo_test",
     srcs = ["drawyoo_test.go"],
-    embed = [":go_default_library"],
+    embed = [":drawyoo"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/reply/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/reply/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "drawyoo",
     srcs = ["drawyoo.go"],
     importpath = "go-common/app/interface/main/reply/dao/drawyoo",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/reply/conf:go_default_library",
-        "//app/interface/main/reply/model/drawyoo:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/reply/conf",
+        "//app/interface/main/reply/model/drawyoo",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/xstr",
     ],
 )
 

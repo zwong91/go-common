@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "cache.go",
         "geetest.go",
@@ -18,7 +18,7 @@ go_library(
     importpath = "go-common/app/service/openplatform/anti-fraud/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mysql_test",
     srcs = [
         "dao_test.go",
         "monitor_test.go",
         "task_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":mysql"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/aegis/conf:go_default_library",
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//app/admin/main/aegis/model/task:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/aegis/conf",
+        "//app/admin/main/aegis/model/common",
+        "//app/admin/main/aegis/model/task",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mysql",
     srcs = [
         "dao.go",
         "monitor.go",
@@ -35,14 +35,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/aegis/conf:go_default_library",
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//app/admin/main/aegis/model/monitor:go_default_library",
-        "//app/admin/main/aegis/model/task:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/aegis/conf",
+        "//app/admin/main/aegis/model/common",
+        "//app/admin/main/aegis/model/monitor",
+        "//app/admin/main/aegis/model/task",
+        "//library/database/sql",
+        "//library/log",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

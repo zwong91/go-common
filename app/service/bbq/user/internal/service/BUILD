@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "like.go",
         "relation.go",
@@ -19,17 +19,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/notice-service/api/v1:go_default_library",
-        "//app/service/bbq/user/api:go_default_library",
-        "//app/service/bbq/user/internal/conf:go_default_library",
-        "//app/service/bbq/user/internal/dao:go_default_library",
-        "//app/service/bbq/user/internal/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/bbq/notice-service/api/v1:api",
+        "//app/service/bbq/user/api",
+        "//app/service/bbq/user/internal/conf",
+        "//app/service/bbq/user/internal/dao",
+        "//app/service/bbq/user/internal/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 
@@ -48,22 +48,22 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "like_test.go",
         "relation_test.go",
         "service_test.go",
         "user_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/bbq/user/api:go_default_library",
-        "//app/service/bbq/user/internal/conf:go_default_library",
-        "//app/service/bbq/user/internal/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/bbq/user/api",
+        "//app/service/bbq/user/internal/conf",
+        "//app/service/bbq/user/internal/model",
+        "//library/conf/paladin",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

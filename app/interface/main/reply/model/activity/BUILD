@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "activity",
     srcs = ["activity.go"],
     importpath = "go-common/app/interface/main/reply/model/activity",
     tags = ["automanaged"],

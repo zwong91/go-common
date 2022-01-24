@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "dM.go",
         "dmcheck.go",
@@ -20,19 +20,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/av/api/liverpc/v1:go_default_library",
-        "//app/service/live/banned_service/api/liverpc/v1:go_default_library",
-        "//app/service/live/live-dm/api/grpc/v1:go_default_library",
-        "//app/service/live/live-dm/conf:go_default_library",
-        "//app/service/live/live-dm/dao:go_default_library",
-        "//app/service/live/live-dm/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/ipipdotnet/ipdb-go:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
+        "//app/service/live/av/api/liverpc/v1:liverpc",
+        "//app/service/live/banned_service/api/liverpc/v1:liverpc",
+        "//app/service/live/live-dm/api/grpc/v1:grpc",
+        "//app/service/live/live-dm/conf",
+        "//app/service/live/live-dm/dao",
+        "//app/service/live/live-dm/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//vendor/github.com/ipipdotnet/ipdb-go",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
     ],
 )
 
@@ -51,7 +51,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "dm_test.go",
         "dmcheck_test.go",
@@ -60,13 +60,13 @@ go_test(
         "limit_test.go",
         "send_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/live-dm/api/grpc/v1:go_default_library",
-        "//app/service/live/live-dm/conf:go_default_library",
-        "//app/service/live/live-dm/dao:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/service/live/live-dm/api/grpc/v1:grpc",
+        "//app/service/live/live-dm/conf",
+        "//app/service/live/live-dm/dao",
+        "//library/ecode",
+        "//library/net/metadata",
     ],
 )

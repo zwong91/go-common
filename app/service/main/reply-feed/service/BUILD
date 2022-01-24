@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "admin.go",
         "reply.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/reply-feed/api:go_default_library",
-        "//app/service/main/reply-feed/conf:go_default_library",
-        "//app/service/main/reply-feed/dao:go_default_library",
-        "//app/service/main/reply-feed/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/netutil:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/service/main/reply-feed/api",
+        "//app/service/main/reply-feed/conf",
+        "//app/service/main/reply-feed/dao",
+        "//app/service/main/reply-feed/model",
+        "//library/log",
+        "//library/net/netutil",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "depend.go",
         "service.go",
@@ -16,17 +16,17 @@ go_library(
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper-query/api/v1:go_default_library",
-        "//app/service/main/dapper-query/conf:go_default_library",
-        "//app/service/main/dapper-query/dao:go_default_library",
-        "//app/service/main/dapper-query/model:go_default_library",
-        "//app/service/main/dapper-query/pkg/cltclient:go_default_library",
-        "//app/service/main/dapper-query/service/opslog:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:duration_go_proto",
-        "@io_bazel_rules_go//proto/wkt:timestamp_go_proto",
+        "//app/service/main/dapper-query/api/v1:api",
+        "//app/service/main/dapper-query/conf",
+        "//app/service/main/dapper-query/dao",
+        "//app/service/main/dapper-query/model",
+        "//app/service/main/dapper-query/pkg/cltclient",
+        "//app/service/main/dapper-query/service/opslog",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//vendor/github.com/golang/protobuf/ptypes/duration",
+        "//vendor/github.com/golang/protobuf/ptypes/timestamp",
     ],
 )
 

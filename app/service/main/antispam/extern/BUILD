@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "extern",
     srcs = [
         "client.go",
         "handler.go",
@@ -17,9 +17,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/antispam/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/service/main/antispam/conf",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

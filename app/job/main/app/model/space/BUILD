@@ -6,11 +6,11 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "space",
     srcs = ["space.go"],
     importpath = "go-common/app/job/main/app/model/space",
     tags = ["automanaged"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

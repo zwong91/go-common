@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "item.go",
@@ -17,9 +17,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/openplatform/seo/conf:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/openplatform/seo/conf",
+        "//library/cache/memcache",
+        "//library/log",
     ],
 )
 

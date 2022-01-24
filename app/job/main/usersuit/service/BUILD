@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "notify_test.go",
         "pendant_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/usersuit/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/usersuit/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "medal.go",
         "notify.go",
@@ -35,14 +35,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/usersuit/conf:go_default_library",
-        "//app/job/main/usersuit/dao/medal:go_default_library",
-        "//app/job/main/usersuit/dao/pendant:go_default_library",
-        "//app/job/main/usersuit/model:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/main/usersuit/conf",
+        "//app/job/main/usersuit/dao/medal",
+        "//app/job/main/usersuit/dao/pendant",
+        "//app/job/main/usersuit/model",
+        "//app/service/main/vip/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

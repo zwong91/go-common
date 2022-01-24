@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "db_wechat.go",
@@ -19,36 +19,36 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/saga/conf:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/tool/saga/conf",
+        "//app/tool/saga/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/orm",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "hbase_test.go",
         "lock_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/tool/saga/conf:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/tool/saga/conf",
+        "//app/tool/saga/model",
+        "//library/cache/redis",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

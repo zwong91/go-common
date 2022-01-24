@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "esports",
     srcs = [
         "dao.go",
         "message.go",
@@ -18,15 +18,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/web-goblin/conf:go_default_library",
-        "//app/job/main/web-goblin/model/esports:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/web-goblin/conf",
+        "//app/job/main/web-goblin/model/esports",
+        "//app/service/main/archive/api",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -45,20 +45,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "esports_test",
     srcs = [
         "dao_test.go",
         "message_test.go",
         "mysql_test.go",
         "push_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":esports"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/web-goblin/conf:go_default_library",
-        "//app/job/main/web-goblin/model/esports:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/web-goblin/conf",
+        "//app/job/main/web-goblin/model/esports",
+        "//app/service/main/archive/api",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

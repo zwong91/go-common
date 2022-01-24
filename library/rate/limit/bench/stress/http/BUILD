@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/library/rate/limit/bench/stress/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/rate:go_default_library",
-        "//library/rate/limit:go_default_library",
-        "//library/rate/limit/bench/stress/conf:go_default_library",
-        "//library/rate/limit/bench/stress/service:go_default_library",
-        "//library/rate/vegas:go_default_library",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/rate",
+        "//library/rate/limit",
+        "//library/rate/limit/bench/stress/conf",
+        "//library/rate/limit/bench/stress/service",
+        "//library/rate/vegas",
     ],
 )
 

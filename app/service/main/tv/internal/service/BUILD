@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "change_history.go",
         "order.go",
@@ -22,15 +22,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/tv/internal/conf:go_default_library",
-        "//app/service/main/tv/internal/dao:go_default_library",
-        "//app/service/main/tv/internal/model:go_default_library",
-        "//app/service/main/tv/internal/service/validator:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/tv/internal/conf",
+        "//app/service/main/tv/internal/dao",
+        "//app/service/main/tv/internal/model",
+        "//app/service/main/tv/internal/service/validator",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
     ],
 )
 
@@ -52,7 +52,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "change_history_test.go",
         "order_test.go",
@@ -63,11 +63,11 @@ go_test(
         "token_test.go",
         "user_info_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/tv/internal/conf:go_default_library",
-        "//app/service/main/tv/internal/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/tv/internal/conf",
+        "//app/service/main/tv/internal/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

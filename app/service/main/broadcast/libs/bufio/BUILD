@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bufio",
     srcs = ["bufio.go"],
     importpath = "go-common/app/service/main/broadcast/libs/bufio",
     tags = ["automanaged"],
@@ -15,7 +15,7 @@ go_library(
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["bufio_test.go"],
     tags = ["automanaged"],
 )
@@ -32,4 +32,9 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "bufio_test",
+    srcs = ["bufio_test.go"],
 )

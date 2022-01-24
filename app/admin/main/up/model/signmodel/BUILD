@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "signmodel",
     srcs = [
         "requestargs.go",
         "sign_up.go",
@@ -15,11 +15,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/admin/main/up/dao:go_default_library",
-        "//app/admin/main/up/util/now:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/admin/main/up/dao",
+        "//app/admin/main/up/util/now",
+        "//library/log",
+        "//library/time",
     ],
 )
 

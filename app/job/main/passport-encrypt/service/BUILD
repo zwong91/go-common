@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "aes.go",
         "aso.go",
@@ -18,11 +18,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-encrypt/conf:go_default_library",
-        "//app/job/main/passport-encrypt/dao:go_default_library",
-        "//app/job/main/passport-encrypt/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/passport-encrypt/conf",
+        "//app/job/main/passport-encrypt/dao",
+        "//app/job/main/passport-encrypt/model",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 
@@ -41,7 +41,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "aes_test.go",
         "aso_full_migration_test.go",
@@ -49,12 +49,12 @@ go_test(
         "passport_util_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport-encrypt/conf:go_default_library",
-        "//app/job/main/passport-encrypt/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport-encrypt/conf",
+        "//app/job/main/passport-encrypt/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

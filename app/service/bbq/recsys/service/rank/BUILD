@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "rank",
     srcs = [
         "feature.go",
         "instance.go",
@@ -17,13 +17,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys/api/grpc/v1:go_default_library",
-        "//app/service/bbq/recsys/model:go_default_library",
-        "//app/service/bbq/recsys/service/rank/treelite:go_default_library",
-        "//app/service/bbq/recsys/service/retrieve:go_default_library",
-        "//app/service/bbq/recsys/service/util:go_default_library",
-        "//library/log:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "//app/service/bbq/recsys/api/grpc/v1:grpc",
+        "//app/service/bbq/recsys/model",
+        "//app/service/bbq/recsys/service/rank/treelite",
+        "//app/service/bbq/recsys/service/retrieve",
+        "//app/service/bbq/recsys/service/util",
+        "//library/log",
+        "//vendor/github.com/gogo/protobuf/proto",
     ],
 )
 

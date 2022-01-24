@@ -8,31 +8,31 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/ops/log-agent/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/conf:go_default_library",
-        "//app/service/ops/log-agent/pipeline:go_default_library",
-        "//app/service/ops/log-agent/pipeline/dockerlogcollector:go_default_library",
-        "//app/service/ops/log-agent/pipeline/hostlogcollector:go_default_library",
-        "//app/service/ops/log-agent/pkg/flowmonitor:go_default_library",
-        "//app/service/ops/log-agent/pkg/httpstream:go_default_library",
-        "//app/service/ops/log-agent/pkg/lancermonitor:go_default_library",
-        "//app/service/ops/log-agent/pkg/lancerroute:go_default_library",
-        "//app/service/ops/log-agent/pkg/limit:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/ip:go_default_library",
+        "//app/service/ops/log-agent/conf",
+        "//app/service/ops/log-agent/pipeline",
+        "//app/service/ops/log-agent/pipeline/dockerlogcollector",
+        "//app/service/ops/log-agent/pipeline/hostlogcollector",
+        "//app/service/ops/log-agent/pkg/flowmonitor",
+        "//app/service/ops/log-agent/pkg/httpstream",
+        "//app/service/ops/log-agent/pkg/lancermonitor",
+        "//app/service/ops/log-agent/pkg/lancerroute",
+        "//app/service/ops/log-agent/pkg/limit",
+        "//library/conf/env",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/ip",
     ],
 )
 

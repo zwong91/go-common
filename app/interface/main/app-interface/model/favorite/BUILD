@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "favorite",
     srcs = [
         "folder.go",
         "result.go",
@@ -15,14 +15,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/model:go_default_library",
-        "//app/interface/main/app-interface/model/audio:go_default_library",
-        "//app/interface/main/app-interface/model/bplus:go_default_library",
-        "//app/interface/main/app-interface/model/sp:go_default_library",
-        "//app/interface/main/app-interface/model/topic:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
+        "//app/interface/main/app-interface/model",
+        "//app/interface/main/app-interface/model/audio",
+        "//app/interface/main/app-interface/model/bplus",
+        "//app/interface/main/app-interface/model/sp",
+        "//app/interface/main/app-interface/model/topic",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
     ],
 )
 

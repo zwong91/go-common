@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "display_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":display"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "display",
     srcs = [
         "display.go",
         "service.go",
@@ -28,12 +28,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/dao/location:go_default_library",
-        "//app/service/main/location/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/ip:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/dao/location",
+        "//app/service/main/location/model",
+        "//library/log",
+        "//library/net/ip",
+        "//library/net/metadata",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "wechat",
     srcs = ["wechat.go"],
     importpath = "go-common/app/interface/main/web-goblin/model/wechat",
     tags = ["automanaged"],

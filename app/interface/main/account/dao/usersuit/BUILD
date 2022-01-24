@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "usersuit",
     srcs = [
         "api.go",
         "dao.go",
@@ -16,11 +16,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/service/main/usersuit/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -39,16 +39,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "usersuit_test",
     srcs = [
         "api_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":usersuit"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

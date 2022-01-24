@@ -5,29 +5,29 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["server.go"],
     importpath = "go-common/library/net/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/conf/env",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = ["server_test.go"],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
+        "//library/net/http/blademaster",
+        "//library/time",
     ],
 )
 

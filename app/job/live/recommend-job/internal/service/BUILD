@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "item_cf_job.go",
         "service.go",
@@ -16,15 +16,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/recommend-job/internal/conf:go_default_library",
-        "//app/job/live/recommend-job/internal/dao:go_default_library",
-        "//app/service/live/recommend/recconst:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
-        "//vendor/github.com/siddontang/go/ioutil2:go_default_library",
+        "//app/job/live/recommend-job/internal/conf",
+        "//app/job/live/recommend-job/internal/dao",
+        "//app/service/live/recommend/recconst",
+        "//library/cache/redis",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
+        "//vendor/github.com/siddontang/go/ioutil2",
     ],
 )
 

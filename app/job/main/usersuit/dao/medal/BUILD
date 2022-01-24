@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "medal_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":medal"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/usersuit/conf:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/usersuit/conf",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "medal",
     srcs = [
         "dao.go",
         "data.go",
@@ -30,14 +30,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/usersuit/conf:go_default_library",
-        "//app/job/main/usersuit/model:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//app/service/main/usersuit/rpc/client:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/usersuit/conf",
+        "//app/job/main/usersuit/model",
+        "//app/service/main/usersuit/model",
+        "//app/service/main/usersuit/rpc/client",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

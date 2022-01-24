@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "guide",
     srcs = ["guide.go"],
     importpath = "go-common/app/interface/main/app-resource/model/guide",
     tags = ["automanaged"],

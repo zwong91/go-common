@@ -20,16 +20,22 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
-    srcs = ["syscall.go"],
+    name = "syscall",
+    srcs = [
+        "syscall.go",
+        "syscall_windows.go",
+    ],
     importpath = "go-common/library/syscall",
     tags = ["automanaged"],
 )
 
 go_test(
-    name = "go_default_test",
-    srcs = ["syscall_test.go"],
-    embed = [":go_default_library"],
+    name = "syscall_test",
+    srcs = [
+        "syscall_test.go",
+        "syscall_windows_test.go",
+    ],
+    embed = [":syscall"],
     rundir = ".",
     tags = ["automanaged"],
 )

@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = [
         "group_test.go",
         "http_test.go",
         "stra_bench_test.go",
         "stra_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/abtest/conf:go_default_library",
-        "//app/service/openplatform/abtest/service:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/openplatform/abtest/conf",
+        "//app/service/openplatform/abtest/service",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "group.go",
         "http.go",
@@ -35,13 +35,13 @@ go_library(
     importpath = "go-common/app/service/openplatform/abtest/http",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/abtest/conf:go_default_library",
-        "//app/service/openplatform/abtest/model:go_default_library",
-        "//app/service/openplatform/abtest/model/validator:go_default_library",
-        "//app/service/openplatform/abtest/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/service/openplatform/abtest/conf",
+        "//app/service/openplatform/abtest/model",
+        "//app/service/openplatform/abtest/model/validator",
+        "//app/service/openplatform/abtest/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

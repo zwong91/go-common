@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archivemodel",
     srcs = ["tables.go"],
     importpath = "go-common/app/job/main/up/model/archivemodel",
     tags = ["automanaged"],

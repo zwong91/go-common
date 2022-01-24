@@ -2,20 +2,11 @@ load(
     "@io_bazel_rules_go//go:def.bzl",
     "go_library",
 )
-load(
-    "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
-)
 
 package(default_visibility = ["//visibility:public"])
 
-load(
-    "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
-)
-
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "member.go",
@@ -28,18 +19,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/member/conf:go_default_library",
-        "//app/admin/main/member/http/block:go_default_library",
-        "//app/admin/main/member/model:go_default_library",
-        "//app/admin/main/member/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/member/conf",
+        "//app/admin/main/member/http/block",
+        "//app/admin/main/member/model",
+        "//app/admin/main/member/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/metadata",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

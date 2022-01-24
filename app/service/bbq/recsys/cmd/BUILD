@@ -8,25 +8,25 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["test.toml"],
     importpath = "go-common/app/service/bbq/recsys/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys/conf:go_default_library",
-        "//app/service/bbq/recsys/server/grpc:go_default_library",
-        "//app/service/bbq/recsys/server/http:go_default_library",
-        "//app/service/bbq/recsys/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/bbq/recsys/conf",
+        "//app/service/bbq/recsys/server/grpc",
+        "//app/service/bbq/recsys/server/http",
+        "//app/service/bbq/recsys/service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

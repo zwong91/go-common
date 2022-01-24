@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "archive_feed_test.go",
         "archive_test.go",
@@ -17,26 +17,26 @@ go_test(
         "service_test.go",
         "unread_count_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/feed/conf:go_default_library",
-        "//app/service/main/feed/dao:go_default_library",
-        "//app/service/main/feed/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/golang/mock/gomock:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/feed/conf",
+        "//app/service/main/feed/dao",
+        "//app/service/main/feed/model",
+        "//library/cache/redis",
+        "//library/time",
+        "//vendor/github.com/golang/mock/gomock",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "archive.go",
         "archive_feed.go",
@@ -51,19 +51,19 @@ go_library(
     importpath = "go-common/app/service/main/feed/service",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/feed/conf:go_default_library",
-        "//app/service/main/feed/dao:go_default_library",
-        "//app/service/main/feed/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/feed/conf",
+        "//app/service/main/feed/dao",
+        "//app/service/main/feed/model",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//library/time",
     ],
 )
 

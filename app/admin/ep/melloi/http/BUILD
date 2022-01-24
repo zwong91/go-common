@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "apply.go",
         "clientmoni.go",
@@ -31,14 +31,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/melloi/conf:go_default_library",
-        "//app/admin/ep/melloi/model:go_default_library",
-        "//app/admin/ep/melloi/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
+        "//app/admin/ep/melloi/conf",
+        "//app/admin/ep/melloi/model",
+        "//app/admin/ep/melloi/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/permit",
     ],
 )
 

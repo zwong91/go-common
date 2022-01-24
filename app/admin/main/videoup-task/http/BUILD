@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "consumer.go",
         "http.go",
@@ -21,16 +21,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup-task/conf:go_default_library",
-        "//app/admin/main/videoup-task/model:go_default_library",
-        "//app/admin/main/videoup-task/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
+        "//app/admin/main/videoup-task/conf",
+        "//app/admin/main/videoup-task/model",
+        "//app/admin/main/videoup-task/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/http/blademaster/render",
     ],
 )
 

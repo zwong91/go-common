@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "upcrm_test",
     srcs = [
         "credit_log_test.go",
         "dao_test.go",
@@ -20,21 +20,21 @@ go_test(
         "up_scores_history_test.go",
         "up_stats_history_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":upcrm"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/admin/main/up/model/signmodel:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/admin/main/up/model/signmodel",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upcrm",
     srcs = [
         "credit_log.go",
         "dao.go",
@@ -51,14 +51,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/admin/main/up/model/signmodel:go_default_library",
-        "//app/admin/main/up/model/upcrmmodel:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/admin/main/up/model/signmodel",
+        "//app/admin/main/up/model/upcrmmodel",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

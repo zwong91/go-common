@@ -2,32 +2,33 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "log_test",
     srcs = [
         "agent_test.go",
         "dsn_test.go",
         "encode_test.go",
+        "example_test.go",
         "log_test.go",
         "pattern_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":log"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/log/internal:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
+        "//library/log/internal",
+        "//library/net/metadata",
+        "//library/time",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "log",
     srcs = [
         "agent.go",
         "doc.go",
@@ -46,21 +47,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/dsn:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log/internal:go_default_library",
-        "//library/log/internal/filewriter:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/sirupsen/logrus:go_default_library",
+        "//library/conf/dsn",
+        "//library/conf/env",
+        "//library/log/internal",
+        "//library/log/internal/filewriter",
+        "//library/net/metadata",
+        "//library/net/trace",
+        "//library/stat/prom",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/sirupsen/logrus",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["example_test.go"],
     tags = ["automanaged"],
     deps = ["//library/log:go_default_library"],

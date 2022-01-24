@@ -1,7 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
-    name = "go_default_library",
+    name = "proto",
     srcs = [
         "comment.go",
         "enum.go",
@@ -23,7 +23,6 @@ go_library(
         "visitor.go",
         "walk.go",
     ],
-    importmap = "go-common/vendor/github.com/emicklei/proto",
     importpath = "go-common/app/admin/ep/melloi/service/proto",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],

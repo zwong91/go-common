@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "account.go",
         "block.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/member-cache/conf:go_default_library",
-        "//app/job/main/member-cache/dao:go_default_library",
-        "//app/job/main/member-cache/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/member-cache/conf",
+        "//app/job/main/member-cache/dao",
+        "//app/job/main/member-cache/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

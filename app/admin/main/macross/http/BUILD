@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "local.go",
@@ -22,16 +22,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/macross/conf:go_default_library",
-        "//app/admin/main/macross/model/mail:go_default_library",
-        "//app/admin/main/macross/model/package:go_default_library",
-        "//app/admin/main/macross/model/publish:go_default_library",
-        "//app/admin/main/macross/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/admin/main/macross/conf",
+        "//app/admin/main/macross/model/mail",
+        "//app/admin/main/macross/model/package",
+        "//app/admin/main/macross/model/publish",
+        "//app/admin/main/macross/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

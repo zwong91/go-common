@@ -2,37 +2,37 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "conf_test",
     srcs = ["conf_test.go"],
-    embed = [":go_default_library"],
+    embed = [":conf"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/admin/main/block/conf",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/block/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/admin/main/block/model",
+        "//library/cache/memcache",
+        "//library/conf",
+        "//library/database/sql",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/rpc",
+        "//library/net/trace",
+        "//library/queue/databus",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

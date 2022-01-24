@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/live/xcaptcha/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xcaptcha/api/grpc/v1:go_default_library",
-        "//app/service/live/xcaptcha/conf:go_default_library",
-        "//app/service/live/xcaptcha/service/v1:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/xcaptcha/api/grpc/v1:grpc",
+        "//app/service/live/xcaptcha/conf",
+        "//app/service/live/xcaptcha/service/v1:service",
+        "//library/log",
+        "//library/net/rpc/warden",
     ],
 )
 

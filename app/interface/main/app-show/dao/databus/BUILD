@@ -2,32 +2,32 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "databus_test",
     srcs = ["databus_test.go"],
-    embed = [":go_default_library"],
+    embed = [":databus"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-show/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-show/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databus",
     srcs = ["databus.go"],
     importpath = "go-common/app/interface/main/app-show/dao/databus",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-show/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/interface/main/app-show/conf",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 

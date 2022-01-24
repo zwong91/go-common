@@ -2,42 +2,42 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "search_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":search"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-intl/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-intl/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/main/app-intl/dao/search",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-intl/conf:go_default_library",
-        "//app/interface/main/app-intl/dao/archive:go_default_library",
-        "//app/interface/main/app-intl/dao/bangumi:go_default_library",
-        "//app/interface/main/app-intl/model:go_default_library",
-        "//app/interface/main/app-intl/model/bangumi:go_default_library",
-        "//app/interface/main/app-intl/model/search:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-intl/conf",
+        "//app/interface/main/app-intl/dao/archive",
+        "//app/interface/main/app-intl/dao/bangumi",
+        "//app/interface/main/app-intl/model",
+        "//app/interface/main/app-intl/model/bangumi",
+        "//app/interface/main/app-intl/model/search",
+        "//app/service/main/archive/api",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

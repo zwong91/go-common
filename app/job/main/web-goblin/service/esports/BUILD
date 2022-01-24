@@ -6,21 +6,21 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "esports",
     srcs = ["service.go"],
     importpath = "go-common/app/job/main/web-goblin/service/esports",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/web-goblin/conf:go_default_library",
-        "//app/job/main/web-goblin/dao/esports:go_default_library",
-        "//app/job/main/web-goblin/model/esports:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/favorite/api/gorpc:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/web-goblin/conf",
+        "//app/job/main/web-goblin/dao/esports",
+        "//app/job/main/web-goblin/model/esports",
+        "//app/service/main/archive/api",
+        "//app/service/main/favorite/api/gorpc",
+        "//app/service/main/favorite/model",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

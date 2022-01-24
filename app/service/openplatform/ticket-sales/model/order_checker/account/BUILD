@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = ["account.go"],
     importpath = "go-common/app/service/openplatform/ticket-sales/model/order_checker/account",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//app/service/openplatform/ticket-sales/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-sales/dao:go_default_library",
-        "//library/ecode:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/vip/model",
+        "//app/service/openplatform/ticket-sales/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-sales/dao",
+        "//library/ecode",
     ],
 )
 

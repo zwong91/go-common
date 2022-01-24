@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "utils",
     srcs = ["utils.go"],
     importpath = "go-common/app/admin/ep/saga/service/utils",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/admin/ep/saga/conf:go_default_library"],
+    deps = ["//app/admin/ep/saga/conf"],
 )
 
 filegroup(

@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -12,7 +13,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "db.go",
         "model.go",
@@ -22,10 +23,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -44,13 +43,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["model_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     tags = ["automanaged"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
@@ -58,14 +57,13 @@ proto_library(
     name = "model_proto",
     srcs = ["model.proto"],
     tags = ["automanaged"],
-    deps = ["@gogo_special_proto//github.com/gogo/protobuf/gogoproto"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogoproto_proto"],
 )
 
 go_proto_library(
     name = "model_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_proto"],
     importpath = "go-common/app/service/main/ugcpay-rank/internal/model",
     proto = ":model_proto",
     tags = ["automanaged"],
-    deps = ["@com_github_gogo_protobuf//gogoproto:go_default_library"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
 )

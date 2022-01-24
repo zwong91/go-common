@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "publish",
     srcs = ["publish.go"],
     importpath = "go-common/app/admin/main/macross/model/publish",
     tags = ["automanaged"],

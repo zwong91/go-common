@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "feed",
     srcs = [
         "rcmd.go",
         "tag.go",
     ],
     importpath = "go-common/app/job/main/app/model/feed",
     tags = ["automanaged"],
-    deps = ["//app/service/main/archive/api:go_default_library"],
+    deps = ["//app/service/main/archive/api"],
 )
 
 filegroup(

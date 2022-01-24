@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "dm_date.go",
         "dm_search.go",
@@ -22,13 +22,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/search/conf:go_default_library",
-        "//app/service/main/search/dao:go_default_library",
-        "//app/service/main/search/model:go_default_library",
-        "//app/service/main/search/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/service/main/search/conf",
+        "//app/service/main/search/dao",
+        "//app/service/main/search/model",
+        "//app/service/main/search/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

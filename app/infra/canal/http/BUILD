@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "canal.go",
         "http.go",
@@ -16,15 +16,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/canal/conf:go_default_library",
-        "//app/infra/canal/infoc:go_default_library",
-        "//app/infra/canal/service:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/canal:go_default_library",
+        "//app/infra/canal/conf",
+        "//app/infra/canal/infoc",
+        "//app/infra/canal/service",
+        "//library/conf",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/BurntSushi/toml",
+        "//vendor/github.com/siddontang/go-mysql/canal",
     ],
 )
 

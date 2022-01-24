@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "model.go",
         "upload.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/admin/live/live-admin/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/database/bfs:go_default_library"],
+    deps = ["//library/database/bfs"],
 )
 
 filegroup(

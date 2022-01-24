@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "web",
     srcs = [
         "channel.go",
         "full.go",
@@ -16,9 +16,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/interface/main/web-goblin/conf:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
+        "//app/interface/main/tag/model",
+        "//app/interface/main/web-goblin/conf",
+        "//app/service/main/archive/api",
     ],
 )
 

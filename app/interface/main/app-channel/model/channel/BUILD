@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "channel",
     srcs = ["channel.go"],
     importpath = "go-common/app/interface/main/app-channel/model/channel",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-card/model/card:go_default_library",
-        "//app/interface/main/app-channel/model:go_default_library",
-        "//app/interface/main/app-channel/model/tab:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
+        "//app/interface/main/app-card/model/card",
+        "//app/interface/main/app-channel/model",
+        "//app/interface/main/app-channel/model/tab",
+        "//app/interface/main/tag/model",
     ],
 )
 

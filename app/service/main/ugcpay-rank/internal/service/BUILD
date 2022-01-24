@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "elec.go",
         "rank.go",
@@ -16,15 +16,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/ugcpay-rank/internal/conf:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/dao:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/model:go_default_library",
-        "//app/service/main/ugcpay-rank/internal/service/rank:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/golang.org/x/sync/singleflight:go_default_library",
+        "//app/service/main/ugcpay-rank/internal/conf",
+        "//app/service/main/ugcpay-rank/internal/dao",
+        "//app/service/main/ugcpay-rank/internal/model",
+        "//app/service/main/ugcpay-rank/internal/service/rank",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/sync/singleflight",
     ],
 )
 

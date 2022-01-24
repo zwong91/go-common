@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "bangumi_test",
     srcs = ["bangumi_test.go"],
-    embed = [":go_default_library"],
+    embed = [":bangumi"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-channel/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-channel/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bangumi",
     srcs = [
         "bangumi.go",
         "grpc.go",
@@ -28,15 +28,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-card/model/card/bangumi:go_default_library",
-        "//app/interface/main/app-channel/conf:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/episode/v1:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/season/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-card/model/card/bangumi",
+        "//app/interface/main/app-channel/conf",
+        "//app/service/openplatform/pgc-season/api/grpc/episode/v1:episode",
+        "//app/service/openplatform/pgc-season/api/grpc/season/v1:season",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -2,33 +2,33 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = ["api_test.go"],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/xuser/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/xuser/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["api.go"],
     importpath = "go-common/app/service/live/xuser/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/banned_service/api/liverpc:go_default_library",
-        "//app/service/live/fans_medal/api/liverpc:go_default_library",
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//app/service/live/xuser/conf:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
+        "//app/service/live/banned_service/api/liverpc",
+        "//app/service/live/fans_medal/api/liverpc",
+        "//app/service/live/room/api/liverpc",
+        "//app/service/live/xuser/conf",
+        "//library/net/rpc/liverpc",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "click.go",
         "http.go",
@@ -14,12 +14,12 @@ go_library(
     importpath = "go-common/app/job/main/click/http",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/click/conf:go_default_library",
-        "//app/job/main/click/model:go_default_library",
-        "//app/job/main/click/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/click/conf",
+        "//app/job/main/click/model",
+        "//app/job/main/click/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

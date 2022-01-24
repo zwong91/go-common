@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "data_test",
     srcs = [
         "api_test.go",
         "center_test.go",
@@ -18,22 +18,22 @@ go_test(
         "phase_three_test.go",
         "utils_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":data"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/admin/main/up/model/datamodel:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/admin/main/up/model/datamodel",
+        "//library/database/hbase.v2:hbase_v2",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "data",
     srcs = [
         "api.go",
         "center.go",
@@ -48,18 +48,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/admin/main/up/model/datamodel:go_default_library",
-        "//app/admin/main/up/util/hbaseutil:go_default_library",
-        "//app/interface/main/creative/model/data:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
-        "@org_golang_x_net//context:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/admin/main/up/model/datamodel",
+        "//app/admin/main/up/util/hbaseutil",
+        "//app/interface/main/creative/model/data",
+        "//library/cache/memcache",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/sync/errgroup",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
+        "//vendor/golang.org/x/net/context",
     ],
 )
 

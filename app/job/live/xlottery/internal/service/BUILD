@@ -6,21 +6,21 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/job/live/xlottery/internal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/xlottery/internal/conf:go_default_library",
-        "//app/job/live/xlottery/internal/dao:go_default_library",
-        "//app/job/live/xlottery/internal/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/live/xlottery/internal/conf",
+        "//app/job/live/xlottery/internal/dao",
+        "//app/job/live/xlottery/internal/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/queue/databus",
+        "//library/queue/databus/report",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

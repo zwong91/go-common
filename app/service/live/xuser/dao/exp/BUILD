@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "exp",
     srcs = [
         "dao.go",
         "memcache.go",
@@ -16,14 +16,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuser/conf:go_default_library",
-        "//app/service/live/xuser/model/exp:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/live/xuser/conf",
+        "//app/service/live/xuser/model/exp",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/xstr",
     ],
 )
 

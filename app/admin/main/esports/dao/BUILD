@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "reply.go",
@@ -17,14 +17,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/esports/conf:go_default_library",
-        "//app/admin/main/esports/model:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/esports/conf",
+        "//app/admin/main/esports/model",
+        "//library/database/elastic",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 
@@ -43,18 +43,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "reply_test.go",
         "search_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/esports/conf:go_default_library",
-        "//app/admin/main/esports/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/esports/conf",
+        "//app/admin/main/esports/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

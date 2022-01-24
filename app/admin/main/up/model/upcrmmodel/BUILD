@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upcrmmodel",
     srcs = [
         "creditlog.go",
         "requestargs.go",
@@ -22,10 +22,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/model/datamodel:go_default_library",
-        "//app/admin/main/up/util:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//app/admin/main/up/model/datamodel",
+        "//app/admin/main/up/util",
+        "//library/time",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

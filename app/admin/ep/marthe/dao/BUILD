@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "bugly.go",
         "dao.go",
@@ -31,17 +31,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/marthe/conf:go_default_library",
-        "//app/admin/ep/marthe/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/admin/ep/marthe/conf",
+        "//app/admin/ep/marthe/model",
+        "//library/cache/memcache",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 
@@ -60,7 +60,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "mysql_bugly_batch_run_test.go",
@@ -74,14 +74,14 @@ go_test(
         "mysql_tapd_bug_version_template_test.go",
         "mysql_user_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/marthe/conf:go_default_library",
-        "//app/admin/ep/marthe/model:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/ep/marthe/conf",
+        "//app/admin/ep/marthe/model",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

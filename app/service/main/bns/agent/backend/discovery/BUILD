@@ -2,33 +2,33 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "discovery_test",
     srcs = ["discovery_test.go"],
-    embed = [":go_default_library"],
+    embed = [":discovery"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/bns/agent/backend:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/bns/agent/backend",
+        "//library/log",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "discovery",
     srcs = ["discovery.go"],
     importpath = "go-common/app/service/main/bns/agent/backend/discovery",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/bns/agent/backend:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/service/main/bns/agent/backend",
+        "//library/log",
+        "//library/naming",
+        "//library/stat/prom",
     ],
 )
 

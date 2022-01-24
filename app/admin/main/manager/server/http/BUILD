@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "business.go",
         "department.go",
@@ -21,16 +21,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/manager/conf:go_default_library",
-        "//app/admin/main/manager/model:go_default_library",
-        "//app/admin/main/manager/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/manager/conf",
+        "//app/admin/main/manager/model",
+        "//app/admin/main/manager/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/rpc/warden",
+        "//library/xstr",
     ],
 )
 

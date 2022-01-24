@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "like.go",
         "monitor.go",
@@ -14,7 +14,7 @@ go_library(
     ],
     importpath = "go-common/app/job/main/stat/model",
     tags = ["automanaged"],
-    deps = ["//app/service/main/archive/api:go_default_library"],
+    deps = ["//app/service/main/archive/api"],
 )
 
 filegroup(

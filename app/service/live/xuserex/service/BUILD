@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/live/xuserex/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuserex/conf:go_default_library",
-        "//app/service/live/xuserex/service/v1:go_default_library",
+        "//app/service/live/xuserex/conf",
+        "//app/service/live/xuserex/service/v1:service",
     ],
 )
 

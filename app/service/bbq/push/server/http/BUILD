@@ -6,21 +6,21 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/service/bbq/push/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/push/api/grpc/v1:go_default_library",
-        "//app/service/bbq/push/api/http/v1:go_default_library",
-        "//app/service/bbq/push/conf:go_default_library",
-        "//app/service/bbq/push/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/bbq/push/api/grpc/v1:grpc",
+        "//app/service/bbq/push/api/http/v1:http",
+        "//app/service/bbq/push/conf",
+        "//app/service/bbq/push/service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//vendor/github.com/json-iterator/go",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -8,25 +8,25 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["apm-admin-test.toml"],
     importpath = "go-common/app/admin/main/apm/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/apm/conf:go_default_library",
-        "//app/admin/main/apm/http:go_default_library",
-        "//app/admin/main/apm/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/os/signal:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/syscall:go_default_library",
+        "//app/admin/main/apm/conf",
+        "//app/admin/main/apm/http",
+        "//app/admin/main/apm/service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/os/signal",
+        "//library/queue/databus/report",
+        "//library/syscall",
     ],
 )
 

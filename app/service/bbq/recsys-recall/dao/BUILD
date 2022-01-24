@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "bloomfilter.go",
         "dao.go",
@@ -13,10 +13,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys-recall/conf:go_default_library",
-        "//app/service/bbq/recsys-recall/dao/cache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//vendor/github.com/Dai0522/go-hash/bloomfilter:go_default_library",
+        "//app/service/bbq/recsys-recall/conf",
+        "//app/service/bbq/recsys-recall/dao/cache",
+        "//library/cache/redis",
+        "//vendor/github.com/Dai0522/go-hash/bloomfilter",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "berserker.go",
         "bloomfilter.go",
@@ -19,18 +19,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/bbq/recall/internal/conf:go_default_library",
-        "//app/job/bbq/recall/internal/model:go_default_library",
-        "//app/job/bbq/recall/proto:go_default_library",
-        "//app/job/bbq/recall/proto/quality:go_default_library",
-        "//app/service/bbq/recsys-recall/api/grpc/v1:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//vendor/github.com/Dai0522/go-hash/bloomfilter:go_default_library",
-        "//vendor/github.com/golang/snappy:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
+        "//app/job/bbq/recall/internal/conf",
+        "//app/job/bbq/recall/internal/model",
+        "//app/job/bbq/recall/proto",
+        "//app/job/bbq/recall/proto/quality",
+        "//app/service/bbq/recsys-recall/api/grpc/v1:grpc",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/rpc/warden",
+        "//vendor/github.com/Dai0522/go-hash/bloomfilter",
+        "//vendor/github.com/golang/snappy",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 

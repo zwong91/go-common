@@ -7,9 +7,10 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bom",
     srcs = [
         "bom.go",
+        "discard_go14.go",
         "discard_go15.go",
     ],
     importpath = "go-common/app/admin/main/member/model/bom",
@@ -18,7 +19,7 @@ go_library(
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["bom_test.go"],
     tags = ["automanaged"],
     deps = [
@@ -39,4 +40,13 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "bom_test",
+    srcs = ["bom_test.go"],
+    deps = [
+        ":bom",
+        "//vendor/github.com/stretchr/testify/assert",
+    ],
 )

@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "oss",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/macross/dao/oss",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/macross/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/aliyun/aliyun-oss-go-sdk/oss:go_default_library",
+        "//app/admin/main/macross/conf",
+        "//library/log",
+        "//vendor/github.com/aliyun/aliyun-oss-go-sdk/oss",
     ],
 )
 

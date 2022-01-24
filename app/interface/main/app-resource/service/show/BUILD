@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "show_test",
     srcs = ["show_test.go"],
-    embed = [":go_default_library"],
+    embed = [":show"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "show",
     srcs = [
         "audit.go",
         "cache.go",
@@ -30,18 +30,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//app/interface/main/app-resource/dao/audit:go_default_library",
-        "//app/interface/main/app-resource/dao/resource:go_default_library",
-        "//app/interface/main/app-resource/dao/tab:go_default_library",
-        "//app/interface/main/app-resource/model:go_default_library",
-        "//app/interface/main/app-resource/model/abtest:go_default_library",
-        "//app/interface/main/app-resource/model/show:go_default_library",
-        "//app/interface/main/app-resource/model/tab:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//app/interface/main/app-resource/dao/audit",
+        "//app/interface/main/app-resource/dao/resource",
+        "//app/interface/main/app-resource/dao/tab",
+        "//app/interface/main/app-resource/model",
+        "//app/interface/main/app-resource/model/abtest",
+        "//app/interface/main/app-resource/model/show",
+        "//app/interface/main/app-resource/model/tab",
+        "//app/service/main/resource/model",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/dgryski/go-farm",
     ],
 )
 

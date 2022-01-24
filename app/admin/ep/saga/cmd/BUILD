@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["saga-admin-test.toml"],
     importpath = "go-common/app/admin/ep/saga/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/saga/conf:go_default_library",
-        "//app/admin/ep/saga/http:go_default_library",
-        "//app/admin/ep/saga/server/grpc:go_default_library",
-        "//app/admin/ep/saga/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/ep/saga/conf",
+        "//app/admin/ep/saga/http",
+        "//app/admin/ep/saga/server/grpc",
+        "//app/admin/ep/saga/service",
+        "//library/log",
     ],
 )
 

@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "audit.go",
         "audit_v2.go",
@@ -27,9 +27,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/archive/api",
+        "//library/ecode",
+        "//library/time",
     ],
 )
 

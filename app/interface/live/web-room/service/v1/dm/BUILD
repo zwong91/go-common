@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dm",
     srcs = [
         "dM.go",
         "data.go",
@@ -16,16 +16,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/web-room/api/http/v1:go_default_library",
-        "//app/interface/live/web-room/conf:go_default_library",
-        "//app/interface/live/web-room/model:go_default_library",
-        "//app/service/live/live-dm/api/grpc/v1:go_default_library",
-        "//app/service/live/live_riskcontrol/api/grpc/v1:go_default_library",
-        "//app/service/live/xcaptcha/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/live/web-room/api/http/v1:http",
+        "//app/interface/live/web-room/conf",
+        "//app/interface/live/web-room/model",
+        "//app/service/live/live-dm/api/grpc/v1:grpc",
+        "//app/service/live/live_riskcontrol/api/grpc/v1:grpc",
+        "//app/service/live/xcaptcha/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
     ],
 )
 

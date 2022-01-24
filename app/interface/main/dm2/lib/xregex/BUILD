@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "xregex",
     srcs = [
         "item.go",
         "lexer.go",

@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -14,30 +15,28 @@ proto_library(
     name = "v0_proto",
     srcs = ["Conf.proto"],
     tags = ["automanaged"],
-    deps = ["@gogo_special_proto//github.com/gogo/protobuf/gogoproto"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogoproto_proto"],
 )
 
 go_proto_library(
     name = "v0_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_grpc"],
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
     importpath = "go-common/app/service/live/userext/api/liverpc/v0",
     proto = ":v0_proto",
     tags = ["automanaged"],
-    deps = ["@com_github_gogo_protobuf//gogoproto:go_default_library"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "liverpc",
     srcs = ["Conf.liverpc.go"],
     embed = [":v0_go_proto"],
     importpath = "go-common/app/service/live/userext/api/liverpc/v0",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/rpc/liverpc:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
+        "//library/net/rpc/liverpc",
+        "//vendor/github.com/golang/protobuf/proto",
     ],
 )
 

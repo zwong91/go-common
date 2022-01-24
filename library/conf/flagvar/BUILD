@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "flagvar",
     srcs = ["flagvar.go"],
     importpath = "go-common/library/conf/flagvar",
     tags = ["automanaged"],

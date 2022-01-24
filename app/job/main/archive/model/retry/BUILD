@@ -6,11 +6,11 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "retry",
     srcs = ["model.go"],
     importpath = "go-common/app/job/main/archive/model/retry",
     tags = ["automanaged"],
-    deps = ["//app/job/main/archive/model/result:go_default_library"],
+    deps = ["//app/job/main/archive/model/result"],
 )
 
 filegroup(

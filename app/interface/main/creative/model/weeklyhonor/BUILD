@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "weeklyhonor",
     srcs = ["model.go"],
     importpath = "go-common/app/interface/main/creative/model/weeklyhonor",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/api",
+        "//library/log",
+        "//library/time",
     ],
 )
 

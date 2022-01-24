@@ -2,19 +2,19 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "intimacy_test",
     srcs = ["intimacy_test.go"],
-    embed = [":go_default_library"],
+    embed = [":intimacy"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "intimacy",
     srcs = ["intimacy.go"],
     importpath = "go-common/app/service/live/fans_medal/service/intimacy",
     tags = ["automanaged"],

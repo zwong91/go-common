@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "charge",
     srcs = [
         "av_charge.go",
         "av_charge_statis.go",
@@ -21,10 +21,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/model/charge:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/model/charge",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 
@@ -43,7 +43,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "charge_test",
     srcs = [
         "av_charge_statis_test.go",
         "av_charge_test.go",
@@ -53,13 +53,13 @@ go_test(
         "date_statia_test.go",
         "up_charge_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":charge"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/model/charge:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/model/charge",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

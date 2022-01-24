@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["monitor.toml"],
     importpath = "go-common/app/interface/openplatform/monitor-end/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/openplatform/monitor-end/conf:go_default_library",
-        "//app/interface/openplatform/monitor-end/http:go_default_library",
-        "//app/interface/openplatform/monitor-end/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/interface/openplatform/monitor-end/conf",
+        "//app/interface/openplatform/monitor-end/http",
+        "//app/interface/openplatform/monitor-end/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

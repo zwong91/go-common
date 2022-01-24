@@ -20,16 +20,16 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "time",
     srcs = ["time.go"],
     importpath = "go-common/library/time",
     tags = ["automanaged"],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "time_test",
     srcs = ["time_test.go"],
-    embed = [":go_default_library"],
+    embed = [":time"],
     rundir = ".",
     tags = ["automanaged"],
 )

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "queue",
     srcs = [
         "error.go",
         "priority_queue.go",

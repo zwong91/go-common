@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "cache_test",
     srcs = ["cache_test.go"],
-    embed = [":go_default_library"],
+    embed = [":cache"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cache",
     srcs = ["cache.go"],
     importpath = "go-common/library/cache",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//library/log",
+        "//library/stat/prom",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "up.go",
@@ -19,18 +19,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/up/api/v1:go_default_library",
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//app/service/main/up/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//app/service/main/up/api/v1:api",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/model",
+        "//app/service/main/up/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/metadata",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

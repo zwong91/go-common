@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["asset.go"],
     importpath = "go-common/app/service/main/ugcpay/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/ugcpay/api/grpc/v1:go_default_library",
-        "//app/service/main/ugcpay/model:go_default_library",
-        "//app/service/main/ugcpay/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//app/service/main/ugcpay/api/grpc/v1:grpc",
+        "//app/service/main/ugcpay/model",
+        "//app/service/main/ugcpay/service",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/net/rpc/warden",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 

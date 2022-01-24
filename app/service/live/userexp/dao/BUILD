@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "exp.go",
@@ -16,31 +16,31 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/userexp/conf:go_default_library",
-        "//app/service/live/userexp/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/live/userexp/conf",
+        "//app/service/live/userexp/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus/report",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "exp_test.go",
         "mc_level_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/userexp/conf:go_default_library",
-        "//app/service/live/userexp/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/userexp/conf",
+        "//app/service/live/userexp/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "grpc.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/ugcpay/conf:go_default_library",
-        "//app/interface/main/ugcpay/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/ugcpay/api/grpc/v1:go_default_library",
+        "//app/interface/main/ugcpay/conf",
+        "//app/interface/main/ugcpay/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/ugcpay/api/grpc/v1:grpc",
     ],
 )
 
@@ -38,15 +38,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "grpc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/ugcpay/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/ugcpay/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

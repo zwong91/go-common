@@ -1,30 +1,30 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["live-userexp-service.toml"],
     importpath = "go-common/app/service/live/userexp/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:private"],
     deps = [
-        "//app/service/live/userexp/conf:go_default_library",
-        "//app/service/live/userexp/http:go_default_library",
-        "//app/service/live/userexp/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/syscall:go_default_library",
+        "//app/service/live/userexp/conf",
+        "//app/service/live/userexp/http",
+        "//app/service/live/userexp/service",
+        "//library/log",
+        "//library/net/trace",
+        "//library/queue/databus/report",
+        "//library/syscall",
     ],
 )
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
 )
 

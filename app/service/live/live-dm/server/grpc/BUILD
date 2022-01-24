@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/live/live-dm/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/live-dm/api/grpc/v1:go_default_library",
-        "//app/service/live/live-dm/conf:go_default_library",
-        "//app/service/live/live-dm/dao:go_default_library",
-        "//app/service/live/live-dm/service/v1:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/live-dm/api/grpc/v1:grpc",
+        "//app/service/live/live-dm/conf",
+        "//app/service/live/live-dm/dao",
+        "//app/service/live/live-dm/service/v1:service",
+        "//library/net/rpc/warden",
     ],
 )
 

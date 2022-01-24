@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "region",
     srcs = ["region.go"],
     importpath = "go-common/app/interface/main/app-interface/model/region",
     tags = ["automanaged"],

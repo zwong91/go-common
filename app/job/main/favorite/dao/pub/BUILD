@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pub",
     srcs = [
         "dao.go",
         "databus.go",
@@ -14,9 +14,9 @@ go_library(
     importpath = "go-common/app/job/main/favorite/dao/pub",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/favorite/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/favorite/conf",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 

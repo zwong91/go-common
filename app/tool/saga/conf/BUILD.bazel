@@ -5,34 +5,34 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/tool/saga/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/saga/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/tool/saga/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/conf",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/orm",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/trace",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "conf_test",
     srcs = ["conf_test.go"],
-    embed = [":go_default_library"],
+    embed = [":conf"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )
 
 filegroup(

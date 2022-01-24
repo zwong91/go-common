@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["geetest.go"],
     importpath = "go-common/app/common/openplatform/geetest/model",
     tags = ["automanaged"],

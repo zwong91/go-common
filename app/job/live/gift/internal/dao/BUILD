@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "mysql.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/gift/internal/conf:go_default_library",
-        "//app/job/live/gift/internal/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
+        "//app/job/live/gift/internal/conf",
+        "//app/job/live/gift/internal/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "service.go",
         "sns.go",
@@ -15,14 +15,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/passport-sns/api:go_default_library",
-        "//app/service/main/passport-sns/conf:go_default_library",
-        "//app/service/main/passport-sns/dao:go_default_library",
-        "//app/service/main/passport-sns/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
+        "//app/service/main/passport-sns/api",
+        "//app/service/main/passport-sns/conf",
+        "//app/service/main/passport-sns/dao",
+        "//app/service/main/passport-sns/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/sync/pipeline/fanout",
     ],
 )
 

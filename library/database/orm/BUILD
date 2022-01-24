@@ -19,7 +19,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "orm",
     srcs = [
         "orm.go",
         "timestamp.go",
@@ -27,10 +27,10 @@ go_library(
     importpath = "go-common/library/database/orm",
     tags = ["automanaged"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )

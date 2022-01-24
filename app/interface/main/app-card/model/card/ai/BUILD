@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ai",
     srcs = ["ai.go"],
     importpath = "go-common/app/interface/main/app-card/model/card/ai",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-card/model/card/banner:go_default_library",
-        "//app/interface/main/app-card/model/card/cm:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
+        "//app/interface/main/app-card/model/card/banner",
+        "//app/interface/main/app-card/model/card/cm",
+        "//app/interface/main/tag/model",
+        "//app/service/main/archive/model/archive",
     ],
 )
 

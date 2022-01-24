@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "capsule",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/live/web-ucenter/dao/capsule",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/web-ucenter/conf:go_default_library",
-        "//app/service/live/xlottery/api/grpc/v1:go_default_library",
+        "//app/interface/live/web-ucenter/conf",
+        "//app/service/live/xlottery/api/grpc/v1:grpc",
     ],
 )
 

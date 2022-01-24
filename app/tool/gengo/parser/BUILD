@@ -2,20 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
-    srcs = ["local_parse_test.go"],
-    embed = [":go_default_library"],
+    name = "parser_test",
+    srcs = [
+        "local_parse_test.go",
+        "parse_test.go",
+    ],
+    embed = [":parser"],
     rundir = ".",
     tags = ["automanaged"],
+    deps = [
+        "//app/tool/gengo/args",
+        "//app/tool/gengo/namer",
+        "//app/tool/gengo/types",
+    ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "parser",
     srcs = [
         "doc.go",
         "parse.go",
@@ -24,13 +32,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/gengo/types:go_default_library",
-        "//vendor/github.com/golang/glog:go_default_library",
+        "//app/tool/gengo/types",
+        "//vendor/github.com/golang/glog",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["parse_test.go"],
     tags = ["automanaged"],
     deps = [

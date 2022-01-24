@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "indexer.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/riot-search/conf:go_default_library",
-        "//app/service/main/riot-search/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/go-ego/riot:go_default_library",
-        "//vendor/github.com/go-ego/riot/types:go_default_library",
+        "//app/service/main/riot-search/conf",
+        "//app/service/main/riot-search/model",
+        "//library/database/sql",
+        "//library/log",
+        "//vendor/github.com/go-ego/riot",
+        "//vendor/github.com/go-ego/riot/types",
     ],
 )
 
@@ -41,18 +41,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "indexer_test.go",
         "searcher_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/riot-search/conf:go_default_library",
-        "//app/service/main/riot-search/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/riot-search/conf",
+        "//app/service/main/riot-search/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["model.go"],
     importpath = "go-common/app/service/main/push-strategy/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/push/model:go_default_library"],
+    deps = ["//app/service/main/push/model"],
 )
 
 filegroup(

@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/bbq/wechat/internal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/bbq/wechat/dao:go_default_library",
-        "//app/interface/bbq/wechat/internal/conf:go_default_library",
-        "//app/interface/bbq/wechat/internal/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/bbq/wechat/dao",
+        "//app/interface/bbq/wechat/internal/conf",
+        "//app/interface/bbq/wechat/internal/model",
+        "//library/log",
     ],
 )
 

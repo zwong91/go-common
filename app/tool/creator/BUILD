@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "creator_lib",
     srcs = [
         "gen.go",
         "main.go",
@@ -20,9 +20,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/otokaze/mock/mockgen:go_default_library",
-        "//vendor/github.com/otokaze/mock/mockgen/model:go_default_library",
-        "//vendor/golang.org/x/tools/imports:go_default_library",
+        "//vendor/github.com/otokaze/mock/mockgen",
+        "//vendor/github.com/otokaze/mock/mockgen/model",
+        "//vendor/golang.org/x/tools/imports",
     ],
 )
 
@@ -42,6 +42,6 @@ filegroup(
 
 go_binary(
     name = "creator",
-    embed = [":go_default_library"],
+    embed = [":creator_lib"],
     tags = ["automanaged"],
 )

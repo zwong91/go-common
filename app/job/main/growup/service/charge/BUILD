@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "charge_test",
     srcs = [
         "av_charge_statis_test.go",
         "run_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":charge"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/model/charge:go_default_library",
-        "//app/job/main/growup/service/ctrl:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/model/charge",
+        "//app/job/main/growup/service/ctrl",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "charge",
     srcs = [
         "av_charge.go",
         "av_charge_statis.go",
@@ -45,15 +45,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/dao/charge:go_default_library",
-        "//app/job/main/growup/dao/email:go_default_library",
-        "//app/job/main/growup/model/charge:go_default_library",
-        "//app/job/main/growup/service:go_default_library",
-        "//app/job/main/growup/service/ctrl:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/golang.org/x/sync/errgroup:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/dao/charge",
+        "//app/job/main/growup/dao/email",
+        "//app/job/main/growup/model/charge",
+        "//app/job/main/growup/service",
+        "//app/job/main/growup/service/ctrl",
+        "//library/log",
+        "//library/time",
+        "//vendor/golang.org/x/sync/errgroup",
     ],
 )
 

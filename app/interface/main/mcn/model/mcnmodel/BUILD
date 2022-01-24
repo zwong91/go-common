@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mcnmodel",
     srcs = [
         "cmd.go",
         "creative.go",
@@ -21,12 +21,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/mcn/model:go_default_library",
-        "//app/interface/main/mcn/model:go_default_library",
-        "//app/interface/main/mcn/model/datamodel:go_default_library",
-        "//app/interface/main/mcn/tool/validate:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/mcn/model",
+        "//app/interface/main/mcn/model",
+        "//app/interface/main/mcn/model/datamodel",
+        "//app/interface/main/mcn/tool/validate",
+        "//app/service/main/archive/api",
+        "//library/time",
     ],
 )
 
@@ -45,12 +45,12 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mcnmodel_test",
     srcs = ["reply_test.go"],
-    embed = [":go_default_library"],
+    embed = [":mcnmodel"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/mcn/model:go_default_library",
-        "//app/interface/main/mcn/model:go_default_library",
+        "//app/admin/main/mcn/model",
+        "//app/interface/main/mcn/model",
     ],
 )

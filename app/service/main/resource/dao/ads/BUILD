@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "ads_test",
     srcs = [
         "dao_test.go",
         "redis_test.go",
         "vdoad_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":ads"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/resource/conf:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/resource/conf",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ads",
     srcs = [
         "dao.go",
         "redis.go",
@@ -36,12 +36,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/resource/conf:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
+        "//app/service/main/resource/conf",
+        "//app/service/main/resource/model",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//vendor/github.com/dgryski/go-farm",
     ],
 )
 

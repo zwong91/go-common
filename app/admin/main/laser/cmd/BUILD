@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["laser-admin.toml"],
     importpath = "go-common/app/admin/main/laser/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/laser/conf:go_default_library",
-        "//app/admin/main/laser/http:go_default_library",
-        "//library/log:go_default_library",
-        "//library/os/signal:go_default_library",
-        "//library/syscall:go_default_library",
+        "//app/admin/main/laser/conf",
+        "//app/admin/main/laser/http",
+        "//library/log",
+        "//library/os/signal",
+        "//library/syscall",
     ],
 )
 

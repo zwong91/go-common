@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "app_multiple_databus_test.go",
         "app_single_test.go",
@@ -15,18 +15,18 @@ go_test(
         "dao_test.go",
         "es_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/search/conf:go_default_library",
-        "//app/job/main/search/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/search/conf",
+        "//app/job/main/search/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "app_databus.go",
         "app_multiple.go",
@@ -45,16 +45,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/search/conf:go_default_library",
-        "//app/job/main/search/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/gopkg.in/olivere/elastic.v5:go_default_library",
+        "//app/job/main/search/conf",
+        "//app/job/main/search/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/queue/databus",
+        "//library/stat/prom",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/gopkg.in/olivere/elastic.v5:elastic_v5",
     ],
 )
 

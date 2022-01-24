@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "infoc.go",
         "package.go",
@@ -17,15 +17,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/gift/api:go_default_library",
-        "//app/job/live/gift/internal/conf:go_default_library",
-        "//app/job/live/gift/internal/dao:go_default_library",
-        "//app/job/live/gift/internal/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/job/live/gift/api",
+        "//app/job/live/gift/internal/conf",
+        "//app/job/live/gift/internal/dao",
+        "//app/job/live/gift/internal/model",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
     ],
 )
 
@@ -44,17 +44,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "infoc_test.go",
         "package_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/live/gift/internal/conf:go_default_library",
-        "//app/job/live/gift/internal/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/live/gift/internal/conf",
+        "//app/job/live/gift/internal/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "reply_test",
     srcs = [
         "admin_test.go",
         "business_test.go",
@@ -20,18 +20,18 @@ go_test(
         "report_test.go",
         "subject_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":reply"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/reply/conf:go_default_library",
-        "//app/job/main/reply/model/reply:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/reply/conf",
+        "//app/job/main/reply/model/reply",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "reply",
     srcs = [
         "admin.go",
         "business.go",
@@ -49,13 +49,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/reply/conf:go_default_library",
-        "//app/job/main/reply/model/reply:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/reply/conf",
+        "//app/job/main/reply/model/reply",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 

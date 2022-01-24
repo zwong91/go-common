@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "agent",
     srcs = [
         "agent.go",
         "dns.go",
@@ -17,15 +17,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/bns/agent/backend:go_default_library",
-        "//app/service/main/bns/conf:go_default_library",
-        "//app/service/main/bns/lib/resolvconf:go_default_library",
-        "//app/service/main/bns/lib/shuffle:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//vendor/github.com/miekg/dns:go_default_library",
-        "//vendor/github.com/prometheus/client_golang/prometheus/promhttp:go_default_library",
+        "//app/service/main/bns/agent/backend",
+        "//app/service/main/bns/conf",
+        "//app/service/main/bns/lib/resolvconf",
+        "//app/service/main/bns/lib/shuffle",
+        "//library/conf/env",
+        "//library/log",
+        "//library/stat/prom",
+        "//vendor/github.com/miekg/dns",
+        "//vendor/github.com/prometheus/client_golang/prometheus/promhttp",
     ],
 )
 

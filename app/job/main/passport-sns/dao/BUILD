@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "aso_test.go",
         "dao_test.go",
@@ -15,19 +15,19 @@ go_test(
         "qq_test.go",
         "sns_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport-sns/conf:go_default_library",
-        "//app/job/main/passport-sns/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport-sns/conf",
+        "//app/job/main/passport-sns/model",
+        "//library/database/sql",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "aso.go",
         "dao.go",
@@ -39,11 +39,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-sns/conf:go_default_library",
-        "//app/job/main/passport-sns/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/passport-sns/conf",
+        "//app/job/main/passport-sns/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 

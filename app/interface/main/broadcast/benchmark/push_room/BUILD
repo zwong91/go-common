@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "push_room",
-    embed = [":go_default_library"],
+    embed = [":push_room_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "push_room_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/interface/main/broadcast/benchmark/push_room",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/time:go_default_library",
+        "//library/net/http/blademaster",
+        "//library/net/netutil/breaker",
+        "//library/time",
     ],
 )
 

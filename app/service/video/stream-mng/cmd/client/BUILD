@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/video/stream-mng/cmd/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/video/stream-mng/api/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/video/stream-mng/api/v1:api",
+        "//library/ecode",
+        "//library/net/rpc/warden",
     ],
 )
 

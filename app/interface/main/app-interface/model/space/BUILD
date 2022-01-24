@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "space",
     srcs = [
         "contribute.go",
         "mine.go",
@@ -16,19 +16,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/model:go_default_library",
-        "//app/interface/main/app-interface/model/audio:go_default_library",
-        "//app/interface/main/app-interface/model/bangumi:go_default_library",
-        "//app/interface/main/app-interface/model/bplus:go_default_library",
-        "//app/interface/main/app-interface/model/community:go_default_library",
-        "//app/interface/main/app-interface/model/elec:go_default_library",
-        "//app/interface/main/app-interface/model/favorite:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-interface/model",
+        "//app/interface/main/app-interface/model/audio",
+        "//app/interface/main/app-interface/model/bangumi",
+        "//app/interface/main/app-interface/model/bplus",
+        "//app/interface/main/app-interface/model/community",
+        "//app/interface/main/app-interface/model/elec",
+        "//app/interface/main/app-interface/model/favorite",
+        "//app/interface/main/tag/model",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/api",
+        "//library/time",
     ],
 )
 

@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = ["match.go"],
     importpath = "go-common/app/interface/main/activity/rpc/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/model/like:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/interface/main/activity/model/like",
+        "//library/net/rpc",
     ],
 )
 

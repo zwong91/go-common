@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "resource",
     srcs = [
         "account.go",
         "article_category.go",
@@ -19,16 +19,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//app/admin/main/growup/model:go_default_library",
-        "//app/admin/main/growup/util:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//app/service/main/vip/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//app/admin/main/growup/model",
+        "//app/admin/main/growup/util",
+        "//app/service/main/account/api",
+        "//app/service/main/vip/model",
+        "//app/service/main/vip/rpc/client",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -47,7 +47,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "resource_test",
     srcs = [
         "account_test.go",
         "article_category_test.go",
@@ -55,10 +55,10 @@ go_test(
         "video_category_test.go",
         "vip_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":resource"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

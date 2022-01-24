@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "web",
     srcs = [
         "dao.go",
         "dynamic.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/web-goblin/conf:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/job/main/web-goblin/conf",
+        "//library/database/elastic",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
     ],
 )
 
@@ -41,17 +41,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "web_test",
     srcs = [
         "dao_test.go",
         "dynamic_test.go",
         "ugc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":web"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/web-goblin/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/web-goblin/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

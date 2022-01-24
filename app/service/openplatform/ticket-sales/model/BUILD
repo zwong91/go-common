@@ -2,15 +2,11 @@ load(
     "@io_bazel_rules_go//go:def.bzl",
     "go_library",
 )
-load(
-    "@io_bazel_rules_go//proto:def.bzl",
-    "go_proto_library",
-)
 
 package(default_visibility = ["//visibility:public"])
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "cache.go",
         "distrib.go",
@@ -25,12 +21,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/common/openplatform/encoding:go_default_library",
-        "//app/service/openplatform/ticket-sales/api/grpc/type:go_default_library",
-        "//app/service/openplatform/ticket-sales/api/grpc/v1:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "@com_github_gogo_protobuf//types:go_default_library",
+        "//app/common/openplatform/encoding",
+        "//app/service/openplatform/ticket-sales/api/grpc/type",
+        "//app/service/openplatform/ticket-sales/api/grpc/v1:grpc",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/gogo/protobuf/types",
     ],
 )
 

@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "favorite_test",
     srcs = [
         "favorite_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":favorite"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/model/favorite:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/model/favorite",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "favorite",
     srcs = [
         "favorite.go",
         "service.go",
@@ -32,21 +32,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/dao/article:go_default_library",
-        "//app/interface/main/app-interface/dao/audio:go_default_library",
-        "//app/interface/main/app-interface/dao/bangumi:go_default_library",
-        "//app/interface/main/app-interface/dao/bplus:go_default_library",
-        "//app/interface/main/app-interface/dao/favorite:go_default_library",
-        "//app/interface/main/app-interface/dao/mall:go_default_library",
-        "//app/interface/main/app-interface/dao/sp:go_default_library",
-        "//app/interface/main/app-interface/dao/ticket:go_default_library",
-        "//app/interface/main/app-interface/dao/topic:go_default_library",
-        "//app/interface/main/app-interface/model:go_default_library",
-        "//app/interface/main/app-interface/model/favorite:go_default_library",
-        "//app/service/main/favorite/api:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/dao/article",
+        "//app/interface/main/app-interface/dao/audio",
+        "//app/interface/main/app-interface/dao/bangumi",
+        "//app/interface/main/app-interface/dao/bplus",
+        "//app/interface/main/app-interface/dao/favorite",
+        "//app/interface/main/app-interface/dao/mall",
+        "//app/interface/main/app-interface/dao/sp",
+        "//app/interface/main/app-interface/dao/ticket",
+        "//app/interface/main/app-interface/dao/topic",
+        "//app/interface/main/app-interface/model",
+        "//app/interface/main/app-interface/model/favorite",
+        "//app/service/main/favorite/api",
+        "//library/log",
+        "//library/sync/errgroup",
     ],
 )
 

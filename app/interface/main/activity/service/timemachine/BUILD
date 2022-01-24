@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "timemachine",
     srcs = [
         "service.go",
         "timemachine.go",
@@ -15,19 +15,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/dao/like:go_default_library",
-        "//app/interface/main/activity/dao/timemachine:go_default_library",
-        "//app/interface/main/activity/model/timemachine:go_default_library",
-        "//app/interface/main/tag/api:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/dao/like",
+        "//app/interface/main/activity/dao/timemachine",
+        "//app/interface/main/activity/model/timemachine",
+        "//app/interface/main/tag/api",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//app/service/main/account/api",
+        "//app/service/main/archive/api",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup.v2:errgroup_v2",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ftp",
     srcs = [
         "dao.go",
         "ftp.go",
@@ -16,9 +16,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/ftp-master:go_default_library",
+        "//app/job/main/tv/conf",
+        "//library/log",
+        "//vendor/github.com/ftp-master",
     ],
 )
 
@@ -37,15 +37,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "ftp_test",
     srcs = [
         "dao_test.go",
         "ftp_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":ftp"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/tv/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

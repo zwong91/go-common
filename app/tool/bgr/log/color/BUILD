@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "color",
     srcs = ["color.go"],
     importpath = "go-common/app/tool/bgr/log/color",
     tags = ["automanaged"],

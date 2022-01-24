@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "discovery",
     srcs = ["discovery.go"],
     importpath = "go-common/app/admin/main/apm/model/discovery",
     tags = ["automanaged"],

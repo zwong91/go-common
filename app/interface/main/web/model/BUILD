@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "abserver.go",
         "account.go",
@@ -32,16 +32,16 @@ go_library(
     importpath = "go-common/app/interface/main/web/model",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/dm2/model:go_default_library",
-        "//app/interface/main/reply/model/reply:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/broadcast/api/grpc/v1:go_default_library",
-        "//app/service/main/ugcpay/api/grpc/v1:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/dm2/model",
+        "//app/interface/main/reply/model/reply",
+        "//app/interface/main/tag/model",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/broadcast/api/grpc/v1:grpc",
+        "//app/service/main/ugcpay/api/grpc/v1:grpc",
+        "//library/time",
     ],
 )
 

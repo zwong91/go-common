@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["item.toml"],
     importpath = "go-common/app/service/openplatform/ticket-item/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//app/service/openplatform/ticket-item/server/grpc:go_default_library",
-        "//app/service/openplatform/ticket-item/server/http:go_default_library",
-        "//app/service/openplatform/ticket-item/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/openplatform/ticket-item/conf",
+        "//app/service/openplatform/ticket-item/server/grpc",
+        "//app/service/openplatform/ticket-item/server/http",
+        "//app/service/openplatform/ticket-item/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

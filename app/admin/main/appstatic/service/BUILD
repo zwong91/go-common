@@ -1,30 +1,30 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "add_ver_test.go",
         "publish_test.go",
         "service_test.go",
         "upbfs_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/appstatic/conf:go_default_library",
-        "//app/admin/main/appstatic/model:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/appstatic/conf",
+        "//app/admin/main/appstatic/model",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "add_ver.go",
         "publish.go",
@@ -36,11 +36,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/appstatic/conf:go_default_library",
-        "//app/admin/main/appstatic/dao:go_default_library",
-        "//app/admin/main/appstatic/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/appstatic/conf",
+        "//app/admin/main/appstatic/dao",
+        "//app/admin/main/appstatic/model",
+        "//library/log",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

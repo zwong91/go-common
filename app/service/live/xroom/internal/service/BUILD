@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "room.go",
         "service.go",
@@ -15,13 +15,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/live/xroom/api:go_default_library",
-        "//app/service/live/xroom/internal/dao:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/live/xroom/api",
+        "//app/service/live/xroom/internal/dao",
+        "//library/conf/paladin",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/rpc/warden",
     ],
 )
 

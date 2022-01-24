@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "aes.go",
         "captcha.go",
@@ -23,24 +23,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account-recovery/conf:go_default_library",
-        "//app/service/main/account-recovery/dao/sqlbuilder:go_default_library",
-        "//app/service/main/account-recovery/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/location/model:go_default_library",
-        "//app/service/main/location/rpc/client:go_default_library",
-        "//app/service/main/member/api:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/service/main/account-recovery/conf",
+        "//app/service/main/account-recovery/dao/sqlbuilder",
+        "//app/service/main/account-recovery/model",
+        "//app/service/main/account/api",
+        "//app/service/main/location/model",
+        "//app/service/main/location/rpc/client",
+        "//app/service/main/member/api",
+        "//library/cache/redis",
+        "//library/database/elastic",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 
@@ -62,7 +62,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "captcha_test.go",
         "dao_test.go",
@@ -73,14 +73,14 @@ go_test(
         "req_rpc_test.go",
         "user_act_log_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/account-recovery/conf:go_default_library",
-        "//app/service/main/account-recovery/model:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/service/main/account-recovery/conf",
+        "//app/service/main/account-recovery/model",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

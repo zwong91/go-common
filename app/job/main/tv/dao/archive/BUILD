@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "archive.go",
         "dao.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/service/main/archive/api",
+        "//library/cache/memcache",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -38,16 +38,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = [
         "archive_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/service/main/archive/api",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

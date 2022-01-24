@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "banner.go",
         "room.go",
@@ -18,13 +18,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/app-blink/api/http/v1:go_default_library",
-        "//app/interface/live/app-blink/conf:go_default_library",
-        "//app/interface/live/app-blink/dao:go_default_library",
-        "//app/service/live/resource/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/live/app-blink/api/http/v1:http",
+        "//app/interface/live/app-blink/conf",
+        "//app/interface/live/app-blink/dao",
+        "//app/service/live/resource/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
     ],
 )
 
@@ -43,21 +43,21 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "banner_test.go",
         "room_test.go",
         "splash_test.go",
         "topic_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/live/app-blink/api/http/v1:go_default_library",
-        "//app/interface/live/app-blink/conf:go_default_library",
-        "//app/service/live/resource/api/grpc/v1:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/live/app-blink/api/http/v1:http",
+        "//app/interface/live/app-blink/conf",
+        "//app/service/live/resource/api/grpc/v1:grpc",
+        "//library/net/metadata",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

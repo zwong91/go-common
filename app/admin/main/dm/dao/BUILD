@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "account_test.go",
         "credit_test.go",
@@ -30,19 +30,19 @@ go_test(
         "videoup_test.go",
         "workflow_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/dm/conf:go_default_library",
-        "//app/admin/main/dm/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/dm/conf",
+        "//app/admin/main/dm/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "account.go",
         "bfs.go",
@@ -70,19 +70,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/dm/conf:go_default_library",
-        "//app/admin/main/dm/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/bfs:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/dm/conf",
+        "//app/admin/main/dm/model",
+        "//library/cache/memcache",
+        "//library/database/bfs",
+        "//library/database/elastic",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//library/xstr",
     ],
 )
 

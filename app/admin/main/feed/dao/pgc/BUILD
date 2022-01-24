@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pgc",
     srcs = [
         "dao.go",
         "grpc.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/episode/v1:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/season/v1:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/service/openplatform/pgc-season/api/grpc/episode/v1:episode",
+        "//app/service/openplatform/pgc-season/api/grpc/season/v1:season",
+        "//library/log",
     ],
 )
 
@@ -38,16 +38,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "pgc_test",
     srcs = [
         "dao_test.go",
         "grpc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":pgc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

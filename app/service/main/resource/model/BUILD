@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["resource_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "abtest.go",
         "ads.go",
@@ -33,10 +33,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-view/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-view/model",
+        "//app/service/main/archive/api",
+        "//library/log",
+        "//library/time",
     ],
 )
 

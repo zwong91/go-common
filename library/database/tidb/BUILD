@@ -20,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tidb",
     srcs = [
         "discovery.go",
         "node_proc.go",
@@ -30,30 +30,30 @@ go_library(
     importpath = "go-common/library/database/tidb",
     tags = ["automanaged"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/conf/env",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/netutil/breaker",
+        "//library/net/trace",
+        "//library/stat",
+        "//library/time",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "tidb_test",
     srcs = [
         "sql_test.go",
         "tidb_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":tidb"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/time:go_default_library",
+        "//library/net/netutil/breaker",
+        "//library/time",
     ],
 )

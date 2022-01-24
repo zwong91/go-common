@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "identify_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/identify/api/grpc:go_default_library",
-        "//app/service/main/identify/conf:go_default_library",
-        "//app/service/main/identify/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/identify/api/grpc",
+        "//app/service/main/identify/conf",
+        "//app/service/main/identify/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "identify.go",
         "service.go",
@@ -33,16 +33,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/identify/api/grpc:go_default_library",
-        "//app/service/main/identify/conf:go_default_library",
-        "//app/service/main/identify/dao:go_default_library",
-        "//app/service/main/identify/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/identify/api/grpc",
+        "//app/service/main/identify/conf",
+        "//app/service/main/identify/dao",
+        "//app/service/main/identify/model",
+        "//library/cache",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

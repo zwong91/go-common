@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "delCache_test.go",
         "exchange_test.go",
@@ -23,22 +23,22 @@ go_test(
         "service_test.go",
         "wallet_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/wallet/conf:go_default_library",
-        "//app/service/live/wallet/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/wallet/conf",
+        "//app/service/live/wallet/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "delCache.go",
         "exchange.go",
@@ -59,14 +59,14 @@ go_library(
     importpath = "go-common/app/service/live/wallet/service",
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/wallet/conf:go_default_library",
-        "//app/service/live/wallet/dao:go_default_library",
-        "//app/service/live/wallet/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/wallet/conf",
+        "//app/service/live/wallet/dao",
+        "//app/service/live/wallet/model",
+        "//library/cache",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/infra/notify/conf",
     tags = ["automanaged"],
     deps = [
-        "//library/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//library/conf",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

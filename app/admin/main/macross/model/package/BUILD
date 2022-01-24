@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "package",
     srcs = ["package.go"],
     importpath = "go-common/app/admin/main/macross/model/package",
     tags = ["automanaged"],

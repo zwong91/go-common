@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/bbq/recsys/cmd/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys/api/grpc/v1:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/container/pool:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/Dai0522/go-hash/bloomfilter:go_default_library",
+        "//app/service/bbq/recsys/api/grpc/v1:grpc",
+        "//library/cache/redis",
+        "//library/container/pool",
+        "//library/net/rpc/warden",
+        "//library/time",
+        "//vendor/github.com/Dai0522/go-hash/bloomfilter",
     ],
 )
 

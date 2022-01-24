@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "dispatch.go",
         "service.go",
@@ -16,8 +16,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/rtc/internal/conf:go_default_library",
-        "//app/service/live/rtc/internal/dao:go_default_library",
+        "//app/service/live/rtc/internal/conf",
+        "//app/service/live/rtc/internal/dao",
     ],
 )
 

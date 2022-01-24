@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cltclient",
     srcs = ["clt.go"],
     importpath = "go-common/app/service/main/dapper-query/pkg/cltclient",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/sync/errgroup:go_default_library"],
+    deps = ["//library/sync/errgroup"],
 )
 
 filegroup(

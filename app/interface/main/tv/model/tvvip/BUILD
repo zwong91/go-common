@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tvvip",
     srcs = ["vip.go"],
     importpath = "go-common/app/interface/main/tv/model/tvvip",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/tv/api:go_default_library"],
+    deps = ["//app/service/main/tv/api"],
 )
 
 filegroup(

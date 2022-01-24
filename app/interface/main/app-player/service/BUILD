@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-player/conf:go_default_library",
-        "//app/interface/main/app-player/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-player/conf",
+        "//app/interface/main/app-player/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "bnj.go",
         "service.go",
@@ -29,18 +29,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-player/conf:go_default_library",
-        "//app/interface/main/app-player/dao:go_default_library",
-        "//app/interface/main/app-player/dao/account:go_default_library",
-        "//app/interface/main/app-player/dao/archive:go_default_library",
-        "//app/interface/main/app-player/dao/resource:go_default_library",
-        "//app/interface/main/app-player/dao/ugcpay:go_default_library",
-        "//app/interface/main/app-player/model:go_default_library",
-        "//app/interface/main/app-player/model/archive:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/ugcpay/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/app-player/conf",
+        "//app/interface/main/app-player/dao",
+        "//app/interface/main/app-player/dao/account",
+        "//app/interface/main/app-player/dao/archive",
+        "//app/interface/main/app-player/dao/resource",
+        "//app/interface/main/app-player/dao/ugcpay",
+        "//app/interface/main/app-player/model",
+        "//app/interface/main/app-player/model/archive",
+        "//app/service/main/account/api",
+        "//app/service/main/ugcpay/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

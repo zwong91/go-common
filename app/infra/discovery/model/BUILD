@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "instance.go",
         "node.go",
@@ -16,8 +16,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

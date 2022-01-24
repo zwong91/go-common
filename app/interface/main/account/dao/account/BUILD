@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "account_test",
     srcs = [
         "account_test.go",
         "bfs_test.go",
@@ -17,18 +17,18 @@ go_test(
         "sms_test.go",
         "vip_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":account"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = [
         "account.go",
         "bfs.go",
@@ -42,15 +42,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/interface/main/account/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/interface/main/account/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

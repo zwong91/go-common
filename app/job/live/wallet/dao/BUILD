@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "mc_wallet_test.go",
         "wallet_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/live/wallet/conf:go_default_library",
-        "//app/job/live/wallet/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/live/wallet/conf",
+        "//app/job/live/wallet/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "mc_wallet.go",
@@ -33,11 +33,11 @@ go_library(
     importpath = "go-common/app/job/live/wallet/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/job/live/wallet/conf:go_default_library",
-        "//app/job/live/wallet/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/live/wallet/conf",
+        "//app/job/live/wallet/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 

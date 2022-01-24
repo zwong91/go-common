@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "abtest.go",
         "filter.go",
@@ -22,20 +22,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys/api/grpc/v1:go_default_library",
-        "//app/service/bbq/recsys/conf:go_default_library",
-        "//app/service/bbq/recsys/dao:go_default_library",
-        "//app/service/bbq/recsys/model:go_default_library",
-        "//app/service/bbq/recsys/service/postprocess:go_default_library",
-        "//app/service/bbq/recsys/service/rank:go_default_library",
-        "//app/service/bbq/recsys/service/retrieve:go_default_library",
-        "//app/service/bbq/recsys/service/util:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//vendor/github.com/go-ego/murmur:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
+        "//app/service/bbq/recsys/api/grpc/v1:grpc",
+        "//app/service/bbq/recsys/conf",
+        "//app/service/bbq/recsys/dao",
+        "//app/service/bbq/recsys/model",
+        "//app/service/bbq/recsys/service/postprocess",
+        "//app/service/bbq/recsys/service/rank",
+        "//app/service/bbq/recsys/service/retrieve",
+        "//app/service/bbq/recsys/service/util",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/trace",
+        "//library/stat/prom",
+        "//vendor/github.com/go-ego/murmur",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 

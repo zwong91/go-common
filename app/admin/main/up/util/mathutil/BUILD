@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mathutil",
     srcs = ["base_utils.go"],
     importpath = "go-common/app/admin/main/up/util/mathutil",
     tags = ["automanaged"],

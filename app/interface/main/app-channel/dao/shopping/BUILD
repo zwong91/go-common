@@ -2,36 +2,36 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "shopping_test",
     srcs = ["shopping_test.go"],
-    embed = [":go_default_library"],
+    embed = [":shopping"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-channel/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-channel/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "shopping",
     srcs = ["shopping.go"],
     importpath = "go-common/app/interface/main/app-channel/dao/shopping",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-card/model/card/show:go_default_library",
-        "//app/interface/main/app-channel/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-card/model/card/show",
+        "//app/interface/main/app-channel/conf",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

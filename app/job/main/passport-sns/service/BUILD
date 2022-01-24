@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "service.go",
         "sns_log.go",
@@ -16,15 +16,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-sns/conf:go_default_library",
-        "//app/job/main/passport-sns/dao:go_default_library",
-        "//app/job/main/passport-sns/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/databusutil:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/passport-sns/conf",
+        "//app/job/main/passport-sns/dao",
+        "//app/job/main/passport-sns/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/queue/databus/databusutil",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

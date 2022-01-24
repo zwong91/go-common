@@ -2,23 +2,23 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "fsm_test",
     srcs = [
         "errors_test.go",
         "fsm_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":fsm"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "fsm",
     srcs = [
         "errors.go",
         "event.go",

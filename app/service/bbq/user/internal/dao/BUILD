@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.cache.go",
         "dao.go",
@@ -27,24 +27,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/notice-service/api/v1:go_default_library",
-        "//app/service/bbq/user/api:go_default_library",
-        "//app/service/bbq/user/internal/conf:go_default_library",
-        "//app/service/bbq/user/internal/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/filter/api/grpc/v1:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
+        "//app/service/bbq/notice-service/api/v1:api",
+        "//app/service/bbq/user/api",
+        "//app/service/bbq/user/internal/conf",
+        "//app/service/bbq/user/internal/model",
+        "//app/service/main/account/api",
+        "//app/service/main/filter/api/grpc/v1:grpc",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/net/rpc/warden",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/bouk/monkey",
     ],
 )
 
@@ -63,7 +63,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao.cache_test.go",
         "dao_test.go",
@@ -75,15 +75,15 @@ go_test(
         "user_like_test.go",
         "user_stat_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/bbq/user/api:go_default_library",
-        "//app/service/bbq/user/internal/conf:go_default_library",
-        "//app/service/bbq/user/internal/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/bbq/user/api",
+        "//app/service/bbq/user/internal/conf",
+        "//app/service/bbq/user/internal/model",
+        "//library/conf/paladin",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

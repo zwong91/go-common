@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["reply-job-test.toml"],
     importpath = "go-common/app/job/main/reply/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/reply/conf:go_default_library",
-        "//app/job/main/reply/http:go_default_library",
-        "//app/job/main/reply/service:go_default_library",
-        "//library/exp/feature:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/main/reply/conf",
+        "//app/job/main/reply/http",
+        "//app/job/main/reply/service",
+        "//library/exp/feature",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

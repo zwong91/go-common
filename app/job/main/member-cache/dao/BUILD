@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "block.go",
         "dao.go",
@@ -17,11 +17,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/member-cache/conf:go_default_library",
-        "//app/job/main/member-cache/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/member-cache/conf",
+        "//app/job/main/member-cache/model",
+        "//library/cache/memcache",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -40,17 +40,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "block_test.go",
         "dao_test.go",
         "member_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/member-cache/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/member-cache/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

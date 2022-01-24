@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["model.go"],
     importpath = "go-common/app/interface/main/ugcpay-rank/api/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/ugcpay-rank/api/http:go_default_library"],
+    deps = ["//app/service/main/ugcpay-rank/api/http"],
 )
 
 filegroup(

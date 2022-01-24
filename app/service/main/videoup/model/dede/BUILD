@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dede",
     srcs = ["dede.go"],
     importpath = "go-common/app/service/main/videoup/model/dede",
     tags = ["automanaged"],

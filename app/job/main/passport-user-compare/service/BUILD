@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "aes.go",
         "data_fix.go",
@@ -21,13 +21,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-user-compare/conf:go_default_library",
-        "//app/job/main/passport-user-compare/dao:go_default_library",
-        "//app/job/main/passport-user-compare/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/main/passport-user-compare/conf",
+        "//app/job/main/passport-user-compare/dao",
+        "//app/job/main/passport-user-compare/model",
+        "//library/log",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 
@@ -46,13 +46,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["aes_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport-user-compare/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport-user-compare/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

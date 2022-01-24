@@ -20,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "metadata",
     srcs = [
         "key.go",
         "metadata.go",
@@ -30,10 +30,10 @@ go_library(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "metadata_test",
     srcs = ["metadata_test.go"],
-    embed = [":go_default_library"],
+    embed = [":metadata"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/stretchr/testify/assert:go_default_library"],
+    deps = ["//vendor/github.com/stretchr/testify/assert"],
 )

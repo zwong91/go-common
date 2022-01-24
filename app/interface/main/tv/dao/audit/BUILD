@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "audit",
     srcs = [
         "audit.go",
         "dao.go",
@@ -17,14 +17,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 
@@ -43,19 +43,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "audit_test",
     srcs = [
         "audit_test.go",
         "dao_test.go",
         "transcode_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":audit"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/model",
+        "//library/database/sql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

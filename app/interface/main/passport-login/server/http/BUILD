@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "cookie_proxy.go",
         "http.go",
@@ -18,13 +18,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/passport-login/conf:go_default_library",
-        "//app/interface/main/passport-login/model:go_default_library",
-        "//app/interface/main/passport-login/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/interface/main/passport-login/conf",
+        "//app/interface/main/passport-login/model",
+        "//app/interface/main/passport-login/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

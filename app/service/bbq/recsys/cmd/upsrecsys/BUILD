@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upsrecsys_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/bbq/recsys/cmd/upsrecsys",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys/api/grpc/v1:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/bbq/recsys/api/grpc/v1:grpc",
+        "//library/net/rpc/warden",
+        "//library/time",
     ],
 )
 
@@ -35,6 +35,6 @@ filegroup(
 
 go_binary(
     name = "upsrecsys",
-    embed = [":go_default_library"],
+    embed = [":upsrecsys_lib"],
     tags = ["automanaged"],
 )

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "addit.go",
         "archive.go",
@@ -15,7 +15,7 @@ go_library(
     ],
     importpath = "go-common/app/job/main/archive/model/archive",
     tags = ["automanaged"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

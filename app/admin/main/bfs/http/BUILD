@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "bfs.go",
         "http.go",
@@ -15,11 +15,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/bfs/conf:go_default_library",
-        "//app/admin/main/bfs/model:go_default_library",
-        "//app/admin/main/bfs/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/admin/main/bfs/conf",
+        "//app/admin/main/bfs/model",
+        "//app/admin/main/bfs/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

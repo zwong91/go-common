@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "blacklist_test.go",
         "cheat_test.go",
@@ -20,18 +20,18 @@ go_test(
         "tag_test.go",
         "tagincome_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/service/ctrl:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/service/ctrl",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "auto.go",
         "blacklist.go",
@@ -64,23 +64,23 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/dao:go_default_library",
-        "//app/job/main/growup/dao/charge:go_default_library",
-        "//app/job/main/growup/dao/dataplatform:go_default_library",
-        "//app/job/main/growup/dao/email:go_default_library",
-        "//app/job/main/growup/dao/income:go_default_library",
-        "//app/job/main/growup/dao/tag:go_default_library",
-        "//app/job/main/growup/model:go_default_library",
-        "//app/job/main/growup/model/income:go_default_library",
-        "//app/job/main/growup/service/ctrl:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/golang.org/x/sync/errgroup:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/dao",
+        "//app/job/main/growup/dao/charge",
+        "//app/job/main/growup/dao/dataplatform",
+        "//app/job/main/growup/dao/email",
+        "//app/job/main/growup/dao/income",
+        "//app/job/main/growup/dao/tag",
+        "//app/job/main/growup/model",
+        "//app/job/main/growup/model/income",
+        "//app/job/main/growup/service/ctrl",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/golang.org/x/sync/errgroup",
     ],
 )
 

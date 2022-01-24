@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "income",
     srcs = [
         "archive.go",
         "av_charge.go",
@@ -23,7 +23,7 @@ go_library(
     importpath = "go-common/app/job/main/growup/model/income",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "block_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":block"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/member/conf:go_default_library",
-        "//app/admin/main/member/model/block:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/member/conf",
+        "//app/admin/main/member/model/block",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "block",
     srcs = [
         "audit_log.go",
         "block.go",
@@ -32,22 +32,22 @@ go_library(
     importpath = "go-common/app/admin/main/member/service/block",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/member/conf:go_default_library",
-        "//app/admin/main/member/dao/block:go_default_library",
-        "//app/admin/main/member/model/block:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/figure/model:go_default_library",
-        "//app/service/main/figure/rpc/client:go_default_library",
-        "//app/service/main/spy/model:go_default_library",
-        "//app/service/main/spy/rpc/client:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/member/conf",
+        "//app/admin/main/member/dao/block",
+        "//app/admin/main/member/model/block",
+        "//app/service/main/account/api",
+        "//app/service/main/figure/model",
+        "//app/service/main/figure/rpc/client",
+        "//app/service/main/spy/model",
+        "//app/service/main/spy/rpc/client",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//library/queue/databus/report",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

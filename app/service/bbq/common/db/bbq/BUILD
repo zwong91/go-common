@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bbq",
     srcs = ["video_bvc.go"],
     importpath = "go-common/app/service/bbq/common/db/bbq",
     tags = ["automanaged"],

@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/job/main/account-recovery/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/account-recovery/conf:go_default_library",
-        "//app/job/main/account-recovery/dao:go_default_library",
-        "//app/job/main/account-recovery/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/account-recovery/conf",
+        "//app/job/main/account-recovery/dao",
+        "//app/job/main/account-recovery/model",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sets",
     srcs = [
         "int64.go",
         "sets.go",

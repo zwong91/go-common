@@ -6,23 +6,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
+    visibility = ["//visibility:public"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["appstatic-job-test.toml"],
     importpath = "go-common/app/job/main/appstatic/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/appstatic/conf:go_default_library",
-        "//app/job/main/appstatic/http:go_default_library",
-        "//app/job/main/appstatic/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/main/appstatic/conf",
+        "//app/job/main/appstatic/http",
+        "//app/job/main/appstatic/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

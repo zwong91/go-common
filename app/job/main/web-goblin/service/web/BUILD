@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "web",
     srcs = [
         "service.go",
         "ugc.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/web-goblin/conf:go_default_library",
-        "//app/job/main/web-goblin/dao/web:go_default_library",
-        "//app/job/main/web-goblin/model/web:go_default_library",
-        "//app/service/main/dynamic/model:go_default_library",
-        "//app/service/main/dynamic/rpc/client:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/web-goblin/conf",
+        "//app/job/main/web-goblin/dao/web",
+        "//app/job/main/web-goblin/model/web",
+        "//app/service/main/dynamic/model",
+        "//app/service/main/dynamic/rpc/client",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 
@@ -41,16 +41,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "web_test",
     srcs = [
         "service_test.go",
         "ugc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":web"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/web-goblin/conf:go_default_library",
-        "//app/job/main/web-goblin/model/web:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/web-goblin/conf",
+        "//app/job/main/web-goblin/model/web",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

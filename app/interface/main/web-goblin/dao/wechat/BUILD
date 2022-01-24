@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "wechat_test",
     srcs = [
         "dao_test.go",
         "qrcode_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":wechat"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/web-goblin/conf:go_default_library",
-        "//app/interface/main/web-goblin/model/wechat:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/web-goblin/conf",
+        "//app/interface/main/web-goblin/model/wechat",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "wechat",
     srcs = [
         "cache.go",
         "dao.cache.go",
@@ -35,15 +35,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/web-goblin/conf:go_default_library",
-        "//app/interface/main/web-goblin/model/wechat:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/interface/main/web-goblin/conf",
+        "//app/interface/main/web-goblin/model/wechat",
+        "//library/cache",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/stat/prom",
     ],
 )
 

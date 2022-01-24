@@ -7,12 +7,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "feature",
     srcs = ["feature_gate.go"],
     importpath = "go-common/library/exp/feature",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//vendor/github.com/pkg/errors:go_default_library"],
+    deps = ["//vendor/github.com/pkg/errors"],
 )
 
 filegroup(
@@ -30,15 +30,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
-    srcs = ["feature_gate_test.go"],
-    embed = [":go_default_library"],
+    name = "feature_test",
+    srcs = [
+        "example_test.go",
+        "feature_gate_test.go",
+    ],
+    embed = [":feature"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["example_test.go"],
     tags = ["automanaged"],
     deps = ["//library/exp/feature:go_default_library"],

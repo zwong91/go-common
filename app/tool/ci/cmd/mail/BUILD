@@ -2,21 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mail_lib",
     srcs = ["main.go"],
-    importmap = "go-common/app/tool/rider/sendEmail/cmd",
     importpath = "go-common/app/tool/ci/cmd/mail",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/ci/lib/mail:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/tool/ci/lib/mail",
+        "//library/log",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 
@@ -36,6 +35,6 @@ filegroup(
 
 go_binary(
     name = "mail",
-    embed = [":go_default_library"],
+    embed = [":mail_lib"],
     tags = ["automanaged"],
 )

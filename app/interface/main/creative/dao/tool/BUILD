@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tool",
     srcs = ["tool.go"],
     importpath = "go-common/app/interface/main/creative/dao/tool",
     tags = ["automanaged"],
@@ -29,16 +29,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "tool_test",
     srcs = [
         "dao_test.go",
         "tool_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":tool"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

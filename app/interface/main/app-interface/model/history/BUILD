@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "history",
     srcs = ["history.go"],
     importpath = "go-common/app/interface/main/app-interface/model/history",
     tags = ["automanaged"],

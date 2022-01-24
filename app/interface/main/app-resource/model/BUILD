@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["const.go"],
     importpath = "go-common/app/interface/main/app-resource/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/interface/main/app-resource/model/tab:go_default_library"],
+    deps = ["//app/interface/main/app-resource/model/tab"],
 )
 
 filegroup(

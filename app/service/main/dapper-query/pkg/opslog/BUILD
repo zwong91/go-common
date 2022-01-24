@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "opslog_test",
     srcs = ["opslog_test.go"],
-    embed = [":go_default_library"],
+    embed = [":opslog"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "opslog",
     srcs = ["opslog.go"],
     importpath = "go-common/app/service/main/dapper-query/pkg/opslog",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//vendor/github.com/pkg/errors:go_default_library"],
+    deps = ["//vendor/github.com/pkg/errors"],
 )
 
 filegroup(

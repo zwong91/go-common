@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "metadata",
     srcs = ["metadata.go"],
     importpath = "go-common/library/queue/databus/metadata",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/net/metadata:go_default_library"],
+    deps = ["//library/net/metadata"],
 )
 
 filegroup(

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "global",
     srcs = [
         "account.go",
         "resource.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up-rating/conf:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/up-rating/conf",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//library/log",
     ],
 )
 
@@ -38,16 +38,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "global_test",
     srcs = [
         "account_test.go",
         "resource_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":global"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/up-rating/conf:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/up-rating/conf",
+        "//library/net/rpc",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

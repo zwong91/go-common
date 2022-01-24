@@ -8,21 +8,21 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["coin-job-test.toml"],
     importpath = "go-common/app/job/main/coin/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/coin/conf:go_default_library",
-        "//app/job/main/coin/http:go_default_library",
-        "//app/job/main/coin/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/coin/conf",
+        "//app/job/main/coin/http",
+        "//app/job/main/coin/service",
+        "//library/log",
     ],
 )
 

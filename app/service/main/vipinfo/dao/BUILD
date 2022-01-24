@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "cache.go",
         "dao.cache.go",
@@ -19,16 +19,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/vipinfo/conf:go_default_library",
-        "//app/service/main/vipinfo/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/vipinfo/conf",
+        "//app/service/main/vipinfo/model",
+        "//library/cache",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -47,18 +47,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao.cache_test.go",
         "dao_test.go",
         "mc_test.go",
         "mysql_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/vipinfo/conf:go_default_library",
-        "//app/service/main/vipinfo/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/vipinfo/conf",
+        "//app/service/main/vipinfo/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

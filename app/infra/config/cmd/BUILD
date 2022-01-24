@@ -8,28 +8,28 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["config-service-example.toml"],
     importpath = "go-common/app/infra/config/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/config/conf:go_default_library",
-        "//app/infra/config/http:go_default_library",
-        "//app/infra/config/rpc/server:go_default_library",
-        "//app/infra/config/service/v1:go_default_library",
-        "//app/infra/config/service/v2:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/ip:go_default_library",
+        "//app/infra/config/conf",
+        "//app/infra/config/http",
+        "//app/infra/config/rpc/server",
+        "//app/infra/config/service/v1:service",
+        "//app/infra/config/service/v2:service",
+        "//library/conf/env",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/ip",
     ],
 )
 

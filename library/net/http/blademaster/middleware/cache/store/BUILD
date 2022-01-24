@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "store",
     srcs = [
         "file.go",
         "memcache.go",
@@ -16,9 +16,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/cache/memcache",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

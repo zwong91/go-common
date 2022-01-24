@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sets",
     srcs = ["string.go"],
     importpath = "go-common/app/tool/gengo/cmd/deepcopy-gen/sets",
     tags = ["automanaged"],

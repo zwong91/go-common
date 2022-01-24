@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "redis",
     srcs = ["redis.go"],
     importpath = "go-common/app/job/main/videoup/model/redis",
     tags = ["automanaged"],

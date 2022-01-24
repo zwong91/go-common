@@ -2,35 +2,35 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "audio_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":audio"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-intl/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-intl/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "audio",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/main/app-intl/dao/audio",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-intl/conf:go_default_library",
-        "//app/interface/main/app-intl/model/view:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-intl/conf",
+        "//app/interface/main/app-intl/model/view",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "archive.go",
         "archive_recheck.go",
@@ -30,11 +30,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup/model/message:go_default_library",
-        "//app/admin/main/videoup/model/utils:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/videoup/model/message",
+        "//app/admin/main/videoup/model/utils",
+        "//library/log",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 
@@ -53,13 +53,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = [
         "archive_test.go",
         "history_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )

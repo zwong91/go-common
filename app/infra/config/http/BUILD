@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "config.go",
         "config2.go",
@@ -17,16 +17,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/infra/config/conf:go_default_library",
-        "//app/infra/config/model:go_default_library",
-        "//app/infra/config/service/v1:go_default_library",
-        "//app/infra/config/service/v2:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/antispam:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
+        "//app/infra/config/conf",
+        "//app/infra/config/model",
+        "//app/infra/config/service/v1:service",
+        "//app/infra/config/service/v2:service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/antispam",
+        "//library/net/http/blademaster/middleware/verify",
+        "//vendor/github.com/dgryski/go-farm",
     ],
 )
 

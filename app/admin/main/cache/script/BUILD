@@ -8,17 +8,17 @@ load(
 
 go_binary(
     name = "script",
-    embed = [":go_default_library"],
+    embed = [":script_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "script_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/admin/main/cache/script",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//vendor/gopkg.in/yaml.v2:go_default_library"],
+    deps = ["//vendor/gopkg.in/yaml.v2:yaml_v2"],
 )
 
 filegroup(

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "user",
     srcs = [
         "module.go",
         "rule.go",
@@ -14,7 +14,7 @@ go_library(
     ],
     importpath = "go-common/app/admin/main/apm/model/user",
     tags = ["automanaged"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

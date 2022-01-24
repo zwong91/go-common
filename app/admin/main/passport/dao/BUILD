@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/passport/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/passport/conf:go_default_library",
-        "//library/database/elastic:go_default_library",
+        "//app/admin/main/passport/conf",
+        "//library/database/elastic",
     ],
 )
 

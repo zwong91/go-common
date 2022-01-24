@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "log",
     srcs = ["log.go"],
     importpath = "go-common/app/tool/bgr/log",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/bgr/log/color:go_default_library",
-        "//vendor/golang.org/x/crypto/ssh/terminal:go_default_library",
+        "//app/tool/bgr/log/color",
+        "//vendor/golang.org/x/crypto/ssh/terminal",
     ],
 )
 

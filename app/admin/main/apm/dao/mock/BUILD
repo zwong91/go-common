@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mock",
     srcs = ["monkey_dao.go"],
     importpath = "go-common/app/admin/main/apm/dao/mock",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/apm/dao:go_default_library",
-        "//app/admin/main/apm/model/canal:go_default_library",
-        "//app/admin/main/apm/model/ecode:go_default_library",
-        "//app/admin/main/apm/model/need:go_default_library",
-        "//app/admin/main/apm/model/pprof:go_default_library",
-        "//app/admin/main/apm/model/ut:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
+        "//app/admin/main/apm/dao",
+        "//app/admin/main/apm/model/canal",
+        "//app/admin/main/apm/model/ecode",
+        "//app/admin/main/apm/model/need",
+        "//app/admin/main/apm/model/pprof",
+        "//app/admin/main/apm/model/ut",
+        "//vendor/github.com/bouk/monkey",
     ],
 )
 

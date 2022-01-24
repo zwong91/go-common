@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "file",
     srcs = [
         "config.go",
         "file.go",
@@ -22,12 +22,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/event:go_default_library",
-        "//app/service/ops/log-agent/input:go_default_library",
-        "//app/service/ops/log-agent/pkg/lancerroute:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/service/ops/log-agent/event",
+        "//app/service/ops/log-agent/input",
+        "//app/service/ops/log-agent/pkg/lancerroute",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

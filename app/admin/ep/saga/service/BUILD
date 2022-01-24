@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "pipeline_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/saga/conf:go_default_library",
-        "//app/admin/ep/saga/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/xanzy/go-gitlab:go_default_library",
+        "//app/admin/ep/saga/conf",
+        "//app/admin/ep/saga/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/xanzy/go-gitlab",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "basic.go",
         "branch.go",
@@ -49,20 +49,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/saga/conf:go_default_library",
-        "//app/admin/ep/saga/dao:go_default_library",
-        "//app/admin/ep/saga/model:go_default_library",
-        "//app/admin/ep/saga/service/gitlab:go_default_library",
-        "//app/admin/ep/saga/service/utils:go_default_library",
-        "//app/admin/ep/saga/service/wechat:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
-        "//vendor/github.com/xanzy/go-gitlab:go_default_library",
+        "//app/admin/ep/saga/conf",
+        "//app/admin/ep/saga/dao",
+        "//app/admin/ep/saga/model",
+        "//app/admin/ep/saga/service/gitlab",
+        "//app/admin/ep/saga/service/utils",
+        "//app/admin/ep/saga/service/wechat",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/BurntSushi/toml",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
+        "//vendor/github.com/xanzy/go-gitlab",
     ],
 )
 

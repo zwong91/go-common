@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "account.go",
         "blacklist.go",
@@ -17,15 +17,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/space/conf:go_default_library",
-        "//app/admin/main/space/dao:go_default_library",
-        "//app/admin/main/space/model:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/relation/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/space/conf",
+        "//app/admin/main/space/dao",
+        "//app/admin/main/space/model",
+        "//app/service/main/relation/model",
+        "//app/service/main/relation/rpc/client",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus/report",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

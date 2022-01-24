@@ -6,21 +6,21 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/interface/live/app-blink/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/app-blink/api/http/v1:go_default_library",
-        "//app/interface/live/app-blink/conf:go_default_library",
-        "//app/interface/live/app-blink/service:go_default_library",
-        "//app/interface/live/app-blink/service/v1:go_default_library",
-        "//app/service/live/resource/api/grpc/v1:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/interface/live/app-blink/api/http/v1:http",
+        "//app/interface/live/app-blink/conf",
+        "//app/interface/live/app-blink/service",
+        "//app/interface/live/app-blink/service/v1:service",
+        "//app/service/live/resource/api/grpc/v1:grpc",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

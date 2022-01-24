@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "bilihub.go",
         "constants.go",
@@ -22,9 +22,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

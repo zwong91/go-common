@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "fav_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/favorite/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/favorite/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "fav.go",
         "service.go",
@@ -31,25 +31,25 @@ go_library(
     importpath = "go-common/app/job/main/favorite/service",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//app/job/main/favorite/conf:go_default_library",
-        "//app/job/main/favorite/dao/fav:go_default_library",
-        "//app/job/main/favorite/dao/music:go_default_library",
-        "//app/job/main/favorite/dao/pub:go_default_library",
-        "//app/job/main/favorite/dao/stat:go_default_library",
-        "//app/job/main/favorite/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/coin/api/gorpc:go_default_library",
-        "//app/service/main/coin/model:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//app/job/main/favorite/conf",
+        "//app/job/main/favorite/dao/fav",
+        "//app/job/main/favorite/dao/music",
+        "//app/job/main/favorite/dao/pub",
+        "//app/job/main/favorite/dao/stat",
+        "//app/job/main/favorite/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/coin/api/gorpc",
+        "//app/service/main/coin/model",
+        "//app/service/main/favorite/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
     ],
 )
 

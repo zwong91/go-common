@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "gitlab.go",
         "gitlab_comment.go",
@@ -22,9 +22,9 @@ go_library(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["model_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     rundir = ".",
     tags = ["automanaged"],
 )

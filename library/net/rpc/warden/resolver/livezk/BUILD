@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "livezk",
     srcs = ["helper.go"],
     importpath = "go-common/library/net/rpc/warden/resolver/livezk",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/naming:go_default_library",
-        "//library/naming/livezk:go_default_library",
-        "//library/net/ip:go_default_library",
+        "//library/naming",
+        "//library/naming/livezk",
+        "//library/net/ip",
     ],
 )
 

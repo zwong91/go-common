@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "income_test",
     srcs = [
         "av_charge_statis_test.go",
         "av_charge_test.go",
@@ -18,20 +18,20 @@ go_test(
         "up_account_test.go",
         "up_income_date_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":income"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/model/income:go_default_library",
-        "//app/job/main/growup/service/ctrl:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/model/income",
+        "//app/job/main/growup/service/ctrl",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "income",
     srcs = [
         "archive.go",
         "av_charge.go",
@@ -68,16 +68,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/dao/dataplatform:go_default_library",
-        "//app/job/main/growup/dao/email:go_default_library",
-        "//app/job/main/growup/dao/income:go_default_library",
-        "//app/job/main/growup/model/income:go_default_library",
-        "//app/job/main/growup/service:go_default_library",
-        "//app/job/main/growup/service/ctrl:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/golang.org/x/sync/errgroup:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/dao/dataplatform",
+        "//app/job/main/growup/dao/email",
+        "//app/job/main/growup/dao/income",
+        "//app/job/main/growup/model/income",
+        "//app/job/main/growup/service",
+        "//app/job/main/growup/service/ctrl",
+        "//library/log",
+        "//library/time",
+        "//vendor/golang.org/x/sync/errgroup",
     ],
 )
 

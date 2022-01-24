@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mcndao",
     srcs = [
         "crm.go",
         "dao.cache.go",
@@ -23,24 +23,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/mcn/model:go_default_library",
-        "//app/admin/main/up/util:go_default_library",
-        "//app/admin/main/up/util/mathutil:go_default_library",
-        "//app/interface/main/mcn/conf:go_default_library",
-        "//app/interface/main/mcn/dao/cache:go_default_library",
-        "//app/interface/main/mcn/dao/global:go_default_library",
-        "//app/interface/main/mcn/model:go_default_library",
-        "//app/interface/main/mcn/model/mcnmodel:go_default_library",
-        "//app/interface/main/mcn/tool/validate:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/bluele/gcache:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/mcn/model",
+        "//app/admin/main/up/util",
+        "//app/admin/main/up/util/mathutil",
+        "//app/interface/main/mcn/conf",
+        "//app/interface/main/mcn/dao/cache",
+        "//app/interface/main/mcn/dao/global",
+        "//app/interface/main/mcn/model",
+        "//app/interface/main/mcn/model/mcnmodel",
+        "//app/interface/main/mcn/tool/validate",
+        "//app/service/main/archive/api",
+        "//library/cache/memcache",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/bluele/gcache",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -59,7 +59,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mcndao_test",
     srcs = [
         "crm_test.go",
         "dao.cache_test.go",
@@ -71,17 +71,17 @@ go_test(
         "recommend_pool_test.go",
         "sign_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":mcndao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/mcn/conf:go_default_library",
-        "//app/interface/main/mcn/dao/global:go_default_library",
-        "//app/interface/main/mcn/model:go_default_library",
-        "//app/interface/main/mcn/model/mcnmodel:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/bluele/gcache:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/mcn/conf",
+        "//app/interface/main/mcn/dao/global",
+        "//app/interface/main/mcn/model",
+        "//app/interface/main/mcn/model/mcnmodel",
+        "//library/ecode",
+        "//vendor/github.com/bluele/gcache",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "types",
     srcs = ["types.go"],
     importpath = "go-common/app/tool/warden/types",
     tags = ["automanaged"],

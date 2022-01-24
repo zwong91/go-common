@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "action.go",
         "arctag.go",
@@ -21,18 +21,18 @@ go_library(
     importpath = "go-common/app/interface/main/tag/http",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/tag/conf:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/interface/main/tag/service:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/tag/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/main/tag/conf",
+        "//app/interface/main/tag/model",
+        "//app/interface/main/tag/service",
+        "//app/service/main/archive/api",
+        "//app/service/main/tag/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/metadata",
+        "//library/xstr",
     ],
 )
 

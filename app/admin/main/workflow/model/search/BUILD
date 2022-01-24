@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = [
         "audit_log.go",
         "report.go",
@@ -17,8 +17,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/workflow/model:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/workflow/model",
+        "//library/xstr",
     ],
 )
 

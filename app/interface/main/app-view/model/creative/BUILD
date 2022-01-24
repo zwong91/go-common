@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "creative",
     srcs = ["creative.go"],
     importpath = "go-common/app/interface/main/app-view/model/creative",
     tags = ["automanaged"],

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "show",
     srcs = [
         "app_active.go",
         "card_set_stars.go",
@@ -21,12 +21,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/model/common:go_default_library",
-        "//app/admin/main/feed/model/show:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/model/common",
+        "//app/admin/main/feed/model/show",
+        "//library/database/orm",
+        "//library/log",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 
@@ -45,7 +45,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "show_test",
     srcs = [
         "app_active_test.go",
         "card_set_stars_test.go",
@@ -55,12 +55,12 @@ go_test(
         "search_web_card_test.go",
         "search_web_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":show"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/model/show:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/model/show",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

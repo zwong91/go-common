@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["api.go"],
     importpath = "go-common/app/service/bbq/push/api/http/v1",
     tags = ["automanaged"],

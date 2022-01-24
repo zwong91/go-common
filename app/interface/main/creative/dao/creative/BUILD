@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "creative",
     srcs = [
         "archive_material.go",
         "dao.cache.go",
@@ -21,15 +21,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/archive:go_default_library",
-        "//app/interface/main/creative/model/operation:go_default_library",
-        "//app/interface/main/creative/model/version:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/archive",
+        "//app/interface/main/creative/model/operation",
+        "//app/interface/main/creative/model/version",
+        "//library/cache",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/stat/prom",
     ],
 )
 
@@ -48,7 +48,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "creative_test",
     srcs = [
         "dao_test.go",
         "material_test.go",
@@ -56,11 +56,11 @@ go_test(
         "type_test.go",
         "version_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":creative"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

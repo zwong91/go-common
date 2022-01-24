@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "process",
     srcs = ["process.go"],
     importpath = "go-common/app/service/main/dapper/pkg/process",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/dapper/model:go_default_library"],
+    deps = ["//app/service/main/dapper/model"],
 )
 
 filegroup(

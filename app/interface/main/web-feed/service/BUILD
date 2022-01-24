@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["feed_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/web-feed/conf:go_default_library",
-        "//app/interface/main/web-feed/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/web-feed/conf",
+        "//app/interface/main/web-feed/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "feed.go",
         "service.go",
@@ -28,17 +28,17 @@ go_library(
     importpath = "go-common/app/interface/main/web-feed/service",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/web-feed/conf:go_default_library",
-        "//app/interface/main/web-feed/dao:go_default_library",
-        "//app/interface/main/web-feed/model:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//app/service/main/feed/model:go_default_library",
-        "//app/service/main/feed/rpc/client:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/main/web-feed/conf",
+        "//app/interface/main/web-feed/dao",
+        "//app/interface/main/web-feed/model",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//app/service/main/feed/model",
+        "//app/service/main/feed/rpc/client",
+        "//library/cache",
+        "//library/log",
+        "//library/net/metadata",
     ],
 )
 

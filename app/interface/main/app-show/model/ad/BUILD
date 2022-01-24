@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ad",
     srcs = ["ad.go"],
     importpath = "go-common/app/interface/main/app-show/model/ad",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-show/model/banner:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/app-show/model/banner",
+        "//library/log",
     ],
 )
 

@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "antispam-integration.toml",
@@ -23,13 +23,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/antispam/conf:go_default_library",
-        "//app/service/main/antispam/http:go_default_library",
-        "//app/service/main/antispam/rpc/server:go_default_library",
-        "//app/service/main/antispam/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/main/antispam/conf",
+        "//app/service/main/antispam/http",
+        "//app/service/main/antispam/rpc/server",
+        "//app/service/main/antispam/service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

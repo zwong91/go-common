@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "postprocess",
     srcs = [
         "downGradePostProcessor.go",
         "postprocess.go",
@@ -19,10 +19,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys/api/grpc/v1:go_default_library",
-        "//app/service/bbq/recsys/model:go_default_library",
-        "//app/service/bbq/recsys/service/retrieve:go_default_library",
-        "//app/service/bbq/recsys/service/util:go_default_library",
+        "//app/service/bbq/recsys/api/grpc/v1:grpc",
+        "//app/service/bbq/recsys/model",
+        "//app/service/bbq/recsys/service/retrieve",
+        "//app/service/bbq/recsys/service/util",
     ],
 )
 

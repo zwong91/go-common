@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "foo.go",
         "foo2.go",
@@ -15,8 +15,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/live-demo/api/http:go_default_library",
-        "//app/interface/live/live-demo/conf:go_default_library",
+        "//app/interface/live/live-demo/api/http",
+        "//app/interface/live/live-demo/conf",
     ],
 )
 

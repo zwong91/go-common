@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lancerroute",
     srcs = [
         "config.go",
         "lancerroute.go",
@@ -15,9 +15,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/conf/configcenter:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/service/ops/log-agent/conf/configcenter",
+        "//library/log",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

@@ -5,17 +5,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/relation/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/relation/api:go_default_library",
-        "//app/service/main/relation/conf:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/relation/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/main/relation/api",
+        "//app/service/main/relation/conf",
+        "//app/service/main/relation/model",
+        "//app/service/main/relation/service",
+        "//library/net/rpc/warden",
     ],
 )
 
@@ -34,17 +34,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "grpc_test",
     srcs = ["server_test.go"],
-    embed = [":go_default_library"],
+    embed = [":grpc"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/relation/api:go_default_library",
-        "//app/service/main/relation/conf:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/relation/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/relation/api",
+        "//app/service/main/relation/conf",
+        "//app/service/main/relation/model",
+        "//app/service/main/relation/service",
+        "//library/net/rpc/warden",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

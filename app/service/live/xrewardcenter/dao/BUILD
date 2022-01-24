@@ -6,20 +6,20 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["dao.go"],
     importpath = "go-common/app/service/live/xrewardcenter/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/gift/api/liverpc:go_default_library",
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//app/service/live/xrewardcenter/conf:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
+        "//app/service/live/gift/api/liverpc",
+        "//app/service/live/room/api/liverpc",
+        "//app/service/live/xrewardcenter/conf",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/rpc/liverpc",
     ],
 )
 

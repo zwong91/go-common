@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "captcha.go",
         "roomAdmin.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/web-room/api/http/v1:go_default_library",
-        "//app/interface/live/web-room/conf:go_default_library",
-        "//app/interface/live/web-room/dao:go_default_library",
-        "//app/service/live/xcaptcha/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/live/web-room/api/http/v1:http",
+        "//app/interface/live/web-room/conf",
+        "//app/interface/live/web-room/dao",
+        "//app/service/live/xcaptcha/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
     ],
 )
 
@@ -44,14 +44,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["roomAdmin_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/live/web-room/api/http/v1:go_default_library",
-        "//app/interface/live/web-room/conf:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/live/web-room/api/http/v1:http",
+        "//app/interface/live/web-room/conf",
+        "//library/net/metadata",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

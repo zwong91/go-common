@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "converge",
     srcs = ["converge.go"],
     importpath = "go-common/app/interface/main/app-channel/model/converge",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-channel/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/app-channel/model",
+        "//library/log",
     ],
 )
 

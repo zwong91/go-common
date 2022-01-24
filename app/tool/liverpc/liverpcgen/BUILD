@@ -8,19 +8,19 @@ load(
 
 go_binary(
     name = "liverpcgen",
-    embed = [":go_default_library"],
+    embed = [":liverpcgen_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "liverpcgen_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/tool/liverpc/liverpcgen",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/siddontang/go/ioutil2:go_default_library",
-        "//vendor/github.com/urfave/cli:go_default_library",
+        "//vendor/github.com/siddontang/go/ioutil2",
+        "//vendor/github.com/urfave/cli",
     ],
 )
 

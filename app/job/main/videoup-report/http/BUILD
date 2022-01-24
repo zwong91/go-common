@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "archive.go",
         "http.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/videoup-report/conf:go_default_library",
-        "//app/job/main/videoup-report/model/archive:go_default_library",
-        "//app/job/main/videoup-report/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/videoup-report/conf",
+        "//app/job/main/videoup-report/model/archive",
+        "//app/job/main/videoup-report/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

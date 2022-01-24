@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "geetest",
     srcs = ["geetest.go"],
     importpath = "go-common/app/interface/main/videoup/model/geetest",
     tags = ["automanaged"],

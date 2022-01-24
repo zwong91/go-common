@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/infra/notify/http",
     tags = ["automanaged"],
     deps = [
-        "//app/infra/notify/conf:go_default_library",
-        "//app/infra/notify/model:go_default_library",
-        "//app/infra/notify/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/infra/notify/conf",
+        "//app/infra/notify/model",
+        "//app/infra/notify/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

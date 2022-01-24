@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "client_test",
     srcs = ["figure_test.go"],
-    embed = [":go_default_library"],
+    embed = [":client"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/service/main/figure/model:go_default_library"],
+    deps = ["//app/service/main/figure/model"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = ["figure.go"],
     importpath = "go-common/app/service/main/figure/rpc/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/figure/model:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/service/main/figure/model",
+        "//library/net/rpc",
     ],
 )
 

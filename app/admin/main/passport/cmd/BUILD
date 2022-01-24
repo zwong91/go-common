@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["passport-admin.toml"],
     importpath = "go-common/app/admin/main/passport/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/passport/conf:go_default_library",
-        "//app/admin/main/passport/http:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/admin/main/passport/conf",
+        "//app/admin/main/passport/http",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

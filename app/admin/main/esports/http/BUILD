@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "archive.go",
         "contest.go",
@@ -24,14 +24,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/esports/conf:go_default_library",
-        "//app/admin/main/esports/model:go_default_library",
-        "//app/admin/main/esports/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/esports/conf",
+        "//app/admin/main/esports/model",
+        "//app/admin/main/esports/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/xstr",
     ],
 )
 

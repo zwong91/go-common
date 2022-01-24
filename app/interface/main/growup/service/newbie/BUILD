@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "newbie",
     srcs = [
         "letter.go",
         "service.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/growup/conf:go_default_library",
-        "//app/interface/main/growup/dao/newbiedao:go_default_library",
-        "//app/interface/main/growup/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
+        "//app/interface/main/growup/conf",
+        "//app/interface/main/growup/dao/newbiedao",
+        "//app/interface/main/growup/model",
+        "//app/service/main/account/api",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup.v2:errgroup_v2",
     ],
 )
 
@@ -41,16 +41,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "newbie_test",
     srcs = [
         "letter_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":newbie"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/growup/conf:go_default_library",
-        "//app/interface/main/growup/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/growup/conf",
+        "//app/interface/main/growup/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

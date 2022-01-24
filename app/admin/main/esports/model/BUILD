@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "archive.go",
         "contest.go",
@@ -28,7 +28,7 @@ go_library(
     importpath = "go-common/app/admin/main/esports/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/xstr:go_default_library"],
+    deps = ["//library/xstr"],
 )
 
 filegroup(

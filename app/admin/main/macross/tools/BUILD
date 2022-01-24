@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tools",
     srcs = [
         "apk.go",
         "helper.go",
@@ -16,7 +16,7 @@ go_library(
     importpath = "go-common/app/admin/main/macross/tools",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 filegroup(

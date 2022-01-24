@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "collector",
     srcs = [
         "breaker.go",
         "collector.go",
@@ -19,16 +19,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper/conf:go_default_library",
-        "//app/service/main/dapper/dao:go_default_library",
-        "//app/service/main/dapper/model:go_default_library",
-        "//app/service/main/dapper/pkg/batchwrite:go_default_library",
-        "//app/service/main/dapper/pkg/collect:go_default_library",
-        "//app/service/main/dapper/pkg/collect/kafkacollect:go_default_library",
-        "//app/service/main/dapper/pkg/collect/tcpcollect:go_default_library",
-        "//app/service/main/dapper/pkg/pointwrite:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/service/main/dapper/conf",
+        "//app/service/main/dapper/dao",
+        "//app/service/main/dapper/model",
+        "//app/service/main/dapper/pkg/batchwrite",
+        "//app/service/main/dapper/pkg/collect",
+        "//app/service/main/dapper/pkg/collect/kafkacollect",
+        "//app/service/main/dapper/pkg/collect/tcpcollect",
+        "//app/service/main/dapper/pkg/pointwrite",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -47,17 +47,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "collector_test",
     srcs = [
         "breaker_test.go",
         "collector_test.go",
         "detect_test.go",
         "operation_name_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":collector"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/dapper/model:go_default_library",
-        "//library/net/trace/proto:go_default_library",
+        "//app/service/main/dapper/model",
+        "//library/net/trace/proto",
     ],
 )

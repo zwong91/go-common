@@ -2,50 +2,49 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "content_ext_test.go",
         "service_test.go",
         "upload_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/up/conf",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "content_ext.go",
         "service.go",
         "upload.go",
     ],
-    importmap = "go-common/app/admin/main/up/service",
     importpath = "go-common/app/admin/main/up/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/conf:go_default_library",
-        "//app/admin/main/up/dao:go_default_library",
-        "//app/admin/main/up/dao/global:go_default_library",
-        "//app/admin/main/up/dao/manager:go_default_library",
-        "//app/admin/main/up/service/upcrmservice:go_default_library",
-        "//app/admin/main/up/util:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/admin/main/up/conf",
+        "//app/admin/main/up/dao",
+        "//app/admin/main/up/dao/global",
+        "//app/admin/main/up/dao/manager",
+        "//app/admin/main/up/service/upcrmservice",
+        "//app/admin/main/up/util",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/render",
+        "//library/stat/prom",
     ],
 )
 

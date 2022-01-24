@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "util",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/feed/util",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/model/common:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus/report:go_default_library",
+        "//app/admin/main/feed/model/common",
+        "//library/net/http/blademaster",
+        "//library/queue/databus/report",
     ],
 )
 

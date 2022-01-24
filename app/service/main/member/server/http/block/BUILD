@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "block",
     srcs = [
         "block.go",
         "http.go",
@@ -15,12 +15,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/member/model/block:go_default_library",
-        "//app/service/main/member/service/block:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/member/model/block",
+        "//app/service/main/member/service/block",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

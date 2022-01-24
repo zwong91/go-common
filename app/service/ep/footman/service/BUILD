@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "bigdata.go",
         "bugly.go",
@@ -22,15 +22,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ep/footman/conf:go_default_library",
-        "//app/service/ep/footman/dao:go_default_library",
-        "//app/service/ep/footman/model:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/360EntSecGroup-Skylar/excelize:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/service/ep/footman/conf",
+        "//app/service/ep/footman/dao",
+        "//app/service/ep/footman/model",
+        "//library/cache",
+        "//library/log",
+        "//vendor/github.com/360EntSecGroup-Skylar/excelize",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 

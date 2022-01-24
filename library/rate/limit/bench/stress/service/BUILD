@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/library/rate/limit/bench/stress/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/rate/limit/bench/stress/conf:go_default_library"],
+    deps = ["//library/rate/limit/bench/stress/conf"],
 )
 
 filegroup(

@@ -7,19 +7,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/job/main/relation/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/relation/conf:go_default_library",
-        "//app/job/main/relation/dao:go_default_library",
-        "//app/job/main/relation/model:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
+        "//app/job/main/relation/conf",
+        "//app/job/main/relation/dao",
+        "//app/job/main/relation/model",
+        "//app/service/main/relation/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
     ],
 )
 
@@ -38,13 +38,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/relation/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/relation/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

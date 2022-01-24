@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/admin/main/up-rating/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up-rating/conf:go_default_library",
-        "//app/admin/main/up-rating/http:go_default_library",
-        "//app/admin/main/up-rating/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/admin/main/up-rating/conf",
+        "//app/admin/main/up-rating/http",
+        "//app/admin/main/up-rating/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

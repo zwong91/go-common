@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "gorm_test",
     srcs = [
         "business_config_test.go",
         "business_test.go",
@@ -24,23 +24,23 @@ go_test(
         "token_test.go",
         "transition_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":gorm"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/aegis/conf:go_default_library",
-        "//app/admin/main/aegis/model/business:go_default_library",
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//app/admin/main/aegis/model/net:go_default_library",
-        "//app/admin/main/aegis/model/resource:go_default_library",
-        "//app/admin/main/aegis/model/task:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/aegis/conf",
+        "//app/admin/main/aegis/model/business",
+        "//app/admin/main/aegis/model/common",
+        "//app/admin/main/aegis/model/net",
+        "//app/admin/main/aegis/model/resource",
+        "//app/admin/main/aegis/model/task",
+        "//library/ecode",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gorm",
     srcs = [
         "business.go",
         "business_config.go",
@@ -61,16 +61,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/aegis/conf:go_default_library",
-        "//app/admin/main/aegis/model:go_default_library",
-        "//app/admin/main/aegis/model/business:go_default_library",
-        "//app/admin/main/aegis/model/net:go_default_library",
-        "//app/admin/main/aegis/model/resource:go_default_library",
-        "//app/admin/main/aegis/model/task:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/aegis/conf",
+        "//app/admin/main/aegis/model",
+        "//app/admin/main/aegis/model/business",
+        "//app/admin/main/aegis/model/net",
+        "//app/admin/main/aegis/model/resource",
+        "//app/admin/main/aegis/model/task",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

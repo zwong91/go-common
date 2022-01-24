@@ -2,35 +2,35 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "coupon_test",
     srcs = ["coupon_test.go"],
-    embed = [":go_default_library"],
+    embed = [":coupon"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/service/main/coupon/api:go_default_library",
-        "//app/service/main/coupon/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/service/main/coupon/api",
+        "//app/service/main/coupon/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "coupon",
     srcs = ["coupon.go"],
     importpath = "go-common/app/interface/main/account/service/coupon",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/service/main/coupon/api:go_default_library",
-        "//app/service/main/coupon/model:go_default_library",
-        "//app/service/main/coupon/rpc/client:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/service/main/coupon/api",
+        "//app/service/main/coupon/model",
+        "//app/service/main/coupon/rpc/client",
     ],
 )
 

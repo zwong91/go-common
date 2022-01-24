@@ -1,9 +1,11 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
 package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 load(
     "@io_bazel_rules_go//proto:def.bzl",
@@ -15,38 +17,32 @@ proto_library(
     srcs = ["member.proto"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["@gogo_special_proto//github.com/gogo/protobuf/gogoproto"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogoproto_proto"],
 )
 
 go_proto_library(
     name = "model_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_proto"],
     importpath = "go-common/app/job/main/member/model",
     proto = ":model_proto",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = [
-        "//library/time:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-    ],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["model_test.go"],
-    embed = [
-        ":go_default_library",
-    ],
+    embed = [":model"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/time:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
+        "//library/time",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "base.go",
         "model.go",
@@ -60,13 +56,11 @@ go_library(
     importpath = "go-common/app/job/main/member/model",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/member/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "//app/job/main/member/conf",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
     ],
 )
 

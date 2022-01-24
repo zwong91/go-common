@@ -8,27 +8,27 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["seq-server-test.toml"],
     importpath = "go-common/app/service/main/seq-server/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/seq-server/conf:go_default_library",
-        "//app/service/main/seq-server/http:go_default_library",
-        "//app/service/main/seq-server/rpc/server:go_default_library",
-        "//app/service/main/seq-server/service:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/ip:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/main/seq-server/conf",
+        "//app/service/main/seq-server/http",
+        "//app/service/main/seq-server/rpc/server",
+        "//app/service/main/seq-server/service",
+        "//library/conf/env",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/ip",
+        "//library/net/trace",
     ],
 )
 

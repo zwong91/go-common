@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dhh",
     srcs = ["model.go"],
     importpath = "go-common/app/service/live/xuser/model/dhh",
     tags = ["automanaged"],

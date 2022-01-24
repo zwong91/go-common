@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "constants.go",
         "dto.go",
@@ -15,7 +15,7 @@ go_library(
     importpath = "go-common/app/admin/ep/tapd/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/ecode:go_default_library"],
+    deps = ["//library/ecode"],
 )
 
 filegroup(

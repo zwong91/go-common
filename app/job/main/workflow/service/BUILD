@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "appeal.go",
         "expire.go",
@@ -18,16 +18,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/workflow/model/param:go_default_library",
-        "//app/job/main/workflow/conf:go_default_library",
-        "//app/job/main/workflow/dao:go_default_library",
-        "//app/job/main/workflow/model:go_default_library",
-        "//app/service/main/workflow/model:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
+        "//app/admin/main/workflow/model/param",
+        "//app/job/main/workflow/conf",
+        "//app/job/main/workflow/dao",
+        "//app/job/main/workflow/model",
+        "//app/service/main/workflow/model",
+        "//library/database/elastic",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup.v2:errgroup_v2",
+        "//library/sync/pipeline/fanout",
     ],
 )
 
@@ -46,13 +46,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/workflow/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/workflow/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

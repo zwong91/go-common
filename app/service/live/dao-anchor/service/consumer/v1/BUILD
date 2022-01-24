@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "consumer",
     srcs = [
         "danmu.go",
         "dataBusNotify.go",
@@ -22,15 +22,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/live/dao-anchor/conf:go_default_library",
-        "//app/service/live/dao-anchor/dao:go_default_library",
-        "//app/service/live/dao-anchor/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/prometheus/common/log:go_default_library",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/live/dao-anchor/conf",
+        "//app/service/live/dao-anchor/dao",
+        "//app/service/live/dao-anchor/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/prometheus/common/log",
     ],
 )
 
@@ -49,21 +49,21 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "consumer_test",
     srcs = [
         "popularity_test.go",
         "rankList_test.go",
         "roomTag_test.go",
         "validDays_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":consumer"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/dao-anchor/api/grpc/v1:go_default_library",
-        "//app/service/live/dao-anchor/conf:go_default_library",
-        "//app/service/live/dao-anchor/dao:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/dao-anchor/api/grpc/v1:grpc",
+        "//app/service/live/dao-anchor/conf",
+        "//app/service/live/dao-anchor/dao",
+        "//library/log",
+        "//library/queue/databus",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

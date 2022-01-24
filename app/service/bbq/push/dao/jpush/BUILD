@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "jpush",
     srcs = [
         "audience.go",
         "client.go",
@@ -19,8 +19,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/stat:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//library/stat",
+        "//library/stat/prom",
     ],
 )
 

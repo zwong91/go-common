@@ -1,9 +1,11 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
 package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 load(
     "@io_bazel_rules_go//proto:def.bzl",
@@ -11,16 +13,16 @@ load(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["article_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "activity.go",
         "apply.go",
@@ -40,11 +42,9 @@ go_library(
     importpath = "go-common/app/interface/openplatform/article/model",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/model/data:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/time:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "//app/interface/main/creative/model/data",
+        "//app/service/main/account/model",
+        "//library/time",
     ],
 )
 
@@ -53,20 +53,16 @@ proto_library(
     srcs = ["model.proto"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["@gogo_special_proto//github.com/gogo/protobuf/gogoproto"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogoproto_proto"],
 )
 
 go_proto_library(
     name = "model_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_proto"],
     importpath = "go-common/app/interface/openplatform/article/model",
     proto = ":model_proto",
     tags = ["manual"],
     visibility = ["//visibility:public"],
-    deps = [
-        "//library/time:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-    ],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
 )
 
 filegroup(

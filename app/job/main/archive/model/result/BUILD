@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "result",
     srcs = [
         "archive.go",
         "video.go",

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "blocked.go",
         "common.go",
@@ -20,18 +20,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/credit/conf:go_default_library",
-        "//app/admin/main/credit/model:go_default_library",
-        "//app/admin/main/credit/model/blocked:go_default_library",
-        "//app/admin/main/credit/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/credit/conf",
+        "//app/admin/main/credit/model",
+        "//app/admin/main/credit/model/blocked",
+        "//app/admin/main/credit/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
+        "//library/net/metadata",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

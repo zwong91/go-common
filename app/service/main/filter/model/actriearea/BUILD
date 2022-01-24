@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "actriearea_test",
     srcs = ["actrie_test.go"],
-    embed = [":go_default_library"],
+    embed = [":actriearea"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "actriearea",
     srcs = ["actrie.go"],
     importpath = "go-common/app/service/main/filter/model/actriearea",
     tags = ["automanaged"],

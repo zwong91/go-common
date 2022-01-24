@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = ["api.go"],
     importpath = "go-common/app/interface/live/live-demo/dao",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/live-demo/conf:go_default_library",
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
+        "//app/interface/live/live-demo/conf",
+        "//app/service/live/room/api/liverpc",
+        "//library/net/rpc/liverpc",
     ],
 )
 

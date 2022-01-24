@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "const.go",
         "param.go",
@@ -20,10 +20,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/ticket-item/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/openplatform/ticket-item/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-item/conf",
+        "//library/log",
+        "//library/time",
     ],
 )
 

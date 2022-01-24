@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "live",
     srcs = ["live.go"],
     importpath = "go-common/app/interface/main/app-feed/model/live",
     tags = ["automanaged"],

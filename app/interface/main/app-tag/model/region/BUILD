@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "region",
     srcs = ["region.go"],
     importpath = "go-common/app/interface/main/app-tag/model/region",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-tag/model:go_default_library",
-        "//app/interface/main/app-tag/model/bangumi:go_default_library",
-        "//app/interface/main/app-tag/model/tag:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-tag/model",
+        "//app/interface/main/app-tag/model/bangumi",
+        "//app/interface/main/app-tag/model/tag",
+        "//app/service/main/archive/api",
+        "//library/time",
     ],
 )
 

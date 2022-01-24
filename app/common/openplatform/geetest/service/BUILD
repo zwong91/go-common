@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["geetest.go"],
     importpath = "go-common/app/common/openplatform/geetest/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/common/openplatform/geetest/dao:go_default_library",
-        "//app/common/openplatform/geetest/model:go_default_library",
+        "//app/common/openplatform/geetest/dao",
+        "//app/common/openplatform/geetest/model",
     ],
 )
 

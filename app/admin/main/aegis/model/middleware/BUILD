@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "middleware_test",
     srcs = [
         "config_test.go",
         "response_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":middleware"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/aegis/model:go_default_library",
-        "//app/admin/main/aegis/model/resource:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/aegis/model",
+        "//app/admin/main/aegis/model/resource",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "middleware",
     srcs = [
         "config.go",
         "response.go",
@@ -30,7 +30,7 @@ go_library(
     importpath = "go-common/app/admin/main/aegis/model/middleware",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 filegroup(

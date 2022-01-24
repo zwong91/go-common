@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "testdata",
     srcs = [
         "dao.cache.go",
         "dao.go",
@@ -17,20 +17,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "testdata_test",
     srcs = [
         "multi_test.go",
         "none_test.go",
         "single_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":testdata"],
     rundir = ".",
     tags = ["automanaged"],
 )

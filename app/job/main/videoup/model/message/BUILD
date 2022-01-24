@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "message",
     srcs = ["message.go"],
     importpath = "go-common/app/job/main/videoup/model/message",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/job/main/videoup/model/archive:go_default_library"],
+    deps = ["//app/job/main/videoup/model/archive"],
 )
 
 filegroup(

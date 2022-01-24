@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databus",
     srcs = ["message.go"],
     importpath = "go-common/app/job/main/archive/model/databus",
     tags = ["automanaged"],

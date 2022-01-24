@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "share",
     srcs = [
         "dao.go",
         "mysql.go",
@@ -16,12 +16,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/web-goblin/conf:go_default_library",
-        "//app/interface/main/web-goblin/model/share:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/interface/main/web-goblin/conf",
+        "//app/interface/main/web-goblin/model/share",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/stat/prom",
     ],
 )
 

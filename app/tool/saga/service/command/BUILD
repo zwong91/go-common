@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "command",
     srcs = [
         "command.go",
         "contributors.go",
@@ -18,13 +18,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/saga/conf:go_default_library",
-        "//app/tool/saga/dao:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//app/tool/saga/service/gitlab:go_default_library",
-        "//app/tool/saga/service/notification:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/xanzy/go-gitlab:go_default_library",
+        "//app/tool/saga/conf",
+        "//app/tool/saga/dao",
+        "//app/tool/saga/model",
+        "//app/tool/saga/service/gitlab",
+        "//app/tool/saga/service/notification",
+        "//library/log",
+        "//vendor/github.com/xanzy/go-gitlab",
     ],
 )
 
@@ -43,20 +43,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "command_test",
     srcs = [
         "command_test.go",
         "contributors_test.go",
         "review_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":command"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/tool/saga/conf:go_default_library",
-        "//app/tool/saga/dao:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//app/tool/saga/service/gitlab:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/tool/saga/conf",
+        "//app/tool/saga/dao",
+        "//app/tool/saga/model",
+        "//app/tool/saga/service/gitlab",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -18,14 +19,13 @@ proto_library(
 
 go_proto_library(
     name = "v1_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:go_proto"],
     importpath = "go-common/app/job/bbq/recall/api/v1",
     proto = ":v1_proto",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "api",
     srcs = ["generate.go"],
     embed = [":v1_go_proto"],
     importpath = "go-common/app/job/bbq/recall/api/v1",

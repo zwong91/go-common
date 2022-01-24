@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gen",
     srcs = [
         "logging.go",
         "main.go",
@@ -17,10 +17,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/liverpc/protoc-gen-liverpc/gen/stringutils:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/descriptor:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library",
+        "//app/tool/liverpc/protoc-gen-liverpc/gen/stringutils",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/descriptor",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/plugin",
     ],
 )
 

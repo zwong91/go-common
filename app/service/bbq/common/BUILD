@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "common",
     srcs = ["video_state.go"],
     importpath = "go-common/app/service/bbq/common",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/xstr:go_default_library"],
+    deps = ["//library/xstr"],
 )
 
 filegroup(

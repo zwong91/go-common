@@ -8,19 +8,19 @@ load(
 
 go_binary(
     name = "bmgen",
-    embed = [":go_default_library"],
+    embed = [":bmgen_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bmgen_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/tool/bmproto/bmgen",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/urfave/cli:go_default_library",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/urfave/cli",
     ],
 )
 

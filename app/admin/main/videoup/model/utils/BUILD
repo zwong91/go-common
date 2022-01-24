@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "utils",
     srcs = ["time.go"],
     importpath = "go-common/app/admin/main/videoup/model/utils",
     tags = ["automanaged"],
@@ -29,9 +29,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "utils_test",
     srcs = ["time_test.go"],
-    embed = [":go_default_library"],
+    embed = [":utils"],
     rundir = ".",
     tags = ["automanaged"],
 )

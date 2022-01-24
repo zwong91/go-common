@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "pool_test",
     srcs = [
         "list_test.go",
         "slice_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":pool"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/time:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
+        "//library/time",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pool",
     srcs = [
         "list.go",
         "pool.go",
@@ -31,7 +31,7 @@ go_library(
     importpath = "go-common/library/container/pool",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

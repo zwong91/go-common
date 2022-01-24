@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/interface/bbq/comment/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/bbq/comment/internal/server/http:go_default_library",
-        "//app/interface/bbq/comment/internal/service:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/bbq/comment/internal/server/http",
+        "//app/interface/bbq/comment/internal/service",
+        "//library/conf/paladin",
+        "//library/ecode/tip",
+        "//library/log",
     ],
 )
 

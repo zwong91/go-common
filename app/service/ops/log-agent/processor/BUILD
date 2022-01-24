@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "processor",
     srcs = ["processor.go"],
     importpath = "go-common/app/service/ops/log-agent/processor",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/event:go_default_library",
-        "//app/service/ops/log-agent/output:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/ops/log-agent/event",
+        "//app/service/ops/log-agent/output",
+        "//library/log",
     ],
 )
 

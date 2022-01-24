@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "message",
     srcs = [
         "dao.go",
         "send.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/xstr",
     ],
 )
 
@@ -38,15 +38,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "message_test",
     srcs = [
         "dao_test.go",
         "send_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":message"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/growup/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/growup/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

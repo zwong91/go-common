@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "common",
     srcs = ["common.go"],
     importpath = "go-common/app/service/video/stream-mng/common",
     tags = ["automanaged"],

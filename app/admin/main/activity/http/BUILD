@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "archive.go",
         "bws.go",
@@ -20,15 +20,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/activity/conf:go_default_library",
-        "//app/admin/main/activity/model:go_default_library",
-        "//app/admin/main/activity/model/kfc:go_default_library",
-        "//app/admin/main/activity/service:go_default_library",
-        "//app/admin/main/activity/service/kfc:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
+        "//app/admin/main/activity/conf",
+        "//app/admin/main/activity/model",
+        "//app/admin/main/activity/model/kfc",
+        "//app/admin/main/activity/service",
+        "//app/admin/main/activity/service/kfc",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
     ],
 )
 

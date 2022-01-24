@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "fanout_test",
     srcs = [
         "example_test.go",
         "fanout_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":fanout"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "fanout",
     srcs = ["fanout.go"],
     importpath = "go-common/library/sync/pipeline/fanout",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/net/trace",
+        "//library/stat/prom",
     ],
 )
 

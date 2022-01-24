@@ -2,8 +2,8 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
@@ -43,9 +43,26 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "test",
     srcs = ["base.go"],
     importpath = "go-common/library/net/rpc/warden/balancer/wrr/test",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "test_test",
+    srcs = ["base_test.go"],
+    embed = [":test"],
+    deps = [
+        "//library/conf/env",
+        "//library/naming",
+        "//library/net/netutil/breaker",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/balancer/wrr",
+        "//library/net/rpc/warden/proto/testproto",
+        "//library/net/rpc/warden/resolver",
+        "//library/time",
+        "//vendor/google.golang.org/grpc",
+    ],
 )

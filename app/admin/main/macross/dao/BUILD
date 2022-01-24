@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "mng_auth.go",
@@ -19,11 +19,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/macross/conf:go_default_library",
-        "//app/admin/main/macross/model/manager:go_default_library",
-        "//app/admin/main/macross/model/publish:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/macross/conf",
+        "//app/admin/main/macross/model/manager",
+        "//app/admin/main/macross/model/publish",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 
@@ -45,20 +45,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "mng_auth_test.go",
         "mng_role_test.go",
         "mng_user_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/macross/conf:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/macross/conf",
+        "//library/database/sql",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

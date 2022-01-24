@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "cloud.go",
         "identify.go",
@@ -15,31 +15,31 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/identify-game/api/grpc/v1:go_default_library",
-        "//app/service/main/identify-game/conf:go_default_library",
-        "//app/service/main/identify-game/dao:go_default_library",
-        "//app/service/main/identify-game/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/service/main/identify-game/api/grpc/v1:grpc",
+        "//app/service/main/identify-game/conf",
+        "//app/service/main/identify-game/dao",
+        "//app/service/main/identify-game/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat",
+        "//library/stat/prom",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "cloud_test.go",
         "identify_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/identify-game/conf:go_default_library",
-        "//app/service/main/identify-game/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/identify-game/conf",
+        "//app/service/main/identify-game/model",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

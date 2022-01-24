@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "aes.go",
         "auth.go",
@@ -21,34 +21,34 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport/conf:go_default_library",
-        "//app/job/main/passport/dao:go_default_library",
-        "//app/job/main/passport/model:go_default_library",
-        "//app/service/main/identify-game/model:go_default_library",
-        "//app/service/main/identify-game/rpc/client:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/passport/conf",
+        "//app/job/main/passport/dao",
+        "//app/job/main/passport/model",
+        "//app/service/main/identify-game/model",
+        "//app/service/main/identify-game/rpc/client",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "aes_test.go",
         "contact_bind_log_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport/conf:go_default_library",
-        "//app/job/main/passport/model:go_default_library",
-        "//app/service/main/identify-game/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport/conf",
+        "//app/job/main/passport/model",
+        "//app/service/main/identify-game/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

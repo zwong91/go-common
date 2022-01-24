@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "match",
     srcs = ["match.go"],
     importpath = "go-common/app/job/main/activity/model/match",
     tags = ["automanaged"],

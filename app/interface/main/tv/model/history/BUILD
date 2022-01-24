@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "history",
     srcs = ["history.go"],
     importpath = "go-common/app/interface/main/tv/model/history",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/history/model:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
+        "//app/interface/main/history/model",
+        "//app/interface/main/tv/model",
     ],
 )
 

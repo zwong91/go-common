@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "splash",
     srcs = ["splash.go"],
     importpath = "go-common/app/interface/main/app-resource/model/splash",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-resource/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-resource/model",
+        "//library/time",
     ],
 )
 

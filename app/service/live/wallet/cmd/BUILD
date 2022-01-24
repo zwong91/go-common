@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["live-wallet-test.toml"],
     importpath = "go-common/app/service/live/wallet/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/wallet/conf:go_default_library",
-        "//app/service/live/wallet/http:go_default_library",
-        "//app/service/live/wallet/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/live/wallet/conf",
+        "//app/service/live/wallet/http",
+        "//app/service/live/wallet/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

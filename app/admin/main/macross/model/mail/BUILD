@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mail",
     srcs = ["mail.go"],
     importpath = "go-common/app/admin/main/macross/model/mail",
     tags = ["automanaged"],

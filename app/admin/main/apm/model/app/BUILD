@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "app",
     srcs = [
         "app.go",
         "auth.go",
     ],
     importpath = "go-common/app/admin/main/apm/model/app",
     tags = ["automanaged"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

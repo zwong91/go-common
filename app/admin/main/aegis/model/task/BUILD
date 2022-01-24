@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "task",
     srcs = [
         "consumer.go",
         "task.go",
@@ -15,8 +15,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/aegis/model/common",
+        "//library/time",
     ],
 )
 

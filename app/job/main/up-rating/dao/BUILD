@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "base.go",
         "dao.go",
@@ -21,10 +21,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/up-rating/conf:go_default_library",
-        "//app/job/main/up-rating/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/up-rating/conf",
+        "//app/job/main/up-rating/model",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 
@@ -43,7 +43,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "base_test.go",
         "dao_test.go",
@@ -53,10 +53,10 @@ go_test(
         "statistics_test.go",
         "task_status_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/up-rating/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/up-rating/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

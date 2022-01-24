@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "egg",
     srcs = ["egg.go"],
     importpath = "go-common/app/admin/main/feed/model/egg",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/model/common:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/feed/model/common",
+        "//library/time",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "roomAdmin.go",
@@ -15,12 +15,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/web-room/api/http/v1:go_default_library",
-        "//app/interface/live/web-room/conf:go_default_library",
-        "//app/service/live/xuser/api/grpc/v1:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/live/web-room/api/http/v1:http",
+        "//app/interface/live/web-room/conf",
+        "//app/service/live/xuser/api/grpc/v1:grpc",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//library/log",
     ],
 )
 

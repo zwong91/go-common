@@ -1,7 +1,7 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 package(default_visibility = ["//visibility:public"])
@@ -25,19 +25,19 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gorpc_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/tool/gorpc",
     tags = ["automanaged"],
     deps = [
-        "//app/tool/gorpc/goparser:go_default_library",
-        "//app/tool/gorpc/input:go_default_library",
-        "//app/tool/gorpc/model:go_default_library",
-        "//vendor/golang.org/x/tools/imports:go_default_library",
+        "//app/tool/gorpc/goparser",
+        "//app/tool/gorpc/input",
+        "//app/tool/gorpc/model",
+        "//vendor/golang.org/x/tools/imports",
     ],
 )
 
 go_binary(
     name = "gorpc",
-    embed = [":go_default_library"],
+    embed = [":gorpc_lib"],
 )

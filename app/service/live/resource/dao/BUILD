@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "confkv.go",
         "dao.go",
@@ -19,18 +19,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/resource/api/grpc/v1:go_default_library",
-        "//app/service/live/resource/api/http/v1:go_default_library",
-        "//app/service/live/resource/conf:go_default_library",
-        "//app/service/live/resource/lrucache:go_default_library",
-        "//app/service/live/resource/model:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//app/service/live/resource/api/grpc/v1:grpc",
+        "//app/service/live/resource/api/http/v1:http",
+        "//app/service/live/resource/conf",
+        "//app/service/live/resource/lrucache",
+        "//app/service/live/resource/model",
+        "//library/database/orm",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

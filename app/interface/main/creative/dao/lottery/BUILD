@@ -7,17 +7,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lottery",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/main/creative/dao/lottery",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/lottery:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/lottery",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -36,14 +36,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "lottery_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":lottery"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/lottery:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/lottery",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

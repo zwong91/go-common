@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/main/history/http",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/history/conf:go_default_library",
-        "//app/job/main/history/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/history/conf",
+        "//app/job/main/history/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -30,9 +30,4 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-)
-
-load(
-    "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
 )

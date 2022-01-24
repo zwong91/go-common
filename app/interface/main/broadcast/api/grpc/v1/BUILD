@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -7,29 +8,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "grpc_test",
     srcs = ["client_test.go"],
-    embed = [":go_default_library"],
+    embed = [":grpc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/broadcast/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/resolver:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/broadcast/model",
+        "//library/log",
+        "//library/naming/discovery",
+        "//library/net/netutil/breaker",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/resolver",
+        "//library/time",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = [
         "api.go",
         "client.go",
@@ -39,12 +40,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/broadcast/model:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
-        "@org_golang_x_net//context:go_default_library",
+        "//library/net/rpc/warden",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 
@@ -68,18 +65,18 @@ proto_library(
     tags = ["automanaged"],
     deps = [
         "//app/service/main/broadcast/model:model_proto",
-        "@gogo_special_proto//github.com/gogo/protobuf/gogoproto",
+        "//github.com/gogo/protobuf/gogoproto:gogoproto_proto",
     ],
 )
 
 go_proto_library(
     name = "v1_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_grpc"],
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
     importpath = "go-common/app/interface/main/broadcast/api/grpc/v1",
     proto = ":v1_proto",
     tags = ["manual"],
     deps = [
-        "//app/service/main/broadcast/model:model_go_proto",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
+        "//app/service/main/broadcast/model",
+        "//github.com/gogo/protobuf/gogoproto:gogo_proto",
     ],
 )

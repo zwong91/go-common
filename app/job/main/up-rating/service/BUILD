@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "base.go",
         "paramter.go",
@@ -25,12 +25,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/up-rating/conf:go_default_library",
-        "//app/job/main/up-rating/dao:go_default_library",
-        "//app/job/main/up-rating/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/golang.org/x/sync/errgroup:go_default_library",
+        "//app/job/main/up-rating/conf",
+        "//app/job/main/up-rating/dao",
+        "//app/job/main/up-rating/model",
+        "//library/log",
+        "//library/time",
+        "//vendor/golang.org/x/sync/errgroup",
     ],
 )
 

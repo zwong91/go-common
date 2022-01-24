@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/main/web-goblin/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/web-goblin/conf:go_default_library",
-        "//app/job/main/web-goblin/service/esports:go_default_library",
-        "//app/job/main/web-goblin/service/web:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/web-goblin/conf",
+        "//app/job/main/web-goblin/service/esports",
+        "//app/job/main/web-goblin/service/web",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

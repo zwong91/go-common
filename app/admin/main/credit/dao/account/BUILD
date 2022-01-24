@@ -2,36 +2,36 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "account_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":account"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/credit/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/credit/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/credit/dao/account",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/credit/conf:go_default_library",
-        "//app/admin/main/credit/model:go_default_library",
-        "//app/admin/main/credit/model/blocked:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/credit/conf",
+        "//app/admin/main/credit/model",
+        "//app/admin/main/credit/model/blocked",
+        "//app/service/main/account/api",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

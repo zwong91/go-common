@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databusutil",
     srcs = ["databushandler.go"],
     importpath = "go-common/app/admin/main/up/util/databusutil",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/log",
+        "//library/queue/databus",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

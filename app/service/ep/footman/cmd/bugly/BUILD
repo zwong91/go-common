@@ -8,26 +8,26 @@ load(
 
 go_binary(
     name = "bugly",
-    embed = [":go_default_library"],
+    embed = [":bugly_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bugly_lib",
     srcs = ["bugly.go"],
     importpath = "go-common/app/service/ep/footman/cmd/bugly",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ep/footman/conf:go_default_library",
-        "//app/service/ep/footman/service:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/container/pool:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/ep/footman/conf",
+        "//app/service/ep/footman/service",
+        "//library/cache/memcache",
+        "//library/container/pool",
+        "//library/database/orm",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/netutil/breaker",
+        "//library/time",
     ],
 )
 

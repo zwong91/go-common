@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "response.go",
         "span.go",
@@ -17,10 +17,10 @@ go_library(
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/trace/proto:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:duration_go_proto",
-        "@io_bazel_rules_go//proto/wkt:timestamp_go_proto",
+        "//library/net/trace/proto",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/ptypes/duration",
+        "//vendor/github.com/golang/protobuf/ptypes/timestamp",
     ],
 )
 

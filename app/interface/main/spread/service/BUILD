@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "bangumi_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/spread/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/spread/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "bangumi.go",
         "service.go",
@@ -30,9 +30,9 @@ go_library(
     importpath = "go-common/app/interface/main/spread/service",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/spread/conf:go_default_library",
-        "//app/interface/main/spread/dao:go_default_library",
-        "//app/interface/main/spread/model:go_default_library",
+        "//app/interface/main/spread/conf",
+        "//app/interface/main/spread/dao",
+        "//app/interface/main/spread/model",
     ],
 )
 

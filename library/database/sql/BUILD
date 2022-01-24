@@ -20,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sql",
     srcs = [
         "mysql.go",
         "sql.go",
@@ -28,25 +28,25 @@ go_library(
     importpath = "go-common/library/database/sql",
     tags = ["automanaged"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/go-sql-driver/mysql:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/netutil/breaker",
+        "//library/net/trace",
+        "//library/stat",
+        "//library/time",
+        "//vendor/github.com/go-sql-driver/mysql",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "sql_test",
     srcs = ["mysql_test.go"],
-    embed = [":go_default_library"],
+    embed = [":sql"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/net/netutil/breaker:go_default_library",
-        "//library/time:go_default_library",
+        "//library/net/netutil/breaker",
+        "//library/time",
     ],
 )

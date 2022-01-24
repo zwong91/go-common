@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "util",
     srcs = [
         "bits.go",
         "utils.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/util/timerqueue:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/up/util/timerqueue",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
     ],
 )
 
@@ -45,10 +45,10 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "util_test",
     srcs = ["utils_test.go"],
-    embed = [":go_default_library"],
+    embed = [":util"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )

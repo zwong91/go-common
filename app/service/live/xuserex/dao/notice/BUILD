@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "notice",
     srcs = [
         "dao.cache.go",
         "mc.cache.go",
@@ -17,17 +17,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/resource/sdk:go_default_library",
-        "//app/service/live/xuser/api/grpc/v1:go_default_library",
-        "//app/service/live/xuserex/api/grpc/v1:go_default_library",
-        "//app/service/live/xuserex/conf:go_default_library",
-        "//app/service/live/xuserex/model/roomNotice:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/service/live/resource/sdk",
+        "//app/service/live/xuser/api/grpc/v1:grpc",
+        "//app/service/live/xuserex/api/grpc/v1:grpc",
+        "//app/service/live/xuserex/conf",
+        "//app/service/live/xuserex/model/roomNotice",
+        "//library/cache/memcache",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
     ],
 )
 
@@ -46,17 +46,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "notice_test",
     srcs = [
         "dao.cache_test.go",
         "mc.cache_test.go",
         "roomNotice_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":notice"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/xuserex/conf:go_default_library",
-        "//app/service/live/xuserex/model/roomNotice:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/xuserex/conf",
+        "//app/service/live/xuserex/model/roomNotice",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "elec.go",
         "http.go",
@@ -15,13 +15,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/ugcpay-rank/api/http:go_default_library",
-        "//app/interface/main/ugcpay-rank/internal/conf:go_default_library",
-        "//app/interface/main/ugcpay-rank/internal/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//vendor/github.com/json-iterator/go:go_default_library",
+        "//app/interface/main/ugcpay-rank/api/http",
+        "//app/interface/main/ugcpay-rank/internal/conf",
+        "//app/interface/main/ugcpay-rank/internal/service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/auth",
+        "//vendor/github.com/json-iterator/go",
     ],
 )
 

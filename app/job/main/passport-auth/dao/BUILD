@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "clean_cache.go",
         "cookie.go",
@@ -19,12 +19,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-auth/conf:go_default_library",
-        "//app/job/main/passport-auth/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/passport-auth/conf",
+        "//app/job/main/passport-auth/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -43,7 +43,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "clean_cache_test.go",
         "cookie_test.go",
@@ -51,12 +51,12 @@ go_test(
         "refresh_test.go",
         "token_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport-auth/conf:go_default_library",
-        "//app/job/main/passport-auth/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport-auth/conf",
+        "//app/job/main/passport-auth/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

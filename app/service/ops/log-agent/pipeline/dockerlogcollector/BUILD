@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dockerlogcollector",
     srcs = [
         "config.go",
         "file.go",
@@ -15,11 +15,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/pipeline:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/docker/docker/api/types:go_default_library",
-        "//vendor/github.com/docker/docker/client:go_default_library",
+        "//app/service/ops/log-agent/pipeline",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/docker/docker/api/types",
+        "//vendor/github.com/docker/docker/client",
     ],
 )
 

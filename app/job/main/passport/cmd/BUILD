@@ -1,28 +1,28 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["passport-job.toml"],
     importpath = "go-common/app/job/main/passport/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:private"],
     deps = [
-        "//app/job/main/passport/conf:go_default_library",
-        "//app/job/main/passport/http:go_default_library",
-        "//app/job/main/passport/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/main/passport/conf",
+        "//app/job/main/passport/http",
+        "//app/job/main/passport/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
 )
 

@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "aso_bin_log.go",
         "service.go",
@@ -14,10 +14,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-game-local/conf:go_default_library",
-        "//app/job/main/passport-game-local/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/main/passport-game-local/conf",
+        "//app/job/main/passport-game-local/model",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 
@@ -36,16 +36,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "aso_bin_log_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport-game-local/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport-game-local/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "archive.go",
         "audit_result.go",
@@ -31,11 +31,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/siddontang/go-mysql/mysql:go_default_library",
+        "//app/service/main/archive/api",
+        "//library/database/elastic",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/siddontang/go-mysql/mysql",
     ],
 )
 

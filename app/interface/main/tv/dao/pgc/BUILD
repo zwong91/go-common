@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "pgc_test",
     srcs = [
         "dao_test.go",
         "media_test.go",
         "style_cache_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":pgc"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/model",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pgc",
     srcs = [
         "dao.go",
         "media.go",
@@ -35,11 +35,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/model",
+        "//library/cache/memcache",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

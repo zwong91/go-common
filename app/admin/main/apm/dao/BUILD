@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "canal_test.go",
         "dao_test.go",
@@ -19,22 +19,22 @@ go_test(
         "ut_rank_test.go",
         "ut_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/apm/conf:go_default_library",
-        "//app/admin/main/apm/model/canal:go_default_library",
-        "//app/admin/main/apm/model/need:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/main/apm/conf",
+        "//app/admin/main/apm/model/canal",
+        "//app/admin/main/apm/model/need",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "canal.go",
         "dao.go",
@@ -50,21 +50,21 @@ go_library(
     importpath = "go-common/app/admin/main/apm/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/apm/conf:go_default_library",
-        "//app/admin/main/apm/model/canal:go_default_library",
-        "//app/admin/main/apm/model/ecode:go_default_library",
-        "//app/admin/main/apm/model/need:go_default_library",
-        "//app/admin/main/apm/model/pprof:go_default_library",
-        "//app/admin/main/apm/model/ut:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/apm/conf",
+        "//app/admin/main/apm/model/canal",
+        "//app/admin/main/apm/model/ecode",
+        "//app/admin/main/apm/model/need",
+        "//app/admin/main/apm/model/pprof",
+        "//app/admin/main/apm/model/ut",
+        "//library/cache/redis",
+        "//library/conf/env",
+        "//library/database/orm",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

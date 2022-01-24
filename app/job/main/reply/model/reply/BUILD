@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "reply",
     srcs = [
         "reply.go",
         "sql.go",
@@ -15,9 +15,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/account/model",
+        "//library/ecode",
+        "//library/time",
     ],
 )
 

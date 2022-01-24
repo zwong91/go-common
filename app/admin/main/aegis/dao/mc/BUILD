@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mc_test",
     srcs = [
         "dao_test.go",
         "task_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":mc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/aegis/conf:go_default_library",
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/aegis/conf",
+        "//app/admin/main/aegis/model/common",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mc",
     srcs = [
         "dao.go",
         "task.go",
@@ -32,10 +32,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/aegis/conf:go_default_library",
-        "//app/admin/main/aegis/model/common:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/aegis/conf",
+        "//app/admin/main/aegis/model/common",
+        "//library/cache/memcache",
+        "//library/log",
     ],
 )
 

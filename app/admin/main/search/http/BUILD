@@ -20,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "archive.go",
         "archive_update.go",
@@ -36,13 +36,13 @@ go_library(
     importpath = "go-common/app/admin/main/search/http",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/search/conf:go_default_library",
-        "//app/admin/main/search/dao:go_default_library",
-        "//app/admin/main/search/model:go_default_library",
-        "//app/admin/main/search/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
+        "//app/admin/main/search/conf",
+        "//app/admin/main/search/dao",
+        "//app/admin/main/search/model",
+        "//app/admin/main/search/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/permit",
     ],
 )

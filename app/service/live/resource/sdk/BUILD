@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sdk",
     srcs = ["titansSdk.go"],
     importpath = "go-common/app/service/live/resource/sdk",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/resource/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/resource/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/rpc/warden",
     ],
 )
 

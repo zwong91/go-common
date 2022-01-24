@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "blocked",
     srcs = [
         "appeal.go",
         "auto_case.go",
@@ -28,9 +28,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/credit/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/credit/model",
+        "//library/log",
+        "//library/time",
     ],
 )
 

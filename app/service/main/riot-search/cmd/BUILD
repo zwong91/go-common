@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "test.toml",
@@ -23,10 +23,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/riot-search/conf:go_default_library",
-        "//app/service/main/riot-search/server/http:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/main/riot-search/conf",
+        "//app/service/main/riot-search/server/http",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

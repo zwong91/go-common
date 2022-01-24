@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "limit_test",
     srcs = ["limit_test.go"],
-    embed = [":go_default_library"],
+    embed = [":limit"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//library/rate:go_default_library"],
+    deps = ["//library/rate"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "limit",
     srcs = ["limit.go"],
     importpath = "go-common/library/rate/limit",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/container/queue/aqm:go_default_library",
-        "//library/log:go_default_library",
-        "//library/rate:go_default_library",
-        "//library/rate/vegas:go_default_library",
+        "//library/container/queue/aqm",
+        "//library/log",
+        "//library/rate",
+        "//library/rate/vegas",
     ],
 )
 

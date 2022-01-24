@@ -5,30 +5,30 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "interceptor",
     srcs = ["interceptor.go"],
     importpath = "go-common/library/net/rpc/interceptor",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/context:go_default_library",
-        "//library/stat:go_default_library",
-        "//vendor/golang.org/x/time/rate:go_default_library",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/rpc/context",
+        "//library/stat",
+        "//vendor/golang.org/x/time/rate",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "interceptor_test",
     srcs = ["interceptor_test.go"],
-    embed = [":go_default_library"],
+    embed = [":interceptor"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/net/rpc/context:go_default_library",
-        "//vendor/golang.org/x/time/rate:go_default_library",
+        "//library/ecode",
+        "//library/net/rpc/context",
+        "//vendor/golang.org/x/time/rate",
     ],
 )
 

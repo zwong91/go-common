@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "anchorTask.go",
         "capsule.go",
@@ -18,24 +18,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/web-ucenter/api/http:go_default_library",
-        "//app/interface/live/web-ucenter/api/http/v1:go_default_library",
-        "//app/interface/live/web-ucenter/conf:go_default_library",
-        "//app/interface/live/web-ucenter/dao:go_default_library",
-        "//app/interface/live/web-ucenter/dao/capsule:go_default_library",
-        "//app/interface/live/web-ucenter/dao/history:go_default_library",
-        "//app/interface/live/web-ucenter/dao/user:go_default_library",
-        "//app/interface/live/web-ucenter/model:go_default_library",
-        "//app/service/live/room/api/liverpc/v2:go_default_library",
-        "//app/service/live/xrewardcenter/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@org_golang_google_grpc//status:go_default_library",
+        "//app/interface/live/web-ucenter/api/http",
+        "//app/interface/live/web-ucenter/api/http/v1:http",
+        "//app/interface/live/web-ucenter/conf",
+        "//app/interface/live/web-ucenter/dao",
+        "//app/interface/live/web-ucenter/dao/capsule",
+        "//app/interface/live/web-ucenter/dao/history",
+        "//app/interface/live/web-ucenter/dao/user",
+        "//app/interface/live/web-ucenter/model",
+        "//app/service/live/room/api/liverpc/v2:liverpc",
+        "//app/service/live/xrewardcenter/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/google.golang.org/grpc/status",
     ],
 )
 
@@ -54,19 +54,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "anchorTask_test.go",
         "history_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/live/web-ucenter/api/http/v1:go_default_library",
-        "//app/interface/live/web-ucenter/conf:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/live/web-ucenter/api/http/v1:http",
+        "//app/interface/live/web-ucenter/conf",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "account_test",
     srcs = ["mine_test.go"],
-    embed = [":go_default_library"],
+    embed = [":account"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = [
         "mine.go",
         "service.go",
@@ -28,21 +28,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/conf:go_default_library",
-        "//app/interface/main/app-interface/dao/account:go_default_library",
-        "//app/interface/main/app-interface/dao/audio:go_default_library",
-        "//app/interface/main/app-interface/dao/bplus:go_default_library",
-        "//app/interface/main/app-interface/dao/member:go_default_library",
-        "//app/interface/main/app-interface/dao/pay:go_default_library",
-        "//app/interface/main/app-interface/dao/relation:go_default_library",
-        "//app/interface/main/app-interface/dao/sidebar:go_default_library",
-        "//app/interface/main/app-interface/model:go_default_library",
-        "//app/interface/main/app-interface/model/space:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
+        "//app/interface/main/app-interface/conf",
+        "//app/interface/main/app-interface/dao/account",
+        "//app/interface/main/app-interface/dao/audio",
+        "//app/interface/main/app-interface/dao/bplus",
+        "//app/interface/main/app-interface/dao/member",
+        "//app/interface/main/app-interface/dao/pay",
+        "//app/interface/main/app-interface/dao/relation",
+        "//app/interface/main/app-interface/dao/sidebar",
+        "//app/interface/main/app-interface/model",
+        "//app/interface/main/app-interface/model/space",
+        "//app/service/main/account/model",
+        "//app/service/main/relation/model",
+        "//app/service/main/resource/model",
+        "//library/log",
+        "//library/sync/errgroup.v2:errgroup_v2",
     ],
 )
 

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "sqlbuilder_test",
     srcs = [
         "args_test.go",
         "builder_test.go",
@@ -16,13 +16,13 @@ go_test(
         "modifiers_test.go",
         "select_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":sqlbuilder"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sqlbuilder",
     srcs = [
         "args.go",
         "builder.go",

@@ -20,7 +20,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "redis",
     srcs = [
         "commandinfo.go",
         "conn.go",
@@ -39,16 +39,16 @@ go_library(
     importpath = "go-common/library/cache/redis",
     tags = ["automanaged"],
     deps = [
-        "//library/container/pool:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/container/pool",
+        "//library/net/trace",
+        "//library/stat",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "redis_test",
     srcs = [
         "commandinfo_test.go",
         "conn_test.go",
@@ -61,14 +61,14 @@ go_test(
         "test_test.go",
         "trace_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":redis"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/container/pool:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
+        "//library/container/pool",
+        "//library/net/trace",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )

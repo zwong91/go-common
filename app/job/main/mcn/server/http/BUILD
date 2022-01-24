@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "http.go",
         "test.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/mcn/conf:go_default_library",
-        "//app/job/main/mcn/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/mcn/conf",
+        "//app/job/main/mcn/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "cache_test.go",
         "storm_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/xlottery/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/container/pool:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/live/xlottery/model",
+        "//library/cache/redis",
+        "//library/container/pool",
+        "//library/database/sql",
+        "//library/time",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "api.go",
         "award.go",
@@ -44,20 +44,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/gift/api/liverpc:go_default_library",
-        "//app/service/live/rc/api/liverpc:go_default_library",
-        "//app/service/live/rc/api/liverpc/v1:go_default_library",
-        "//app/service/live/userext/api/liverpc:go_default_library",
-        "//app/service/live/xlottery/api/grpc/v1:go_default_library",
-        "//app/service/live/xlottery/conf:go_default_library",
-        "//app/service/live/xlottery/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/live/gift/api/liverpc",
+        "//app/service/live/rc/api/liverpc",
+        "//app/service/live/rc/api/liverpc/v1:liverpc",
+        "//app/service/live/userext/api/liverpc",
+        "//app/service/live/xlottery/api/grpc/v1:grpc",
+        "//app/service/live/xlottery/conf",
+        "//app/service/live/xlottery/model",
+        "//app/service/main/account/rpc/client",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/rpc/liverpc",
+        "//library/queue/databus/report",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

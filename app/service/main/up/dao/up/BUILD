@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "up_test",
     srcs = [
         "api_test.go",
         "dao.cache_test.go",
@@ -20,23 +20,23 @@ go_test(
         "up_switch_test.go",
         "up_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":up"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/dao:go_default_library",
-        "//app/service/main/up/dao/global:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/dao",
+        "//app/service/main/up/dao/global",
+        "//app/service/main/up/model",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "up",
     srcs = [
         "api.go",
         "dao.cache.go",
@@ -53,21 +53,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/interface/openplatform/article/rpc/client:go_default_library",
-        "//app/service/main/up/api/v1:go_default_library",
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/dao/global:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/interface/openplatform/article/model",
+        "//app/interface/openplatform/article/rpc/client",
+        "//app/service/main/up/api/v1:api",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/dao/global",
+        "//app/service/main/up/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//library/xstr",
     ],
 )
 

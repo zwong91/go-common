@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "elec",
     srcs = ["elec.go"],
     importpath = "go-common/app/interface/main/app-view/model/elec",
     tags = ["automanaged"],

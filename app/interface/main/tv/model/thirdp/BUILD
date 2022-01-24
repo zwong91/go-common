@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "thirdp",
     srcs = [
         "dangbei.go",
         "mango.go",
@@ -16,8 +16,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/tv/model:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/tv/model",
+        "//library/time",
     ],
 )
 

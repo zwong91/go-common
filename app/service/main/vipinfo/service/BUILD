@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "info.go",
         "service.go",
@@ -17,12 +17,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/vipinfo/api:go_default_library",
-        "//app/service/main/vipinfo/conf:go_default_library",
-        "//app/service/main/vipinfo/dao:go_default_library",
-        "//app/service/main/vipinfo/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/vipinfo/api",
+        "//app/service/main/vipinfo/conf",
+        "//app/service/main/vipinfo/dao",
+        "//app/service/main/vipinfo/model",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 
@@ -41,12 +41,12 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["info_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/vipinfo/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/vipinfo/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

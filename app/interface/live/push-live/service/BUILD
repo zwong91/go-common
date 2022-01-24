@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "common_message_test.go",
         "mids_test.go",
@@ -15,19 +15,19 @@ go_test(
         "service_test.go",
         "start_live_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/live/push-live/conf:go_default_library",
-        "//app/interface/live/push-live/dao:go_default_library",
-        "//app/interface/live/push-live/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/live/push-live/conf",
+        "//app/interface/live/push-live/dao",
+        "//app/interface/live/push-live/model",
+        "//library/cache/redis",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "common_message.go",
         "mids.go",
@@ -39,14 +39,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/push-live/conf:go_default_library",
-        "//app/interface/live/push-live/dao:go_default_library",
-        "//app/interface/live/push-live/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/live/push-live/conf",
+        "//app/interface/live/push-live/dao",
+        "//app/interface/live/push-live/model",
+        "//library/cache/redis",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

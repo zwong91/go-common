@@ -6,22 +6,23 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
+    visibility = ["//visibility:public"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["passport-sns-service.toml"],
     importpath = "go-common/app/service/main/passport-sns/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/passport-sns/conf:go_default_library",
-        "//app/service/main/passport-sns/server/http:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/service/main/passport-sns/conf",
+        "//app/service/main/passport-sns/server/http",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

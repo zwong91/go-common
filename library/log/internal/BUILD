@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "internal",
     srcs = [
         "buffer.go",
         "bufferpool.go",
@@ -39,13 +39,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "internal_test",
     srcs = [
         "buffer_test.go",
         "pool_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":internal"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/stretchr/testify/assert:go_default_library"],
+    deps = ["//vendor/github.com/stretchr/testify/assert"],
 )

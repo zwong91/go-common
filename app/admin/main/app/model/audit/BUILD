@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "audit",
     srcs = ["audit.go"],
     importpath = "go-common/app/admin/main/app/model/audit",
     tags = ["automanaged"],

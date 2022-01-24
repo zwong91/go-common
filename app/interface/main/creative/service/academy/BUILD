@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "academy_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":academy"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/academy:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/academy",
+        "//app/interface/main/creative/service",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "academy",
     srcs = [
         "academy.go",
         "h5.go",
@@ -32,22 +32,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/dao/academy:go_default_library",
-        "//app/interface/main/creative/dao/archive:go_default_library",
-        "//app/interface/main/creative/dao/article:go_default_library",
-        "//app/interface/main/creative/dao/resource:go_default_library",
-        "//app/interface/main/creative/dao/tool:go_default_library",
-        "//app/interface/main/creative/model/academy:go_default_library",
-        "//app/interface/main/creative/model/newcomer:go_default_library",
-        "//app/interface/main/creative/service:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/davecgh/go-spew/spew:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/dao/academy",
+        "//app/interface/main/creative/dao/archive",
+        "//app/interface/main/creative/dao/article",
+        "//app/interface/main/creative/dao/resource",
+        "//app/interface/main/creative/dao/tool",
+        "//app/interface/main/creative/model/academy",
+        "//app/interface/main/creative/model/newcomer",
+        "//app/interface/main/creative/service",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/archive/api",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//vendor/github.com/davecgh/go-spew/spew",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "adminlog",
     srcs = ["admin_log.go"],
     importpath = "go-common/app/interface/main/reply/model/adminlog",
     tags = ["automanaged"],

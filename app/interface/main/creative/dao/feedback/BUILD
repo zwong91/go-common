@@ -7,17 +7,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "feedback",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/main/creative/dao/feedback",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/feedback:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/feedback",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -36,16 +36,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "feedback_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":feedback"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/feedback:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/feedback",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

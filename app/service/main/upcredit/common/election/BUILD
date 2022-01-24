@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "election_test",
     srcs = ["example_test.go"],
-    embed = [":go_default_library"],
+    embed = [":election"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//library/log:go_default_library"],
+    deps = ["//library/log"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "election",
     srcs = ["election.go"],
     importpath = "go-common/app/service/main/upcredit/common/election",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/github.com/samuel/go-zookeeper/zk:go_default_library",
+        "//library/log",
+        "//vendor/github.com/samuel/go-zookeeper/zk",
     ],
 )
 

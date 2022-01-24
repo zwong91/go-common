@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "show_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":show"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/app/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/app/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "show",
     srcs = ["dao.go"],
     importpath = "go-common/app/job/main/app/dao/show",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/app/conf:go_default_library",
-        "//library/database/sql:go_default_library",
+        "//app/job/main/app/conf",
+        "//library/database/sql",
     ],
 )
 

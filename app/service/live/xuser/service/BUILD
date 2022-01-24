@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/live/xuser/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuser/conf:go_default_library",
-        "//app/service/live/xuser/service/exp/v1:go_default_library",
-        "//app/service/live/xuser/service/guard/v1:go_default_library",
-        "//app/service/live/xuser/service/roomAdmin/v1:go_default_library",
-        "//app/service/live/xuser/service/vip/v1:go_default_library",
+        "//app/service/live/xuser/conf",
+        "//app/service/live/xuser/service/exp/v1:exp",
+        "//app/service/live/xuser/service/guard/v1:guard",
+        "//app/service/live/xuser/service/roomAdmin/v1:roomAdmin",
+        "//app/service/live/xuser/service/vip/v1:vip",
     ],
 )
 

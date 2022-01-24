@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "manager_test",
     srcs = [
         "dao.cache_test.go",
         "dao_test.go",
@@ -16,22 +16,22 @@ go_test(
         "up_mc_test.go",
         "up_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":manager"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/up/api/v1:go_default_library",
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/dao:go_default_library",
-        "//app/service/main/up/dao/global:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/up/api/v1:api",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/dao",
+        "//app/service/main/up/dao/global",
+        "//app/service/main/up/model",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "manager",
     srcs = [
         "dao.cache.go",
         "dao.go",
@@ -44,19 +44,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/up/api/v1:go_default_library",
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/dao:go_default_library",
-        "//app/service/main/up/dao/global:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/up/api/v1:api",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/dao",
+        "//app/service/main/up/dao/global",
+        "//app/service/main/up/model",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//library/xstr",
     ],
 )
 

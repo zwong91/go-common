@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -11,17 +12,11 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
-    srcs = [],
+    name = "proto",
     embed = [":protogen_go_proto"],
     importpath = "go-common/library/net/trace/proto",
     tags = ["manual"],
     visibility = ["//visibility:public"],
-    deps = [
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:duration_go_proto",
-        "@io_bazel_rules_go//proto/wkt:timestamp_go_proto",
-    ],
 )
 
 filegroup(
@@ -50,12 +45,7 @@ proto_library(
 
 go_proto_library(
     name = "protogen_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
     importpath = "go-common/library/net/trace/proto",
     proto = ":protogen_proto",
     tags = ["manual"],
-    deps = [
-        "@io_bazel_rules_go//proto/wkt:duration_go_proto",
-        "@io_bazel_rules_go//proto/wkt:timestamp_go_proto",
-    ],
 )

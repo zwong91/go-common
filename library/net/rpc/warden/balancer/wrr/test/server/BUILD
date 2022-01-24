@@ -8,21 +8,21 @@ load(
 
 go_binary(
     name = "server",
-    embed = [":go_default_library"],
+    embed = [":server_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server_lib",
     srcs = ["server.go"],
     importpath = "go-common/library/net/rpc/warden/balancer/wrr/test/server",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/proto/testproto:go_default_library",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/proto/testproto",
     ],
 )
 

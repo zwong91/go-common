@@ -7,19 +7,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "status",
     srcs = ["status.go"],
     importpath = "go-common/library/net/rpc/warden/status",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/ecode/pb:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//ptypes:go_default_library_gen",
-        "@org_golang_google_grpc//codes:go_default_library",
-        "@org_golang_google_grpc//status:go_default_library",
+        "//library/ecode",
+        "//library/ecode/pb",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/ptypes",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/google.golang.org/grpc/codes",
+        "//vendor/google.golang.org/grpc/status",
     ],
 )
 
@@ -38,17 +38,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "status_test",
     srcs = ["status_test.go"],
-    embed = [":go_default_library"],
+    embed = [":status"],
     tags = ["manual"],
     deps = [
-        "//library/ecode:go_default_library",
-        "//library/ecode/pb:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
-        "@com_github_golang_protobuf//ptypes:go_default_library_gen",
-        "@io_bazel_rules_go//proto/wkt:timestamp_go_proto",
-        "@org_golang_google_grpc//codes:go_default_library",
-        "@org_golang_google_grpc//status:go_default_library",
+        "//library/ecode",
+        "//library/ecode/pb",
+        "//vendor/github.com/golang/protobuf/ptypes",
+        "//vendor/github.com/golang/protobuf/ptypes/timestamp",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/stretchr/testify/assert",
+        "//vendor/google.golang.org/grpc/codes",
+        "//vendor/google.golang.org/grpc/status",
     ],
 )

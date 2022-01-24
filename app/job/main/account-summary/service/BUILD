@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "block.go",
         "initial.go",
@@ -21,15 +21,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/account-summary/conf:go_default_library",
-        "//app/job/main/account-summary/dao:go_default_library",
-        "//app/job/main/account-summary/model:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
+        "//app/job/main/account-summary/conf",
+        "//app/job/main/account-summary/dao",
+        "//app/job/main/account-summary/model",
+        "//app/service/main/member/model",
+        "//app/service/main/member/model/block",
+        "//app/service/main/relation/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
     ],
 )
 

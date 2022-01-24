@@ -8,23 +8,23 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["share-service-test.toml"],
     importpath = "go-common/app/service/main/share/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/share/conf:go_default_library",
-        "//app/service/main/share/server/grpc:go_default_library",
-        "//app/service/main/share/server/http:go_default_library",
-        "//app/service/main/share/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/share/conf",
+        "//app/service/main/share/server/grpc",
+        "//app/service/main/share/server/http",
+        "//app/service/main/share/service",
+        "//library/log",
     ],
 )
 

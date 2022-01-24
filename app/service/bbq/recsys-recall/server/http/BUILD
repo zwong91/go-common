@@ -4,20 +4,20 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/service/bbq/recsys-recall/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/recsys-recall/api/grpc/v1:go_default_library",
-        "//app/service/bbq/recsys-recall/conf:go_default_library",
-        "//app/service/bbq/recsys-recall/service:go_default_library",
-        "//app/service/bbq/recsys-recall/service/index:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/bbq/recsys-recall/api/grpc/v1:grpc",
+        "//app/service/bbq/recsys-recall/conf",
+        "//app/service/bbq/recsys-recall/service",
+        "//app/service/bbq/recsys-recall/service/index",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

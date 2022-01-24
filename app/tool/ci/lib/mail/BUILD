@@ -7,15 +7,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mail",
     srcs = ["sendmail.go"],
     importpath = "go-common/app/tool/ci/lib/mail",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/saga/model:go_default_library",
-        "//app/tool/saga/service/mail:go_default_library",
-        "//library/log:go_default_library",
+        "//app/tool/saga/model",
+        "//app/tool/saga/service/mail",
+        "//library/log",
     ],
 )
 
@@ -34,10 +34,10 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mail_test",
     srcs = ["sendmail_test.go"],
-    embed = [":go_default_library"],
+    embed = [":mail"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )

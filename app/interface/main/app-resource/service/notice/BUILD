@@ -2,40 +2,40 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "notice_test",
     srcs = ["notice_test.go"],
-    embed = [":go_default_library"],
+    embed = [":notice"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//app/interface/main/app-resource/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//app/interface/main/app-resource/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "notice",
     srcs = ["notice.go"],
     importpath = "go-common/app/interface/main/app-resource/service/notice",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-resource/conf:go_default_library",
-        "//app/interface/main/app-resource/dao/location:go_default_library",
-        "//app/interface/main/app-resource/dao/notice:go_default_library",
-        "//app/interface/main/app-resource/model:go_default_library",
-        "//app/interface/main/app-resource/model/notice:go_default_library",
-        "//app/service/main/location/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
+        "//app/interface/main/app-resource/conf",
+        "//app/interface/main/app-resource/dao/location",
+        "//app/interface/main/app-resource/dao/notice",
+        "//app/interface/main/app-resource/model",
+        "//app/interface/main/app-resource/model/notice",
+        "//app/service/main/location/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//vendor/github.com/dgryski/go-farm",
     ],
 )
 

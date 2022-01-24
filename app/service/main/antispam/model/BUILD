@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "common.go",
         "keyword.go",
@@ -17,7 +17,7 @@ go_library(
     importpath = "go-common/app/service/main/antispam/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/antispam/util:go_default_library"],
+    deps = ["//app/service/main/antispam/util"],
 )
 
 filegroup(

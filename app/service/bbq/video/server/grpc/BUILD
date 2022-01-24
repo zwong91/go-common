@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/bbq/video/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/video/api/grpc/v1:go_default_library",
-        "//app/service/bbq/video/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//app/service/bbq/video/api/grpc/v1:grpc",
+        "//app/service/bbq/video/service",
+        "//library/net/rpc/warden",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "relation.go",
         "service.go",
@@ -15,14 +15,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/relation-cache/conf:go_default_library",
-        "//app/job/main/relation-cache/dao:go_default_library",
-        "//app/job/main/relation-cache/model:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/relation-cache/conf",
+        "//app/job/main/relation-cache/dao",
+        "//app/job/main/relation-cache/model",
+        "//app/service/main/relation/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

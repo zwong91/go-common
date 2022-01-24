@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "sock",
     srcs = [
         "conf.go",
         "sock.go",
@@ -15,14 +15,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/event:go_default_library",
-        "//app/service/ops/log-agent/input:go_default_library",
-        "//app/service/ops/log-agent/pkg/flowmonitor:go_default_library",
-        "//app/service/ops/log-agent/pkg/lancermonitor:go_default_library",
-        "//app/service/ops/log-agent/pkg/lancerroute:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/service/ops/log-agent/event",
+        "//app/service/ops/log-agent/input",
+        "//app/service/ops/log-agent/pkg/flowmonitor",
+        "//app/service/ops/log-agent/pkg/lancermonitor",
+        "//app/service/ops/log-agent/pkg/lancerroute",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

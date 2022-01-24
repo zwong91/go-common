@@ -21,7 +21,7 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "realname",
     srcs = [
         "alipay.go",
         "antispam.go",
@@ -32,24 +32,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/account/conf",
+        "//library/cache/memcache",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "realname_test",
     srcs = ["realname_test.go"],
-    embed = [":go_default_library"],
+    embed = [":realname"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

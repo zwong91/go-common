@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -15,38 +16,33 @@ proto_library(
     srcs = ["api.proto"],
     tags = ["automanaged"],
     deps = [
+        "//github.com/gogo/protobuf/gogoproto:gogoproto_proto",
         "@go_googleapis//google/api:annotations_proto",
-        "@gogo_special_proto//github.com/gogo/protobuf/gogoproto",
     ],
 )
 
 go_proto_library(
     name = "api_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_grpc"],
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
     importpath = "go-common/app/service/main/passport-sns/api",
     proto = ":api_proto",
     tags = ["automanaged"],
     deps = [
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
+        "//github.com/gogo/protobuf/gogoproto:gogo_proto",
         "@go_googleapis//google/api:annotations_go_proto",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "api",
     srcs = ["api.bm.go"],
     embed = [":api_go_proto"],
     importpath = "go-common/app/service/main/passport-sns/api",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//vendor/google.golang.org/genproto/googleapis/api/annotations:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
-        "@org_golang_x_net//context:go_default_library",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
     ],
 )
 

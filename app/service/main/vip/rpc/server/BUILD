@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = [
         "panel.go",
         "rpc.go",
@@ -15,13 +15,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/coupon/model:go_default_library",
-        "//app/service/main/vip/conf:go_default_library",
-        "//app/service/main/vip/model:go_default_library",
-        "//app/service/main/vip/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
+        "//app/service/main/coupon/model",
+        "//app/service/main/vip/conf",
+        "//app/service/main/vip/model",
+        "//app/service/main/vip/service",
+        "//library/log",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
     ],
 )
 

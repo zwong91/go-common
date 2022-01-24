@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
     "go_binary",
+    "go_library",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "kratos_lib",
     srcs = [
         "build.go",
         "doc.go",
@@ -24,9 +24,9 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/AlecAivazis/survey:go_default_library",
-        "//vendor/github.com/kr/pty:go_default_library",
-        "//vendor/github.com/urfave/cli:go_default_library",
+        "//vendor/github.com/kr/pty",
+        "//vendor/github.com/urfave/cli",
+        "@com_github_alecaivazis_survey_v2//:go_default_library",
     ],
 )
 
@@ -46,7 +46,7 @@ filegroup(
 
 go_binary(
     name = "kratos",
-    embed = [":go_default_library"],
+    embed = [":kratos_lib"],
     tags = ["automanaged"],
     x_defs = {
         "main.Version": "3",

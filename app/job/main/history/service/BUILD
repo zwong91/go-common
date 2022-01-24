@@ -2,24 +2,24 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/history/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/history/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "delete.go",
         "merge.go",
@@ -29,18 +29,18 @@ go_library(
     importpath = "go-common/app/job/main/history/service",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/history/model:go_default_library",
-        "//app/job/main/history/conf:go_default_library",
-        "//app/job/main/history/dao:go_default_library",
-        "//app/job/main/history/model:go_default_library",
-        "//app/service/main/history/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/golang.org/x/time/rate:go_default_library",
+        "//app/interface/main/history/model",
+        "//app/job/main/history/conf",
+        "//app/job/main/history/dao",
+        "//app/job/main/history/model",
+        "//app/service/main/history/model",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/stat/prom",
+        "//library/sync/pipeline",
+        "//library/sync/pipeline/fanout",
+        "//library/xstr",
+        "//vendor/golang.org/x/time/rate",
     ],
 )
 
@@ -56,10 +56,4 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-)
-
-load(
-    "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
-    "go_library",
 )

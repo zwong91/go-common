@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "history",
     srcs = ["dao.go"],
     importpath = "go-common/app/interface/live/web-ucenter/dao/history",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/web-ucenter/conf:go_default_library",
-        "//app/interface/live/web-ucenter/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/live/web-ucenter/conf",
+        "//app/interface/live/web-ucenter/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

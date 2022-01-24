@@ -6,22 +6,22 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = ["conf.go"],
     importpath = "go-common/app/service/main/identify-game/conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/identify-game/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/service/main/identify-game/model",
+        "//library/cache/memcache",
+        "//library/conf",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/rpc",
+        "//library/net/rpc/warden",
+        "//library/net/trace",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

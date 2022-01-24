@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -29,29 +30,27 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databus",
     srcs = ["databus.go"],
     embed = [":databus_go_proto"],
     importpath = "go-common/library/queue/databus",
     tags = ["automanaged"],
     deps = [
-        "//library/cache/redis:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/container/pool:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/netutil:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/time:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "//library/cache/redis",
+        "//library/conf/env",
+        "//library/container/pool",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/netutil",
+        "//library/net/trace",
+        "//library/stat/prom",
+        "//library/time",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["databus_test.go"],
     tags = ["automanaged"],
     deps = [
@@ -65,14 +64,23 @@ proto_library(
     name = "databus_proto",
     srcs = ["databus.proto"],
     tags = ["automanaged"],
-    deps = ["@gogo_special_proto//github.com/gogo/protobuf/gogoproto"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogoproto_proto"],
 )
 
 go_proto_library(
     name = "databus_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_proto"],
     importpath = "go-common/library/queue/databus",
     proto = ":databus_proto",
     tags = ["automanaged"],
-    deps = ["@com_github_gogo_protobuf//gogoproto:go_default_library"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
+)
+
+go_test(
+    name = "databus_test",
+    srcs = ["databus_test.go"],
+    deps = [
+        ":databus",
+        "//library/naming/discovery",
+        "//library/time",
+    ],
 )

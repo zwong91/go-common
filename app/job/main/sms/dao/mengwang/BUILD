@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mengwang_test",
     srcs = ["client_test.go"],
-    embed = [":go_default_library"],
+    embed = [":mengwang"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/sms/conf:go_default_library",
-        "//app/service/main/sms/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/sms/conf",
+        "//app/service/main/sms/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mengwang",
     srcs = ["client.go"],
     importpath = "go-common/app/job/main/sms/dao/mengwang",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/sms/conf:go_default_library",
-        "//app/job/main/sms/model:go_default_library",
-        "//app/service/main/sms/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/sms/conf",
+        "//app/job/main/sms/model",
+        "//app/service/main/sms/model",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

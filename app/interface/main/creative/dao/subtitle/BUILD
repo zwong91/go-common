@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "subtitle",
     srcs = [
         "dao.go",
         "subtitle.go",
@@ -16,11 +16,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/dm2/model:go_default_library",
-        "//app/interface/main/dm2/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/dm2/model",
+        "//app/interface/main/dm2/rpc/client",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 
@@ -39,20 +39,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "subtitle_test",
     srcs = [
         "dao_test.go",
         "subtitle_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":subtitle"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/dm2/model:go_default_library",
-        "//app/interface/main/dm2/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/dm2/model",
+        "//app/interface/main/dm2/rpc/client",
+        "//library/ecode",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -1,7 +1,7 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 package(default_visibility = ["//visibility:public"])
@@ -21,7 +21,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "archive_test.go",
         "log_test.go",
@@ -29,18 +29,18 @@ go_test(
         "service_test.go",
         "update_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/search/conf:go_default_library",
-        "//app/admin/main/search/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/search/conf",
+        "//app/admin/main/search/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "archive.go",
         "log.go",
@@ -54,11 +54,11 @@ go_library(
     importpath = "go-common/app/admin/main/search/service",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/search/conf:go_default_library",
-        "//app/admin/main/search/dao:go_default_library",
-        "//app/admin/main/search/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/admin/main/search/conf",
+        "//app/admin/main/search/dao",
+        "//app/admin/main/search/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup",
     ],
 )

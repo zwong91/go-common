@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "util",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/space/util",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/queue/databus/report:go_default_library"],
+    deps = ["//library/queue/databus/report"],
 )
 
 filegroup(

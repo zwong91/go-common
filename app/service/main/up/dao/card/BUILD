@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "card",
     srcs = [
         "card.go",
         "dao.go",
@@ -18,16 +18,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/dao:go_default_library",
-        "//app/service/main/up/dao/global:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/archive/api",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/dao",
+        "//app/service/main/up/dao/global",
+        "//app/service/main/up/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//library/xstr",
     ],
 )
 
@@ -46,20 +46,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "card_test",
     srcs = [
         "card_test.go",
         "dao_test.go",
         "rpc_test.go",
         "up_base_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":card"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/up/conf:go_default_library",
-        "//app/service/main/up/dao:go_default_library",
-        "//app/service/main/up/dao/global:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/up/conf",
+        "//app/service/main/up/dao",
+        "//app/service/main/up/dao/global",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "wechat",
     srcs = [
         "contact.go",
         "wechat.go",
@@ -16,11 +16,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/saga/conf:go_default_library",
-        "//app/tool/saga/dao:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/tool/saga/conf",
+        "//app/tool/saga/dao",
+        "//app/tool/saga/model",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -39,15 +39,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "wechat_test",
     srcs = ["wechat_test.go"],
-    embed = [":go_default_library"],
+    embed = [":wechat"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/tool/saga/conf:go_default_library",
-        "//app/tool/saga/dao:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/tool/saga/conf",
+        "//app/tool/saga/dao",
+        "//app/tool/saga/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

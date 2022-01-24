@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "data",
     srcs = ["data.go"],
     importpath = "go-common/app/job/main/videoup-report/model/data",
     tags = ["automanaged"],

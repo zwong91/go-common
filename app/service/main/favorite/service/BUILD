@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "fav_test.go",
         "rpc_test.go",
         "search_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/favorite/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/favorite/conf",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "fav.go",
         "rpc.go",
@@ -36,24 +36,24 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/favorite/conf:go_default_library",
-        "//app/service/main/favorite/dao:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//app/service/main/filter/model/rpc:go_default_library",
-        "//app/service/main/filter/rpc/client:go_default_library",
-        "//app/service/main/rank/api/gorpc:go_default_library",
-        "//app/service/main/rank/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/favorite/conf",
+        "//app/service/main/favorite/dao",
+        "//app/service/main/favorite/model",
+        "//app/service/main/filter/model/rpc",
+        "//app/service/main/filter/rpc/client",
+        "//app/service/main/rank/api/gorpc",
+        "//app/service/main/rank/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
     ],
 )
 

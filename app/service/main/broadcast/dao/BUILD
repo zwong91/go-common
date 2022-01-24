@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "databus.go",
@@ -17,11 +17,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/broadcast/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/service/main/broadcast/model",
+        "//library/cache/redis",
+        "//library/conf/paladin",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 
@@ -40,18 +40,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "databus_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/broadcast/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/broadcast/model",
+        "//library/conf/paladin",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

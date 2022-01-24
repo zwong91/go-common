@@ -2,21 +2,21 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "trie_test",
     srcs = ["rune_trie_test.go"],
-    embed = [":go_default_library"],
+    embed = [":trie"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/service/main/antispam/util:go_default_library"],
+    deps = ["//app/service/main/antispam/util"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "trie",
     srcs = [
         "rune_trie.go",
         "trie.go",

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "task",
     srcs = [
         "dao.go",
         "weight.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup/conf:go_default_library",
-        "//app/admin/main/videoup/model/archive:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/videoup/conf",
+        "//app/admin/main/videoup/model/archive",
+        "//library/cache/redis",
+        "//library/log",
     ],
 )
 
@@ -38,15 +38,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "task_test",
     srcs = [
         "dao_test.go",
         "weight_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":task"],
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/videoup/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/videoup/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.cache.go",
         "dao.go",
@@ -21,25 +21,25 @@ go_library(
     importpath = "go-common/app/service/main/account/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/conf:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/member/api/gorpc:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//app/service/main/usersuit/model:go_default_library",
-        "//app/service/main/usersuit/rpc/client:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/account/conf",
+        "//app/service/main/account/model",
+        "//app/service/main/member/api/gorpc",
+        "//app/service/main/member/model",
+        "//app/service/main/member/model/block",
+        "//app/service/main/usersuit/model",
+        "//app/service/main/usersuit/rpc/client",
+        "//library/cache/memcache",
+        "//library/database/elastic",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -58,7 +58,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao.cache_test.go",
         "dao_test.go",
@@ -68,16 +68,16 @@ go_test(
         "search_test.go",
         "vip_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/account/conf:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/account/conf",
+        "//app/service/main/account/model",
+        "//app/service/main/member/model",
+        "//app/service/main/member/model/block",
+        "//library/cache/memcache",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

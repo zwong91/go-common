@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "whitelist",
     srcs = ["whitelist.go"],
     importpath = "go-common/app/admin/main/creative/model/whitelist",
     tags = ["automanaged"],

@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "unicom_test",
     srcs = ["unicom_test.go"],
-    embed = [":go_default_library"],
+    embed = [":unicom"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/app-wall/conf:go_default_library",
-        "//app/job/main/app-wall/model/unicom:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/app-wall/conf",
+        "//app/job/main/app-wall/model/unicom",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "unicom",
     srcs = [
         "api.go",
         "cache.go",
@@ -30,14 +30,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/app-wall/conf:go_default_library",
-        "//app/job/main/app-wall/model:go_default_library",
-        "//app/job/main/app-wall/model/unicom:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/app-wall/conf",
+        "//app/job/main/app-wall/model",
+        "//app/job/main/app-wall/model/unicom",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

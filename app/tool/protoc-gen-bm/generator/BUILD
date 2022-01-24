@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "generator",
     srcs = ["generator.go"],
     importpath = "go-common/app/tool/protoc-gen-bm/generator",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library"],
+    deps = ["//vendor/github.com/golang/protobuf/protoc-gen-go/plugin"],
 )
 
 filegroup(

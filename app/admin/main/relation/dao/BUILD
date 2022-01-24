@@ -2,32 +2,32 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "account_test.go",
         "dao_test.go",
         "relation_log_test.go",
         "relation_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/relation/conf:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/admin/main/relation/conf",
+        "//library/database/hbase.v2:hbase_v2",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "account.go",
         "dao.go",
@@ -37,17 +37,17 @@ go_library(
     importpath = "go-common/app/admin/main/relation/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/relation/conf:go_default_library",
-        "//app/admin/main/relation/model:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/relation/api:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/relation/conf",
+        "//app/admin/main/relation/model",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/relation/api",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/orm",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

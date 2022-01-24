@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = [
         "from.go",
         "result.go",
@@ -15,18 +15,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-interface/model:go_default_library",
-        "//app/interface/main/app-interface/model/bangumi:go_default_library",
-        "//app/interface/main/app-interface/model/bplus:go_default_library",
-        "//app/interface/main/app-interface/model/live:go_default_library",
-        "//app/interface/main/app-interface/model/tag:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/season/v1:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-interface/model",
+        "//app/interface/main/app-interface/model/bangumi",
+        "//app/interface/main/app-interface/model/bplus",
+        "//app/interface/main/app-interface/model/live",
+        "//app/interface/main/app-interface/model/tag",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//app/service/openplatform/pgc-season/api/grpc/season/v1:season",
+        "//library/log",
+        "//library/time",
     ],
 )
 

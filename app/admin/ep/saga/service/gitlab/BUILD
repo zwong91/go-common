@@ -7,14 +7,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "gitlab",
     srcs = ["gitlab.go"],
     importpath = "go-common/app/admin/ep/saga/service/gitlab",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/xanzy/go-gitlab:go_default_library",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/xanzy/go-gitlab",
     ],
 )
 
@@ -33,13 +33,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "gitlab_test",
     srcs = ["gitlab_test.go"],
-    embed = [":go_default_library"],
+    embed = [":gitlab"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/saga/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/ep/saga/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

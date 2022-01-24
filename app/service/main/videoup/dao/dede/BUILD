@@ -2,21 +2,21 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dede_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":dede"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/service/main/videoup/conf:go_default_library"],
+    deps = ["//app/service/main/videoup/conf"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dede",
     srcs = [
         "dao.go",
         "redis.go",
@@ -25,10 +25,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/videoup/conf:go_default_library",
-        "//app/service/main/videoup/model/dede:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/videoup/conf",
+        "//app/service/main/videoup/model/dede",
+        "//library/cache/redis",
+        "//library/log",
     ],
 )
 

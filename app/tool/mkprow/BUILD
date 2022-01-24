@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "mkprow",
-    embed = [":go_default_library"],
+    embed = [":mkprow_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mkprow_lib",
     srcs = [
         "main.go",
         "template.go",
@@ -22,10 +22,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/ghodss/yaml:go_default_library",
-        "//vendor/github.com/mohae/deepcopy:go_default_library",
-        "//vendor/k8s.io/apimachinery/pkg/util/sets:go_default_library",
-        "//vendor/k8s.io/test-infra/prow/config:go_default_library",
+        "//vendor/github.com/ghodss/yaml",
+        "//vendor/github.com/mohae/deepcopy",
+        "//vendor/k8s.io/apimachinery/pkg/util/sets",
+        "//vendor/k8s.io/test-infra/prow/config",
     ],
 )
 

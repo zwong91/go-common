@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bfs",
     srcs = ["bfs.go"],
     importpath = "go-common/app/admin/main/creative/model/bfs",
     tags = ["automanaged"],

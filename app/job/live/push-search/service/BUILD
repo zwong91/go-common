@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "attention_notify.go",
         "common.go",
@@ -18,18 +18,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/push-search/conf:go_default_library",
-        "//app/job/live/push-search/dao:go_default_library",
-        "//app/job/live/push-search/model:go_default_library",
-        "//app/service/live/relation/api/liverpc/v1:go_default_library",
-        "//app/service/live/room/api/liverpc/v1:go_default_library",
-        "//app/service/live/room/api/liverpc/v2:go_default_library",
-        "//app/service/live/user/api/liverpc/v3:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc/context:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/job/live/push-search/conf",
+        "//app/job/live/push-search/dao",
+        "//app/job/live/push-search/model",
+        "//app/service/live/relation/api/liverpc/v1:liverpc",
+        "//app/service/live/room/api/liverpc/v1:liverpc",
+        "//app/service/live/room/api/liverpc/v2:liverpc",
+        "//app/service/live/user/api/liverpc/v3:liverpc",
+        "//app/service/main/account/api",
+        "//library/log",
+        "//library/net/rpc/liverpc/context",
+        "//library/queue/databus",
+        "//library/sync/errgroup",
     ],
 )
 

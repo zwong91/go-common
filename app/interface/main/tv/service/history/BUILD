@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "history",
     srcs = [
         "combine.go",
         "history.go",
@@ -17,15 +17,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/history/model:go_default_library",
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/interface/main/tv/dao/archive:go_default_library",
-        "//app/interface/main/tv/dao/cms:go_default_library",
-        "//app/interface/main/tv/dao/history:go_default_library",
-        "//app/interface/main/tv/model:go_default_library",
-        "//app/interface/main/tv/model/history:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/history/model",
+        "//app/interface/main/tv/conf",
+        "//app/interface/main/tv/dao/archive",
+        "//app/interface/main/tv/dao/cms",
+        "//app/interface/main/tv/dao/history",
+        "//app/interface/main/tv/model",
+        "//app/interface/main/tv/model/history",
+        "//library/log",
+        "//library/sync/errgroup",
     ],
 )
 
@@ -44,13 +44,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "history_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":history"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

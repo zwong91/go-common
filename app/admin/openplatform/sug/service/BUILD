@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["season_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "season.go",
         "service.go",
@@ -24,11 +24,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/openplatform/sug/conf:go_default_library",
-        "//app/admin/openplatform/sug/dao:go_default_library",
-        "//app/admin/openplatform/sug/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/openplatform/sug/conf",
+        "//app/admin/openplatform/sug/dao",
+        "//app/admin/openplatform/sug/model",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

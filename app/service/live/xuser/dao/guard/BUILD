@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "guard",
     srcs = [
         "cache.go",
         "dao.go",
@@ -17,16 +17,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuser/conf:go_default_library",
-        "//app/service/live/xuser/model:go_default_library",
-        "//app/service/live/xuser/model/dhh:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/live/xuser/conf",
+        "//app/service/live/xuser/model",
+        "//app/service/live/xuser/model/dhh",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

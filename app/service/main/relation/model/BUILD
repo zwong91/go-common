@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -11,7 +12,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "achieve.go",
         "addit.go",
@@ -26,11 +27,6 @@ go_library(
     importpath = "go-common/app/service/main/relation/model",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = [
-        "//library/time:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-    ],
 )
 
 proto_library(
@@ -41,25 +37,17 @@ proto_library(
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [
-        "@gogo_special_proto//github.com/gogo/protobuf/gogoproto",
+        "//github.com/gogo/protobuf/gogoproto:gogoproto_proto",
     ],
 )
 
 go_proto_library(
     name = "model_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogo_proto"],
     importpath = "go-common/app/service/main/relation/model",
     proto = ":model_proto",
     tags = ["manual"],
     visibility = ["//visibility:public"],
-    deps = [
-        "//library/time:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@com_github_gogo_protobuf//sortkeys:go_default_library",
-        "@com_github_gogo_protobuf//types:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:any_go_proto",
-    ],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
 )
 
 filegroup(

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "bugly.go",
         "bugly2tapd.go",
@@ -17,10 +17,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ep/footman/conf:go_default_library",
-        "//app/service/ep/footman/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/service/ep/footman/conf",
+        "//app/service/ep/footman/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

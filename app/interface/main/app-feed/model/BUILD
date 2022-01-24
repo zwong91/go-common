@@ -6,13 +6,13 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["const.go"],
     importpath = "go-common/app/interface/main/app-feed/model",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-card/model/card/live:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
+        "//app/interface/main/app-card/model/card/live",
+        "//app/service/main/archive/model/archive",
     ],
 )
 

@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bnj",
     srcs = [
         "cache.go",
         "coupon.go",
@@ -19,14 +19,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -45,7 +45,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "bnj_test",
     srcs = [
         "cache_test.go",
         "coupon_test.go",
@@ -53,11 +53,11 @@ go_test(
         "mc.cache_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":bnj"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

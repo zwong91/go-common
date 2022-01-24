@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "reader",
     srcs = [
         "offset.go",
         "reader.go",
@@ -15,10 +15,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/github.com/Shopify/sarama:go_default_library",
-        "//vendor/github.com/pingcap/tidb-tools/tidb_binlog/slave_binlog_proto/go-binlog:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/log",
+        "//vendor/github.com/Shopify/sarama",
+        "//vendor/github.com/pingcap/tidb-tools/tidb_binlog/slave_binlog_proto/go-binlog",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = [
         "dao.go",
         "userInfo.go",
@@ -15,13 +15,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuser/conf:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/account/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/live/xuser/conf",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/account/rpc/client",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

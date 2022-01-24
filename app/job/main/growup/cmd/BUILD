@@ -8,21 +8,21 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["growup-job.toml"],
     importpath = "go-common/app/job/main/growup/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/growup/conf:go_default_library",
-        "//app/job/main/growup/http:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/growup/conf",
+        "//app/job/main/growup/http",
+        "//library/log",
     ],
 )
 

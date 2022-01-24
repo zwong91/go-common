@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/click/conf:go_default_library",
-        "//app/job/main/click/model:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/click/conf",
+        "//app/job/main/click/model",
+        "//library/sync/errgroup",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "click.go",
         "forbid.go",
@@ -31,17 +31,17 @@ go_library(
     importpath = "go-common/app/job/main/click/service",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/click/conf:go_default_library",
-        "//app/job/main/click/dao:go_default_library",
-        "//app/job/main/click/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
+        "//app/job/main/click/conf",
+        "//app/job/main/click/dao",
+        "//app/job/main/click/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//library/cache/redis",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/queue/databus",
+        "//vendor/github.com/dgryski/go-farm",
     ],
 )
 

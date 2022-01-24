@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "task",
     srcs = [
         "task_assign.go",
         "task_dispatch.go",
@@ -15,7 +15,7 @@ go_library(
     importpath = "go-common/app/job/main/videoup-report/model/task",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/job/main/videoup-report/model/utils:go_default_library"],
+    deps = ["//app/job/main/videoup-report/model/utils"],
 )
 
 filegroup(

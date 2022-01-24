@@ -7,17 +7,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "email",
     srcs = ["dao.go"],
     importpath = "go-common/app/job/main/aegis/dao/email",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/aegis/conf:go_default_library",
-        "//app/job/main/aegis/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/job/main/aegis/conf",
+        "//app/job/main/aegis/model",
+        "//library/cache/redis",
+        "//library/log",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 
@@ -36,12 +36,12 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "email_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":email"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/aegis/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/aegis/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

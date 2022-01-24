@@ -7,17 +7,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/openplatform/ticket-sales/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/ticket-sales/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-sales/service:go_default_library",
-        "//app/service/openplatform/ticket-sales/service/mis:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//app/service/openplatform/ticket-sales/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-sales/service",
+        "//app/service/openplatform/ticket-sales/service/mis",
+        "//library/net/rpc/warden",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 
@@ -36,17 +36,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "grpc_test",
     srcs = ["server_test.go"],
-    embed = [":go_default_library"],
+    embed = [":grpc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/ticket-sales/api/grpc/type:go_default_library",
-        "//app/service/openplatform/ticket-sales/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-sales/conf:go_default_library",
-        "//app/service/openplatform/ticket-sales/service:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/openplatform/ticket-sales/api/grpc/type",
+        "//app/service/openplatform/ticket-sales/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-sales/conf",
+        "//app/service/openplatform/ticket-sales/service",
+        "//library/conf/paladin",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

@@ -3,20 +3,11 @@ load(
     "go_library",
     "go_test",
 )
-load(
-    "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
-)
 
 package(default_visibility = ["//visibility:public"])
 
-load(
-    "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
-)
-
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "block.go",
         "member.go",
@@ -33,13 +24,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/member/conf:go_default_library",
-        "//app/admin/main/member/model/block:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/member/conf",
+        "//app/admin/main/member/model/block",
+        "//app/service/main/member/model",
+        "//app/service/main/member/model/block",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -62,10 +53,10 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "model_test",
     srcs = ["member_test.go"],
-    embed = [":go_default_library"],
+    embed = [":model"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/stretchr/testify/assert:go_default_library"],
+    deps = ["//vendor/github.com/stretchr/testify/assert"],
 )

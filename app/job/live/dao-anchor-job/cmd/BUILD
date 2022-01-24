@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["test.toml"],
     importpath = "go-common/app/job/live/dao-anchor-job/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/live/dao-anchor-job/internal/conf:go_default_library",
-        "//app/job/live/dao-anchor-job/internal/server/http:go_default_library",
-        "//app/job/live/dao-anchor-job/internal/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/live/dao-anchor-job/internal/conf",
+        "//app/job/live/dao-anchor-job/internal/server/http",
+        "//app/job/live/dao-anchor-job/internal/service",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

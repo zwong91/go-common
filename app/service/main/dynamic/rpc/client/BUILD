@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = ["dynamic.go"],
     importpath = "go-common/app/service/main/dynamic/rpc/client",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/dynamic/model:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/service/main/archive/api",
+        "//app/service/main/dynamic/model",
+        "//library/net/rpc",
     ],
 )
 

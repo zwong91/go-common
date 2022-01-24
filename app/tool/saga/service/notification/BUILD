@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "notification",
     srcs = ["notification.go"],
     importpath = "go-common/app/tool/saga/service/notification",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/saga/dao:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//app/tool/saga/service/mail:go_default_library",
-        "//app/tool/saga/service/wechat:go_default_library",
-        "//library/log:go_default_library",
+        "//app/tool/saga/dao",
+        "//app/tool/saga/model",
+        "//app/tool/saga/service/mail",
+        "//app/tool/saga/service/wechat",
+        "//library/log",
     ],
 )
 

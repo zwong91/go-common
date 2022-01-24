@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "balancer.go",
         "conn.go",
@@ -20,26 +20,26 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/broadcast/api/grpc/v1:go_default_library",
-        "//app/service/main/broadcast/dao:go_default_library",
-        "//app/service/main/broadcast/model:go_default_library",
-        "//app/service/main/identify/api/grpc:go_default_library",
-        "//app/service/main/location/api:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/netutil:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/balancer/wrr:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/zhenjl/cityhash:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//app/service/main/broadcast/api/grpc/v1:grpc",
+        "//app/service/main/broadcast/dao",
+        "//app/service/main/broadcast/model",
+        "//app/service/main/identify/api/grpc",
+        "//app/service/main/location/api",
+        "//library/cache",
+        "//library/conf/paladin",
+        "//library/ecode",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/metadata",
+        "//library/net/netutil",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/balancer/wrr",
+        "//library/time",
+        "//library/xstr",
+        "//vendor/github.com/zhenjl/cityhash",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 
@@ -58,19 +58,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "balancer_test.go",
         "conn_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/broadcast/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/broadcast/model",
+        "//library/conf/paladin",
+        "//library/naming/discovery",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

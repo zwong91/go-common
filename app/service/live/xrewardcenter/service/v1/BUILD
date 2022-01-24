@@ -7,23 +7,23 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["anchorReward.go"],
     importpath = "go-common/app/service/live/xrewardcenter/service/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/gift/api/liverpc/v0:go_default_library",
-        "//app/service/live/room/api/liverpc/v2:go_default_library",
-        "//app/service/live/xrewardcenter/api/grpc/v1:go_default_library",
-        "//app/service/live/xrewardcenter/conf:go_default_library",
-        "//app/service/live/xrewardcenter/dao:go_default_library",
-        "//app/service/live/xrewardcenter/dao/anchorReward:go_default_library",
-        "//app/service/live/xrewardcenter/model/anchorTask:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/service/live/gift/api/liverpc/v0:liverpc",
+        "//app/service/live/room/api/liverpc/v2:liverpc",
+        "//app/service/live/xrewardcenter/api/grpc/v1:grpc",
+        "//app/service/live/xrewardcenter/conf",
+        "//app/service/live/xrewardcenter/dao",
+        "//app/service/live/xrewardcenter/dao/anchorReward",
+        "//app/service/live/xrewardcenter/model/anchorTask",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 
@@ -42,16 +42,16 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["anchorReward_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/xrewardcenter/api/grpc/v1:go_default_library",
-        "//app/service/live/xrewardcenter/conf:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/xrewardcenter/api/grpc/v1:grpc",
+        "//app/service/live/xrewardcenter/conf",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

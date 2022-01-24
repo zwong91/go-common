@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["job.go"],
     importpath = "go-common/app/job/main/history/model",
     tags = ["automanaged"],
@@ -24,9 +24,4 @@ filegroup(
     srcs = [":package-srcs"],
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-)
-
-load(
-    "@io_bazel_rules_go//go:def.bzl",
-    "go_library",
 )

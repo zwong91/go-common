@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "b",
     srcs = ["b.go"],
     importpath = "go-common/app/tool/gengo/testdata/a/b",
     tags = ["automanaged"],

@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = ["coupon.go"],
     importpath = "go-common/app/service/main/coupon/rpc/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/coupon/model:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/service/main/coupon/model",
+        "//library/net/rpc",
     ],
 )
 

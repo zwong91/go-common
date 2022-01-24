@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "databus",
     srcs = [
         "alarm.go",
         "app.go",
@@ -22,7 +22,7 @@ go_library(
     ],
     importpath = "go-common/app/admin/main/apm/model/databus",
     tags = ["automanaged"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

@@ -5,7 +5,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "hbase.go",
@@ -17,21 +17,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/secure/conf:go_default_library",
-        "//app/service/main/secure/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/service/main/secure/conf",
+        "//app/service/main/secure/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "hbase_test.go",
@@ -39,16 +39,16 @@ go_test(
         "memcache_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/secure/conf:go_default_library",
-        "//app/service/main/secure/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/bouk/monkey:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/secure/conf",
+        "//app/service/main/secure/model",
+        "//library/cache/memcache",
+        "//library/time",
+        "//vendor/github.com/bouk/monkey",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 

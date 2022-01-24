@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "paladin",
     srcs = [
         "client.go",
         "default.go",
@@ -23,19 +23,19 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/ip:go_default_library",
-        "//library/net/netutil:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
-        "//vendor/github.com/naoina/toml:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/conf/env",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/ip",
+        "//library/net/netutil",
+        "//vendor/github.com/BurntSushi/toml",
+        "//vendor/github.com/naoina/toml",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = [
         "example_test.go",
         "file_test.go",
@@ -65,16 +65,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "paladin_test",
     srcs = [
+        "example_test.go",
+        "file_test.go",
+        "map_test.go",
+        "mock_test.go",
         "sven_test.go",
         "value_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":paladin"],
     tags = ["automanaged"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//vendor/github.com/naoina/toml:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
+        "//library/conf/env",
+        "//vendor/github.com/naoina/toml",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )

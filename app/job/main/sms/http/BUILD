@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/main/sms/http",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/sms/conf:go_default_library",
-        "//app/job/main/sms/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/sms/conf",
+        "//app/job/main/sms/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

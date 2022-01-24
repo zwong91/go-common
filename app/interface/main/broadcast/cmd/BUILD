@@ -8,29 +8,29 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["broadcast.toml"],
     importpath = "go-common/app/interface/main/broadcast/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/broadcast/conf:go_default_library",
-        "//app/interface/main/broadcast/server:go_default_library",
-        "//app/interface/main/broadcast/server/grpc:go_default_library",
-        "//app/interface/main/broadcast/server/http:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/ip:go_default_library",
-        "//library/net/rpc/warden/resolver:go_default_library",
+        "//app/interface/main/broadcast/conf",
+        "//app/interface/main/broadcast/server",
+        "//app/interface/main/broadcast/server/grpc",
+        "//app/interface/main/broadcast/server/http",
+        "//library/conf/env",
+        "//library/conf/paladin",
+        "//library/log",
+        "//library/naming",
+        "//library/naming/discovery",
+        "//library/net/ip",
+        "//library/net/rpc/warden/resolver",
     ],
 )
 

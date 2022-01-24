@@ -6,9 +6,8 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dislike",
     srcs = ["dislike.go"],
-    importmap = "go-common/app/interface/main/app-show/model/dislike",
     importpath = "go-common/app/interface/main/app-show/model/dislike",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],

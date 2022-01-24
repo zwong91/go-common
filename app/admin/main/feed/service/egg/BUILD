@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "egg",
     srcs = ["egg.go"],
     importpath = "go-common/app/admin/main/feed/service/egg",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/dao/egg:go_default_library",
-        "//app/admin/main/feed/model/common:go_default_library",
-        "//app/admin/main/feed/model/egg:go_default_library",
-        "//app/admin/main/feed/util:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/dao/egg",
+        "//app/admin/main/feed/model/common",
+        "//app/admin/main/feed/model/egg",
+        "//app/admin/main/feed/util",
+        "//library/log",
+        "//library/time",
     ],
 )
 

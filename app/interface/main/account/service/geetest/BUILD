@@ -2,35 +2,35 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "geetest_test",
     srcs = ["geetest_test.go"],
-    embed = [":go_default_library"],
+    embed = [":geetest"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/interface/main/account/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/interface/main/account/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "geetest",
     srcs = ["geetest.go"],
     importpath = "go-common/app/interface/main/account/service/geetest",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/interface/main/account/dao/geetest:go_default_library",
-        "//app/interface/main/account/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/interface/main/account/dao/geetest",
+        "//app/interface/main/account/model",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

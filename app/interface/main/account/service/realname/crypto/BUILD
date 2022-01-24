@@ -2,21 +2,21 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "crypto_test",
     srcs = ["crypto_test.go"],
-    embed = [":go_default_library"],
+    embed = [":crypto"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "crypto",
     srcs = [
         "alipay.go",
         "key.go",
@@ -25,7 +25,7 @@ go_library(
     importpath = "go-common/app/interface/main/account/service/realname/crypto",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//vendor/github.com/pkg/errors:go_default_library"],
+    deps = ["//vendor/github.com/pkg/errors"],
 )
 
 filegroup(

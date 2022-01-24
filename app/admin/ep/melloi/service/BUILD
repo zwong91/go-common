@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "apply_test.go",
         "grpc_snap_test.go",
@@ -23,18 +23,18 @@ go_test(
         "service_test.go",
         "user_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/melloi/conf:go_default_library",
-        "//app/admin/ep/melloi/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/ep/melloi/conf",
+        "//app/admin/ep/melloi/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "apply.go",
         "bfs.go",
@@ -67,17 +67,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/melloi/conf:go_default_library",
-        "//app/admin/ep/melloi/dao:go_default_library",
-        "//app/admin/ep/melloi/model:go_default_library",
-        "//app/admin/ep/melloi/service/proto:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/admin/ep/melloi/conf",
+        "//app/admin/ep/melloi/dao",
+        "//app/admin/ep/melloi/model",
+        "//app/admin/ep/melloi/service/proto",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/jinzhu/gorm",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/robfig/cron",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 

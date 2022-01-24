@@ -8,25 +8,25 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["point-service.toml"],
     importpath = "go-common/app/service/main/point/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/point/conf:go_default_library",
-        "//app/service/main/point/rpc/server:go_default_library",
-        "//app/service/main/point/server/grpc:go_default_library",
-        "//app/service/main/point/server/http:go_default_library",
-        "//app/service/main/point/service:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/point/conf",
+        "//app/service/main/point/rpc/server",
+        "//app/service/main/point/server/grpc",
+        "//app/service/main/point/server/http",
+        "//app/service/main/point/service",
+        "//library/ecode/tip",
+        "//library/log",
     ],
 )
 

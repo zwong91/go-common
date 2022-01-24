@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pgc",
     srcs = ["pgc.go"],
     importpath = "go-common/app/admin/main/feed/service/pgc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/dao/pgc:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/episode/v1:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/season/v1:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/dao/pgc",
+        "//app/service/openplatform/pgc-season/api/grpc/episode/v1:episode",
+        "//app/service/openplatform/pgc-season/api/grpc/season/v1:season",
+        "//library/log",
     ],
 )
 

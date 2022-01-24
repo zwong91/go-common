@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "lancerlogstream",
     srcs = [
         "aggr.go",
         "config.go",
@@ -17,16 +17,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/ops/log-agent/event:go_default_library",
-        "//app/service/ops/log-agent/output:go_default_library",
-        "//app/service/ops/log-agent/output/cache/file:go_default_library",
-        "//app/service/ops/log-agent/pkg/bufio:go_default_library",
-        "//app/service/ops/log-agent/pkg/common:go_default_library",
-        "//app/service/ops/log-agent/pkg/flowmonitor:go_default_library",
-        "//app/service/ops/log-agent/pkg/lancermonitor:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/service/ops/log-agent/event",
+        "//app/service/ops/log-agent/output",
+        "//app/service/ops/log-agent/output/cache/file",
+        "//app/service/ops/log-agent/pkg/bufio",
+        "//app/service/ops/log-agent/pkg/common",
+        "//app/service/ops/log-agent/pkg/flowmonitor",
+        "//app/service/ops/log-agent/pkg/lancermonitor",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

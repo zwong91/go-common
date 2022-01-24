@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/live/gift/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/gift/conf:go_default_library",
-        "//app/service/live/gift/dao:go_default_library",
+        "//app/service/live/gift/conf",
+        "//app/service/live/gift/dao",
     ],
 )
 

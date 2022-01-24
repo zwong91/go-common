@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "rpc_test.go",
         "service_test.go",
         "topic_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/favorite/conf:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/favorite/conf",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "rpc.go",
         "service.go",
@@ -35,22 +35,22 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/favorite/conf:go_default_library",
-        "//app/interface/main/favorite/dao/music:go_default_library",
-        "//app/interface/main/favorite/dao/topic:go_default_library",
-        "//app/interface/main/favorite/dao/video:go_default_library",
-        "//app/interface/main/favorite/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/favorite/api:go_default_library",
-        "//app/service/main/favorite/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/favorite/conf",
+        "//app/interface/main/favorite/dao/music",
+        "//app/interface/main/favorite/dao/topic",
+        "//app/interface/main/favorite/dao/video",
+        "//app/interface/main/favorite/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/favorite/api",
+        "//app/service/main/favorite/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
     ],
 )
 

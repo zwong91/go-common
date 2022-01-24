@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "report",
     srcs = [
         "agent.go",
         "conf.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/conf/env:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//library/conf/env",
+        "//library/queue/databus",
+        "//library/time",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -38,13 +38,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "report_test",
     srcs = ["agent_test.go"],
-    embed = [":go_default_library"],
+    embed = [":report"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
+        "//library/queue/databus",
+        "//library/time",
     ],
 )

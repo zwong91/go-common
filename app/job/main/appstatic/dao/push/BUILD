@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "push_test",
     srcs = [
         "appres_test.go",
         "dao_test.go",
         "push_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":push"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-resource/api/v1:go_default_library",
-        "//app/job/main/appstatic/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/app-resource/api/v1:api",
+        "//app/job/main/appstatic/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "push",
     srcs = [
         "appres.go",
         "dao.go",
@@ -36,17 +36,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-resource/api/v1:go_default_library",
-        "//app/job/main/appstatic/conf:go_default_library",
-        "//app/job/main/appstatic/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/naming/discovery:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-resource/api/v1:api",
+        "//app/job/main/appstatic/conf",
+        "//app/job/main/appstatic/model",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/naming/discovery",
+        "//library/net/http/blademaster",
+        "//library/net/rpc/warden",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

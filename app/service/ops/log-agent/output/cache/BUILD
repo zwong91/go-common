@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cache",
     srcs = ["cache.go"],
     importpath = "go-common/app/service/ops/log-agent/output/cache",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/ops/log-agent/event:go_default_library"],
+    deps = ["//app/service/ops/log-agent/event"],
 )
 
 filegroup(

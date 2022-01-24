@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/cache/conf:go_default_library",
-        "//app/admin/main/cache/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/cache/conf",
+        "//app/admin/main/cache/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "opscache.go",
         "overlord.go",
@@ -30,11 +30,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/cache/conf:go_default_library",
-        "//app/admin/main/cache/dao:go_default_library",
-        "//app/admin/main/cache/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/admin/main/cache/conf",
+        "//app/admin/main/cache/dao",
+        "//app/admin/main/cache/model",
+        "//library/ecode",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

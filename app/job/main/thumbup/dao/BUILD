@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "databus.go",
@@ -21,15 +21,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/thumbup/conf:go_default_library",
-        "//app/job/main/thumbup/model:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/tidb:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/thumbup/conf",
+        "//app/job/main/thumbup/model",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/tidb",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 
@@ -48,7 +48,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "databus_test.go",
@@ -58,11 +58,11 @@ go_test(
         "tidb_test.go",
         "user_likes_redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/thumbup/conf:go_default_library",
-        "//app/job/main/thumbup/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/thumbup/conf",
+        "//app/job/main/thumbup/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

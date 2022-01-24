@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "archive.go",
         "play.go",
@@ -19,20 +19,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/common/db/bbq:go_default_library",
-        "//app/service/bbq/topic/api:go_default_library",
-        "//app/service/bbq/video/api/grpc/v1:go_default_library",
-        "//app/service/bbq/video/api/http/v1:go_default_library",
-        "//app/service/bbq/video/conf:go_default_library",
-        "//app/service/bbq/video/dao:go_default_library",
-        "//app/service/bbq/video/model:go_default_library",
-        "//app/service/bbq/video/model/grpc:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/bbq/common/db/bbq",
+        "//app/service/bbq/topic/api",
+        "//app/service/bbq/video/api/grpc/v1:grpc",
+        "//app/service/bbq/video/api/http/v1:http",
+        "//app/service/bbq/video/conf",
+        "//app/service/bbq/video/dao",
+        "//app/service/bbq/video/model",
+        "//app/service/bbq/video/model/grpc",
+        "//library/conf/env",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -51,12 +51,12 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/bbq/video/api/grpc/v1:go_default_library",
-        "//app/service/bbq/video/conf:go_default_library",
+        "//app/service/bbq/video/api/grpc/v1:grpc",
+        "//app/service/bbq/video/conf",
     ],
 )

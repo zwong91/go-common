@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "popular",
     srcs = [
         "event_topic.go",
         "service.go",
@@ -14,13 +14,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/dao/show:go_default_library",
-        "//app/admin/main/feed/model/common:go_default_library",
-        "//app/admin/main/feed/model/show:go_default_library",
-        "//app/admin/main/feed/util:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/dao/show",
+        "//app/admin/main/feed/model/common",
+        "//app/admin/main/feed/model/show",
+        "//app/admin/main/feed/util",
+        "//library/log",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

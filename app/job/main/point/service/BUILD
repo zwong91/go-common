@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/point/conf:go_default_library",
-        "//app/job/main/point/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/point/conf",
+        "//app/job/main/point/model",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "point.go",
         "service.go",
@@ -31,15 +31,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/point/conf:go_default_library",
-        "//app/job/main/point/dao:go_default_library",
-        "//app/job/main/point/model:go_default_library",
-        "//app/service/main/point/model:go_default_library",
-        "//app/service/main/point/rpc/client:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
+        "//app/job/main/point/conf",
+        "//app/job/main/point/dao",
+        "//app/job/main/point/model",
+        "//app/service/main/point/model",
+        "//app/service/main/point/rpc/client",
+        "//library/database/sql",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
     ],
 )
 

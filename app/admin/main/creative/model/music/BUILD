@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "music",
     srcs = [
         "category.go",
         "material.go",
@@ -15,7 +15,7 @@ go_library(
     importpath = "go-common/app/admin/main/creative/model/music",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

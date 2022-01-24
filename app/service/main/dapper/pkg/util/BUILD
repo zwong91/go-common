@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "util",
     srcs = ["handlersignal.go"],
     importpath = "go-common/app/service/main/dapper/pkg/util",
     tags = ["automanaged"],

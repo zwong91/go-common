@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tab",
     srcs = ["tab.go"],
     importpath = "go-common/app/interface/main/app-channel/model/tab",
     tags = ["automanaged"],

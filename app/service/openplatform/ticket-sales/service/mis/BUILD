@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mis",
     srcs = [
         "promotion_group.go",
         "service.go",
@@ -15,11 +15,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/ticket-sales/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-sales/conf:go_default_library",
-        "//app/service/openplatform/ticket-sales/dao:go_default_library",
-        "//app/service/openplatform/ticket-sales/model:go_default_library",
-        "//library/ecode:go_default_library",
+        "//app/service/openplatform/ticket-sales/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-sales/conf",
+        "//app/service/openplatform/ticket-sales/dao",
+        "//app/service/openplatform/ticket-sales/model",
+        "//library/ecode",
     ],
 )
 

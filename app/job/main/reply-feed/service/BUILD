@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "databus.go",
         "loader.go",
@@ -20,17 +20,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/reply-feed/conf:go_default_library",
-        "//app/job/main/reply-feed/dao:go_default_library",
-        "//app/job/main/reply-feed/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/netutil:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/ivpusic/grpool:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/job/main/reply-feed/conf",
+        "//app/job/main/reply-feed/dao",
+        "//app/job/main/reply-feed/model",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/netutil",
+        "//library/queue/databus",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/ivpusic/grpool",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

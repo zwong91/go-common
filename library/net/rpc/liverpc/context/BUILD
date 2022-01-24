@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "context",
     srcs = ["context.go"],
     importpath = "go-common/library/net/rpc/liverpc/context",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/net/rpc/liverpc:go_default_library"],
+    deps = ["//library/net/rpc/liverpc"],
 )
 
 filegroup(

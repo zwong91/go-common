@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "liverpc",
     srcs = ["client.go"],
     importpath = "go-common/app/service/live/rankdb/api/liverpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/rankdb/api/liverpc/v1:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
+        "//app/service/live/rankdb/api/liverpc/v1:liverpc",
+        "//library/net/rpc/liverpc",
     ],
 )
 

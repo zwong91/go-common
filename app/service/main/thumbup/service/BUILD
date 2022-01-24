@@ -2,31 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "like_test.go",
         "service_test.go",
         "stats_test.go",
         "user_likes_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/thumbup/conf:go_default_library",
-        "//app/service/main/thumbup/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/thumbup/conf",
+        "//app/service/main/thumbup/model",
+        "//library/cache/redis",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "check.go",
         "has_like.go",
@@ -39,17 +39,17 @@ go_library(
     importpath = "go-common/app/service/main/thumbup/service",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/thumbup/api:go_default_library",
-        "//app/service/main/thumbup/conf:go_default_library",
-        "//app/service/main/thumbup/dao:go_default_library",
-        "//app/service/main/thumbup/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/thumbup/api",
+        "//app/service/main/thumbup/conf",
+        "//app/service/main/thumbup/dao",
+        "//app/service/main/thumbup/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/queue/databus/report",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
     ],
 )
 

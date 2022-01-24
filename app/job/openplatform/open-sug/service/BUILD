@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "databus.go",
         "service.go",
@@ -16,11 +16,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/openplatform/open-sug/conf:go_default_library",
-        "//app/job/openplatform/open-sug/dao:go_default_library",
-        "//app/job/openplatform/open-sug/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
+        "//app/job/openplatform/open-sug/conf",
+        "//app/job/openplatform/open-sug/dao",
+        "//app/job/openplatform/open-sug/model",
+        "//library/log",
+        "//library/queue/databus",
     ],
 )
 

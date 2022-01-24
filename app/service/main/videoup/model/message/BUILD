@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "message",
     srcs = [
         "message.go",
         "message_staff.go",

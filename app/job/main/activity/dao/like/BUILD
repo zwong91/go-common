@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "like_test",
     srcs = [
         "action_test.go",
         "dao_test.go",
@@ -18,19 +18,19 @@ go_test(
         "subject_test.go",
         "web_data_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":like"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/activity/conf:go_default_library",
-        "//app/job/main/activity/model/like:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/job/main/activity/conf",
+        "//app/job/main/activity/model/like",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "like",
     srcs = [
         "action.go",
         "dao.go",
@@ -45,21 +45,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/activity/model:go_default_library",
-        "//app/job/main/activity/conf:go_default_library",
-        "//app/job/main/activity/model/like:go_default_library",
-        "//app/job/main/activity/model/match:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@org_golang_x_net//context:go_default_library",
+        "//app/admin/main/activity/model",
+        "//app/job/main/activity/conf",
+        "//app/job/main/activity/model/like",
+        "//app/job/main/activity/model/match",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/elastic",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/net/context",
     ],
 )
 

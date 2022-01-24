@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/spy/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/spy/api:go_default_library",
-        "//app/service/main/spy/model:go_default_library",
-        "//app/service/main/spy/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/main/spy/api",
+        "//app/service/main/spy/model",
+        "//app/service/main/spy/service",
+        "//library/net/rpc/warden",
     ],
 )
 

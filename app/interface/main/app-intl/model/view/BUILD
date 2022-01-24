@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "view",
     srcs = ["view.go"],
     importpath = "go-common/app/interface/main/app-intl/model/view",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-intl/model:go_default_library",
-        "//app/interface/main/app-intl/model/bangumi:go_default_library",
-        "//app/interface/main/app-intl/model/manager:go_default_library",
-        "//app/interface/main/app-intl/model/tag:go_default_library",
-        "//app/interface/main/dm2/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-intl/model",
+        "//app/interface/main/app-intl/model/bangumi",
+        "//app/interface/main/app-intl/model/manager",
+        "//app/interface/main/app-intl/model/tag",
+        "//app/interface/main/dm2/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/model/archive",
+        "//library/time",
     ],
 )
 

@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/sms/conf:go_default_library",
-        "//app/job/main/sms/model:go_default_library",
-        "//app/service/main/sms/model:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/sms/conf",
+        "//app/job/main/sms/model",
+        "//app/service/main/sms/model",
+        "//library/net/trace",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "callback.go",
         "log.go",
@@ -32,19 +32,19 @@ go_library(
     importpath = "go-common/app/job/main/sms/service",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/sms/conf:go_default_library",
-        "//app/job/main/sms/dao:go_default_library",
-        "//app/job/main/sms/dao/chuanglan:go_default_library",
-        "//app/job/main/sms/dao/mengwang:go_default_library",
-        "//app/job/main/sms/model:go_default_library",
-        "//app/service/main/sms/api:go_default_library",
-        "//app/service/main/sms/model:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
+        "//app/job/main/sms/conf",
+        "//app/job/main/sms/dao",
+        "//app/job/main/sms/dao/chuanglan",
+        "//app/job/main/sms/dao/mengwang",
+        "//app/job/main/sms/model",
+        "//app/service/main/sms/api",
+        "//app/service/main/sms/model",
+        "//library/conf/env",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/queue/databus/report",
+        "//library/sync/errgroup",
+        "//library/sync/pipeline/fanout",
     ],
 )
 

@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "hbaseutil_test",
     srcs = ["parser_test.go"],
-    embed = [":go_default_library"],
+    embed = [":hbaseutil"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/tsuna/gohbase/hrpc:go_default_library"],
+    deps = ["//vendor/github.com/tsuna/gohbase/hrpc"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "hbaseutil",
     srcs = ["parser.go"],
     importpath = "go-common/app/admin/main/up/util/hbaseutil",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//library/log",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 

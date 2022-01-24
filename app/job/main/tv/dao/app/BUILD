@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "app_test",
     srcs = [
         "cont_del_test.go",
         "cont_sync_test.go",
@@ -24,21 +24,21 @@ go_test(
         "sync_retry_test.go",
         "zone_index_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":app"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/model/common:go_default_library",
-        "//app/job/main/tv/model/pgc:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/model/common",
+        "//app/job/main/tv/model/pgc",
+        "//library/database/sql",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "app",
     srcs = [
         "cont_del.go",
         "cont_sync.go",
@@ -58,16 +58,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/tv/conf:go_default_library",
-        "//app/job/main/tv/model/common:go_default_library",
-        "//app/job/main/tv/model/pgc:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/tv/conf",
+        "//app/job/main/tv/model/common",
+        "//app/job/main/tv/model/pgc",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//library/xstr",
     ],
 )
 

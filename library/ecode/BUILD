@@ -2,29 +2,31 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "ecode_test",
     srcs = [
         "ecode_test.go",
+        "example_test.go",
         "status_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":ecode"],
     rundir = ".",
     tags = ["manual"],
     deps = [
-        "//library/ecode/internal/types:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/github.com/stretchr/testify/assert:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:timestamp_go_proto",
+        "//library/ecode/internal/types",
+        "//vendor/github.com/golang/protobuf/ptypes/timestamp",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/github.com/stretchr/testify/assert",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ecode",
     srcs = [
         "bbq_ecode.go",
         "common_ecode.go",
@@ -39,15 +41,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/ecode/internal/types:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//ptypes:go_default_library_gen",
+        "//library/ecode/internal/types",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/ptypes",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
 go_test(
-    name = "go_default_xtest",
+    name = "go_default_test",
     srcs = ["example_test.go"],
     tags = ["automanaged"],
     deps = [

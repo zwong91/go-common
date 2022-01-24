@@ -2,26 +2,26 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/member/conf:go_default_library",
-        "//app/job/main/member/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/member/conf",
+        "//app/job/main/member/model",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "base.go",
         "cache_delay.go",
@@ -37,22 +37,22 @@ go_library(
     importpath = "go-common/app/job/main/member/service",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/service/realname/crypto:go_default_library",
-        "//app/job/main/member/conf:go_default_library",
-        "//app/job/main/member/dao:go_default_library",
-        "//app/job/main/member/model:go_default_library",
-        "//app/job/main/member/model/queue:go_default_library",
-        "//app/job/main/member/service/block:go_default_library",
-        "//app/service/main/member/api/gorpc:go_default_library",
-        "//app/service/main/member/model:go_default_library",
-        "//app/service/main/share/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/ip:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/queue/databus/databusutil:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/golang.org/x/time/rate:go_default_library",
+        "//app/interface/main/account/service/realname/crypto",
+        "//app/job/main/member/conf",
+        "//app/job/main/member/dao",
+        "//app/job/main/member/model",
+        "//app/job/main/member/model/queue",
+        "//app/job/main/member/service/block",
+        "//app/service/main/member/api/gorpc",
+        "//app/service/main/member/model",
+        "//app/service/main/share/model",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/ip",
+        "//library/queue/databus",
+        "//library/queue/databus/databusutil",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/golang.org/x/time/rate",
     ],
 )
 

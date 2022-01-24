@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "search_test.go",
         "service_test.go",
         "video_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/videoup-task/conf:go_default_library",
-        "//app/admin/main/videoup-task/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/videoup-task/conf",
+        "//app/admin/main/videoup-task/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "consumer.go",
         "extra_func.go",
@@ -45,21 +45,21 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/videoup-task/conf:go_default_library",
-        "//app/admin/main/videoup-task/dao:go_default_library",
-        "//app/admin/main/videoup-task/model:go_default_library",
-        "//app/admin/main/videoup/model/archive:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/up/api/v1:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/queue/databus/report:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/admin/main/videoup-task/conf",
+        "//app/admin/main/videoup-task/dao",
+        "//app/admin/main/videoup-task/model",
+        "//app/admin/main/videoup/model/archive",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/up/api/v1:api",
+        "//library/database/elastic",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/queue/databus/report",
+        "//library/sync/errgroup",
+        "//library/xstr",
     ],
 )
 

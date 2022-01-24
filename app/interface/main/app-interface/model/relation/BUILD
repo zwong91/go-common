@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "relation",
     srcs = ["relation.go"],
     importpath = "go-common/app/interface/main/app-interface/model/relation",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/relation/model:go_default_library",
+        "//app/service/main/account/api",
+        "//app/service/main/relation/model",
     ],
 )
 

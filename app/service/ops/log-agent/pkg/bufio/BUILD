@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bufio",
     srcs = ["bufio.go"],
     importpath = "go-common/app/service/ops/log-agent/pkg/bufio",
     tags = ["automanaged"],

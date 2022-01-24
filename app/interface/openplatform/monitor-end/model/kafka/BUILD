@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "kafka",
     srcs = ["kafka.go"],
     importpath = "go-common/app/interface/openplatform/monitor-end/model/kafka",
     tags = ["automanaged"],

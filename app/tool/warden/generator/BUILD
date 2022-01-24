@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "generator_test",
     srcs = ["genservice_test.go"],
-    embed = [":go_default_library"],
+    embed = [":generator"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "generator",
     srcs = [
         "gencscode.go",
         "genservice.go",
@@ -25,8 +25,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/warden/generator/templates:go_default_library",
-        "//app/tool/warden/types:go_default_library",
+        "//app/tool/warden/generator/templates",
+        "//app/tool/warden/types",
     ],
 )
 

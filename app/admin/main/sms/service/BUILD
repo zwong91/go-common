@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["service_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/sms/conf:go_default_library",
-        "//app/service/main/sms/api:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/sms/conf",
+        "//app/service/main/sms/api",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "service.go",
         "task.go",
@@ -29,14 +29,14 @@ go_library(
     importpath = "go-common/app/admin/main/sms/service",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/sms/conf:go_default_library",
-        "//app/admin/main/sms/dao:go_default_library",
-        "//app/service/main/sms/api:go_default_library",
-        "//app/service/main/sms/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/sms/conf",
+        "//app/admin/main/sms/dao",
+        "//app/service/main/sms/api",
+        "//app/service/main/sms/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

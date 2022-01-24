@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "account_test",
     srcs = [
         "card_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":account"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/service/main/account/model",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "account",
     srcs = [
         "card.go",
         "dao.go",
@@ -32,11 +32,11 @@ go_library(
     importpath = "go-common/app/interface/main/tv/dao/account",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/tv/conf:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/tv/conf",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

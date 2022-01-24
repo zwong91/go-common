@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "backup.go",
         "change-log.go",
@@ -32,18 +32,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/location/api:go_default_library",
-        "//app/service/video/stream-mng/common:go_default_library",
-        "//app/service/video/stream-mng/conf:go_default_library",
-        "//app/service/video/stream-mng/dao:go_default_library",
-        "//app/service/video/stream-mng/model:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
+        "//app/service/main/location/api",
+        "//app/service/video/stream-mng/common",
+        "//app/service/video/stream-mng/conf",
+        "//app/service/video/stream-mng/dao",
+        "//app/service/video/stream-mng/model",
+        "//library/conf/env",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/net/rpc/warden",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//vendor/github.com/robfig/cron",
     ],
 )
 

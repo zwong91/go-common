@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -19,24 +20,17 @@ proto_library(
 
 go_proto_library(
     name = "types_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:go_proto"],
     importpath = "go-common/library/ecode/internal/types",
     proto = ":types_proto",
     tags = ["automanaged"],
-    deps = ["@io_bazel_rules_go//proto/wkt:any_go_proto"],
 )
 
 go_library(
-    name = "go_default_library",
-    srcs = [],
+    name = "types",
     embed = [":types_go_proto"],
     importpath = "go-common/library/ecode/internal/types",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = [
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:any_go_proto",
-    ],
 )
 
 filegroup(

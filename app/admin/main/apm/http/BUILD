@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "app.go",
         "canal.go",
@@ -31,24 +31,24 @@ go_library(
     importpath = "go-common/app/admin/main/apm/http",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/apm/conf:go_default_library",
-        "//app/admin/main/apm/model/app:go_default_library",
-        "//app/admin/main/apm/model/canal:go_default_library",
-        "//app/admin/main/apm/model/databus:go_default_library",
-        "//app/admin/main/apm/model/ecode:go_default_library",
-        "//app/admin/main/apm/model/need:go_default_library",
-        "//app/admin/main/apm/model/pprof:go_default_library",
-        "//app/admin/main/apm/model/user:go_default_library",
-        "//app/admin/main/apm/model/ut:go_default_library",
-        "//app/admin/main/apm/service:go_default_library",
-        "//app/tool/saga/model:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/binding:go_default_library",
-        "//library/net/http/blademaster/middleware/permit:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/apm/conf",
+        "//app/admin/main/apm/model/app",
+        "//app/admin/main/apm/model/canal",
+        "//app/admin/main/apm/model/databus",
+        "//app/admin/main/apm/model/ecode",
+        "//app/admin/main/apm/model/need",
+        "//app/admin/main/apm/model/pprof",
+        "//app/admin/main/apm/model/user",
+        "//app/admin/main/apm/model/ut",
+        "//app/admin/main/apm/service",
+        "//app/tool/saga/model",
+        "//library/conf/env",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/binding",
+        "//library/net/http/blademaster/middleware/permit",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 
@@ -67,7 +67,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "http_test",
     srcs = [
         "apply_test.go",
         "canal_test.go",
@@ -78,16 +78,16 @@ go_test(
         "upload_test.go",
         "user_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":http"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/apm/conf:go_default_library",
-        "//app/admin/main/apm/model/canal:go_default_library",
-        "//app/admin/main/apm/model/need:go_default_library",
-        "//app/admin/main/apm/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/apm/conf",
+        "//app/admin/main/apm/model/canal",
+        "//app/admin/main/apm/model/need",
+        "//app/admin/main/apm/service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

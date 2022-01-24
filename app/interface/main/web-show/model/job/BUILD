@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "job",
     srcs = ["job.go"],
     importpath = "go-common/app/interface/main/web-show/model/job",
     tags = ["automanaged"],

@@ -2,23 +2,23 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "mysql_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "bfs.go",
         "dao.go",
@@ -31,18 +31,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/openplatform/sug/conf:go_default_library",
-        "//app/admin/openplatform/sug/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/code.google.com/p/graphics-go/graphics:go_default_library",
-        "//vendor/github.com/golang/freetype:go_default_library",
-        "//vendor/golang.org/x/image/font:go_default_library",
-        "//vendor/golang.org/x/image/math/fixed:go_default_library",
-        "//vendor/gopkg.in/olivere/elastic.v5:go_default_library",
+        "//app/admin/openplatform/sug/conf",
+        "//app/admin/openplatform/sug/model",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/code.google.com/p/graphics-go/graphics",
+        "//vendor/github.com/golang/freetype",
+        "//vendor/golang.org/x/image/font",
+        "//vendor/golang.org/x/image/math/fixed",
+        "//vendor/gopkg.in/olivere/elastic.v5:elastic_v5",
     ],
 )
 

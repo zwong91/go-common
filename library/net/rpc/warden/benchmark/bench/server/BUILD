@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "server",
-    embed = [":go_default_library"],
+    embed = [":server_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server_lib",
     srcs = ["server.go"],
     importpath = "go-common/library/net/rpc/warden/benchmark/bench/server",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/benchmark/bench/proto:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/prometheus/client_golang/prometheus/promhttp:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/benchmark/bench/proto",
+        "//library/time",
+        "//vendor/github.com/prometheus/client_golang/prometheus/promhttp",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = [
         "authority.go",
         "csv.go",
@@ -19,14 +19,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up-rating/conf:go_default_library",
-        "//app/admin/main/up-rating/model:go_default_library",
-        "//app/admin/main/up-rating/service:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/render:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/up-rating/conf",
+        "//app/admin/main/up-rating/model",
+        "//app/admin/main/up-rating/service",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/render",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

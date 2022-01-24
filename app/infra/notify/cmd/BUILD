@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["notify-test.toml"],
     importpath = "go-common/app/infra/notify/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/infra/notify/conf:go_default_library",
-        "//app/infra/notify/http:go_default_library",
-        "//library/log:go_default_library",
+        "//app/infra/notify/conf",
+        "//app/infra/notify/http",
+        "//library/log",
     ],
 )
 

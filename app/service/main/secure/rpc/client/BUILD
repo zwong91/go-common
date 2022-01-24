@@ -5,24 +5,24 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = ["secure.go"],
     importpath = "go-common/app/service/main/secure/rpc/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/secure/model:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/service/main/secure/model",
+        "//library/net/rpc",
     ],
 )
 
 go_test(
-    name = "go_default_test",
+    name = "client_test",
     srcs = ["secure_test.go"],
-    embed = [":go_default_library"],
+    embed = [":client"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//app/service/main/secure/model:go_default_library"],
+    deps = ["//app/service/main/secure/model"],
 )
 
 filegroup(

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "genbm",
     srcs = [
         "bm_generate.go",
         "genbm.go",
@@ -16,13 +16,13 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/protoc-gen-bm/generator:go_default_library",
-        "//app/tool/protoc-gen-bm/util:go_default_library",
-        "//vendor/github.com/golang/glog:go_default_library",
-        "//vendor/google.golang.org/genproto/googleapis/api/annotations:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/descriptor:go_default_library",
-        "@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library",
+        "//app/tool/protoc-gen-bm/generator",
+        "//app/tool/protoc-gen-bm/util",
+        "//vendor/github.com/golang/glog",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/descriptor",
+        "//vendor/github.com/golang/protobuf/protoc-gen-go/plugin",
+        "//vendor/google.golang.org/genproto/googleapis/api/annotations",
     ],
 )
 

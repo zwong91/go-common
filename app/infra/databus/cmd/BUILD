@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["databus-test.toml"],
     importpath = "go-common/app/infra/databus/cmd",
     tags = ["automanaged"],
     deps = [
-        "//app/infra/databus/conf:go_default_library",
-        "//app/infra/databus/http:go_default_library",
-        "//app/infra/databus/service:go_default_library",
-        "//app/infra/databus/tcp:go_default_library",
-        "//library/log:go_default_library",
+        "//app/infra/databus/conf",
+        "//app/infra/databus/http",
+        "//app/infra/databus/service",
+        "//app/infra/databus/tcp",
+        "//library/log",
     ],
 )
 

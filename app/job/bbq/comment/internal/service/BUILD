@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/job/bbq/comment/internal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/bbq/comment/internal/dao:go_default_library",
-        "//library/conf/paladin:go_default_library",
+        "//app/job/bbq/comment/internal/dao",
+        "//library/conf/paladin",
     ],
 )
 

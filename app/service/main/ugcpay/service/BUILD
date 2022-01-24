@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "asset.go",
         "income.go",
@@ -19,15 +19,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/ugcpay/conf:go_default_library",
-        "//app/service/main/ugcpay/dao:go_default_library",
-        "//app/service/main/ugcpay/model:go_default_library",
-        "//app/service/main/ugcpay/service/pay:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/ugcpay/conf",
+        "//app/service/main/ugcpay/dao",
+        "//app/service/main/ugcpay/model",
+        "//app/service/main/ugcpay/service/pay",
+        "//library/cache",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -49,13 +49,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["income_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/ugcpay/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/ugcpay/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

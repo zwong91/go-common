@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "extension.go",
         "service.go",
@@ -17,14 +17,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/topic/api:go_default_library",
-        "//app/service/bbq/topic/internal/dao:go_default_library",
-        "//app/service/bbq/topic/internal/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/errgroup.v2:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/bbq/topic/api",
+        "//app/service/bbq/topic/internal/dao",
+        "//app/service/bbq/topic/internal/model",
+        "//library/conf/paladin",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/errgroup.v2:errgroup_v2",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
     ],
 )
 
@@ -43,19 +43,19 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "extension_test.go",
         "service_test.go",
         "topic_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/bbq/topic/api:go_default_library",
-        "//app/service/bbq/topic/internal/model:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/bbq/topic/api",
+        "//app/service/bbq/topic/internal/model",
+        "//library/conf/paladin",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

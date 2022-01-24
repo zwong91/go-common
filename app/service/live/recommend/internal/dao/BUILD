@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "online_filter.go",
@@ -17,18 +17,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/recommend/internal/conf:go_default_library",
-        "//app/service/live/recommend/recconst:go_default_library",
-        "//app/service/live/relation/api/liverpc:go_default_library",
-        "//app/service/live/relation/api/liverpc/v1:go_default_library",
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//app/service/live/room/api/liverpc/v1:go_default_library",
-        "//app/service/live/room/api/liverpc/v2:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/live/recommend/internal/conf",
+        "//app/service/live/recommend/recconst",
+        "//app/service/live/relation/api/liverpc",
+        "//app/service/live/relation/api/liverpc/v1:liverpc",
+        "//app/service/live/room/api/liverpc",
+        "//app/service/live/room/api/liverpc/v1:liverpc",
+        "//app/service/live/room/api/liverpc/v2:liverpc",
+        "//library/cache/redis",
+        "//library/log",
+        "//library/net/rpc/liverpc",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -47,15 +47,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "room_feature_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/recommend/internal/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/recommend/internal/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

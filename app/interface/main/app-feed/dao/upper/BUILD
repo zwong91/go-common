@@ -2,27 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "upper_test",
     srcs = [
         "dao_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":upper"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-feed/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upper",
     srcs = [
         "dao.go",
         "redis.go",
@@ -30,17 +30,17 @@ go_library(
     importpath = "go-common/app/interface/main/app-feed/dao/upper",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//app/interface/openplatform/article/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/feed/model:go_default_library",
-        "//app/service/main/feed/rpc/client:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-feed/conf",
+        "//app/interface/openplatform/article/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/feed/model",
+        "//app/service/main/feed/rpc/client",
+        "//library/cache/redis",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

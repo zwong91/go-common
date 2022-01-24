@@ -6,16 +6,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/interface/live/lottery-interface/internal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/lottery-interface/internal/conf:go_default_library",
-        "//app/service/live/live_riskcontrol/api/grpc/v1:go_default_library",
-        "//app/service/live/xlottery/api/grpc/v1:go_default_library",
-        "//library/log/infoc:go_default_library",
+        "//app/interface/live/lottery-interface/internal/conf",
+        "//app/service/live/live_riskcontrol/api/grpc/v1:grpc",
+        "//app/service/live/xlottery/api/grpc/v1:grpc",
+        "//library/log/infoc",
     ],
 )
 

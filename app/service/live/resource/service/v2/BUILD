@@ -7,18 +7,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["userResource.go"],
     importpath = "go-common/app/service/live/resource/service/v2",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/resource/api/grpc/v2:go_default_library",
-        "//app/service/live/resource/conf:go_default_library",
-        "//app/service/live/resource/dao:go_default_library",
-        "//app/service/live/resource/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/resource/api/grpc/v2:grpc",
+        "//app/service/live/resource/conf",
+        "//app/service/live/resource/dao",
+        "//app/service/live/resource/model",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 
@@ -37,13 +37,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = ["userResource_test.go"],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/live/resource/api/grpc/v2:go_default_library",
-        "//app/service/live/resource/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/live/resource/api/grpc/v2:grpc",
+        "//app/service/live/resource/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

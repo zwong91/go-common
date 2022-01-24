@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "income.go",
         "service.go",
@@ -16,10 +16,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/ugcpay/conf:go_default_library",
-        "//app/interface/main/ugcpay/dao:go_default_library",
-        "//app/interface/main/ugcpay/model:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/ugcpay/conf",
+        "//app/interface/main/ugcpay/dao",
+        "//app/interface/main/ugcpay/model",
+        "//library/log",
     ],
 )
 

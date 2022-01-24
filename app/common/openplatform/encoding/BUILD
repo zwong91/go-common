@@ -2,21 +2,21 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "encoding_test",
     srcs = ["encoding_test.go"],
-    embed = [":go_default_library"],
+    embed = [":encoding"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "encoding",
     srcs = ["encoding.go"],
     importpath = "go-common/app/common/openplatform/encoding",
     tags = ["automanaged"],

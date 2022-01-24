@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "server",
     srcs = ["rpc.go"],
     importpath = "go-common/app/interface/main/activity/rpc/server",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/model/like:go_default_library",
-        "//app/interface/main/activity/service/like:go_default_library",
-        "//library/net/rpc:go_default_library",
-        "//library/net/rpc/context:go_default_library",
-        "//library/net/rpc/interceptor:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/model/like",
+        "//app/interface/main/activity/service/like",
+        "//library/net/rpc",
+        "//library/net/rpc/context",
+        "//library/net/rpc/interceptor",
     ],
 )
 

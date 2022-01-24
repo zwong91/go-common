@@ -2,38 +2,38 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "grpc_test",
     srcs = ["server_test.go"],
-    embed = [":go_default_library"],
+    embed = [":grpc"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/ticket-item/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//app/service/openplatform/ticket-item/model:go_default_library",
-        "//app/service/openplatform/ticket-item/service:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/openplatform/ticket-item/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-item/conf",
+        "//app/service/openplatform/ticket-item/model",
+        "//app/service/openplatform/ticket-item/service",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/openplatform/ticket-item/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/openplatform/ticket-item/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//app/service/openplatform/ticket-item/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//app/service/openplatform/ticket-item/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-item/conf",
+        "//app/service/openplatform/ticket-item/service",
+        "//library/log",
+        "//library/net/rpc/warden",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 

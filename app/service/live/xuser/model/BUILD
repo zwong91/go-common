@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "model.go",
         "roomAdmin.go",
@@ -15,8 +15,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xuser/api/grpc:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/live/xuser/api/grpc",
+        "//library/time",
     ],
 )
 

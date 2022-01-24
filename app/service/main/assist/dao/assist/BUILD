@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "assist_test",
     srcs = [
         "assist_redis_test.go",
         "assist_test.go",
@@ -15,19 +15,19 @@ go_test(
         "log_test.go",
         "mc_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":assist"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/assist/conf:go_default_library",
-        "//app/service/main/assist/model/assist:go_default_library",
-        "//library/ecode:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/assist/conf",
+        "//app/service/main/assist/model/assist",
+        "//library/ecode",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "assist",
     srcs = [
         "assist.go",
         "assist_redis.go",
@@ -39,15 +39,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/assist/conf:go_default_library",
-        "//app/service/main/assist/model/assist:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/service/main/assist/conf",
+        "//app/service/main/assist/model/assist",
+        "//library/cache/memcache",
+        "//library/cache/redis",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

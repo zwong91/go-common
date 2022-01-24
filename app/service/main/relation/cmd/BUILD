@@ -8,26 +8,26 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["relation-service-example.toml"],
     importpath = "go-common/app/service/main/relation/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/relation/conf:go_default_library",
-        "//app/service/main/relation/http:go_default_library",
-        "//app/service/main/relation/rpc/server:go_default_library",
-        "//app/service/main/relation/server/grpc:go_default_library",
-        "//app/service/main/relation/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//library/queue/databus/report:go_default_library",
+        "//app/service/main/relation/conf",
+        "//app/service/main/relation/http",
+        "//app/service/main/relation/rpc/server",
+        "//app/service/main/relation/server/grpc",
+        "//app/service/main/relation/service",
+        "//library/log",
+        "//library/net/trace",
+        "//library/queue/databus/report",
     ],
 )
 

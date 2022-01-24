@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "mail.go",
         "service.go",
@@ -16,12 +16,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/laser/conf:go_default_library",
-        "//app/interface/main/laser/dao:go_default_library",
-        "//app/interface/main/laser/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
+        "//app/interface/main/laser/conf",
+        "//app/interface/main/laser/dao",
+        "//app/interface/main/laser/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/stat/prom",
     ],
 )
 

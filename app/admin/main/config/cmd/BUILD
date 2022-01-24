@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["config-admin-example.toml"],
     importpath = "go-common/app/admin/main/config/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/config/conf:go_default_library",
-        "//app/admin/main/config/http:go_default_library",
-        "//app/admin/main/config/pkg/lint/json:go_default_library",
-        "//app/admin/main/config/pkg/lint/toml:go_default_library",
-        "//app/admin/main/config/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/config/conf",
+        "//app/admin/main/config/http",
+        "//app/admin/main/config/pkg/lint/json",
+        "//app/admin/main/config/pkg/lint/toml",
+        "//app/admin/main/config/service",
+        "//library/log",
     ],
 )
 

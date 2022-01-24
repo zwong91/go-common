@@ -2,20 +2,20 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "upcrm_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":upcrm"],
     tags = ["automanaged"],
-    deps = ["//app/job/main/up/conf:go_default_library"],
+    deps = ["//app/job/main/up/conf"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upcrm",
     srcs = [
         "dao.go",
         "sign_up.go",
@@ -26,14 +26,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/up/util/now:go_default_library",
-        "//app/job/main/up/conf:go_default_library",
-        "//app/job/main/up/model/signmodel:go_default_library",
-        "//app/job/main/up/model/upcrmmodel:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/admin/main/up/util/now",
+        "//app/job/main/up/conf",
+        "//app/job/main/up/model/signmodel",
+        "//app/job/main/up/model/upcrmmodel",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

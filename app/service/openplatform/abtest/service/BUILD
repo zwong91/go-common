@@ -2,30 +2,30 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "abtest_test.go",
         "cache_test.go",
         "group_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/abtest/conf:go_default_library",
-        "//app/service/openplatform/abtest/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/openplatform/abtest/conf",
+        "//app/service/openplatform/abtest/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "abtest.go",
         "cache.go",
@@ -35,12 +35,12 @@ go_library(
     importpath = "go-common/app/service/openplatform/abtest/service",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/abtest/conf:go_default_library",
-        "//app/service/openplatform/abtest/dao:go_default_library",
-        "//app/service/openplatform/abtest/model:go_default_library",
-        "//app/service/openplatform/abtest/model/jump:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/openplatform/abtest/conf",
+        "//app/service/openplatform/abtest/dao",
+        "//app/service/openplatform/abtest/model",
+        "//app/service/openplatform/abtest/model/jump",
+        "//library/cache/redis",
+        "//library/log",
     ],
 )
 

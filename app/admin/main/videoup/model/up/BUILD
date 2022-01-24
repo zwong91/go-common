@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "up",
     srcs = ["credit.go"],
     importpath = "go-common/app/admin/main/videoup/model/up",
     tags = ["automanaged"],

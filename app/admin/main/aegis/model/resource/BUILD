@@ -7,14 +7,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "resource",
     srcs = ["resource.go"],
     importpath = "go-common/app/admin/main/aegis/model/resource",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//library/log",
+        "//library/time",
     ],
 )
 
@@ -33,9 +33,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "resource_test",
     srcs = ["resource_test.go"],
-    embed = [":go_default_library"],
+    embed = [":resource"],
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )

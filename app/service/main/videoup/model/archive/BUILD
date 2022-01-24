@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = [
         "archive.go",
         "archive_state.go",
@@ -28,8 +28,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/time:go_default_library",
+        "//library/log",
+        "//library/time",
     ],
 )
 
@@ -48,9 +48,9 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "archive_test",
     srcs = ["video_test.go"],
-    embed = [":go_default_library"],
+    embed = [":archive"],
     rundir = ".",
     tags = ["automanaged"],
 )

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "ugc",
     srcs = [
         "archive.go",
         "databus.go",
@@ -18,8 +18,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/archive/api",
+        "//library/time",
     ],
 )
 

@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "up_test",
     srcs = [
         "dao_test.go",
         "up_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":up"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "up",
     srcs = [
         "dao.go",
         "up.go",
@@ -32,14 +32,14 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/up:go_default_library",
-        "//app/service/main/up/api/gorpc:go_default_library",
-        "//app/service/main/up/api/v1:go_default_library",
-        "//app/service/main/up/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/up",
+        "//app/service/main/up/api/gorpc",
+        "//app/service/main/up/api/v1:api",
+        "//app/service/main/up/model",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/sync/errgroup",
     ],
 )
 

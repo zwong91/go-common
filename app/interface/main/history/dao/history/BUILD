@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "history_test",
     srcs = [
         "dao_test.go",
         "databus_test.go",
@@ -16,18 +16,18 @@ go_test(
         "hbase_test.go",
         "redis_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":history"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/history/conf:go_default_library",
-        "//app/interface/main/history/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/history/conf",
+        "//app/interface/main/history/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "history",
     srcs = [
         "dao.go",
         "databus.go",
@@ -40,16 +40,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/history/conf:go_default_library",
-        "//app/interface/main/history/model:go_default_library",
-        "//app/service/openplatform/pgc-season/api/grpc/episode/v1:go_default_library",
-        "//library/cache:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//vendor/github.com/tsuna/gohbase/hrpc:go_default_library",
+        "//app/interface/main/history/conf",
+        "//app/interface/main/history/model",
+        "//app/service/openplatform/pgc-season/api/grpc/episode/v1:episode",
+        "//library/cache",
+        "//library/cache/redis",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/log",
+        "//library/net/metadata",
+        "//library/queue/databus",
+        "//vendor/github.com/tsuna/gohbase/hrpc",
     ],
 )
 

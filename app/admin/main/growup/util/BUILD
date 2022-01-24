@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "util",
     srcs = [
         "snow_flake.go",
         "time.go",

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bplus",
     srcs = [
         "bplus.go",
         "from.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/interface/main/app-interface/model/bplus",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

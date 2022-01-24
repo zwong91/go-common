@@ -8,12 +8,12 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = [
         "convey-test.toml",
@@ -23,10 +23,10 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/credit-timer/conf:go_default_library",
-        "//app/job/main/credit-timer/http:go_default_library",
-        "//app/job/main/credit-timer/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/credit-timer/conf",
+        "//app/job/main/credit-timer/http",
+        "//app/job/main/credit-timer/service",
+        "//library/log",
     ],
 )
 

@@ -8,22 +8,22 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["coupon-job.toml"],
     importpath = "go-common/app/job/main/coupon/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/coupon/conf:go_default_library",
-        "//app/job/main/coupon/http:go_default_library",
-        "//app/job/main/coupon/service:go_default_library",
-        "//library/log:go_default_library",
+        "//app/job/main/coupon/conf",
+        "//app/job/main/coupon/http",
+        "//app/job/main/coupon/service",
+        "//library/log",
     ],
 )
 

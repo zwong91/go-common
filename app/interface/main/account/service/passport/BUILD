@@ -7,15 +7,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "passport",
     srcs = ["passport.go"],
     importpath = "go-common/app/interface/main/account/service/passport",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/interface/main/account/dao/passport:go_default_library",
-        "//library/net/metadata:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/interface/main/account/dao/passport",
+        "//library/net/metadata",
     ],
 )
 
@@ -34,12 +34,12 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "passport_test",
     srcs = ["passport_test.go"],
-    embed = [":go_default_library"],
+    embed = [":passport"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

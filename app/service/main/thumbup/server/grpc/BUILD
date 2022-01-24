@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/thumbup/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/thumbup/api:go_default_library",
-        "//app/service/main/thumbup/model:go_default_library",
-        "//app/service/main/thumbup/service:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/main/thumbup/api",
+        "//app/service/main/thumbup/model",
+        "//app/service/main/thumbup/service",
+        "//library/net/rpc/warden",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
     ],
 )
 

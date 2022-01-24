@@ -7,18 +7,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "upcrmmodel",
     srcs = [
         "creditlog.go",
         "score_section_history.go",
         "up_base_info.go",
         "up_score_history.go",
     ],
-    importmap = "go-common/app/service/main/upcredit/model/upcrmmodel",
     importpath = "go-common/app/service/main/upcredit/model/upcrmmodel",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(
@@ -36,13 +35,13 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "upcrmmodel_test",
     srcs = ["creditlog_test.go"],
-    embed = [":go_default_library"],
+    embed = [":upcrmmodel"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//library/time:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//library/time",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

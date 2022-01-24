@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bfs",
     srcs = [
         "dao.go",
         "upload.go",
@@ -16,8 +16,8 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/mcn/conf:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/mcn/conf",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -36,17 +36,17 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "bfs_test",
     srcs = [
         "dao_test.go",
         "upload_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":bfs"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/mcn/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/main/mcn/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

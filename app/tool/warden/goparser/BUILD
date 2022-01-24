@@ -2,25 +2,25 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "goparser_test",
     srcs = ["goparser_test.go"],
-    embed = [":go_default_library"],
+    embed = [":goparser"],
     rundir = ".",
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "goparser",
     srcs = ["goparser.go"],
     importpath = "go-common/app/tool/warden/goparser",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/tool/warden/types:go_default_library"],
+    deps = ["//app/tool/warden/types"],
 )
 
 filegroup(

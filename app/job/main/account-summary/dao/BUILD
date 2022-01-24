@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "member.go",
@@ -19,16 +19,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/account-summary/conf:go_default_library",
-        "//app/job/main/account-summary/model:go_default_library",
-        "//app/service/main/member/api/gorpc:go_default_library",
-        "//app/service/main/relation/rpc/client:go_default_library",
-        "//library/database/hbase.v2:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/job/main/account-summary/conf",
+        "//app/job/main/account-summary/model",
+        "//app/service/main/member/api/gorpc",
+        "//app/service/main/relation/rpc/client",
+        "//library/database/hbase.v2:hbase_v2",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -47,7 +47,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "member_test.go",
@@ -55,11 +55,11 @@ go_test(
         "relation_test.go",
         "summary_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/account-summary/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/account-summary/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

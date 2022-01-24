@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["rtc.go"],
     importpath = "go-common/app/service/live/rtc/internal/service/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/rtc/api/v1:go_default_library",
-        "//app/service/live/rtc/internal/conf:go_default_library",
-        "//app/service/live/rtc/internal/dao:go_default_library",
-        "//app/service/live/rtc/internal/model:go_default_library",
-        "//app/service/live/rtc/internal/service:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/live/rtc/api/v1:api",
+        "//app/service/live/rtc/internal/conf",
+        "//app/service/live/rtc/internal/dao",
+        "//app/service/live/rtc/internal/model",
+        "//app/service/live/rtc/internal/service",
+        "//library/cache/redis",
+        "//library/log",
     ],
 )
 

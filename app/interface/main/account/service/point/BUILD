@@ -7,15 +7,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "point",
     srcs = ["point.go"],
     importpath = "go-common/app/interface/main/account/service/point",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/service/main/point/model:go_default_library",
-        "//app/service/main/point/rpc/client:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/service/main/point/model",
+        "//app/service/main/point/rpc/client",
     ],
 )
 
@@ -34,14 +34,14 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "point_test",
     srcs = ["point_test.go"],
-    embed = [":go_default_library"],
+    embed = [":point"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/account/conf:go_default_library",
-        "//app/service/main/point/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/account/conf",
+        "//app/service/main/point/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

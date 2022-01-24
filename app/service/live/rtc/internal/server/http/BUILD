@@ -6,19 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/service/live/rtc/internal/server/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/rtc/api/v1:go_default_library",
-        "//app/service/live/rtc/internal/conf:go_default_library",
-        "//app/service/live/rtc/internal/service:go_default_library",
-        "//app/service/live/rtc/internal/service/v1:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
+        "//app/service/live/rtc/api/v1:api",
+        "//app/service/live/rtc/internal/conf",
+        "//app/service/live/rtc/internal/service",
+        "//app/service/live/rtc/internal/service/v1:service",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/verify",
     ],
 )
 

@@ -2,35 +2,35 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "kafkacollect_test",
     srcs = ["collect_test.go"],
-    embed = [":go_default_library"],
+    embed = [":kafkacollect"],
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/dapper/model:go_default_library",
-        "//app/service/main/dapper/pkg/process:go_default_library",
-        "//library/log:go_default_library",
+        "//app/service/main/dapper/model",
+        "//app/service/main/dapper/pkg/process",
+        "//library/log",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "kafkacollect",
     srcs = ["collect.go"],
     importpath = "go-common/app/service/main/dapper/pkg/collect/kafkacollect",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/dapper/model:go_default_library",
-        "//app/service/main/dapper/pkg/collect:go_default_library",
-        "//app/service/main/dapper/pkg/process:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//vendor/github.com/Shopify/sarama:go_default_library",
+        "//app/service/main/dapper/model",
+        "//app/service/main/dapper/pkg/collect",
+        "//app/service/main/dapper/pkg/process",
+        "//library/log",
+        "//library/stat/prom",
+        "//vendor/github.com/Shopify/sarama",
     ],
 )
 

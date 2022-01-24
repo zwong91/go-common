@@ -2,34 +2,34 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "kfc_test",
     srcs = ["kfc_test.go"],
-    embed = [":go_default_library"],
+    embed = [":kfc"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "kfc",
     srcs = ["kfc.go"],
     importpath = "go-common/app/interface/main/activity/service/kfc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/activity/conf:go_default_library",
-        "//app/interface/main/activity/dao/kfc:go_default_library",
-        "//app/interface/main/activity/model/kfc:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
+        "//app/interface/main/activity/conf",
+        "//app/interface/main/activity/dao/kfc",
+        "//app/interface/main/activity/model/kfc",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/pipeline/fanout",
     ],
 )
 

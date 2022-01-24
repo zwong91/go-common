@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "audit.go",
         "bilihub.go",
@@ -29,15 +29,15 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/ep/merlin/conf:go_default_library",
-        "//app/admin/ep/merlin/dao:go_default_library",
-        "//app/admin/ep/merlin/model:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//vendor/github.com/robfig/cron:go_default_library",
-        "//vendor/github.com/satori/go.uuid:go_default_library",
-        "//vendor/gopkg.in/gomail.v2:go_default_library",
+        "//app/admin/ep/merlin/conf",
+        "//app/admin/ep/merlin/dao",
+        "//app/admin/ep/merlin/model",
+        "//library/ecode",
+        "//library/log",
+        "//library/sync/pipeline/fanout",
+        "//vendor/github.com/robfig/cron",
+        "//vendor/github.com/satori/go.uuid:go_uuid",
+        "//vendor/gopkg.in/gomail.v2:gomail_v2",
     ],
 )
 
@@ -56,20 +56,20 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "machine_test.go",
         "service_test.go",
         "tree_test.go",
         "user_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/ep/merlin/conf:go_default_library",
-        "//app/admin/ep/merlin/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/h2non/gock.v1:go_default_library",
+        "//app/admin/ep/merlin/conf",
+        "//app/admin/ep/merlin/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/h2non/gock.v1:gock_v1",
     ],
 )

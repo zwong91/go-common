@@ -1,3 +1,5 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
 package(default_visibility = ["//visibility:public"])
 
 load(
@@ -24,33 +26,30 @@ proto_library(
         "venue.proto",
     ],
     tags = ["automanaged"],
-    deps = ["@gogo_special_proto//github.com/gogo/protobuf/gogoproto"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogoproto_proto"],
 )
 
 go_proto_library(
     name = "v1_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:gogofast_grpc"],
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
     importpath = "go-common/app/service/openplatform/ticket-item/api/grpc/v1",
     proto = ":v1_proto",
     tags = ["automanaged"],
-    deps = ["@com_github_gogo_protobuf//gogoproto:go_default_library"],
+    deps = ["//github.com/gogo/protobuf/gogoproto:gogo_proto"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["client.go"],
     embed = [":v1_go_proto"],
     importpath = "go-common/app/service/openplatform/ticket-item/api/grpc/v1",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/log:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/rpc/warden/balancer/wrr:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
-        "@org_golang_x_net//context:go_default_library",
+        "//library/log",
+        "//library/net/rpc/warden",
+        "//library/net/rpc/warden/balancer/wrr",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 

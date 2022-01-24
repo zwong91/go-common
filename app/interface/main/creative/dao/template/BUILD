@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "template",
     srcs = [
         "dao.go",
         "memcache.go",
@@ -17,11 +17,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/template:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/template",
+        "//library/cache/memcache",
+        "//library/database/sql",
+        "//library/log",
     ],
 )
 
@@ -40,18 +40,18 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "template_test",
     srcs = [
         "dao_test.go",
         "memcache_test.go",
         "template_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":template"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/creative/conf:go_default_library",
-        "//app/interface/main/creative/model/template:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/creative/conf",
+        "//app/interface/main/creative/model/template",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

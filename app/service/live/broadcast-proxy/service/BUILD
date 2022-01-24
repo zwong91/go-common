@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["grpc.go"],
     importpath = "go-common/app/service/live/broadcast-proxy/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/broadcast-proxy/api/v1:go_default_library",
-        "//app/service/live/broadcast-proxy/server:go_default_library",
-        "//app/service/live/broadcast-proxy/service/v1:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/time:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
+        "//app/service/live/broadcast-proxy/api/v1:api",
+        "//app/service/live/broadcast-proxy/server",
+        "//app/service/live/broadcast-proxy/service/v1:service",
+        "//library/net/rpc/warden",
+        "//library/time",
+        "//vendor/google.golang.org/grpc",
     ],
 )
 

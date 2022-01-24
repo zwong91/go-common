@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "errors",
     srcs = ["errors.go"],
     importpath = "go-common/app/admin/main/macross/model/errors",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/ecode:go_default_library"],
+    deps = ["//library/ecode"],
 )
 
 filegroup(

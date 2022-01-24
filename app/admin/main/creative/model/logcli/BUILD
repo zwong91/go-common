@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "logcli",
     srcs = ["logcli.go"],
     importpath = "go-common/app/admin/main/creative/model/logcli",
     tags = ["automanaged"],

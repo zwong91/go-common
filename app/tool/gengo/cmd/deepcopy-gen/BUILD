@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "deepcopy-gen",
-    embed = [":go_default_library"],
+    embed = [":deepcopy-gen_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "deepcopy-gen_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/tool/gengo/cmd/deepcopy-gen",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/gengo/args:go_default_library",
-        "//app/tool/gengo/cmd/deepcopy-gen/generators:go_default_library",
-        "//vendor/github.com/golang/glog:go_default_library",
+        "//app/tool/gengo/args",
+        "//app/tool/gengo/cmd/deepcopy-gen/generators",
+        "//vendor/github.com/golang/glog",
     ],
 )
 

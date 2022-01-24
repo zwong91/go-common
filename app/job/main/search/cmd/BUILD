@@ -8,24 +8,24 @@ load(
 
 go_binary(
     name = "cmd",
-    embed = [":go_default_library"],
+    embed = [":cmd_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "cmd_lib",
     srcs = ["main.go"],
     data = ["search-job-test.toml"],
     importpath = "go-common/app/job/main/search/cmd",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/search/conf:go_default_library",
-        "//app/job/main/search/http:go_default_library",
-        "//app/job/main/search/model:go_default_library",
-        "//app/job/main/search/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/trace:go_default_library",
+        "//app/job/main/search/conf",
+        "//app/job/main/search/http",
+        "//app/job/main/search/model",
+        "//app/job/main/search/service",
+        "//library/log",
+        "//library/net/trace",
     ],
 )
 

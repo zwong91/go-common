@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "show",
     srcs = ["show.go"],
     importpath = "go-common/app/interface/main/app-resource/model/show",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-resource/model:go_default_library",
-        "//app/interface/main/app-resource/model/tab:go_default_library",
-        "//app/service/main/resource/model:go_default_library",
+        "//app/interface/main/app-resource/model",
+        "//app/interface/main/app-resource/model/tab",
+        "//app/service/main/resource/model",
     ],
 )
 

@@ -1,29 +1,29 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "gift_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/live/app-room/api/http/v1:go_default_library",
-        "//app/interface/live/app-room/conf:go_default_library",
-        "//app/interface/live/app-room/model:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/live/app-room/api/http/v1:http",
+        "//app/interface/live/app-room/conf",
+        "//app/interface/live/app-room/model",
+        "//library/log",
+        "//library/net/metadata",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "banner.go",
         "gift.go",
@@ -33,18 +33,18 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/app-room/api/http/v1:go_default_library",
-        "//app/interface/live/app-room/conf:go_default_library",
-        "//app/interface/live/app-room/dao:go_default_library",
-        "//app/interface/live/app-room/model:go_default_library",
-        "//app/service/live/gift/api/grpc/v1:go_default_library",
-        "//app/service/live/resource/api/grpc/v1:go_default_library",
-        "//app/service/live/xuserex/api/grpc/v1:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/sync/errgroup:go_default_library",
+        "//app/interface/live/app-room/api/http/v1:http",
+        "//app/interface/live/app-room/conf",
+        "//app/interface/live/app-room/dao",
+        "//app/interface/live/app-room/model",
+        "//app/service/live/gift/api/grpc/v1:grpc",
+        "//app/service/live/resource/api/grpc/v1:grpc",
+        "//app/service/live/xuserex/api/grpc/v1:grpc",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/sync/errgroup",
     ],
 )
 

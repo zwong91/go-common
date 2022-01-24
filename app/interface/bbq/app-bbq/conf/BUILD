@@ -4,7 +4,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "conf",
     srcs = [
         "app.go",
         "conf.go",
@@ -14,20 +14,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/bbq/app-bbq/api/http/v1:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode/tip:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/http/blademaster/middleware/antispam:go_default_library",
-        "//library/net/http/blademaster/middleware/auth:go_default_library",
-        "//library/net/http/blademaster/middleware/verify:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "//library/net/trace:go_default_library",
-        "//vendor/github.com/BurntSushi/toml:go_default_library",
+        "//app/interface/bbq/app-bbq/api/http/v1:http",
+        "//library/cache/redis",
+        "//library/conf/paladin",
+        "//library/database/sql",
+        "//library/ecode/tip",
+        "//library/log",
+        "//library/log/infoc",
+        "//library/net/http/blademaster",
+        "//library/net/http/blademaster/middleware/antispam",
+        "//library/net/http/blademaster/middleware/auth",
+        "//library/net/http/blademaster/middleware/verify",
+        "//library/net/rpc/warden",
+        "//library/net/trace",
+        "//vendor/github.com/BurntSushi/toml",
     ],
 )
 

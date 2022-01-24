@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = ["service.go"],
     importpath = "go-common/app/service/bbq/sys-msg/internal/service",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/bbq/sys-msg/api/v1:go_default_library",
-        "//app/service/bbq/sys-msg/internal/conf:go_default_library",
-        "//app/service/bbq/sys-msg/internal/dao:go_default_library",
-        "//library/log:go_default_library",
-        "@io_bazel_rules_go//proto/wkt:empty_go_proto",
+        "//app/service/bbq/sys-msg/api/v1:api",
+        "//app/service/bbq/sys-msg/internal/conf",
+        "//app/service/bbq/sys-msg/internal/dao",
+        "//library/log",
+        "//vendor/github.com/golang/protobuf/ptypes/empty",
     ],
 )
 

@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client",
     srcs = ["playlist.go"],
     importpath = "go-common/app/interface/main/playlist/rpc/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/playlist/model:go_default_library",
-        "//library/net/rpc:go_default_library",
+        "//app/interface/main/playlist/model",
+        "//library/net/rpc",
     ],
 )
 

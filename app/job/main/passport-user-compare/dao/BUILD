@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "dao.go",
         "duplicate.go",
@@ -20,11 +20,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-user-compare/conf:go_default_library",
-        "//app/job/main/passport-user-compare/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/passport-user-compare/conf",
+        "//app/job/main/passport-user-compare/model",
+        "//library/database/sql",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 
@@ -43,7 +43,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "dao_test.go",
         "duplicate_test.go",
@@ -52,11 +52,11 @@ go_test(
         "user_test.go",
         "wechat_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/passport-user-compare/conf:go_default_library",
-        "//app/job/main/passport-user-compare/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/passport-user-compare/conf",
+        "//app/job/main/passport-user-compare/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

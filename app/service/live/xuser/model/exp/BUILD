@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "exp",
     srcs = ["model.go"],
     importpath = "go-common/app/service/live/xuser/model/exp",
     tags = ["automanaged"],

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "anchorTask",
     srcs = [
         "anchorReward.go",
         "anchorRewardConf.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/service/live/xrewardcenter/model/anchorTask",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

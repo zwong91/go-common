@@ -7,12 +7,11 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "mathutil",
     srcs = [
         "base_utils.go",
         "limiter.go",
     ],
-    importmap = "go-common/app/service/main/upcredit/mathutil",
     importpath = "go-common/app/service/main/upcredit/mathutil",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
@@ -33,10 +32,10 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "mathutil_test",
     srcs = ["limiter_test.go"],
-    embed = [":go_default_library"],
+    embed = [":mathutil"],
     rundir = ".",
     tags = ["automanaged"],
-    deps = ["//vendor/github.com/smartystreets/goconvey/convey:go_default_library"],
+    deps = ["//vendor/github.com/smartystreets/goconvey/convey"],
 )

@@ -8,19 +8,19 @@ load(
 
 go_binary(
     name = "client",
-    embed = [":go_default_library"],
+    embed = [":client_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "client_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/service/live/xlottery/cmd/client",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/live/xlottery/api/grpc/v1:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
+        "//app/service/live/xlottery/api/grpc/v1:grpc",
+        "//library/net/rpc/warden",
     ],
 )
 

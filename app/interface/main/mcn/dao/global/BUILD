@@ -7,7 +7,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "global",
     srcs = [
         "account.go",
         "resource.go",
@@ -16,16 +16,16 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/mcn/conf:go_default_library",
-        "//app/interface/main/tag/api:go_default_library",
-        "//app/service/main/account/api:go_default_library",
-        "//app/service/main/account/model:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/member/api:go_default_library",
-        "//library/cache/memcache:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/mcn/conf",
+        "//app/interface/main/tag/api",
+        "//app/service/main/account/api",
+        "//app/service/main/account/model",
+        "//app/service/main/archive/api",
+        "//app/service/main/member/api",
+        "//library/cache/memcache",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
@@ -44,15 +44,15 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "global_test",
     srcs = [
         "account_test.go",
         "resource_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":global"],
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/mcn/conf:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/mcn/conf",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )

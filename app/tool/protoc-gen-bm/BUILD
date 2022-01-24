@@ -8,21 +8,21 @@ load(
 
 go_binary(
     name = "protoc-gen-bm",
-    embed = [":go_default_library"],
+    embed = [":protoc-gen-bm_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "protoc-gen-bm_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/tool/protoc-gen-bm",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/protoc-gen-bm/codegenerator:go_default_library",
-        "//app/tool/protoc-gen-bm/genbm:go_default_library",
-        "//app/tool/protoc-gen-bm/util:go_default_library",
-        "//vendor/github.com/golang/glog:go_default_library",
+        "//app/tool/protoc-gen-bm/codegenerator",
+        "//app/tool/protoc-gen-bm/genbm",
+        "//app/tool/protoc-gen-bm/util",
+        "//vendor/github.com/golang/glog",
     ],
 )
 

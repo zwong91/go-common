@@ -6,12 +6,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "banner",
     srcs = ["banner.go"],
     importpath = "go-common/app/interface/main/app-card/model/card/banner",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/resource/model:go_default_library"],
+    deps = ["//app/service/main/resource/model"],
 )
 
 filegroup(

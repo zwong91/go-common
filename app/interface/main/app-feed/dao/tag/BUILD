@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "tag_test",
     srcs = [
         "api_test.go",
         "dao_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":tag"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//app/interface/main/app-feed/model/tag:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-feed/conf",
+        "//app/interface/main/app-feed/model/tag",
+        "//app/interface/main/tag/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "tag",
     srcs = [
         "api.go",
         "dao.go",
@@ -32,15 +32,15 @@ go_library(
     importpath = "go-common/app/interface/main/app-feed/dao/tag",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//app/interface/main/app-feed/model/tag:go_default_library",
-        "//app/interface/main/tag/model:go_default_library",
-        "//app/interface/main/tag/rpc/client:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//library/xstr:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/interface/main/app-feed/conf",
+        "//app/interface/main/app-feed/model/tag",
+        "//app/interface/main/tag/model",
+        "//app/interface/main/tag/rpc/client",
+        "//library/ecode",
+        "//library/net/http/blademaster",
+        "//library/net/metadata",
+        "//library/xstr",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

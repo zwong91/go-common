@@ -6,15 +6,15 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "bfs",
     srcs = ["bfs.go"],
     importpath = "go-common/app/admin/main/feed/service/bfs",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/feed/conf:go_default_library",
-        "//app/admin/main/feed/dao/bfs:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/admin/main/feed/conf",
+        "//app/admin/main/feed/dao/bfs",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

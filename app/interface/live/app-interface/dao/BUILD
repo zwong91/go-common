@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "api.go",
         "dao.go",
@@ -15,20 +15,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/app-interface/conf:go_default_library",
-        "//app/service/live/av/api/liverpc:go_default_library",
-        "//app/service/live/fans_medal/api/liverpc:go_default_library",
-        "//app/service/live/live_data/api/liverpc:go_default_library",
-        "//app/service/live/live_user/api/liverpc:go_default_library",
-        "//app/service/live/rankdb/api/liverpc:go_default_library",
-        "//app/service/live/relation/api/liverpc:go_default_library",
-        "//app/service/live/room/api/liverpc:go_default_library",
-        "//app/service/live/room_ex/api/liverpc:go_default_library",
-        "//app/service/live/third_api/bvc:go_default_library",
-        "//app/service/live/third_api/skyhorse:go_default_library",
-        "//app/service/live/userext/api/liverpc:go_default_library",
-        "//app/service/live/xuser/api/grpc/v1:go_default_library",
-        "//library/net/rpc/liverpc:go_default_library",
+        "//app/interface/live/app-interface/conf",
+        "//app/service/live/av/api/liverpc",
+        "//app/service/live/fans_medal/api/liverpc",
+        "//app/service/live/live_data/api/liverpc",
+        "//app/service/live/live_user/api/liverpc",
+        "//app/service/live/rankdb/api/liverpc",
+        "//app/service/live/relation/api/liverpc",
+        "//app/service/live/room/api/liverpc",
+        "//app/service/live/room_ex/api/liverpc",
+        "//app/service/live/third_api/bvc",
+        "//app/service/live/third_api/skyhorse",
+        "//app/service/live/userext/api/liverpc",
+        "//app/service/live/xuser/api/grpc/v1:grpc",
+        "//library/net/rpc/liverpc",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = ["notify.go"],
     importpath = "go-common/app/infra/notify/model",
     tags = ["automanaged"],

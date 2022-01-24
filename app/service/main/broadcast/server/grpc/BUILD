@@ -6,18 +6,18 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "grpc",
     srcs = ["server.go"],
     importpath = "go-common/app/service/main/broadcast/server/grpc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/service/main/broadcast/api/grpc/v1:go_default_library",
-        "//app/service/main/broadcast/service:go_default_library",
-        "//library/conf/paladin:go_default_library",
-        "//library/net/rpc/warden:go_default_library",
-        "@org_golang_google_grpc//:go_default_library",
-        "@org_golang_google_grpc//encoding/gzip:go_default_library",
+        "//app/service/main/broadcast/api/grpc/v1:grpc",
+        "//app/service/main/broadcast/service",
+        "//library/conf/paladin",
+        "//library/net/rpc/warden",
+        "//vendor/google.golang.org/grpc",
+        "//vendor/google.golang.org/grpc/encoding/gzip",
     ],
 )
 

@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "counter",
     srcs = [
         "collector.go",
         "counter.go",
@@ -26,11 +26,11 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//vendor/github.com/beorn7/perks/quantile:go_default_library",
-        "//vendor/github.com/prometheus/client_model/go:go_default_library",
-        "//vendor/github.com/prometheus/common/model:go_default_library",
-        "//vendor/github.com/prometheus/procfs:go_default_library",
-        "@com_github_golang_protobuf//proto:go_default_library",
+        "//vendor/github.com/beorn7/perks/quantile",
+        "//vendor/github.com/golang/protobuf/proto",
+        "//vendor/github.com/prometheus/client_model/go",
+        "//vendor/github.com/prometheus/common/model",
+        "//vendor/github.com/prometheus/procfs",
     ],
 )
 

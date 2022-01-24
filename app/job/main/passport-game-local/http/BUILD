@@ -4,16 +4,16 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "http",
     srcs = ["http.go"],
     importpath = "go-common/app/job/main/passport-game-local/http",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/passport-game-local/conf:go_default_library",
-        "//app/job/main/passport-game-local/service:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
+        "//app/job/main/passport-game-local/conf",
+        "//app/job/main/passport-game-local/service",
+        "//library/log",
+        "//library/net/http/blademaster",
     ],
 )
 

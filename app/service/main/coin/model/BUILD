@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "model",
     srcs = [
         "coin.go",
         "rpc.go",
@@ -14,8 +14,8 @@ go_library(
     importpath = "go-common/app/service/main/coin/model",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//library/time:go_default_library",
+        "//app/service/main/archive/api",
+        "//library/time",
     ],
 )
 

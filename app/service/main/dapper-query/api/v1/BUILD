@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -25,23 +26,37 @@ filegroup(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "api",
     srcs = [
         "api.pb.bm.go",
-        "api.pb.go",
         "marshal.go",
     ],
+    embed = [":v1_go_proto"],
     importpath = "go-common/app/service/main/dapper-query/api/v1",
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/protoc-gen-bm/jsonpb:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "@com_github_gogo_protobuf//gogoproto:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
-        "@com_github_golang_protobuf//jsonpb:go_default_library",
+        "//app/tool/protoc-gen-bm/jsonpb",
+        "//library/net/http/blademaster",
+    ],
+)
+
+proto_library(
+    name = "v1_proto",
+    srcs = ["api.proto"],
+    deps = [
+        "//github.com/gogo/protobuf/gogoproto:gogoproto_proto",
+        "@go_googleapis//google/api:annotations_proto",
+    ],
+)
+
+go_proto_library(
+    name = "v1_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
+    importpath = "go-common/app/service/main/dapper-query/api/v1",
+    proto = ":v1_proto",
+    deps = [
+        "//github.com/gogo/protobuf/gogoproto:gogo_proto",
         "@go_googleapis//google/api:annotations_go_proto",
-        "@org_golang_google_grpc//:go_default_library",
-        "@org_golang_x_net//context:go_default_library",
     ],
 )

@@ -6,20 +6,19 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "feed",
     srcs = ["feed.go"],
-    importmap = "go-common/app/interface/main/app-show/model/feed",
     importpath = "go-common/app/interface/main/app-show/model/feed",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/main/app-card/model/card/live:go_default_library",
-        "//app/interface/main/app-show/model:go_default_library",
-        "//app/interface/main/app-show/model/card:go_default_library",
-        "//app/interface/main/app-show/model/dislike:go_default_library",
-        "//app/interface/main/app-show/model/tag:go_default_library",
-        "//app/service/main/archive/api:go_default_library",
-        "//library/time:go_default_library",
+        "//app/interface/main/app-card/model/card/live",
+        "//app/interface/main/app-show/model",
+        "//app/interface/main/app-show/model/card",
+        "//app/interface/main/app-show/model/dislike",
+        "//app/interface/main/app-show/model/tag",
+        "//app/service/main/archive/api",
+        "//library/time",
     ],
 )
 

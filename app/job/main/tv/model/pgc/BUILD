@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "pgc",
     srcs = [
         "content.go",
         "databus.go",
@@ -21,7 +21,7 @@ go_library(
     importpath = "go-common/app/job/main/tv/model/pgc",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//library/time:go_default_library"],
+    deps = ["//library/time"],
 )
 
 filegroup(

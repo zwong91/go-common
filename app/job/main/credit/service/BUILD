@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "blocked_test.go",
         "case_test.go",
@@ -16,18 +16,18 @@ go_test(
         "reply_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/job/main/credit/conf:go_default_library",
-        "//app/job/main/credit/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/job/main/credit/conf",
+        "//app/job/main/credit/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "blocked.go",
         "case.go",
@@ -42,17 +42,17 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/job/main/credit/conf:go_default_library",
-        "//app/job/main/credit/dao:go_default_library",
-        "//app/job/main/credit/model:go_default_library",
-        "//app/service/main/archive/api/gorpc:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//app/service/main/member/api/gorpc:go_default_library",
-        "//app/service/main/member/model/block:go_default_library",
-        "//library/log:go_default_library",
-        "//library/queue/databus:go_default_library",
-        "//library/time:go_default_library",
-        "//library/xstr:go_default_library",
+        "//app/job/main/credit/conf",
+        "//app/job/main/credit/dao",
+        "//app/job/main/credit/model",
+        "//app/service/main/archive/api/gorpc",
+        "//app/service/main/archive/model/archive",
+        "//app/service/main/member/api/gorpc",
+        "//app/service/main/member/model/block",
+        "//library/log",
+        "//library/queue/databus",
+        "//library/time",
+        "//library/xstr",
     ],
 )
 

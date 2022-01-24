@@ -6,14 +6,14 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "parallel",
     srcs = ["redis.go"],
     importpath = "go-common/app/service/bbq/recsys/dao/parallel",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//library/cache/redis:go_default_library",
-        "//library/log:go_default_library",
+        "//library/cache/redis",
+        "//library/log",
     ],
 )
 

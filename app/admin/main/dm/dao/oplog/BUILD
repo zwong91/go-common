@@ -2,28 +2,28 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "oplog_test",
     srcs = [
         "dao_test.go",
         "query_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":oplog"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/dm/conf:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/dm/conf",
+        "//library/log",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "oplog",
     srcs = [
         "dao.go",
         "query.go",
@@ -32,12 +32,12 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/dm/conf:go_default_library",
-        "//app/admin/main/dm/model/oplog:go_default_library",
-        "//library/conf/env:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/dm/conf",
+        "//app/admin/main/dm/model/oplog",
+        "//library/conf/env",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

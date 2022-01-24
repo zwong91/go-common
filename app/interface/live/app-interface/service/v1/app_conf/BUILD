@@ -6,17 +6,17 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "app_conf",
     srcs = ["app_conf.go"],
     importpath = "go-common/app/interface/live/app-interface/service/v1/app_conf",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/interface/live/app-interface/api/http/v1:go_default_library",
-        "//app/interface/live/app-interface/conf:go_default_library",
-        "//app/service/live/resource/sdk:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
+        "//app/interface/live/app-interface/api/http/v1:http",
+        "//app/interface/live/app-interface/conf",
+        "//app/service/live/resource/sdk",
+        "//library/ecode",
+        "//library/log",
     ],
 )
 

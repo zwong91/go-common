@@ -6,7 +6,7 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "view",
     srcs = [
         "const.go",
         "view.go",
@@ -14,7 +14,7 @@ go_library(
     importpath = "go-common/app/interface/main/tv/model/view",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/service/main/archive/api:go_default_library"],
+    deps = ["//app/service/main/archive/api"],
 )
 
 filegroup(

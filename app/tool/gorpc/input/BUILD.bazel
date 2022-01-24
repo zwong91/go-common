@@ -4,12 +4,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "input",
     srcs = ["input.go"],
     importpath = "go-common/app/tool/gorpc/input",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["//app/tool/gorpc/model:go_default_library"],
+    deps = ["//app/tool/gorpc/model"],
 )
 
 filegroup(

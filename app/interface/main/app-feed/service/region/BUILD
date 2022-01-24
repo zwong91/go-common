@@ -2,29 +2,29 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "region_test",
     srcs = [
         "infoc_test.go",
         "region_test.go",
         "service_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":region"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//app/interface/main/app-feed/model/tag:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/interface/main/app-feed/conf",
+        "//app/interface/main/app-feed/model/tag",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "region",
     srcs = [
         "infoc.go",
         "region.go",
@@ -33,13 +33,13 @@ go_library(
     importpath = "go-common/app/interface/main/app-feed/service/region",
     tags = ["automanaged"],
     deps = [
-        "//app/interface/main/app-feed/conf:go_default_library",
-        "//app/interface/main/app-feed/dao/tag:go_default_library",
-        "//app/interface/main/app-feed/model:go_default_library",
-        "//app/interface/main/app-feed/model/tag:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/log/infoc:go_default_library",
+        "//app/interface/main/app-feed/conf",
+        "//app/interface/main/app-feed/dao/tag",
+        "//app/interface/main/app-feed/model",
+        "//app/interface/main/app-feed/model/tag",
+        "//library/ecode",
+        "//library/log",
+        "//library/log/infoc",
     ],
 )
 

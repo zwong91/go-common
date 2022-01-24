@@ -8,20 +8,20 @@ load(
 
 go_binary(
     name = "warden",
-    embed = [":go_default_library"],
+    embed = [":warden_lib"],
     tags = ["automanaged"],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "warden_lib",
     srcs = ["main.go"],
     importpath = "go-common/app/tool/warden",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/tool/warden/generator:go_default_library",
-        "//app/tool/warden/goparser:go_default_library",
-        "//app/tool/warden/types:go_default_library",
+        "//app/tool/warden/generator",
+        "//app/tool/warden/goparser",
+        "//app/tool/warden/types",
     ],
 )
 

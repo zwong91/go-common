@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "bulletin_test.go",
         "dao_test.go",
@@ -22,21 +22,21 @@ go_test(
         "venue_test.go",
         "version_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/openplatform/ticket-item/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//app/service/openplatform/ticket-item/model:go_default_library",
-        "//library/log:go_default_library",
-        "//vendor/github.com/davecgh/go-spew/spew:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/openplatform/ticket-item/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-item/conf",
+        "//app/service/openplatform/ticket-item/model",
+        "//library/log",
+        "//vendor/github.com/davecgh/go-spew/spew",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "banner.go",
         "bulletin.go",
@@ -60,20 +60,20 @@ go_library(
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/common/openplatform/random:go_default_library",
-        "//app/service/openplatform/ticket-item/api/grpc/v1:go_default_library",
-        "//app/service/openplatform/ticket-item/conf:go_default_library",
-        "//app/service/openplatform/ticket-item/model:go_default_library",
-        "//library/cache/redis:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/database/orm:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/pipeline/fanout:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/jinzhu/gorm:go_default_library",
+        "//app/common/openplatform/random",
+        "//app/service/openplatform/ticket-item/api/grpc/v1:grpc",
+        "//app/service/openplatform/ticket-item/conf",
+        "//app/service/openplatform/ticket-item/model",
+        "//library/cache/redis",
+        "//library/database/elastic",
+        "//library/database/orm",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/pipeline/fanout",
+        "//library/time",
+        "//vendor/github.com/jinzhu/gorm",
     ],
 )
 

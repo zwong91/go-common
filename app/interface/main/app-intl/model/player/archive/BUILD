@@ -1,3 +1,4 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
 load(
     "@io_bazel_rules_go//proto:def.bzl",
     "go_proto_library",
@@ -11,13 +12,12 @@ load(
 )
 
 go_library(
-    name = "go_default_library",
+    name = "archive",
     srcs = ["archive.go"],
     embed = [":archive_go_proto"],
     importpath = "go-common/app/interface/main/app-intl/model/player/archive",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
-    deps = ["@com_github_golang_protobuf//proto:go_default_library"],
 )
 
 filegroup(
@@ -42,7 +42,6 @@ proto_library(
 
 go_proto_library(
     name = "archive_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:go_proto"],
     importpath = "go-common/app/interface/main/app-intl/model/player/archive",
     proto = ":archive_proto",
     tags = ["automanaged"],

@@ -2,12 +2,12 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "service_test",
     srcs = [
         "archive_test.go",
         "region_pb_test.go",
@@ -19,19 +19,19 @@ go_test(
         "upper_test.go",
         "video_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":service"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/conf:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/conf",
+        "//app/service/main/archive/model/archive",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "service",
     srcs = [
         "archive.go",
         "archive_pb.go",
@@ -47,19 +47,19 @@ go_library(
     importpath = "go-common/app/service/main/archive/service",
     tags = ["automanaged"],
     deps = [
-        "//app/service/main/archive/api:go_default_library",
-        "//app/service/main/archive/conf:go_default_library",
-        "//app/service/main/archive/dao/archive:go_default_library",
-        "//app/service/main/archive/dao/share:go_default_library",
-        "//app/service/main/archive/dao/videoshot:go_default_library",
-        "//app/service/main/archive/model/archive:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//library/time:go_default_library",
-        "//vendor/github.com/dgryski/go-farm:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/service/main/archive/api",
+        "//app/service/main/archive/conf",
+        "//app/service/main/archive/dao/archive",
+        "//app/service/main/archive/dao/share",
+        "//app/service/main/archive/dao/videoshot",
+        "//app/service/main/archive/model/archive",
+        "//library/ecode",
+        "//library/log",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//library/time",
+        "//vendor/github.com/dgryski/go-farm",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 

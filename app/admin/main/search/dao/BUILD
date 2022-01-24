@@ -1,7 +1,7 @@
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 package(default_visibility = ["//visibility:public"])
@@ -21,7 +21,7 @@ filegroup(
 )
 
 go_test(
-    name = "go_default_test",
+    name = "dao_test",
     srcs = [
         "archive_test.go",
         "dao_test.go",
@@ -32,19 +32,19 @@ go_test(
         "query_extra_test.go",
         "query_test.go",
     ],
-    embed = [":go_default_library"],
+    embed = [":dao"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/search/conf:go_default_library",
-        "//app/admin/main/search/model:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
-        "//vendor/gopkg.in/olivere/elastic.v5:go_default_library",
+        "//app/admin/main/search/conf",
+        "//app/admin/main/search/model",
+        "//vendor/github.com/smartystreets/goconvey/convey",
+        "//vendor/gopkg.in/olivere/elastic.v5:elastic_v5",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "dao",
     srcs = [
         "archive.go",
         "dao.go",
@@ -58,15 +58,15 @@ go_library(
     importpath = "go-common/app/admin/main/search/dao",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/search/conf:go_default_library",
-        "//app/admin/main/search/model:go_default_library",
-        "//library/database/sql:go_default_library",
-        "//library/ecode:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/http/blademaster:go_default_library",
-        "//library/stat/prom:go_default_library",
-        "//library/sync/errgroup:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
-        "//vendor/gopkg.in/olivere/elastic.v5:go_default_library",
+        "//app/admin/main/search/conf",
+        "//app/admin/main/search/model",
+        "//library/database/sql",
+        "//library/ecode",
+        "//library/log",
+        "//library/net/http/blademaster",
+        "//library/stat/prom",
+        "//library/sync/errgroup",
+        "//vendor/github.com/pkg/errors",
+        "//vendor/gopkg.in/olivere/elastic.v5:elastic_v5",
     ],
 )

@@ -2,38 +2,38 @@ package(default_visibility = ["//visibility:public"])
 
 load(
     "@io_bazel_rules_go//go:def.bzl",
-    "go_test",
     "go_library",
+    "go_test",
 )
 
 go_test(
-    name = "go_default_test",
+    name = "search_test",
     srcs = ["dao_test.go"],
-    embed = [":go_default_library"],
+    embed = [":search"],
     rundir = ".",
     tags = ["automanaged"],
     deps = [
-        "//app/admin/main/credit/conf:go_default_library",
-        "//app/admin/main/credit/model/blocked:go_default_library",
-        "//vendor/github.com/smartystreets/goconvey/convey:go_default_library",
+        "//app/admin/main/credit/conf",
+        "//app/admin/main/credit/model/blocked",
+        "//vendor/github.com/smartystreets/goconvey/convey",
     ],
 )
 
 go_library(
-    name = "go_default_library",
+    name = "search",
     srcs = ["dao.go"],
     importpath = "go-common/app/admin/main/credit/dao/search",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/admin/main/credit/conf:go_default_library",
-        "//app/admin/main/credit/model:go_default_library",
-        "//app/admin/main/credit/model/blocked:go_default_library",
-        "//app/admin/main/credit/model/search:go_default_library",
-        "//library/database/elastic:go_default_library",
-        "//library/log:go_default_library",
-        "//library/net/metadata:go_default_library",
-        "//vendor/github.com/pkg/errors:go_default_library",
+        "//app/admin/main/credit/conf",
+        "//app/admin/main/credit/model",
+        "//app/admin/main/credit/model/blocked",
+        "//app/admin/main/credit/model/search",
+        "//library/database/elastic",
+        "//library/log",
+        "//library/net/metadata",
+        "//vendor/github.com/pkg/errors",
     ],
 )
 
