@@ -14,7 +14,7 @@
 //  - http://info.bilibili.co/pages/viewpage.action?pageId=11869411
 syntax = "proto3";
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "github.com/gogo/protobuf/tree/master/gogoproto/gogo.proto";
 import "google/protobuf/empty.proto";
 
 // package 命名使用 {discovery_id}.{version} 的方式, version 形如 v1, v2, v1beta ..

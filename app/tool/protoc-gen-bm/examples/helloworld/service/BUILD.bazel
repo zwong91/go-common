@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "service",
+    srcs = ["service.go"],
+    importpath = "go-common/app/tool/protoc-gen-bm/examples/helloworld/service",
+    visibility = ["//visibility:public"],
+    deps = ["//app/tool/protoc-gen-bm/examples/helloworld/api"],
+)
