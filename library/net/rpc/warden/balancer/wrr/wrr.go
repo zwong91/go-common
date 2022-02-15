@@ -171,7 +171,7 @@ type wrrPicker struct {
 	mu sync.Mutex
 }
 
-func (p *wrrPicker) Pick(ctx context.Context, opts balancer.PickOptions) (balancer.SubConn, func(balancer.DoneInfo), error) {
+func (p *wrrPicker) Pick(ctx context.Context, opts balancer.PickResult) (balancer.SubConn, func(balancer.DoneInfo), error) {
 	if color := nmd.String(ctx, nmd.Color); color != "" {
 		if cp, ok := p.colors[color]; ok {
 			return cp.pick(ctx, opts)
@@ -180,7 +180,7 @@ func (p *wrrPicker) Pick(ctx context.Context, opts balancer.PickOptions) (balanc
 	return p.pick(ctx, opts)
 }
 
-func (p *wrrPicker) pick(ctx context.Context, opts balancer.PickOptions) (balancer.SubConn, func(balancer.DoneInfo), error) {
+func (p *wrrPicker) pick(ctx context.Context, opts balancer.PickResult) (balancer.SubConn, func(balancer.DoneInfo), error) {
 	var (
 		conn        *subConn
 		totalWeight int64

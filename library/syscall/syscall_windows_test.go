@@ -1,7 +1,6 @@
 package syscall
 
 import (
-	"log"
 	"testing"
 )
 

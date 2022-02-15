@@ -34,7 +34,7 @@ var (
 	Hostname string
 	// DeployEnv deploy env where app at.
 	DeployEnv string
-	// IP FIXME(haoguanwei) #240
+	// FIXME IP
 	IP = os.Getenv("POD_IP")
 	// AppID is global unique application id, register by service tree.
 	// such as main.arch.disocvery.

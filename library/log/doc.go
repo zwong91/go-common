@@ -1,3 +1,5 @@
+package log
+
 /*Package log 是kratos日志库.
 
 一、主要功能：
@@ -62,4 +64,3 @@
 	addr		网络地址，常见：ip:prot, sock
 	chanSize	日志队列长度
 */
-package log

@@ -1,3 +1,5 @@
+package dsn
+
 // Package dsn implements dsn parse with struct bind
 /*
 DSN 格式类似 URI, DSN 结构如下图
@@ -60,4 +62,3 @@ Query 命名参考, 使用驼峰小写开头:
 	readsTimeout 批量读超时
 	writesTimeout 批量写超时
 */
-package dsn

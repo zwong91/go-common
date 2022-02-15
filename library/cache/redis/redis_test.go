@@ -21,7 +21,7 @@ func getConfig() (c *Config) {
 	c = &Config{
 		Name:         "test",
 		Proto:        "tcp",
-		Addr:         "172.16.33.54:6379",
+		Addr:         "127.0.0.1:6379",
 		DialTimeout:  xtime.Duration(time.Second),
 		ReadTimeout:  xtime.Duration(time.Second),
 		WriteTimeout: xtime.Duration(time.Second),

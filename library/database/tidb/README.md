@@ -1,7 +1,7 @@
 #### database/tidb
 
 ##### 项目简介
-TiDB数据库驱动 对mysql驱动进行封装
+TiDB数据库驱动, 兼容MySQL5.7协议和MySQL生态, 对tidb驱动进行封装
 
 ##### 功能
 1. 支持discovery服务发现 多节点直连
