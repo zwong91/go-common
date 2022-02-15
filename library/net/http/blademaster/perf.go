@@ -20,7 +20,7 @@ var (
 func init() {
 	v := os.Getenv("HTTP_PERF")
 	if v == "" {
-		v = "tcp://0.0.0.0:2333"
+		v = "tcp://0.0.0.0:23333"
 	}
 	flag.StringVar(&_perfDSN, "http.perf", v, "listen http perf dsn, or use HTTP_PERF env variable.")
 }

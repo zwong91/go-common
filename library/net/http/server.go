@@ -42,7 +42,7 @@ func Serve(engine *bm.Engine, conf *ServerConfig) error {
 	}
 	l, err := net.Listen("tcp", conf.Addr)
 	if err != nil {
-		errors.Wrapf(err, "listen tcp: %d", conf.Addr)
+		errors.Wrapf(err, "listen tcp: %s", conf.Addr)
 		return err
 	}
 	if err := engine.SetConfig(conf); err != nil {

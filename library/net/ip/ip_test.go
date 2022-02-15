@@ -4,7 +4,6 @@ import "testing"
 
 func TestIp(t *testing.T) {
 	l, _ := New("./iprepo.txt")
-	l, _ = New("./ip_test.txt")
 	ips := []string{"000.000.000.001", "127.000.11.57", "183.131.11.57", "255.255.255.255", "3FFF:FFFF:FFFF:FEFF:FFFF:FFFF:FFFF:FFFF", "255.255.255", "0:0:0:0:0:0:0:1"}
 	for _, ip := range ips {
 		info := l.IP(ip)
