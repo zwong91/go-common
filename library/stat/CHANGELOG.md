@@ -2,4 +2,3 @@
 
 ##### Version 1.0.0
 > 1.修改计数器方法去除NewGroup、New方法
-
