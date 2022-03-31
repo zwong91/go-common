@@ -6,16 +6,29 @@
     "configurations": [
             {
             "name": "antispam run",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceRoot}/app/service/main/antispam/cmd",
+            "env": {
+               
+            },
+            "showLog": true,
+            "buildFlags":"-tags=debug",
+            "args": ["-conf=${workspaceRoot}/app/service/main/antispam/cmd/antispam-test.toml"]
+            },
+            {
+                "name": "warden client example",
                 "type": "go",
                 "request": "launch",
                 "mode": "debug",
-                "program": "${workspaceRoot}/app/service/main/antispam/cmd",
+                "program": "${workspaceRoot}/library/net/rpc/warden/examples/client",
                 "env": {
                     
                 },
                 "showLog": true,
                 "buildFlags":"-tags=debug",
-                "args": ["-conf=${workspaceRoot}/app/service/main/antispam/cmd/antispam-test.toml"]
-            }
+                "args": ["-grpc.target=test.service=127.0.0.1:8080"]
+           }
     ]
 }
