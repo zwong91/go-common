@@ -7,7 +7,7 @@ dir = "./"
 perf = "0.0.0.0:6840"
 checkFile = "/data/www/antispam.html"
 family = "antispam"
-address = "172.16.0.148"
+address = "172.24.198.75"
 
 proc = 32
 
@@ -142,6 +142,8 @@ timer = 1000
 		maxListen = 1000
 
 [rpc]
+proto = "tcp"
+addr = ":6849"
 	[[rpc.servers]]
 		discoveroff=false
 		proto = "tcp"
@@ -154,26 +156,26 @@ timer = 1000
 		timeout = "1s"
 
 
-[ecode]
-    domain = "172.16.33.248:6401"
-    all = "1h"
-    diff = "5m"
-    [ecode.clientconfig]
-        key = "test"
-        secret = "e6c4c252dc7e3d8a90805eecd7c73396"
-        dial      = "2000ms"
-        timeout   = "2s"
-        keepAlive = "10s"
-        timer     = 128
-        [ecode.clientconfig.breaker]
-            window  ="3s"
-            sleep   ="100ms"
-            bucket  = 10
-            ratio   = 0.5
-            request = 100
-    [ecode.app]
-        key = "test"
-        secret = "e6c4c252dc7e3d8a90805eecd7c73396"
+# [ecode]
+#     domain = "172.16.33.248:6401"
+#     all = "1h"
+#     diff = "5m"
+#     [ecode.clientconfig]
+#         key = "test"
+#         secret = "e6c4c252dc7e3d8a90805eecd7c73396"
+#         dial      = "2000ms"
+#         timeout   = "2s"
+#         keepAlive = "10s"
+#         timer     = 128
+#         [ecode.clientconfig.breaker]
+#             window  ="3s"
+#             sleep   ="100ms"
+#             bucket  = 10
+#             ratio   = 0.5
+#             request = 100
+#     [ecode.app]
+#         key = "test"
+#         secret = "e6c4c252dc7e3d8a90805eecd7c73396"
 
 
 [mysql]

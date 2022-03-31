@@ -8,8 +8,11 @@ require (
 	github.com/dgryski/go-farm v0.0.0-20200201041132-a6ae2369ad13
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/gogo/protobuf v1.3.2
+	github.com/golang/mock v1.4.4
 	github.com/golang/protobuf v1.5.2
+	github.com/google/uuid v1.2.0
 	github.com/json-iterator/go v1.1.12
+	github.com/microcosm-cc/bluemonday v1.0.18
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.12.1
 	github.com/robfig/cron v1.2.0
@@ -21,14 +24,17 @@ require (
 	github.com/urfave/cli v1.22.2
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+	golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e
 	google.golang.org/genproto v0.0.0-20201110150050-8816d57aaa9a
 	google.golang.org/grpc v1.44.0
 	gopkg.in/go-playground/validator.v9 v9.31.0
+	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
 )
 
 require (
 	github.com/Microsoft/go-winio v0.5.1 // indirect
 	github.com/Shopify/sarama v1.31.1 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bsm/sarama-cluster v2.1.15+incompatible // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -47,10 +53,11 @@ require (
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-zookeeper/zk v1.0.2 // indirect
-	github.com/golang/mock v1.4.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 // indirect
+	github.com/gorilla/css v1.0.0 // indirect
+	github.com/h2non/parth v0.0.0-20190131123155-b4df798d6542 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.1 // indirect
 	github.com/hashicorp/go-retryablehttp v0.6.8 // indirect
 	github.com/hashicorp/go-uuid v1.0.2 // indirect
@@ -93,15 +100,16 @@ require (
 	go.opentelemetry.io/otel v1.0.1 // indirect
 	go.opentelemetry.io/otel/trace v1.0.1 // indirect
 	golang.org/x/crypto v0.0.0-20220128200615-198e4374d7ed // indirect
+	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
 	golang.org/x/oauth2 v0.0.0-20210514164344-f6687ab2804c // indirect
 	golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
-	golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e // indirect
+	golang.org/x/tools v0.1.10 // indirect
 	google.golang.org/appengine v1.6.6 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
-	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df // indirect
+	gopkg.in/h2non/gock.v1 v1.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 	modernc.org/b v1.0.0 // indirect
 )

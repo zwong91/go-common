@@ -1,12 +1,9 @@
-# account-recovery-job
+# account-recovery
 
-# 项目简介
-1.
+## account-recovery-job
 
-# 编译环境
+#### v1.1.0
+> 1.去除错误的日志
 
-
-# 依赖包
-
-
-# 编译执行
+#### v1.0.0
+1. 账号申诉找回

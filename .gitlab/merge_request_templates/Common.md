@@ -16,3 +16,6 @@ fix #<issue number>
 <!-- 写给 reviewer 的 tips -->
 * <tip>
 * <tip>
+
+### .gitlab-ci.yml 提交限制
+配置CI流程会自动使用govet进行代码静态检查、gofmt进行代码格式化检查、golint进行代码规范检查、gotest进行单元测试

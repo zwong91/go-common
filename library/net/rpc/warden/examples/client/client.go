@@ -9,8 +9,6 @@ import (
 	"go-common/library/net/rpc/warden"
 	pb "go-common/library/net/rpc/warden/proto/testproto"
 
-	"github.com/golang/protobuf/ptypes"
-	"github.com/golang/protobuf/ptypes/any"
 	"github.com/pkg/errors"
 )
 
@@ -37,12 +35,9 @@ func normalCall(cli pb.GreeterClient) {
 func errDetailCall(cli pb.GreeterClient) {
 	_, err := cli.SayHello(context.Background(), &pb.HelloRequest{Name: "err_detail_test", Age: 12})
 	if err != nil {
-		any := errors.Cause(err).(ecode.Codes).Details()[0].(*any.Any)
-		var re pb.HelloReply
-		err := ptypes.UnmarshalAny(any, &re)
-		if err == nil {
-			fmt.Printf("cli.SayHello get error detail!detail:=%v", re)
-		}
+		re := errors.Cause(err).(ecode.Codes).Details()[0].(*pb.HelloReply)
+
+		fmt.Printf("cli.SayHello get error detail!detail:=%v", re)
 		return
 	}
 }

@@ -42,12 +42,12 @@ vet:
 	done
 
 lint:
-	@echo "\nstart running golint..."
-	@for f in $(SUB_DIR); do \
-		if [ -d $$f ]; then \
-			golint $$f; \
-		fi; \
-	done
+	#@echo "\nstart running golint..."
+	# @for f in $(SUB_DIR); do \
+	# 	if [ -d $$f ]; then \
+	# 		golint $$f; \
+	# 	fi; \
+	#done
 
 test_quick:
 	@echo "\nstart running quick unit test..."
@@ -55,7 +55,7 @@ test_quick:
 
 test:
 	@echo "\nstart running full unit test..."
-	@go test $(GOTESTOPT) ./dao/...
+	@go test $(GOTESTOPT) ./dao/...  -v
 
 deploy:
 	@echo "start deploying on dev machine..."
