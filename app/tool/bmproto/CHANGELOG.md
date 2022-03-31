@@ -19,7 +19,7 @@
 - autodoc 支持 jsontag
 
 ### v1.0.3
-- 使用proto.sh脚本生成grpc代码，和主站保持一直
+- 使用proto.sh脚本生成grpc代码，和主站保持一致
 
 ### v1.0.5
 - 请求参数可以是Json
