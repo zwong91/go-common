@@ -73,8 +73,8 @@ message GetInfoReq {
 
 // 获取房间信息响应
 message GetInfoResp {
-    // 房间id 注释貌似只有放在前面才能被识别，放到字段声明后面是没用的
-    int64 roomid = 1 [(gogoproto.jsontag) = "roomid"]; // 这段注释不会被理会
+    // 房间id 注解貌似只有放在前面才能被识别，放到字段声明后面是没用的
+    int64 roomid = 1 [(gogoproto.jsontag) = "roomid"]; // 这段注解不会被理会
     // 用户名
     string uname = 2 [(gogoproto.jsontag) = "uname"];
     // 开播时间

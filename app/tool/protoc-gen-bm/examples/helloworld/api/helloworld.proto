@@ -1,6 +1,7 @@
 syntax = "proto3";
 package helloworld.v1;
 
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 
 option go_package = "v1";
@@ -22,7 +23,7 @@ service Hello {
 
 // The request message containing the user's name.
 message HelloRequest {
-  string name = 1;
+  string name = 1 [(gogoproto.moretags) = 'form:"name"'];
 }
 
 // The response message containing the greetings
@@ -31,7 +32,7 @@ message HelloReply {
 }
 
 message EchoRequest {
-  string content = 1;
+  string content = 1 [(gogoproto.jsontag) = 'content'];
 }
 
 message EchoReply {

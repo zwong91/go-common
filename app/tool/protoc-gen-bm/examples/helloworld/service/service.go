@@ -4,23 +4,22 @@ import (
 	"context"
 	"fmt"
 
-	"go-common/app/tool/protoc-gen-bm/examples/helloworld/api"
+	pb "go-common/app/tool/protoc-gen-bm/examples/helloworld/api"
 )
 
 // Service .
 type Service struct{}
 
-var _ v1.HelloServer = &Service{}
-var _ v1.BMHelloServer = &Service{}
+var _ pb.HelloServer = &Service{}
 
 // SayHello .
-func (s *Service) SayHello(ctx context.Context, req *v1.HelloRequest) (*v1.HelloReply, error) {
-	return &v1.HelloReply{
+func (s *Service) SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloReply, error) {
+	return &pb.HelloReply{
 		Message: fmt.Sprintf("hello %s", req.Name),
 	}, nil
 }
 
 // Echo .
-func (s *Service) Echo(ctx context.Context, req *v1.EchoRequest) (*v1.EchoReply, error) {
-	return &v1.EchoReply{Content: req.Content}, nil
+func (s *Service) Echo(ctx context.Context, req *pb.EchoRequest) (*pb.EchoReply, error) {
+	return &pb.EchoReply{Content: req.Content}, nil
 }
