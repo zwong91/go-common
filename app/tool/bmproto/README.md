@@ -246,18 +246,18 @@ pb.RegisterXXService(e, svc, map[string]bm.HandlerFunc{"user":userAuthMiddleware
 ```
 
 
-- 注解，在方法或者字段上方的注视添加和 go的tag格式一样的注解，实现一定的功能
+- 注解，在方法或者字段上方的注解添加和 go的tag格式一样的注解，实现一定的功能
 
   注解列表：
 
-  | key          | 位置                  | 说明                                                         |
-  | ------------ | --------------------- | ------------------------------------------------------------ |
-  | midware      | rpc method上方        | midware:"auth,verify" 中间件，auth 是验证登录态，verify是校验签名， |
-  | method       | rpc method上方        | method:"POST" 指定http请求方法                               |
-  | mock         | 响应message的字段上方 | mock:"mockdata" mock数据，生成文档的时候有用                 |
-  | internal     | 不建议继续使用        | 不建议继续使用                                               |
-  | dynamic      | 不建议继续使用        | 不建议继续使用                                               |
-  | dynamic_resp | 不建议继续使用        | 不建议继续使用                                               |
+  | key          | 位置                  | 说明                                                               |
+  | ------------ | --------------------- | ----------------------------------------------------------------- |  
+  | midware      | rpc method上方        | midware:"auth,verify" 中间件，auth 是验证登录状态，verify是校验签名， |
+  | method       | rpc method上方        | method:"POST" 指定http请求方法                                      |
+  | mock         | 响应message的字段上方  | mock:"mockdata" mock数据，生成文档的时候有用                         |
+  | internal     | 不建议继续使用        | 不建议继续使用                                                       |
+  | dynamic      | 不建议继续使用        | 不建议继续使用                                                       |
+  | dynamic_resp | 不建议继续使用        | 不建议继续使用                                                       |
 
 
 
