@@ -1,2 +1,2 @@
 generate:
-	protoc -I. -I${GOPATH}/src/go-common/vendor -I${GOPATH}/src --bm_out=. --gogofast_out=plugins=grpc:. demo.proto
+	protoc -I. -I${GOPATH}/src -I${GOPATH}/src/go-common/3rd --bm_out=. --gogofast_out=plugins=grpc:. demo.proto

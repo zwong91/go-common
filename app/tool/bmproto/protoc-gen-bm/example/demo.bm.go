@@ -121,16 +121,12 @@ func RegisterV1FooService(e *bm.Engine, svc FooBMServer, midMap map[string]bm.Ha
 
 // RegisterFooBMServer Register the blademaster route
 func RegisterFooBMServer(e *bm.Engine, server FooBMServer) {
+	v1FooSvc = server
 	e.GET("/xlive/demo/v1/foo/uname_by_uid_custom_route", fooUnameByUid)
-
 	e.GET("/live.livedemo.v1.Foo/get_info", fooGetInfo)
-
 	e.GET("/live.livedemo.v1.Foo/uname_by_uid3", fooUnameByUid3)
-
 	e.GET("/live.livedemo.v1.Foo/uname_by_uid4", fooUnameByUid4)
-
 	e.GET("/live.livedemo.v1.Foo/get_dynamic", fooGetDynamic)
-
 }
 
 // ==============
@@ -161,6 +157,6 @@ func RegisterV1Foo2Service(e *bm.Engine, svc Foo2BMServer, midMap map[string]bm.
 
 // RegisterFoo2BMServer Register the blademaster route
 func RegisterFoo2BMServer(e *bm.Engine, server Foo2BMServer) {
+	v1Foo2Svc = server
 	e.GET("/live.livedemo.v1.Foo2/hello", foo2Hello)
-
 }

@@ -23,7 +23,7 @@ import (
 var tplFlag = false
 var grpcFlag = false
 
-// 使用app/tool/warden/protoc.sh 生成grpc .pb.go
+// 使用app/tool/warden/protoc.sh 生成grpc.pb.go
 var protocShRunned = false
 
 var syncLiveDoc = false
@@ -114,11 +114,11 @@ func installDependencies() (err error) {
 				return
 			}
 		} else {
-			fmt.Println("找不到protoc，请于 https://github.com/protocolbuffers/protobuf/releases 下载里面的protoc-$VERSION-$OS.zip 安装, 注意把文件拷贝到正确的未知")
+			fmt.Println("找不到protoc，请于 https://github.com/protocolbuffers/protobuf/releases 下载里面的protoc-$VERSION-$OS.zip 安装, 注意把文件拷贝到正确的位置")
 			return errors.New("找不到protoc")
 		}
 	}
-	err = runCmd("which protoc-gen-gogofast || go get github.com/gogo/protobuf/protoc-gen-gogofast")
+	err = runCmd("go get -d github.com/gogo/protobuf/protoc-gen-gogofast")
 	return
 }
 
@@ -217,7 +217,7 @@ func generateForFile(f string, goPath string) {
 			genGrpcArg = ""
 		}
 		cmd = fmt.Sprintf(`cd "%s" && protoc --bm_out=tpl=%d:. `+
-			`%s -I. -I%s/src -I"%s/src/go-common" -I"%s/src/go-common/vendor" "%s"`,
+			`%s -I. -I%s/src -I"%s/src/go-common" -I"%s/src/go-common/3rd" "%s"`,
 			fileFolder, genTpl, genGrpcArg, goPath, goPath, goPath, base)
 	} else {
 		// 只生成http的代码
@@ -232,7 +232,7 @@ func generateForFile(f string, goPath string) {
 			pbOutArg = "--gogofast_out=."
 		}
 		cmd = fmt.Sprintf(`cd "%s" && protoc --bm_out=tpl=%d:. `+
-			pbOutArg+` -I. -I"%s/src" -I"%s/src/go-common" -I"%s/src/go-common/vendor" "%s"`,
+			pbOutArg+` -I. -I"%s/src" -I"%s/src/go-common" -I"%s/src/go-common/3rd" "%s"`,
 			fileFolder, genTpl, goPath, goPath, goPath, base)
 	}
 
