@@ -1,4 +1,4 @@
-# go-common/app/infra/discoveryovery
+# go-common/app/infra/discovery
 
 ##### 项目简介
 > 1. 服务注册发现

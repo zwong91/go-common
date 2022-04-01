@@ -1,4 +1,4 @@
-#### archive-service
+#### databus-service
 
 ##### 项目简介
 > 1.databus是一个通过使用redis协议来简化kafka的消费方/生产方的一个中间件
@@ -11,7 +11,7 @@
 > 2.kafka包：sarama和sarama-cluster
 
 ##### 特别说明
-> 1.databus服务只是使用redis协议，并不是和redis用法就完全一样，所以必须完全参照文档进行使用。
+> 1.databus服务实现redis协议，并不是和redis用法就完全一样，所以必须完全参照文档进行使用。
 > 2.文档地址：http://info.bilibili.co/pages/viewpage.action?pageId=2491209
 
 ##### 特性
