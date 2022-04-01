@@ -192,5 +192,3 @@ TODO
 #### Android 代码生成
 
 TODO
-
-/cc @liugang  @zhoujiahui

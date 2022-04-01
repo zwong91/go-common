@@ -10,7 +10,7 @@ import (
 
 /*
 *   curl http://127.0.0.1:8000/hello\?name\=world
-*   curl 127.0.0.1:8000/echo  -H "Content-Type: application/json"  -X POST
+*   curl 127.0.0.1:8000/echo  -H "Content-Type: application/json"  -d  "{"content":"p1"}" -X POST
  */
 func main() {
 	flag.Parse()

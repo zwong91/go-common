@@ -8,7 +8,7 @@ platform/go-common 仓库 pb 文件生成工具
 
 默认使用 gofast, 可以使用 PROTOC_GEN 环境变量指定.
 
-默认 Proto Import Path 为 go-common 目录, go-common/vendor 目录, /usr/local/include 以及proto文件所在目录, 可以通过 PROTO_PATH 环境变量指定.
+默认 Proto Import Path 为 go-common 目录, go-common/3rd 目录, /usr/local/include 以及proto文件所在目录, 可以通过 PROTO_PATH 环境变量指定.
 
 ### 安装
 
