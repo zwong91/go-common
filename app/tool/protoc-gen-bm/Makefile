@@ -1,7 +1,7 @@
 GOFILES=$(shell find . -name "*.go" -type f)
 EXAMPLE_HELLOWORLD_DIR=examples/helloworld
 PROTO_FILE=$(EXAMPLE_HELLOWORLD_DIR)/api/helloworld.proto
-3RD_DIR=$(shell echo $$GOPATH | cut -d':' -f1)/src/go-common/3rd
+3RD_DIR=$(shell echo $$GOPATH | cut -d':' -f1)/src/go-common/extern
 
 protoc-gen-bm: $(GOFILES)
 	go install .

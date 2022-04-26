@@ -94,7 +94,7 @@ func autoUpdate(ctx *cli.Context) (err error) {
 }
 
 func actionCleanLiveDoc(ctx *cli.Context) (err error) {
-	fmt.Println("暂未实现，敬请期待")
+	fmt.Println("TODO: 暂未实现，敬请期待")
 	return
 }
 
@@ -217,7 +217,7 @@ func generateForFile(f string, goPath string) {
 			genGrpcArg = ""
 		}
 		cmd = fmt.Sprintf(`cd "%s" && protoc --bm_out=tpl=%d:. `+
-			`%s -I. -I%s/src -I"%s/src/go-common" -I"%s/src/go-common/3rd" "%s"`,
+			`%s -I. -I%s/src -I"%s/src/go-common" -I"%s/src/go-common/extern" "%s"`,
 			fileFolder, genTpl, genGrpcArg, goPath, goPath, goPath, base)
 	} else {
 		// 只生成http的代码
@@ -232,7 +232,7 @@ func generateForFile(f string, goPath string) {
 			pbOutArg = "--gogofast_out=."
 		}
 		cmd = fmt.Sprintf(`cd "%s" && protoc --bm_out=tpl=%d:. `+
-			pbOutArg+` -I. -I"%s/src" -I"%s/src/go-common" -I"%s/src/go-common/3rd" "%s"`,
+			pbOutArg+` -I. -I"%s/src" -I"%s/src/go-common" -I"%s/src/go-common/extern" "%s"`,
 			fileFolder, genTpl, goPath, goPath, goPath, base)
 	}
 
