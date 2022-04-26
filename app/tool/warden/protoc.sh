@@ -23,19 +23,19 @@ function _install_protoc_gen() {
     case $protoc_gen in
         "gofast" )
             echo "install gofast from github.com/gogo/protobuf/protoc-gen-gofast"
-            go get github.com/gogo/protobuf/protoc-gen-gofast
+            go install github.com/gogo/protobuf/protoc-gen-gofast
             ;;
         "gogofast" )
             echo "install gogofast from github.com/gogo/protobuf/protoc-gen-gogofast"
-            go get github.com/gogo/protobuf/protoc-gen-gogofast
+            go install github.com/gogo/protobuf/protoc-gen-gogofast
             ;;
         "gogo" )
             echo "install gogo from github.com/gogo/protobuf/protoc-gen-gogo"
-            go get github.com/gogo/protobuf/protoc-gen-gogo
+            go install github.com/gogo/protobuf/protoc-gen-gogo
             ;;
         "go" )
             echo "install protoc-gen-go from github.com/golang/protobuf"
-            go get github.com/golang/protobuf/{proto,protoc-gen-go}
+            go install github.com/golang/protobuf/{proto,protoc-gen-go}
             ;;
         *)
             echo "can't install protoc-gen-${protoc_gen} automatic !"
