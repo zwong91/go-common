@@ -2,8 +2,9 @@ package model
 
 import (
 	"fmt"
-	"github.com/siddontang/go-mysql/mysql"
 	"time"
+
+	"github.com/go-mysql-org/go-mysql/mysql"
 )
 
 //GetSpecialArg arg
