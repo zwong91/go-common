@@ -6,7 +6,7 @@ import (
 
 // String GetCookieInfoReq string
 func (m *GetCookieInfoReq) String() string {
-	return ""
+	return proto.MarshalTextString(m)
 }
 
 // String GetCookieInfoReply string

@@ -9,5 +9,5 @@ func TestGetCookieInfoReply_String(t *testing.T) {
 	m := GetCookieInfoReq{
 		Cookie: "==000123000==",
 	}
-	fmt.Println(fmt.Sprintf("%v", m))
+	fmt.Println(fmt.Sprintf("%v", m.String()))
 }

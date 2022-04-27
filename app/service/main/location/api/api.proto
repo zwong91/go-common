@@ -7,6 +7,10 @@ package location.service;
 
 option go_package = "api";
 
+message InfoReq { 
+    string addr = 1;
+}
+
 message InfoReply { 
     string addr = 1;
     string country = 2;
@@ -18,9 +22,6 @@ message InfoReply {
     int64 zone_id = 8;
 }
 
-message InfoReq { 
-    string addr = 2;
-}
 
 service Location { 
     // Info get ip info. 

@@ -13,6 +13,7 @@ import (
 	"go-common/app/service/main/identify/server/http"
 	"go-common/app/service/main/identify/service"
 	"go-common/library/log"
+
 	// "go-common/library/net/rpc/warden/resolver/livezk"
 	"go-common/library/net/trace"
 )
@@ -23,7 +24,7 @@ const (
 
 func main() {
 	flag.Parse()
-	// init conf,log,trace,stat,perf.
+	// init conf, log, trace, stat, perf.
 	if err := conf.Init(); err != nil {
 		panic(err)
 	}
