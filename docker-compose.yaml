@@ -15,10 +15,6 @@
 
 version: "3.5"
 
-configs:
-  discovery-config-toml:
-    file: ./app/infra/discovery/cmd/discovery-example.toml
-
 services:
   discovery:
     build:
@@ -28,13 +24,5 @@ services:
     container_name: discovery
     ports:
       - 7171:7171
-    deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 30s
-    configs:
-        - source: discovery-config-toml
-        - target: /opt/discovery-example.toml
     command:
       - -conf=/opt/discovery-example.toml
-
