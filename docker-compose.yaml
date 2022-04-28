@@ -24,5 +24,32 @@ services:
     container_name: discovery
     ports:
       - 7171:7171
+    restart: always
     command:
       - -conf=/opt/discovery-example.toml
+    networks:
+      intranet_network:
+        ipv4_address: 192.168.110.2
+
+  config:
+    build:
+      context: .
+      target: config
+      dockerfile: Dockerfile.bili
+    container_name: config
+    ports:
+      - 7172:7172
+    restart: always
+    command:
+      - -conf=/opt/config-service-example.toml
+    networks:
+      intranet_network:
+        ipv4_address: 192.168.110.3
+
+networks:
+  intranet_network:
+    name: "intranet_network"
+    driver: "bridge"
+    ipam:
+      config:
+        - subnet: 192.168.110.0/24

@@ -19,7 +19,7 @@ WORKDIR /opt/go-common
 
 ARG GOFLAGS=""
 
-RUN make discovery
+RUN make all
 
 FROM ubuntu:20.04 AS base
 MAINTAINER wangzhi@buckyos.com
@@ -43,5 +43,21 @@ COPY app/infra/discovery/cmd/discovery-example.toml /opt
 EXPOSE 7171
 
 ENTRYPOINT ["/opt/docker-discovery-entrypoint.sh"]
+
+CMD ["-help"]
+
+
+###
+FROM base AS config
+MAINTAINER wangzhi@buckyos.com
+
+COPY --from=builder /opt/go-common/config /usr/local/bin/
+
+COPY build/docker-config-entrypoint.sh /opt
+COPY app/infra/config/cmd/config-service-example.toml /opt
+
+EXPOSE 7172
+
+ENTRYPOINT ["/opt/docker-config-entrypoint.sh"]
 
 CMD ["-help"]
