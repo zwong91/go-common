@@ -15,6 +15,7 @@ type Service struct {
 
 // New new a service and return.
 func New() (s *Service) {
+	// paladin.Map 通过atomic.Value支持自动热加载
 	var ac = new(paladin.TOML)
 	if err := paladin.Watch("application.toml", ac); err != nil {
 		panic(err)

@@ -9,9 +9,9 @@ import (
 
 	"go-common/app/infra/config/conf"
 	"go-common/app/infra/config/http"
-	"go-common/app/infra/config/rpc/server"
-	"go-common/app/infra/config/service/v1"
-	"go-common/app/infra/config/service/v2"
+	rpc "go-common/app/infra/config/rpc/server"
+	v1 "go-common/app/infra/config/service/v1"
+	v2 "go-common/app/infra/config/service/v2"
 	"go-common/library/conf/env"
 	"go-common/library/log"
 	"go-common/library/naming"
@@ -34,6 +34,7 @@ func main() {
 	rpcSvr := rpc.New(conf.Conf, svr, svr2)
 	http.Init(conf.Conf, svr, svr2, rpcSvr)
 	// start discovery register
+	// register -> renew ->cancel 注册 然后 不停给心跳 最后取消注册
 	var (
 		err    error
 		cancel context.CancelFunc
