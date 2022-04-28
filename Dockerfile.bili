@@ -1,0 +1,43 @@
+FROM golang:1.17 AS builder-deps
+MAINTAINER wangzhi@buckyos.com
+
+RUN apt-get update && apt-get install -y ca-certificates build-essential jq
+
+FROM builder-deps AS builder-local
+MAINTAINER wangzhi@buckyos.com
+
+COPY ./ /opt/go-common
+WORKDIR /opt/go-common
+RUN make clean
+
+FROM builder-local AS builder
+MAINTAINER wangzhi@buckyos.com
+
+WORKDIR /opt/go-common
+
+ARG GOFLAGS=""
+
+RUN make discovery
+
+FROM ubuntu:20.04 AS base
+MAINTAINER wangzhi@buckyos.com
+
+# Base resources
+COPY --from=builder /etc/ssl/certs                           /etc/ssl/certs
+COPY --from=builder /lib/x86_64-linux-gnu/libdl.so.2         /lib/
+COPY --from=builder /lib/x86_64-linux-gnu/librt.so.1         /lib/
+COPY --from=builder /lib/x86_64-linux-gnu/libgcc_s.so.1      /lib/
+COPY --from=builder /lib/x86_64-linux-gnu/libutil.so.1       /lib/
+
+###
+FROM base AS discovery
+MAINTAINER wangzhi@buckyos.com
+
+COPY --from=builder /opt/go-common/discovery /usr/local/bin/
+COPY build/docker-discovery-entrypoint.sh /opt
+
+EXPOSE 7171
+
+ENTRYPOINT ["/opt/docker-discovery-entrypoint.sh"]
+
+CMD ["-help"]

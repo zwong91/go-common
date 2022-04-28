@@ -1,0 +1,40 @@
+# By default, this docker-compose file will start bili-discovery
+#
+# Some directives have been left commented out so they serve as an
+# example for more advanced use.
+
+# start on a single node:
+#
+#    docker-compose up
+#
+# start on docker swarm:
+#
+#    docker swarm init (if you haven't already)
+#    docker stack deploy -c docker-compose.yaml mybilicluster
+#
+
+version: "3.5"
+
+configs:
+  discovery-config-toml:
+    file: ./app/infra/discovery/cmd/discovery-example.toml
+
+services:
+  discovery:
+    build:
+      context: .
+      target: discovery
+      dockerfile: Dockerfile.bili
+    container_name: discovery
+    ports:
+      - 7171:7171
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 30s
+    configs:
+        - source: discovery-config-toml
+        - target: /opt/discovery-example.toml
+    command:
+      - -conf=/opt/discovery-example.toml
+
