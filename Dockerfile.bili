@@ -9,7 +9,8 @@ MAINTAINER wangzhi@buckyos.com
 COPY ./ /opt/go-common
 
 WORKDIR /opt/go-common
-COPY ./app/infra/discovery/cmd/discovery-example.toml  /opt/discovery-example.toml
+COPY ./app/infra/discovery/cmd/discovery-idc1-1.toml  /opt/discovery-idc1-1.toml
+COPY ./app/infra/discovery/cmd/discovery-idc1-2.toml  /opt/discovery-idc1-2.toml
 RUN make clean
 
 FROM builder-local AS builder
@@ -38,7 +39,8 @@ MAINTAINER wangzhi@buckyos.com
 COPY --from=builder /opt/go-common/discovery /usr/local/bin/
 
 COPY build/docker-discovery-entrypoint.sh /opt
-COPY app/infra/discovery/cmd/discovery-example.toml /opt
+COPY app/infra/discovery/cmd/discovery-idc1-1.toml /opt
+COPY app/infra/discovery/cmd/discovery-idc1-2.toml /opt
 
 EXPOSE 7171
 

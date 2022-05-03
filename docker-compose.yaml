@@ -16,35 +16,50 @@
 version: "3.5"
 
 services:
-  discovery:
+  discovery1:
     build:
       context: .
       target: discovery
       dockerfile: Dockerfile.bili
-    container_name: discovery
+    container_name: discovery-7171
     ports:
       - 7171:7171
     restart: always
     command:
-      - -conf=/opt/discovery-example.toml
+      - -conf=/opt/discovery-idc1-1.toml
     networks:
       intranet_network:
         ipv4_address: 192.168.110.2
 
-  config:
+  discovery2:
     build:
       context: .
-      target: config
+      target: discovery
       dockerfile: Dockerfile.bili
-    container_name: config
+    container_name: discovery-7172
     ports:
       - 7172:7172
     restart: always
     command:
-      - -conf=/opt/config-service-example.toml
+      - -conf=/opt/discovery-idc1-2.toml
     networks:
       intranet_network:
         ipv4_address: 192.168.110.3
+
+  # config:
+  #   build:
+  #     context: .
+  #     target: config
+  #     dockerfile: Dockerfile.bili
+  #   container_name: config
+  #   ports:
+  #     - 8171:8171
+  #   restart: always
+  #   command:
+  #     - -conf=/opt/config-service-example.toml
+  #   networks:
+  #     intranet_network:
+  #       ipv4_address: 192.168.110.3
 
 networks:
   intranet_network:

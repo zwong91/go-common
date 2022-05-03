@@ -3,10 +3,10 @@ user = "nobody"
 pid = "/tmp/discovery.pid"
 dir = "./"
 
-nodes = ["127.0.0.1:7171", "127.0.0.1:7172"]
+nodes = ["127.0.0.1:7171", "192.168.110.3:7172"]
 
 [zones]
-"127.0.0.1:7181"="zone2"
+zone2 = ["127.0.0.1:7181"]
 
 [log]
 dir = "/data/log/discovery/"
