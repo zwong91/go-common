@@ -15,7 +15,7 @@ stdout = true
     [antispam.redis]
         name = "config-service/hosts"
         proto = "tcp"
-        addr = "172.18.33.61:6811"
+        addr = "192.168.110.5:6379"
         idle = 100
         active = 100
         dialTimeout = "1s"
@@ -28,8 +28,8 @@ stdout = true
     domain = "172.16.33.248:6401"
 
 [db]
-    name = "[config]tcp@172.16.33.205:3308"
-    dsn = "test:test@tcp(172.16.33.205:3308)/bilibili_apm?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8,utf8mb4"
+    name = "[config]tcp@192.168.110.6:3306"
+    dsn = "root:123456@tcp(192.168.110.6:3306)/bilibili_apm?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8,utf8mb4"
     active = 5
     idle = 5
     queryTimeout = "500ms"
@@ -45,7 +45,7 @@ stdout = true
 [redis]
     name = "config-service/hosts"
     proto = "tcp"
-    addr = "172.18.33.61:6811"
+    addr = "192.168.110.5:6379"
     idle = 100
     active = 100
     dialTimeout = "1s"
@@ -54,7 +54,7 @@ stdout = true
     idleTimeout = "10s"
 
 [orm]
-dsn = "test:test@tcp(172.16.33.205:3308)/bilibili_config?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8,utf8mb4"
+dsn = "root:123456@tcp(192.168.110.6:3306)/bilibili_config?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8,utf8mb4"
 active = 5
 idle = 5
 idleTimeout = "4h"
