@@ -46,6 +46,21 @@ services:
       intranet_network:
         ipv4_address: 192.168.110.3
 
+  discovery3:
+    build:
+      context: .
+      target: discovery
+      dockerfile: Dockerfile.bili
+    container_name: discovery-80
+    ports:
+      - 80:80
+    restart: always
+    command:
+      - -conf=/opt/discovery-idc1-3.toml
+    networks:
+      intranet_network:
+        ipv4_address: 192.168.110.8
+
   config:
     build:
       context: .
@@ -54,8 +69,8 @@ services:
     container_name: config
     extra_hosts:
       - "bvc-nerve.bilibili.co:172.18.21.10"
-      - "api.bilibili.co:192.168.110.2"
-      - "discovery.bilibili.co:192.168.110.2"
+      - "api.bilibili.co:192.168.110.8"
+      - "discovery.bilibili.co:192.168.110.8"
     ports:
       - 8171:8171
     depends_on:
@@ -94,6 +109,21 @@ services:
     networks:
       intranet_network:
         ipv4_address: 192.168.110.6
+
+  proxy_nginx: 
+    build:
+      context: .
+      dockerfile: Nginx
+    restart: always
+    depends_on: 
+      - config_redis
+    ports:
+      - "8088:80"
+    container_name: proxy_nginx
+    networks:
+      intranet_network: 
+        ipv4_address: 192.168.110.7
+
 networks:
   intranet_network:
     name: "intranet_network"
