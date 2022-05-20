@@ -4,43 +4,57 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-            {
-            "name": "discovery",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "${workspaceRoot}/app/infra/discovery/cmd",
-            "env": {  
-            },
-            "showLog": true,
-            "buildFlags":"-tags=debug",
-            "args": ["-conf=${workspaceRoot}/app/infra/discovery/cmd/discovery-example.toml"]
-            },
-            {
-            "name": "antispam",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "${workspaceRoot}/app/service/main/antispam/cmd",
-            "env": {
-               
-            },
-            "showLog": true,
-            "buildFlags":"-tags=debug",
-            "args": ["-conf=${workspaceRoot}/app/service/main/antispam/cmd/antispam-test.toml"]
-            },
-            {
-                "name": "warden client example",
-                "type": "go",
-                "request": "launch",
-                "mode": "debug",
-                "program": "${workspaceRoot}/library/net/rpc/warden/examples/client",
-                "env": {
-                    
-                },
-                "showLog": true,
-                "buildFlags":"-tags=debug",
-                "args": ["-grpc.target=test.service=127.0.0.1:8080"]
-           }
+                {
+            "name": "broadcast",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceRoot}/app/interface/main/broadcast/cmd",
+            "env": {},
+            "showLog": true,
+            "buildFlags": "-tags=debug",
+            "args": [
+                "-conf=${workspaceRoot}/app/interface/main/broadcast/cmd/broadcast.toml"
+            ]
+        },
+        {
+            "name": "discovery",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceRoot}/app/infra/discovery/cmd",
+            "env": {},
+            "showLog": true,
+            "buildFlags": "-tags=debug",
+            "args": [
+                "-conf=${workspaceRoot}/app/infra/discovery/cmd/discovery-example.toml"
+            ]
+        },
+        {
+            "name": "antispam",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceRoot}/app/service/main/antispam/cmd",
+            "env": {},
+            "showLog": true,
+            "buildFlags": "-tags=debug",
+            "args": [
+                "-conf=${workspaceRoot}/app/service/main/antispam/cmd/antispam-test.toml"
+            ]
+        },
+        {
+            "name": "warden client example",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceRoot}/library/net/rpc/warden/examples/client",
+            "env": {},
+            "showLog": true,
+            "buildFlags": "-tags=debug",
+            "args": [
+                "-grpc.target=test.service=127.0.0.1:8080"
+            ]
+        }
     ]
 }
