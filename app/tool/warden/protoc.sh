@@ -1,6 +1,7 @@
 #!/bin/bash
 DEFAULT_PROTOC_GEN="gogofast"
 DEFAULT_PROTOC="protoc"
+PROTO_PATH="${GOPATH}/src"
 GO_COMMON_DIR_NAME="go-common"
 USR_INCLUDE_DIR="/usr/local/include"
 
